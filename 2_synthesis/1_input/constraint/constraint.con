@@ -1,0 +1,40 @@
+# define clock 
+create_clock [get_ports ref_clk] -period 8 -waveform {0 4}
+
+#generated clock 
+create_generated_clock [get_pins u_pll/CLK_4X] \
+    -name clk_fast \
+    -source [get_pins u_pll/REF_CLK] \
+    -multiply_by 4
+
+create_generated_clock [get_pins u_pll/CLK_2X] \
+    -name clk_div2 \
+    -source [get_pins u_pll/REF_CLK] \
+    -multiply_by 2
+
+create_generated_clock [get_pins u_pll/CLK_1X] \
+    -name clk_div4 \
+    -source [get_pins u_pll/REF_CLK] \
+    -multiply_by 1
+
+create_generated_clock [get_pins u_div8/clk_out] \
+    -name clk_div8 \
+    -source [get_pins u_div8/clk_in] \
+    -divide_by 2
+
+set_case_analysis 0 [get_ports scan_en]
+set_case_analysis 0 [get_ports test_mode]
+
+set_clock_uncertainty -setup 0.2 [all_clocks]
+set_clock_uncertainty -hold 0.05 [all_clocks]
+
+
+set_input_delay 1.0 -max -clock ref_clk [get_ports start]
+set_input_delay 1.0 -max -clock ref_clk [get_ports aes_vec_valid]
+
+set_output_delay 1.0 -max -clock ref_clk [get_ports {done pass}]
+set_output_delay 0.2 -min -clock ref_clk [get_ports {done pass}]
+
+set_load 0.05 [get_ports {done pass uart_txd}]
+
+set_input_transition 0.1 [remove_from_collection [all_inputs] [get_ports ref_clk]]

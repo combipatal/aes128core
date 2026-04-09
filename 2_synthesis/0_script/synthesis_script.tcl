@@ -1,0 +1,70 @@
+# check design 
+source -e -v ./.synopsys_dc.setup 
+# read verilog 
+analyze -format verilog {\
+                        aes128_core.v\
+                        cdc_toggle_sync.v\
+                        clk_div2_toggle.v\
+                        crc32_byte.v\
+                        icg_latch.v\
+                        PLL_bb_for_syn.v\
+                        soc_ctrl_multiclk_soc.v\
+                        sram_wrap_1rw1024x8.v\
+                        top_mcu_pll_sram_multiclk_soc.v\
+                        uart_rx.v\
+                        uart_tx.v    
+}
+
+elaborate top_mcu_pll_sram_multiclk_soc
+current_design top_mcu_pll_sram_multiclk_soc
+link 
+#design report
+check_design > ./4_report/aes_chk_design.rpt
+# ddc 
+write_file -f ddc -hier -output 2_output/unmapped/top_mcu_pll_sram_multiclk_soc.ddc
+#verilog file 
+write -f verilog -hier -output 2_output/unmapped/top_mcu_pll_sram_multiclk_soc.v
+# source constraint file 
+source -e -v 1_input/constraint/constraint.con 
+
+# latch dont use
+set_dont_use [get_lib_cells */LAS*]
+set_dont_use [get_lib_cells */LAR*]
+
+# no tri
+set verilogout_no_tri true
+
+# ideal networt rst_n
+set_ideal_network -no_propagate [get_nets rst_n]
+
+# block box 
+set_dont_touch [get_cells u_mem]
+set_dont_touch [get_cells u_pll]
+
+# grup path name 
+group_path -name INS -from [all_inputs]
+group_path -name OUTS -to [all_outputs]
+
+# clean design 
+set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
+
+# easy drc 
+set_auto_disable_drc_nets -all 
+
+compile_ultra
+
+set_critical_range 2.0 [current_design]
+compile_ultra -incremental
+
+report_qor                          > ./4_report/qor.rpt
+report_timing                       > ./4_report/timing.rpt
+report_area -hierarchy              > ./4_report/area.rpt
+report_constraint -all_violators    > ./4_report/constraint.rpt
+report_clocks                        > ./4_report/clock.rpt
+
+change_names -rules verilog -hierarchy
+
+write_file -f ddc -h -o ./2_output/mapped/soc_gate.ddc
+write -f verilog -h -o ./2_output/mapped/soc_gate.v
+
+write_sdc ./2_output/mapped/soc_func.sdc

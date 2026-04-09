@@ -1,0 +1,43 @@
+##########################################################################################
+# User-defined variables for logical library, RTL setup
+##########################################################################################
+set edk_root 	"../SAED32_EDK"
+set lib_rvt 	"$edk_root/lib/stdcell_rvt/db_nldm" 	;#  Logic cell library directory
+set lib_hvt 	"$edk_root/lib/stdcell_hvt/db_nldm" 	;#  Logic cell library directory
+set lib_lvt 	"$edk_root/lib/stdcell_lvt/db_nldm" 	;#  Logic cell library directory
+set lib_io 		"$edk_root/lib/io_std/db_nldm" 		;#  IO library directory
+set lib_mem 	"$edk_root/lib/sram/db_nldm" 		;#  Memory library directory
+set lib_pll 	"$edk_root/lib/pll/db_nldm" 		;#  PLL library directory
+set RTL_path 	"./1_input/rtl" 					;#  RTL directory
+
+######################################################################
+# Search path Settings
+######################################################################
+set search_path ". $lib_rvt \
+		$lib_hvt \
+		$lib_lvt \
+		$lib_io \
+		$lib_mem \
+		$lib_pll \
+		$RTL_path"
+
+##########################################################################################
+# Target library setup
+##########################################################################################
+set target_library "saed32rvt_ss0p95v125c.db"
+
+##########################################################################################
+# Link library setup
+##########################################################################################
+set link_library "* $target_library \
+		saed32io_fc_ss0p95v125c_2p25v.db \
+		saed32pll_ss0p95v125c_2p25v.db \
+		saed32sram_ss0p95v125c.db \
+		dw_foundation.sldb"
+
+##########################################################################################
+# User setup
+##########################################################################################
+define_design_lib work -path "./work"
+set hdlin_enable_rtldrc_info true
+set hdlin_enable_presto_for_vl true

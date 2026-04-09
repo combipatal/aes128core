@@ -1,0 +1,12 @@
+SAED32_EDK/
+
+2_synthesis/2_output/
+2_synthesis/3_log/
+2_synthesis/4_report/
+2_synthesis/alib-*/
+2_synthesis/work/
+
+*.log
+*.svf
+*.ddc
+*.mr
