@@ -1,0 +1,163 @@
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Module: DW01_inc_width5, Ports: 10, Input: 5, Output: 5, Inout: 0
+Module: DW01_inc_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp6_width8, Ports: 23, Input: 17, Output: 6, Inout: 0
+Module: DW01_cmp6_width8, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_cmp2_width4, Ports: 12, Input: 10, Output: 2, Inout: 0
+Module: DW01_cmp2_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width32, Ports: 64, Input: 32, Output: 32, Inout: 0
+Module: DW01_inc_width32, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW01_inc_width4, Ports: 8, Input: 4, Output: 4, Inout: 0
+Module: DW01_inc_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Warning: Reference PLL contains internal pins with clock attribute. (TIM-103)
+Information: Updating design information... (UID-85)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 5 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: There are 2231 clock pins driven by multiple clocks, and some of them are driven by up-to 2 clocks. (TIM-099)
+ 
+****************************************
+Report : qor
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 10:44:42 2026
+****************************************
+
+
+  Timing Path Group 'INS'
+  -----------------------------------
+  Levels of Logic:               3.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           0.05
+  Critical Path Clk Period:      1.25
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'OUTS'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           0.05
+  Critical Path Clk Period:      5.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div2'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           1.05
+  Critical Path Clk Period:      2.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.19
+  Total Hold Violation:        -28.20
+  No. of Hold Violations:      520.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div4'
+  -----------------------------------
+  Levels of Logic:               2.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           1.05
+  Critical Path Clk Period:      5.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.05
+  Total Hold Violation:        -13.95
+  No. of Hold Violations:      279.00
+  -----------------------------------
+
+  Timing Path Group 'clk_fast'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           0.43
+  Critical Path Clk Period:      1.25
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.05
+  Total Hold Violation:       -110.80
+  No. of Hold Violations:     2216.00
+  -----------------------------------
+
+  Timing Path Group 'ref_clk'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.00
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      5.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.19
+  Total Hold Violation:       -152.95
+  No. of Hold Violations:     3015.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:         38
+  Hierarchical Port Count:       1546
+  Leaf Cell Count:             152212
+  Buf/Inv Cell Count:           45906
+  Buf Cell Count:               22723
+  Inv Cell Count:               23183
+  CT Buf/Inv Cell Count:            1
+  Combinational Cell Count:    149724
+  Sequential Cell Count:         2488
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:        0.000000
+  Noncombinational Area:     0.000000
+  Buf/Inv Area:              0.000000
+  Total Buffer Area:             0.00
+  Total Inverter Area:           0.00
+  Macro/Black Box Area:  31230.701660
+  Net Area:             126773.492459
+  -----------------------------------
+  Cell Area:             31230.701660
+  Design Area:          158004.194119
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:        153367
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: SGP3
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.00
+  Mapping Optimization:                0.00
+  -----------------------------------------
+  Overall Compile Time:                0.00
+  Overall Compile Wall Clock Time:     0.00
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.19  TNS: 152.95  Number of Violating Paths: 3015
+
+  --------------------------------------------------------------------
+
+
+1

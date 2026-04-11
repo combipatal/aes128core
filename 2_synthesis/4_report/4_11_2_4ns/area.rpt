@@ -1,0 +1,85 @@
+ 
+****************************************
+Report : area
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 10:33:04 2026
+****************************************
+
+Library(s) Used:
+
+    gtech (File: /tools/synopsys/syn/W-2024.09-SP5-5/libraries/syn/gtech.db)
+    saed32sram_ss0p95v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db)
+    saed32pll_ss0p95v125c_2p25v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db)
+
+Number of ports:                         1818
+Number of nets:                        154630
+Number of cells:                       152273
+Number of combinational cells:         148927
+Number of sequential cells:              3283
+Number of macros/black boxes:               2
+Number of buf/inv:                      45906
+Number of references:                       7
+
+Combinational area:                  0.000000
+Buf/Inv area:                        0.000000
+Noncombinational area:               0.000000
+Macro/Black Box area:            31230.701660
+Net Interconnect area:          126773.492459
+
+Total cell area:                 31230.701660
+Total area:                     158004.194119
+
+Information: This design contains unmapped logic. (RPT-7)
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area             Local cell area
+                                  -------------------  ------------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-    Noncombi-  Black-
+                                  Total       Total    national  national   boxes       Design
+--------------------------------  ----------  -------  --------  ---------  ----------  ----------------------------------
+top_mcu_pll_sram_multiclk_soc     31230.7017    100.0    0.0000     0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                                0.0000      0.0    0.0000     0.0000      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/add_231                        0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_5_1_5
+u_ctrl/add_231/*cell*43               0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width5
+u_ctrl/add_261                        0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_5_1_5
+u_ctrl/add_261/*cell*48               0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width5
+u_ctrl/add_357                        0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_5_1_5
+u_ctrl/add_357/*cell*50               0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width5
+u_ctrl/add_435                        0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_5_1_5
+u_ctrl/add_435/*cell*52               0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width5
+u_ctrl/ne_252                         0.0000      0.0    0.0000     0.0000      0.0000  *NE_UNS_OP_8_8_1
+u_ctrl/ne_252/*cell*45                0.0000      0.0    0.0000     0.0000      0.0000  DW01_cmp6_width8
+u_ctrl/u_aes                          0.0000      0.0    0.0000     0.0000      0.0000  aes128_core
+u_ctrl/u_aes/add_278                  0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_4_1_4
+u_ctrl/u_aes/add_278/*cell*77         0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width4
+u_ctrl/u_aes/lte_276                  0.0000      0.0    0.0000     0.0000      0.0000  *LEQ_UNS_OP_4_4_1
+u_ctrl/u_aes/lte_276/*cell*73         0.0000      0.0    0.0000     0.0000      0.0000  DW01_cmp2_width4
+u_ctrl/u_crc                          0.0000      0.0    0.0000     0.0000      0.0000  crc32_byte
+u_ctrl/u_ct_cdc                       0.0000      0.0    0.0000     0.0000      0.0000  cdc_toggle_sync
+u_ctrl/u_icg_aes                      0.0000      0.0    0.0000     0.0000      0.0000  icg_latch
+u_ctrl/u_rx                           0.0000      0.0    0.0000     0.0000      0.0000  uart_rx_CLK_HZ100000000_BAUD115200
+u_ctrl/u_rx/add_43                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_32_1_32
+u_ctrl/u_rx/add_43/*cell*59           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width32
+u_ctrl/u_rx/add_48                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_4_1_4
+u_ctrl/u_rx/add_48/*cell*61           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width4
+u_ctrl/u_rx/add_49                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_32_1_32
+u_ctrl/u_rx/add_49/*cell*63           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width32
+u_ctrl/u_rx/add_57                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_32_1_32
+u_ctrl/u_rx/add_57/*cell*65           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width32
+u_ctrl/u_rx/lte_44                    0.0000      0.0    0.0000     0.0000      0.0000  *LEQ_UNS_OP_4_4_1
+u_ctrl/u_rx/lte_44/*cell*55           0.0000      0.0    0.0000     0.0000      0.0000  DW01_cmp2_width4
+u_ctrl/u_send_cdc                     0.0000      0.0    0.0000     0.0000      0.0000  cdc_toggle_sync
+u_ctrl/u_tx                           0.0000      0.0    0.0000     0.0000      0.0000  uart_tx_CLK_HZ100000000_BAUD115200
+u_ctrl/u_tx/add_42                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_4_1_4
+u_ctrl/u_tx/add_42/*cell*68           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width4
+u_ctrl/u_tx/add_45                    0.0000      0.0    0.0000     0.0000      0.0000  *ADD_UNS_OP_32_1_32
+u_ctrl/u_tx/add_45/*cell*70           0.0000      0.0    0.0000     0.0000      0.0000  DW01_inc_width32
+u_div8                                0.0000      0.0    0.0000     0.0000      0.0000  clk_div2_toggle
+u_mem                             25783.7695     82.6    0.0000     0.0000  25783.7695  sram_wrap_1rw1024x8
+--------------------------------  ----------  -------  --------  ---------  ----------  ----------------------------------
+Total                                                    0.0000     0.0000  31230.7017
+
+1

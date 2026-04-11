@@ -1,0 +1,251 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 10:33:04 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: start (input port clocked by ref_clk)
+  Endpoint: u_ctrl/aes_start_reg
+            (rising edge-triggered flip-flop clocked by clk_fast)
+  Path Group: INS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock ref_clk (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 r
+  start (in)                                              0.00       1.00 r
+  u_ctrl/start_ext (soc_ctrl_multiclk_soc)                0.00       1.00 r
+  u_ctrl/C3253/Z (GTECH_OR2)                              0.00       1.00 r
+  u_ctrl/C3256/Z (GTECH_AND2)                             0.00       1.00 r
+  u_ctrl/C3255/Z (GTECH_AND2)                             0.00       1.00 r
+  u_ctrl/aes_start_reg/next_state (**SEQGEN**)            0.00       1.00 r
+  data arrival time                                                  1.00
+
+  clock clk_fast (rise edge)                              1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  clock uncertainty                                      -0.20       0.80
+  u_ctrl/aes_start_reg/clocked_on (**SEQGEN**)            0.00       0.80 r
+  library setup time                                      0.00       0.80
+  data required time                                                 0.80
+  --------------------------------------------------------------------------
+  data required time                                                 0.80
+  data arrival time                                                 -1.00
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.20
+
+
+  Startpoint: u_ctrl/done_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: done (output port clocked by ref_clk)
+  Path Group: OUTS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  u_ctrl/done_reg/clocked_on (**SEQGEN**)                 0.00       3.00 r
+  u_ctrl/done_reg/Q (**SEQGEN**)                          0.00       3.00 r
+  u_ctrl/done (soc_ctrl_multiclk_soc)                     0.00       3.00 r
+  done (out)                                              0.00       3.00 r
+  data arrival time                                                  3.00
+
+  clock ref_clk (rise edge)                               4.00       4.00
+  clock network delay (ideal)                             0.00       4.00
+  clock uncertainty                                      -0.20       3.80
+  output external delay                                  -1.00       2.80
+  data required time                                                 2.80
+  --------------------------------------------------------------------------
+  data required time                                                 2.80
+  data arrival time                                                 -3.00
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.20
+
+
+  Startpoint: u_ctrl/ct_hold_fast_reg[0]
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/ct_hold_div2_reg[0]
+            (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              1.00       1.00
+  clock network delay (ideal)                             0.00       1.00
+  u_ctrl/ct_hold_fast_reg[0]/clocked_on (**SEQGEN**)      0.00       1.00 r
+  u_ctrl/ct_hold_fast_reg[0]/Q (**SEQGEN**)               0.00       1.00 r
+  u_ctrl/ct_hold_div2_reg[0]/next_state (**SEQGEN**)      0.00       1.00 r
+  data arrival time                                                  1.00
+
+  clock clk_div2 (rise edge)                              2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.20       1.80
+  u_ctrl/ct_hold_div2_reg[0]/clocked_on (**SEQGEN**)      0.00       1.80 r
+  library setup time                                      0.00       1.80
+  data required time                                                 1.80
+  --------------------------------------------------------------------------
+  data required time                                                 1.80
+  data arrival time                                                 -1.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.80
+
+
+  Startpoint: u_ctrl/done_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/start_uart_cmd_reg
+            (rising edge-triggered flip-flop clocked by clk_div4)
+  Path Group: clk_div4
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  u_ctrl/done_reg/clocked_on (**SEQGEN**)                 0.00       3.00 r
+  u_ctrl/done_reg/Q (**SEQGEN**)                          0.00       3.00 r
+  u_ctrl/C3074/Z (GTECH_AND2)                             0.00       3.00 r
+  u_ctrl/C3009/Z_0 (*SELECT_OP_3.1_3.1_1)                 0.00       3.00 r
+  u_ctrl/start_uart_cmd_reg/synch_enable (**SEQGEN**)     0.00       3.00 r
+  data arrival time                                                  3.00
+
+  clock clk_div4 (rise edge)                              4.00       4.00
+  clock network delay (ideal)                             0.00       4.00
+  clock uncertainty                                      -0.20       3.80
+  u_ctrl/start_uart_cmd_reg/clocked_on (**SEQGEN**)       0.00       3.80 r
+  library setup time                                      0.00       3.80
+  data required time                                                 3.80
+  --------------------------------------------------------------------------
+  data required time                                                 3.80
+  data arrival time                                                 -3.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.80
+
+
+  Startpoint: u_ctrl/aes_clk_req_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/u_icg_aes/en_lat_reg
+            (positive level-sensitive latch clocked by clk_fast')
+  Path Group: clk_fast
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_ctrl/aes_clk_req_reg/clocked_on (**SEQGEN**)          0.00       0.00 r
+  u_ctrl/aes_clk_req_reg/Q (**SEQGEN**)                   0.00       0.00 r
+  u_ctrl/u_icg_aes/en (icg_latch)                         0.00       0.00 r
+  u_ctrl/u_icg_aes/C18/Z (GTECH_OR2)                      0.00       0.00 r
+  u_ctrl/u_icg_aes/en_lat_reg/data_in (**SEQGEN**)        0.00       0.00 r
+  data arrival time                                                  0.00
+
+  clock clk_fast' (rise edge)                             0.50       0.50
+  clock network delay (ideal)                             0.00       0.50
+  clock uncertainty                                      -0.20       0.30
+  u_ctrl/u_icg_aes/en_lat_reg/enable (**SEQGEN**)         0.00       0.30 r
+  time borrowed from endpoint                             0.00       0.30
+  data required time                                                 0.30
+  --------------------------------------------------------------------------
+  data required time                                                 0.30
+  data arrival time                                                  0.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.30
+
+  Time Borrowing Information
+  --------------------------------------------------------------
+  clk_fast' nominal pulse width                           0.50   
+  library setup time                                      0.00   
+  --------------------------------------------------------------
+  max time borrow                                         0.50   
+  actual time borrow                                      0.00   
+  --------------------------------------------------------------
+
+
+  Startpoint: u_ctrl/aes_clk_req_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/u_icg_aes/en_lat_reg
+            (positive level-sensitive latch clocked by ref_clk')
+  Path Group: ref_clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  u_ctrl/aes_clk_req_reg/clocked_on (**SEQGEN**)          0.00       3.00 r
+  u_ctrl/aes_clk_req_reg/Q (**SEQGEN**)                   0.00       3.00 r
+  u_ctrl/u_icg_aes/en (icg_latch)                         0.00       3.00 r
+  u_ctrl/u_icg_aes/C18/Z (GTECH_OR2)                      0.00       3.00 r
+  u_ctrl/u_icg_aes/en_lat_reg/data_in (**SEQGEN**)        0.00       3.00 r
+  data arrival time                                                  3.00
+
+  clock ref_clk' (rise edge)                              2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.20       1.80
+  u_ctrl/u_icg_aes/en_lat_reg/enable (**SEQGEN**)         0.00       1.80 r
+  time borrowed from endpoint                             1.20       3.00
+  data required time                                                 3.00
+  --------------------------------------------------------------------------
+  data required time                                                 3.00
+  data arrival time                                                 -3.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+  Time Borrowing Information
+  --------------------------------------------------------------
+  ref_clk' nominal pulse width                            2.00   
+  library setup time                                      0.00   
+  --------------------------------------------------------------
+  max time borrow                                         2.00   
+  --------------------------------------------------------------
+  actual time borrow                                      1.20   
+  clock uncertainty                                      -0.20   
+  --------------------------------------------------------------
+  time given to startpoint                                1.00   
+  --------------------------------------------------------------
+
+
+1
