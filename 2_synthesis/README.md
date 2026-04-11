@@ -1,39 +1,39 @@
 # 2_synthesis
 
-This directory contains the Design Compiler synthesis flow for `top_mcu_pll_sram_multiclk_soc`.
+이 디렉터리는 `top_mcu_pll_sram_multiclk_soc`에 대한 Design Compiler 합성 플로우를 정리한 폴더입니다.
 
-## Directory Layout
+## 디렉터리 구성
 
 - `0_script/`
-  - `synthesis_script.tcl`: main synthesis script
+  - `synthesis_script.tcl`: 메인 합성 스크립트
 - `1_input/`
-  - `rtl/`: RTL sources
-  - `constraint/constraint.con`: timing constraints
+  - `rtl/`: RTL 소스
+  - `constraint/constraint.con`: 타이밍 제약 파일
 - `2_output/`
-  - versioned synthesis outputs (`mapped/`, `unmapped/`)
+  - 버전별 합성 결과 저장 폴더 (`mapped/`, `unmapped/`)
 - `3_log/`
-  - versioned DC logs
+  - 버전별 DC 실행 로그
 - `4_report/`
-  - versioned reports (`qor`, `timing`, `area`, `constraint`, `clock`, `check_design`)
+  - 버전별 리포트 (`qor`, `timing`, `area`, `constraint`, `clock`, `check_design`)
 - `run.csh`
-  - launch script for a single synthesis run
+  - 단일 합성 실행용 스크립트
 
-## Environment
+## 환경 설정
 
-This flow sources the project-level setup file:
+이 플로우는 프로젝트 상위의 setup 파일을 사용합니다.
 
 - [`../.synopsys_dc.setup`](/DATA/home/edu135/aes128_core/.synopsys_dc.setup)
 
-That file defines:
+이 파일에서 다음 항목을 정의합니다.
 
-- library search paths
-- target/link libraries
+- 라이브러리 search path
+- target / link library
 - RTL search path
 - DC work library
 
-## How To Run
+## 실행 방법
 
-Edit [`run.csh`](/DATA/home/edu135/aes128_core/2_synthesis/run.csh) and set the run version:
+[`run.csh`](/DATA/home/edu135/aes128_core/2_synthesis/run.csh)에서 run 버전을 먼저 설정합니다.
 
 ```csh
 setenv ver 4_11_4_6p5ns
@@ -41,27 +41,27 @@ source ../.synopsys_dc.setup
 dc_shell -64 -f 0_script/synthesis_script.tcl | tee 3_log/${ver}_syn_dc.log
 ```
 
-Then run:
+실행:
 
 ```bash
 csh run.csh
 ```
 
-## Versioned Outputs
+## 버전별 결과 관리
 
-The synthesis script reads the run tag from `env(ver)` and writes outputs under:
+합성 스크립트는 `env(ver)` 값을 읽어서 결과를 아래 경로에 저장합니다.
 
 - `2_output/$ver/unmapped/`
 - `2_output/$ver/mapped/`
 - `4_report/$ver/`
 
-This makes it easy to compare different target periods or synthesis options without overwriting previous results.
+이 방식으로 타깃 주기나 옵션이 다른 실험 결과를 덮어쓰지 않고 비교할 수 있습니다.
 
-## Current Flow Notes
+## 현재 합성 플로우 메모
 
 - Top module: `top_mcu_pll_sram_multiclk_soc`
-- Compile style: `compile_ultra -scan` followed by incremental compile
-- Reports generated:
+- Compile 방식: `compile_ultra -scan` 후 incremental compile
+- 생성 리포트:
   - `aes_chk_design.rpt`
   - `qor.rpt`
   - `timing.rpt`
@@ -69,12 +69,12 @@ This makes it easy to compare different target periods or synthesis options with
   - `constraint.rpt`
   - `clock.rpt`
 
-## Typical Debug Points
+## 디버그 포인트
 
-- If DC cannot find RTL files, check path case sensitivity under `1_input/rtl`.
-- If mapped netlists still show unmapped logic, inspect:
+- DC가 RTL 파일을 못 찾으면 `1_input/rtl` 경로의 대소문자를 먼저 확인합니다.
+- mapped 결과에 unmapped logic가 남으면 아래 파일을 우선 확인합니다.
   - `3_log/${ver}_syn_dc.log`
   - `4_report/$ver/area.rpt`
   - `4_report/$ver/qor.rpt`
-- If setup fails, adjust `constraint.con` first before changing RTL.
-- If hold remains slightly negative, treat it separately from setup closure.
+- setup 위반이 있으면 RTL 수정 전에 `constraint.con`을 먼저 점검합니다.
+- hold 위반은 setup closure와 분리해서 보는 것이 좋습니다.
