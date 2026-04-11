@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sat Apr 11 10:25:01 2026
+# Created by write_sdc on Sat Apr 11 20:18:59 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -12,7 +12,7 @@ set_load -pin_load 0.05 [get_ports pass]
 set_case_analysis 0 [get_ports test_mode]
 set_case_analysis 0 [get_ports scan_en]
 set_ideal_network -no_propagate  [get_ports rst_n]
-create_clock [get_ports ref_clk]  -period 6  -waveform {0 3}
+create_clock [get_ports ref_clk]  -period 5.5  -waveform {0 2.75}
 set_clock_uncertainty -setup 0.2  [get_clocks ref_clk]
 set_clock_uncertainty -hold 0.05  [get_clocks ref_clk]
 create_generated_clock [get_pins u_pll/CLK_4X]  -name clk_fast  -source [get_pins u_pll/REF_CLK]  -multiply_by 4

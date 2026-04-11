@@ -8,7 +8,7 @@ file mkdir ./4_report/$ver
 
 
 # check design 
-source -e -v ./.synopsys_dc.setup 
+source -e -v ../.synopsys_dc.setup 
 # read verilog 
 analyze -format verilog {\
                         aes128_core.v\

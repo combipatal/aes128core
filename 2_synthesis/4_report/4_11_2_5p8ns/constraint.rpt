@@ -1,0 +1,161 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 20:36:23 2026
+****************************************
+
+
+   max_delay/setup ('clk_fast' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   u_ctrl/u_aes/state_reg[30]/D
+                                1.20           1.20 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[108]/D
+                                1.19           1.20 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[107]/D
+                                1.19           1.20 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[51]/D
+                                1.19           1.20 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[97]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[116]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[101]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[14]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[11]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[17]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[67]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[41]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[4]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[125]/D
+                                1.20           1.21 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[9]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[33]/D
+                                1.19           1.19 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[43]/D
+                                1.19           1.20 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[96]/D
+                                1.20           1.20 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_reg[73]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[77]/D
+                                1.19           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[81]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[123]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[106]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[27]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[69]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[38]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[32]/D
+                                1.19           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[53]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[36]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[92]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[19]/D
+                                1.20           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[6]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[57]/D
+                                1.20           1.21 f         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[26]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[59]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[78]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[49]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[52]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[63]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[15]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[50]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[28]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[76]/D
+                                1.19           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[94]/D
+                                1.18           1.19 f         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[126]/D
+                                1.20           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[65]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[103]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[109]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[18]/D
+                                1.18           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[113]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[46]/D
+                                1.19           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[110]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[82]/D
+                                1.19           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[74]/D
+                                1.18           1.18 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[10]/D
+                                1.20           1.20 f         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[40]/D
+                                1.20           1.20 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/state_reg[22]/D
+                                1.19           1.19 r         0.00  (VIOLATED: increase significant digits)
+
+
+   min_delay/hold ('clk_div2' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   u_mem/u_sram/A[0]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[1]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[2]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[3]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[0]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[1]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[2]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[3]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[4]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[5]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[6]            0.18           0.16 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[7]            0.18           0.16 f        -0.02  (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       3301469184.00  -3301469184.00
+                                                                    (VIOLATED)
+
+
+1
