@@ -9,7 +9,8 @@ SAED32_EDK/
 1_vcs/DVEfiles
 1_vcs/3_log/
 1_vcs/4_report/
-
+1_vcs/2_output/*/csrc
+1_vcs/2_output/*/simv.daidir
 
 2_synthesis/alib-*/
 2_synthesis/work/
