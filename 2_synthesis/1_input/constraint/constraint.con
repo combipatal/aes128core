@@ -1,10 +1,10 @@
 # define clock 
-create_clock [get_ports ref_clk] -period 6.5 -waveform {0 3.25}
+create_clock [get_ports ref_clk] -period 7 -waveform {0 3.5}
 
 #generated clock 
 create_generated_clock [get_pins u_pll/CLK_4X] \
     -name clk_fast \
-    -source [get_pins u_pll/REF_CLK] \
+    -source [get_pins u_pll/REF_CLK] k
     -multiply_by 4
 
 create_generated_clock [get_pins u_pll/CLK_2X] \

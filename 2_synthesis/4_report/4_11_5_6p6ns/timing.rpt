@@ -1,0 +1,213 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 22:07:33 2026
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p95v125c   Library: saed32rvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: start (input port clocked by ref_clk)
+  Endpoint: u_ctrl/done_reg
+            (rising edge-triggered flip-flop clocked by clk_fast)
+  Path Group: INS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+  soc_ctrl_multiclk_soc
+                     70000                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock ref_clk (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.00       1.00 f
+  start (in)                                              0.00       1.00 f
+  u_ctrl/start_ext (soc_ctrl_multiclk_soc)                0.00       1.00 f
+  u_ctrl/U82/Y (OR2X1_RVT)                                0.07       1.07 f
+  u_ctrl/U85/Y (NAND2X0_RVT)                              0.05       1.12 r
+  u_ctrl/U87/Y (INVX1_RVT)                                0.03       1.15 f
+  u_ctrl/U90/Y (NOR2X0_RVT)                               0.07       1.23 r
+  u_ctrl/U91/Y (OR2X1_RVT)                                0.05       1.27 r
+  u_ctrl/done_reg/D (SDFFARX1_RVT)                        0.00       1.27 r
+  data arrival time                                                  1.27
+
+  clock clk_fast (rise edge)                              1.65       1.65
+  clock network delay (ideal)                             0.00       1.65
+  clock uncertainty                                      -0.20       1.45
+  u_ctrl/done_reg/CLK (SDFFARX1_RVT)                      0.00       1.45 r
+  library setup time                                     -0.13       1.32
+  data required time                                                 1.32
+  --------------------------------------------------------------------------
+  data required time                                                 1.32
+  data arrival time                                                 -1.27
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.05
+
+
+  Startpoint: u_ctrl/done_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: done (output port clocked by ref_clk)
+  Path Group: OUTS
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk_fast (rise edge)               4.95       4.95
+  clock network delay (ideal)              0.00       4.95
+  u_ctrl/done_reg/CLK (SDFFARX1_RVT)       0.00       4.95 r
+  u_ctrl/done_reg/Q (SDFFARX1_RVT)         0.17       5.12 r
+  u_ctrl/done (soc_ctrl_multiclk_soc)      0.00       5.12 r
+  done (out)                               0.00       5.12 r
+  data arrival time                                   5.12
+
+  clock ref_clk (rise edge)                6.60       6.60
+  clock network delay (ideal)              0.00       6.60
+  clock uncertainty                       -0.20       6.40
+  output external delay                   -1.00       5.40
+  data required time                                  5.40
+  -----------------------------------------------------------
+  data required time                                  5.40
+  data arrival time                                  -5.12
+  -----------------------------------------------------------
+  slack (MET)                                         0.28
+
+
+  Startpoint: u_ctrl/ct_hold_fast_reg[0]
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/ct_hold_div2_reg[0]
+            (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+  soc_ctrl_multiclk_soc
+                     70000                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              1.65       1.65
+  clock network delay (ideal)                             0.00       1.65
+  u_ctrl/ct_hold_fast_reg[0]/CLK (SDFFARX1_RVT)           0.00       1.65 r
+  u_ctrl/ct_hold_fast_reg[0]/Q (SDFFARX1_RVT)             0.17       1.82 r
+  u_ctrl/U961/Y (AO22X1_RVT)                              0.08       1.90 r
+  u_ctrl/ct_hold_div2_reg[0]/D (SDFFARX1_RVT)             0.00       1.90 r
+  data arrival time                                                  1.90
+
+  clock clk_div2 (rise edge)                              3.30       3.30
+  clock network delay (ideal)                             0.00       3.30
+  clock uncertainty                                      -0.20       3.10
+  u_ctrl/ct_hold_div2_reg[0]/CLK (SDFFARX1_RVT)           0.00       3.10 r
+  library setup time                                     -0.13       2.97
+  data required time                                                 2.97
+  --------------------------------------------------------------------------
+  data required time                                                 2.97
+  data arrival time                                                 -1.90
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.07
+
+
+  Startpoint: u_ctrl/done_reg
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/start_uart_cmd_reg
+            (rising edge-triggered flip-flop clocked by clk_div4)
+  Path Group: clk_div4
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  top_mcu_pll_sram_multiclk_soc
+                     ForQA                 saed32rvt_ss0p95v125c
+  soc_ctrl_multiclk_soc
+                     70000                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              4.95       4.95
+  clock network delay (ideal)                             0.00       4.95
+  u_ctrl/done_reg/CLK (SDFFARX1_RVT)                      0.00       4.95 r
+  u_ctrl/done_reg/QN (SDFFARX1_RVT)                       0.12       5.07 r
+  u_ctrl/U102/Y (AO22X1_RVT)                              0.08       5.16 r
+  u_ctrl/start_uart_cmd_reg/D (SDFFARX1_RVT)              0.00       5.16 r
+  data arrival time                                                  5.16
+
+  clock clk_div4 (rise edge)                              6.60       6.60
+  clock network delay (ideal)                             0.00       6.60
+  clock uncertainty                                      -0.20       6.40
+  u_ctrl/start_uart_cmd_reg/CLK (SDFFARX1_RVT)            0.00       6.40 r
+  library setup time                                     -0.13       6.27
+  data required time                                                 6.27
+  --------------------------------------------------------------------------
+  data required time                                                 6.27
+  data arrival time                                                 -5.16
+  --------------------------------------------------------------------------
+  slack (MET)                                                        1.12
+
+
+  Startpoint: u_ctrl/u_aes/state_reg[111]
+              (rising edge-triggered flip-flop clocked by clk_fast)
+  Endpoint: u_ctrl/u_aes/state_reg[43]
+            (rising edge-triggered flip-flop clocked by clk_fast)
+  Path Group: clk_fast
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  soc_ctrl_multiclk_soc
+                     70000                 saed32rvt_ss0p95v125c
+  aes128_core        70000                 saed32rvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk_fast (rise edge)                              0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  u_ctrl/u_aes/state_reg[111]/CLK (SDFFARX1_RVT)          0.00       0.00 r
+  u_ctrl/u_aes/state_reg[111]/Q (SDFFARX1_RVT)            0.19       0.19 r
+  u_ctrl/u_aes/U150/Y (NBUFFX2_RVT)                       0.08       0.27 r
+  u_ctrl/u_aes/U144/Y (OR2X1_RVT)                         0.09       0.36 r
+  u_ctrl/u_aes/U2682/Y (NOR2X0_RVT)                       0.10       0.46 f
+  u_ctrl/u_aes/U2683/Y (OA21X1_RVT)                       0.06       0.53 f
+  u_ctrl/u_aes/U2695/Y (OR3X1_RVT)                        0.08       0.60 f
+  u_ctrl/u_aes/U2701/Y (OR2X1_RVT)                        0.05       0.66 f
+  u_ctrl/u_aes/U2723/Y (MUX21X1_RVT)                      0.08       0.73 f
+  u_ctrl/u_aes/U472/Y (AOI22X1_RVT)                       0.12       0.86 r
+  u_ctrl/u_aes/U5656/Y (XOR2X2_RVT)                       0.14       1.00 f
+  u_ctrl/u_aes/U139/Y (XOR2X1_RVT)                        0.14       1.13 r
+  u_ctrl/u_aes/U10930/Y (XOR2X2_RVT)                      0.10       1.23 f
+  u_ctrl/u_aes/U10931/Y (OR2X1_RVT)                       0.05       1.27 f
+  u_ctrl/u_aes/U10932/Y (NAND2X0_RVT)                     0.03       1.31 r
+  u_ctrl/u_aes/state_reg[43]/D (SDFFARX2_RVT)             0.00       1.31 r
+  data arrival time                                                  1.31
+
+  clock clk_fast (rise edge)                              1.65       1.65
+  clock network delay (ideal)                             0.00       1.65
+  clock uncertainty                                      -0.20       1.45
+  u_ctrl/u_aes/state_reg[43]/CLK (SDFFARX2_RVT)           0.00       1.45 r
+  library setup time                                     -0.14       1.31
+  data required time                                                 1.31
+  --------------------------------------------------------------------------
+  data required time                                                 1.31
+  data arrival time                                                 -1.31
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

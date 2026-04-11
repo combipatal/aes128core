@@ -1,0 +1,124 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 22:50:06 2026
+****************************************
+
+
+  Timing Path Group 'INS'
+  -----------------------------------
+  Levels of Logic:               5.00
+  Critical Path Length:          0.51
+  Critical Path Slack:           5.16
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'OUTS'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.17
+  Critical Path Slack:           5.63
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div2'
+  -----------------------------------
+  Levels of Logic:              10.00
+  Critical Path Length:          1.00
+  Critical Path Slack:           2.18
+  Critical Path Clk Period:      3.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.01
+  Total Hold Violation:         -0.12
+  No. of Hold Violations:       12.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div4'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.18
+  Critical Path Slack:           2.99
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          4
+  Hierarchical Port Count:        730
+  Leaf Cell Count:              12373
+  Buf/Inv Cell Count:            1259
+  Buf Cell Count:                 129
+  Inv Cell Count:                1130
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     10838
+  Sequential Cell Count:         1535
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    22965.214406
+  Noncombinational Area: 13995.202129
+  Buf/Inv Area:           1733.007950
+  Total Buffer Area:           287.18
+  Total Inverter Area:        1445.83
+  Macro/Black Box Area:  31230.701660
+  Net Area:              13168.047993
+  -----------------------------------
+  Cell Area:             68191.118195
+  Design Area:           81359.166188
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         12816
+  Nets With Violations:            11
+  Max Trans Violations:             0
+  Max Cap Violations:              11
+  -----------------------------------
+
+
+  Hostname: SGP3
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.14
+  Mapping Optimization:                1.68
+  -----------------------------------------
+  Overall Compile Time:                5.84
+  Overall Compile Wall Clock Time:     6.51
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.01  TNS: 0.12  Number of Violating Paths: 12
+
+  --------------------------------------------------------------------
+
+
+1

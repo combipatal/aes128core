@@ -1,0 +1,125 @@
+Warning: Reference PLL contains internal pins with clock attribute. (TIM-103)
+Information: Updating design information... (UID-85)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Sat Apr 11 22:38:31 2026
+****************************************
+
+
+  Timing Path Group 'INS'
+  -----------------------------------
+  Levels of Logic:               5.00
+  Critical Path Length:          0.51
+  Critical Path Slack:           5.16
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'OUTS'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.16
+  Critical Path Slack:           5.64
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div2'
+  -----------------------------------
+  Levels of Logic:              10.00
+  Critical Path Length:          0.99
+  Critical Path Slack:           2.19
+  Critical Path Clk Period:      3.50
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.02
+  Total Hold Violation:         -0.20
+  No. of Hold Violations:       12.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div4'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.17
+  Critical Path Slack:           3.00
+  Critical Path Clk Period:      7.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          4
+  Hierarchical Port Count:        722
+  Leaf Cell Count:              12372
+  Buf/Inv Cell Count:            1258
+  Buf Cell Count:                 128
+  Inv Cell Count:                1130
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:     10837
+  Sequential Cell Count:         1535
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    22963.181254
+  Noncombinational Area: 13995.202129
+  Buf/Inv Area:           1730.974798
+  Total Buffer Area:           285.15
+  Total Inverter Area:        1445.83
+  Macro/Black Box Area:  31230.701660
+  Net Area:              16745.864060
+  -----------------------------------
+  Cell Area:             68189.085043
+  Design Area:           84934.949103
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         12719
+  Nets With Violations:             1
+  Max Trans Violations:             0
+  Max Cap Violations:               1
+  -----------------------------------
+
+
+  Hostname: SGP3
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.14
+  Mapping Optimization:                1.68
+  -----------------------------------------
+  Overall Compile Time:                5.84
+  Overall Compile Wall Clock Time:     6.51
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.02  TNS: 0.20  Number of Violating Paths: 12
+
+  --------------------------------------------------------------------
+
+
+1
