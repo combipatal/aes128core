@@ -1,3 +1,12 @@
+#버전관리 
+set ver $env(ver)
+file mkdir ./2_output/$ver
+file mkdir ./2_output/$ver/mapped
+file mkdir ./2_output/$ver/unmapped
+
+file mkdir ./4_report/$ver
+
+
 # check design 
 source -e -v ./.synopsys_dc.setup 
 # read verilog 
@@ -19,11 +28,12 @@ elaborate top_mcu_pll_sram_multiclk_soc
 current_design top_mcu_pll_sram_multiclk_soc
 link 
 #design report
-check_design > ./4_report/aes_chk_design.rpt
+
+check_design > ./4_report/$ver/aes_chk_design.rpt
 # ddc 
-write_file -f ddc -hier -output 2_output/unmapped/top_mcu_pll_sram_multiclk_soc.ddc
+write_file -f ddc -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk_soc.ddc
 #verilog file 
-write -f verilog -hier -output 2_output/unmapped/top_mcu_pll_sram_multiclk_soc.v
+write -f verilog -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk_soc.v
 # source constraint file 
 source -e -v 1_input/constraint/constraint.con 
 
@@ -56,15 +66,15 @@ compile_ultra
 set_critical_range 2.0 [current_design]
 compile_ultra -incremental
 
-report_qor                          > ./4_report/qor.rpt
-report_timing                       > ./4_report/timing.rpt
-report_area -hierarchy              > ./4_report/area.rpt
-report_constraint -all_violators    > ./4_report/constraint.rpt
-report_clocks                        > ./4_report/clock.rpt
+report_qor                          > ./4_report/$ver/qor.rpt
+report_timing                       > ./4_report/$ver/timing.rpt
+report_area -hierarchy              > ./4_report/$ver/area.rpt
+report_constraint -all_violators    > ./4_report/$ver/constraint.rpt
+report_clocks                        > ./4_report/$ver/clock.rpt
 
 change_names -rules verilog -hierarchy
 
-write_file -f ddc -h -o ./2_output/mapped/soc_gate.ddc
-write -f verilog -h -o ./2_output/mapped/soc_gate.v
+write_file -f ddc -h -o ./2_output/$ver/mapped/soc_gate.ddc
+write -f verilog -h -o ./2_output/$ver/mapped/soc_gate.v
 
-write_sdc ./2_output/mapped/soc_func.sdc
+write_sdc ./2_output/$ver/mapped/soc_func.sdc

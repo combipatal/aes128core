@@ -1,5 +1,5 @@
 # define clock 
-create_clock [get_ports ref_clk] -period 8 -waveform {0 4}
+create_clock [get_ports ref_clk] -period 5 -waveform {0 2.5}
 
 #generated clock 
 create_generated_clock [get_pins u_pll/CLK_4X] \
