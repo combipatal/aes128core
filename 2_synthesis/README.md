@@ -61,6 +61,8 @@ csh run.csh
 
 - Top module: `top_mcu_pll_sram_multiclk_soc`
 - Compile 방식: `compile_ultra -scan` 후 incremental compile
+- 제약 파일: `1_input/constraint/constraint.con`
+- 현재는 non-topographical 흐름 기준으로 사용
 - 생성 리포트:
   - `aes_chk_design.rpt`
   - `qor.rpt`
@@ -69,6 +71,45 @@ csh run.csh
   - `constraint.rpt`
   - `clock.rpt`
 
+## 제약 파일 메모
+
+현재 `constraint.con`에는 아래 항목이 포함됩니다.
+
+- primary clock: `ref_clk`
+- generated clocks:
+  - `clk_fast`
+  - `clk_div2`
+  - `clk_div4`
+  - `clk_div8`
+- case analysis:
+  - `scan_en = 0`
+  - `test_mode = 0`
+- input delay:
+  - `start`
+  - `aes_vec_valid`
+  - `uart_rxd`
+- output delay:
+  - `done`
+  - `pass`
+  - `uart_txd`
+- false path 제외:
+  - `clk_fast`
+  - `clk_div2`
+  - `clk_div4`
+  - `clk_div8`
+  - `scan_out`
+
+## 결과 해석 메모
+
+- `ver`별로 target period를 바꿔가며 pre-layout 기준 feasible timing을 탐색합니다.
+- setup과 hold는 별도로 봅니다.
+- `check_timing`은 constraint completeness 확인용이고,
+  실제 setup/hold 평가는 `qor.rpt`, `timing.rpt`, `constraint.rpt` 기준으로 봅니다.
+- 현재 실험 예시는 다음과 같습니다.
+  - `4_11_4_6p5ns`
+  - `4_11_5_6p6ns`
+  - `4_11_6_7ns`
+
 ## 디버그 포인트
 
 - DC가 RTL 파일을 못 찾으면 `1_input/rtl` 경로의 대소문자를 먼저 확인합니다.
@@ -76,5 +117,7 @@ csh run.csh
   - `3_log/${ver}_syn_dc.log`
   - `4_report/$ver/area.rpt`
   - `4_report/$ver/qor.rpt`
+- `check_timing`에 경고가 있으면 먼저 제약 completeness를 정리합니다.
 - setup 위반이 있으면 RTL 수정 전에 `constraint.con`을 먼저 점검합니다.
 - hold 위반은 setup closure와 분리해서 보는 것이 좋습니다.
+- topographical mode에서 physical library linking 문제가 있으면 QoR가 왜곡될 수 있으므로, 현재는 non-topo 기준 결과를 우선 사용합니다.

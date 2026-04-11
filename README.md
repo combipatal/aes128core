@@ -64,6 +64,8 @@ aes128_core/
 - DFT/scan insertion 환경
 - 합성 결과 DDC를 입력으로 받아 single scan chain 기반 DFT 삽입을 수행
 - DFT 로그, preview, pre/post DRC, scan chain 리포트를 관리
+- 현재는 `ref_clk`, `scan_en`, `scan_in`, `scan_out`, `test_mode`를 기준으로 single scan chain을 구성
+- 자세한 내용은 [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md) 참고
 
 ### `SAED32_EDK/`
 
@@ -88,6 +90,12 @@ aes128_core/
 2. `1_vcs/`에서 기능 검증
 3. `2_synthesis/`에서 합성 및 timing/area 확인
 4. `3_DFT/`에서 scan insertion 및 DFT 리포트 확인
+
+각 단계는 앞 단계 결과를 다음 단계 입력으로 사용합니다.
+
+- `0_rtl -> 1_vcs`
+- `0_rtl -> 2_synthesis`
+- `2_synthesis/mapped DDC -> 3_DFT`
 
 ## 실행 기준
 
@@ -118,6 +126,16 @@ setenv ver 4_11_4_6p5ns
 - PLL/SRAM macro는 black-box 또는 macro cell로 다뤄지므로 일반 RTL처럼 보지 않아야 합니다
 - setup과 hold는 분리해서 해석해야 합니다
 - DFT 후 timing은 보통 pre-DFT보다 나빠질 수 있습니다
+
+## 현재 상태 메모
+
+- 합성은 `ver`별로 target period를 바꿔가며 실험 중입니다
+- DFT는 `4_11_6_7ns` 기준으로 single scan chain 삽입 성공 상태입니다
+- 최신 DFT 결과 기준:
+  - `scan_in -> chain0 -> scan_out`
+  - chain length `1532`
+  - post-DFT setup clean
+  - post-DFT hold 소규모 잔여 위반 존재
 
 ## Git 관리 기준
 
