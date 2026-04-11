@@ -5,6 +5,9 @@ SAED32_EDK/
 1_vcs/ucli.key
 1_vcs/novas.conf
 1_vcs/novas.rc
+1_vcs/verdiLog
+1_vcs/DVEfiles
+
 
 2_synthesis/2_output/
 2_synthesis/3_log/
