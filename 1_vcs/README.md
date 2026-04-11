@@ -4,7 +4,7 @@
 
 ## 목적
 
-- `rtl/`의 top-level RTL을 실제로 시뮬레이션 가능한 형태로 검증
+- `0_rtl/`의 top-level RTL을 실제로 시뮬레이션 가능한 형태로 검증
 - AES 결과값, SRAM write/readback, CRC32, UART TX, `done/pass`를 end-to-end로 확인
 - `2_synthesis`와 비슷한 구조로 정리해서 이후 유지보수가 쉽도록 구성
 
@@ -47,6 +47,7 @@
 
 - DUT는 `top_mcu_pll_sram_multiclk_soc`입니다.
 - `soc_ctrl_multiclk_soc` 단독이 아니라 실제 top을 올려서 검증합니다.
+- RTL compile source는 `1_vcs/1_input/rtl/` 복제본이 아니라 상위 경로의 `../0_rtl/`입니다.
 
 ### 2. PLL 처리 방식
 
@@ -73,6 +74,7 @@
 ## 테스트벤치에서 확인하는 항목
 
 `1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv`는 self-checking TB입니다.
+RTL source file은 `0_script/filelist.f`를 통해 `../0_rtl/*.v`를 직접 읽습니다.
 
 확인 항목:
 - `done == 1`
