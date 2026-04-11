@@ -30,10 +30,16 @@ set_clock_uncertainty -hold 0.05 [all_clocks]
 
 
 set_input_delay 1.0 -max -clock ref_clk [get_ports start]
+set_input_delay 0.2 -min -clock ref_clk [get_ports start]
 set_input_delay 1.0 -max -clock ref_clk [get_ports aes_vec_valid]
+set_input_delay 0.2 -min -clock ref_clk [get_ports aes_vec_valid]
+set_input_delay 1.0 -max -clock ref_clk [get_ports uart_rxd]
+set_input_delay 0.2 -min -clock ref_clk [get_ports uart_rxd]
 
-set_output_delay 1.0 -max -clock ref_clk [get_ports {done pass}]
-set_output_delay 0.2 -min -clock ref_clk [get_ports {done pass}]
+set_output_delay 1.0 -max -clock ref_clk [get_ports {done pass uart_txd}]
+set_output_delay 0.2 -min -clock ref_clk [get_ports {done pass uart_txd}]
+
+set_false_path -to [get_ports {clk_fast clk_div2 clk_div4 clk_div8 scan_out}]
 
 set_load 0.05 [get_ports {done pass uart_txd}]
 

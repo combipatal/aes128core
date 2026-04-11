@@ -3,7 +3,7 @@
 Report : area
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sat Apr 11 21:48:19 2026
+Date   : Sat Apr 11 21:58:26 2026
 ****************************************
 
 Library(s) Used:
@@ -22,14 +22,14 @@ Number of macros/black boxes:               2
 Number of buf/inv:                       1721
 Number of references:                       6
 
-Combinational area:              32382.774765
-Buf/Inv area:                     2357.439763
+Combinational area:              32367.780271
+Buf/Inv area:                     2344.986708
 Noncombinational area:           14003.334728
 Macro/Black Box area:            31230.701660
-Net Interconnect area:           18636.590867
+Net Interconnect area:           18613.741099
 
-Total cell area:                 77616.811153
-Total area:                      96253.402021
+Total cell area:                 77601.816659
+Total area:                      96215.557758
 
 Information: This design contains unmapped logic. (RPT-7)
 
@@ -41,12 +41,12 @@ Hierarchical area distribution
 Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
                                   Total       Total    national    national    boxes       Design
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-top_mcu_pll_sram_multiclk_soc     77616.8112    100.0     12.7072      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
-u_ctrl                            46364.2531     59.7   3010.8440   4984.2723      0.0000  soc_ctrl_multiclk_soc
-u_ctrl/u_aes                      38369.1369     49.4  29359.2236   9009.9133      0.0000  aes128_core
+top_mcu_pll_sram_multiclk_soc     77601.8167    100.0     12.7072      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            46349.2586     59.7   3010.8440   4984.2723      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      38354.1424     49.4  29344.2291   9009.9133      0.0000  aes128_core
 u_div8                                9.1492      0.0      0.0000      9.1492      0.0000  clk_div2_toggle
 u_mem                             25783.7695     33.2      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-Total                                                  32382.7748  14003.3347  31230.7017
+Total                                                  32367.7803  14003.3347  31230.7017
 
 1

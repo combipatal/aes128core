@@ -6,7 +6,7 @@ Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 3 high-fanout nets. A f
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sat Apr 11 21:48:19 2026
+Date   : Sat Apr 11 21:58:26 2026
 ****************************************
 
 
@@ -65,7 +65,7 @@ Date   : Sat Apr 11 21:48:19 2026
   Timing Path Group 'clk_fast'
   -----------------------------------
   Levels of Logic:              16.00
-  Critical Path Length:          1.30
+  Critical Path Length:          1.29
   Critical Path Slack:           0.00
   Critical Path Clk Period:      1.62
   Total Negative Slack:          0.00
@@ -82,8 +82,8 @@ Date   : Sat Apr 11 21:48:19 2026
   Hierarchical Port Count:        722
   Leaf Cell Count:              15324
   Buf/Inv Cell Count:            1721
-  Buf Cell Count:                 153
-  Inv Cell Count:                1568
+  Buf Cell Count:                 154
+  Inv Cell Count:                1567
   CT Buf/Inv Cell Count:            1
   Combinational Cell Count:     13789
   Sequential Cell Count:         1535
@@ -93,16 +93,16 @@ Date   : Sat Apr 11 21:48:19 2026
 
   Area
   -----------------------------------
-  Combinational Area:    32382.774765
+  Combinational Area:    32367.780271
   Noncombinational Area: 14003.334728
-  Buf/Inv Area:           2357.439763
-  Total Buffer Area:           337.50
-  Total Inverter Area:        2019.94
+  Buf/Inv Area:           2344.986708
+  Total Buffer Area:           327.34
+  Total Inverter Area:        2017.65
   Macro/Black Box Area:  31230.701660
-  Net Area:              18636.590867
+  Net Area:              18613.741099
   -----------------------------------
-  Cell Area:             77616.811153
-  Design Area:           96253.402021
+  Cell Area:             77601.816659
+  Design Area:           96215.557758
 
 
   Design Rules
@@ -120,10 +120,10 @@ Date   : Sat Apr 11 21:48:19 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.20
-  Mapping Optimization:                2.12
+  Mapping Optimization:                2.16
   -----------------------------------------
-  Overall Compile Time:                7.03
-  Overall Compile Wall Clock Time:     7.69
+  Overall Compile Time:                7.07
+  Overall Compile Wall Clock Time:     7.74
 
   --------------------------------------------------------------------
 

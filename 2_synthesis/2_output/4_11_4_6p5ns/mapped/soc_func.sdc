@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sat Apr 11 21:48:20 2026
+# Created by write_sdc on Sat Apr 11 21:58:27 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -135,11 +135,17 @@ group_path -name INS  -from [list [get_ports ref_clk] [get_ports rst_n] [get_por
 [get_ports {aes_pt_ext[3]}] [get_ports {aes_pt_ext[2]}] [get_ports             \
 {aes_pt_ext[1]}] [get_ports {aes_pt_ext[0]}] [get_ports aes_vec_valid]         \
 [get_ports test_mode] [get_ports scan_en] [get_ports scan_in]]
-group_path -name OUTS  -to [list [get_ports uart_txd] [get_ports done] [get_ports pass] [get_ports   \
-clk_fast] [get_ports clk_div2] [get_ports clk_div4] [get_ports clk_div8]       \
-[get_ports scan_out]]
+group_path -name OUTS  -to [list [get_ports clk_fast] [get_ports clk_div2] [get_ports clk_div4]      \
+[get_ports clk_div8] [get_ports scan_out] [get_ports uart_txd] [get_ports      \
+done] [get_ports pass]]
 set_input_delay -clock ref_clk  -max 1  [get_ports start]
+set_input_delay -clock ref_clk  -min 0.2  [get_ports start]
+set_input_delay -clock ref_clk  -max 1  [get_ports uart_rxd]
+set_input_delay -clock ref_clk  -min 0.2  [get_ports uart_rxd]
 set_input_delay -clock ref_clk  -max 1  [get_ports aes_vec_valid]
+set_input_delay -clock ref_clk  -min 0.2  [get_ports aes_vec_valid]
+set_output_delay -clock ref_clk  -max 1  [get_ports uart_txd]
+set_output_delay -clock ref_clk  -min 0.2  [get_ports uart_txd]
 set_output_delay -clock ref_clk  -max 1  [get_ports done]
 set_output_delay -clock ref_clk  -min 0.2  [get_ports done]
 set_output_delay -clock ref_clk  -max 1  [get_ports pass]
@@ -670,3 +676,5 @@ set_input_transition -max 0.1  [get_ports scan_en]
 set_input_transition -min 0.1  [get_ports scan_en]
 set_input_transition -max 0.1  [get_ports scan_in]
 set_input_transition -min 0.1  [get_ports scan_in]
+set_false_path   -to [list [get_ports clk_fast] [get_ports clk_div2] [get_ports clk_div4]      \
+[get_ports clk_div8] [get_ports scan_out]]
