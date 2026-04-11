@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1775893079.825967748, "rt":0.36, "ut":0.26, "st":0.09}}
+{"vcselab":{"timestamp_begin":1775893080.238555517, "rt":0.17, "ut":0.11, "st":0.04}}
+{"link":{"timestamp_begin":1775893080.441568464, "rt":0.10, "ut":0.05, "st":0.03}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1775893079.620414318}
+{"VCS_COMP_START_TIME": 1775893079.620414318}
+{"VCS_COMP_END_TIME": 1775893080.594004891}
+{"VCS_USER_OPTIONS": "-full64 -Mdir=./2_output/ext_ecb_nist/csrc -f 0_script/vcs_opts.f -f 0_script/filelist.f -top tb_top_mcu_pll_sram_multiclk_soc -o ./2_output/ext_ecb_nist/simv -l ./3_log/ext_ecb_nist_compile.log"}
+{"vcs1": {"peak_mem": 557292}}
+{"vcselab": {"peak_mem": 256080}}
