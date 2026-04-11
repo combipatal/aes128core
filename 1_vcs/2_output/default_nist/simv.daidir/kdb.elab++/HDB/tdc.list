@@ -1,0 +1,13 @@
+1_input/model/saed32sram.v
+1_input/rtl/PLL_bb_for_syn.v
+1_input/rtl/aes128_core.v
+1_input/rtl/cdc_toggle_sync.v
+1_input/rtl/clk_div2_toggle.v
+1_input/rtl/crc32_byte.v
+1_input/rtl/icg_latch.v
+1_input/rtl/soc_ctrl_multiclk_soc.v
+1_input/rtl/sram_wrap_1rw1024x8.v
+1_input/rtl/top_mcu_pll_sram_multiclk_soc.v
+1_input/rtl/uart_rx.v
+1_input/rtl/uart_tx.v
+1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv

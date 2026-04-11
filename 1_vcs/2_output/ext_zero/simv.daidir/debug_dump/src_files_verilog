@@ -1,0 +1,13 @@
+/DATA/home/edu135/aes128_core/1_vcs/1_input/model/saed32sram.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/PLL_bb_for_syn.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/aes128_core.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/cdc_toggle_sync.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/clk_div2_toggle.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/crc32_byte.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/icg_latch.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/soc_ctrl_multiclk_soc.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/sram_wrap_1rw1024x8.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/top_mcu_pll_sram_multiclk_soc.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/uart_rx.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/rtl/uart_tx.v
+/DATA/home/edu135/aes128_core/1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv
