@@ -4,8 +4,13 @@ create_clock [get_ports ref_clk] -period 7 -waveform {0 3.5}
 #generated clock 
 create_generated_clock [get_pins u_pll/CLK_4X] \
     -name clk_fast \
-    -source [get_pins u_pll/REF_CLK] k
+    -source [get_pins u_pll/REF_CLK] \
     -multiply_by 4
+
+create_generated_clock [get_pins u_ctrl/u_icg_aes/gclk] \
+    -name clk_fast_aes \
+    -source [get_pins u_ctrl/u_icg_aes/clk] \
+    -combinational
 
 create_generated_clock [get_pins u_pll/CLK_2X] \
     -name clk_div2 \

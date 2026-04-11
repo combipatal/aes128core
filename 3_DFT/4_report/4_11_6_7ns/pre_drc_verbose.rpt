@@ -14,7 +14,7 @@ Begin Modeling violations...
 
 Warning: Cell u_pll (PLL) is unknown (black box) because functionality for output pin CLK_1X is bad or incomplete. (TEST-451)
 Information: Cells with this violation : u_mem/u_sram, u_pll. (TEST-283)
-Warning: Cell u_ctrl/u_icg_aes_en_lat_reg (LATCHX1_RVT) is not scannable. (TEST-126)
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg (LATCHX1_RVT) is not scannable. (TEST-126)
 
 Modeling violations completed...
 -----------------------------------------------------------------
@@ -22,7 +22,7 @@ Modeling violations completed...
 -----------------------------------------------------------------
 Begin Other violations...
 
-Warning: Cell u_ctrl/u_icg_aes_en_lat_reg has constant 1 value. (TEST-505)
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg has constant 1 value. (TEST-505)
 
 Other violations completed...
 -----------------------------------------------------------------
@@ -53,7 +53,7 @@ Warning: Violations occurred during test design rule checking. (TEST-124)
 
 SEQUENTIAL CELLS WITH VIOLATIONS
       *   1 cell has constant 1 value
-         u_ctrl/u_icg_aes_en_lat_reg
+         u_ctrl/u_icg_aes/en_lat_reg
 SEQUENTIAL CELLS WITHOUT VIOLATIONS
       *1515 cells are valid scan cells
          u_div8/clk_out_reg
@@ -133,7 +133,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/start_seen_reg
          u_ctrl/aes_start_reg
          u_ctrl/aes_clk_req_reg
-         u_ctrl/aes_done_ff1_reg
          u_ctrl/ct_hold_fast_reg_1_
          u_ctrl/ct_hold_fast_reg_28_
          u_ctrl/ct_hold_fast_reg_27_
@@ -588,6 +587,7 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_tx_shifter_reg_0_
          u_ctrl/u_tx_txd_reg
          u_ctrl/tx_start_reg
+         u_ctrl/aes_done_ff1_reg
          u_ctrl/u_aes/round_reg_0_
          u_ctrl/u_aes/round_reg_2_
          u_ctrl/u_aes/busy_reg
@@ -602,98 +602,65 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/state_reg_122_
          u_ctrl/u_aes/state_reg_121_
          u_ctrl/u_aes/state_reg_120_
-         u_ctrl/u_aes/state_reg_119_
          u_ctrl/u_aes/state_reg_118_
          u_ctrl/u_aes/state_reg_117_
-         u_ctrl/u_aes/state_reg_116_
          u_ctrl/u_aes/state_reg_115_
          u_ctrl/u_aes/state_reg_114_
          u_ctrl/u_aes/state_reg_113_
-         u_ctrl/u_aes/state_reg_112_
-         u_ctrl/u_aes/state_reg_111_
          u_ctrl/u_aes/state_reg_110_
          u_ctrl/u_aes/state_reg_109_
          u_ctrl/u_aes/state_reg_108_
          u_ctrl/u_aes/state_reg_107_
          u_ctrl/u_aes/state_reg_106_
          u_ctrl/u_aes/state_reg_105_
-         u_ctrl/u_aes/state_reg_104_
-         u_ctrl/u_aes/state_reg_103_
          u_ctrl/u_aes/state_reg_101_
-         u_ctrl/u_aes/state_reg_100_
-         u_ctrl/u_aes/state_reg_99_
          u_ctrl/u_aes/state_reg_98_
-         u_ctrl/u_aes/state_reg_97_
-         u_ctrl/u_aes/state_reg_95_
          u_ctrl/u_aes/state_reg_93_
+         u_ctrl/u_aes/state_reg_92_
          u_ctrl/u_aes/state_reg_90_
-         u_ctrl/u_aes/state_reg_89_
-         u_ctrl/u_aes/state_reg_88_
          u_ctrl/u_aes/state_reg_87_
          u_ctrl/u_aes/state_reg_86_
          u_ctrl/u_aes/state_reg_85_
          u_ctrl/u_aes/state_reg_84_
          u_ctrl/u_aes/state_reg_83_
          u_ctrl/u_aes/state_reg_82_
-         u_ctrl/u_aes/state_reg_81_
          u_ctrl/u_aes/state_reg_80_
-         u_ctrl/u_aes/state_reg_79_
          u_ctrl/u_aes/state_reg_77_
          u_ctrl/u_aes/state_reg_74_
          u_ctrl/u_aes/state_reg_73_
          u_ctrl/u_aes/state_reg_72_
-         u_ctrl/u_aes/state_reg_71_
-         u_ctrl/u_aes/state_reg_70_
          u_ctrl/u_aes/state_reg_69_
-         u_ctrl/u_aes/state_reg_68_
+         u_ctrl/u_aes/state_reg_67_
          u_ctrl/u_aes/state_reg_66_
-         u_ctrl/u_aes/state_reg_64_
-         u_ctrl/u_aes/state_reg_63_
-         u_ctrl/u_aes/state_reg_62_
          u_ctrl/u_aes/state_reg_61_
          u_ctrl/u_aes/state_reg_59_
          u_ctrl/u_aes/state_reg_58_
          u_ctrl/u_aes/state_reg_57_
-         u_ctrl/u_aes/state_reg_56_
          u_ctrl/u_aes/state_reg_55_
          u_ctrl/u_aes/state_reg_54_
-         u_ctrl/u_aes/state_reg_53_
-         u_ctrl/u_aes/state_reg_52_
          u_ctrl/u_aes/state_reg_50_
-         u_ctrl/u_aes/state_reg_49_
-         u_ctrl/u_aes/state_reg_48_
          u_ctrl/u_aes/state_reg_47_
          u_ctrl/u_aes/state_reg_45_
          u_ctrl/u_aes/state_reg_44_
          u_ctrl/u_aes/state_reg_42_
          u_ctrl/u_aes/state_reg_41_
-         u_ctrl/u_aes/state_reg_40_
-         u_ctrl/u_aes/state_reg_39_
          u_ctrl/u_aes/state_reg_38_
          u_ctrl/u_aes/state_reg_37_
-         u_ctrl/u_aes/state_reg_36_
-         u_ctrl/u_aes/state_reg_35_
          u_ctrl/u_aes/state_reg_34_
-         u_ctrl/u_aes/state_reg_33_
          u_ctrl/u_aes/state_reg_31_
          u_ctrl/u_aes/state_reg_29_
-         u_ctrl/u_aes/state_reg_28_
-         u_ctrl/u_aes/state_reg_27_
          u_ctrl/u_aes/state_reg_26_
          u_ctrl/u_aes/state_reg_25_
          u_ctrl/u_aes/state_reg_24_
-         u_ctrl/u_aes/state_reg_23_
          u_ctrl/u_aes/state_reg_22_
          u_ctrl/u_aes/state_reg_21_
          u_ctrl/u_aes/state_reg_20_
          u_ctrl/u_aes/state_reg_19_
          u_ctrl/u_aes/state_reg_18_
-         u_ctrl/u_aes/state_reg_17_
          u_ctrl/u_aes/state_reg_16_
          u_ctrl/u_aes/state_reg_15_
-         u_ctrl/u_aes/state_reg_14_
          u_ctrl/u_aes/state_reg_13_
-         u_ctrl/u_aes/state_reg_12_
+         u_ctrl/u_aes/state_reg_11_
          u_ctrl/u_aes/state_reg_10_
          u_ctrl/u_aes/state_reg_9_
          u_ctrl/u_aes/state_reg_8_
@@ -1553,24 +1520,57 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1385_
          u_ctrl/u_aes/rkeys_reg_1392_
          u_ctrl/u_aes/rkeys_reg_0_
-         u_ctrl/u_aes/state_reg_78_
-         u_ctrl/u_aes/state_reg_94_
-         u_ctrl/u_aes/state_reg_11_
-         u_ctrl/u_aes/state_reg_65_
-         u_ctrl/u_aes/state_reg_96_
-         u_ctrl/u_aes/state_reg_76_
-         u_ctrl/u_aes/state_reg_3_
-         u_ctrl/u_aes/state_reg_46_
          u_ctrl/u_aes/state_reg_102_
+         u_ctrl/u_aes/state_reg_97_
+         u_ctrl/u_aes/state_reg_96_
+         u_ctrl/u_aes/state_reg_78_
+         u_ctrl/u_aes/state_reg_64_
+         u_ctrl/u_aes/state_reg_48_
          u_ctrl/u_aes/state_reg_32_
-         u_ctrl/u_aes/state_reg_51_
-         u_ctrl/u_aes/state_reg_92_
-         u_ctrl/u_aes/state_reg_91_
-         u_ctrl/u_aes/state_reg_75_
-         u_ctrl/u_aes/state_reg_30_
-         u_ctrl/u_aes/state_reg_60_
+         u_ctrl/u_aes/state_reg_39_
+         u_ctrl/u_aes/state_reg_14_
+         u_ctrl/u_aes/state_reg_65_
+         u_ctrl/u_aes/state_reg_89_
+         u_ctrl/u_aes/state_reg_70_
+         u_ctrl/u_aes/state_reg_99_
          u_ctrl/u_aes/state_reg_43_
-         u_ctrl/u_aes/state_reg_67_
+         u_ctrl/u_aes/state_reg_76_
+         u_ctrl/u_aes/state_reg_17_
+         u_ctrl/u_aes/state_reg_91_
+         u_ctrl/u_aes/state_reg_68_
+         u_ctrl/u_aes/state_reg_95_
+         u_ctrl/u_aes/state_reg_60_
+         u_ctrl/u_aes/state_reg_119_
+         u_ctrl/u_aes/state_reg_3_
+         u_ctrl/u_aes/state_reg_12_
+         u_ctrl/u_aes/state_reg_23_
+         u_ctrl/u_aes/state_reg_111_
+         u_ctrl/u_aes/state_reg_30_
+         u_ctrl/u_aes/state_reg_36_
+         u_ctrl/u_aes/state_reg_100_
+         u_ctrl/u_aes/state_reg_63_
+         u_ctrl/u_aes/state_reg_79_
+         u_ctrl/u_aes/state_reg_51_
+         u_ctrl/u_aes/state_reg_35_
+         u_ctrl/u_aes/state_reg_104_
+         u_ctrl/u_aes/state_reg_46_
+         u_ctrl/u_aes/state_reg_52_
+         u_ctrl/u_aes/state_reg_103_
+         u_ctrl/u_aes/state_reg_112_
+         u_ctrl/u_aes/state_reg_81_
+         u_ctrl/u_aes/state_reg_40_
+         u_ctrl/u_aes/state_reg_94_
+         u_ctrl/u_aes/state_reg_49_
+         u_ctrl/u_aes/state_reg_62_
+         u_ctrl/u_aes/state_reg_33_
+         u_ctrl/u_aes/state_reg_88_
+         u_ctrl/u_aes/state_reg_56_
+         u_ctrl/u_aes/state_reg_116_
+         u_ctrl/u_aes/state_reg_28_
+         u_ctrl/u_aes/state_reg_75_
+         u_ctrl/u_aes/state_reg_53_
+         u_ctrl/u_aes/state_reg_27_
+         u_ctrl/u_aes/state_reg_71_
       *  17 cells are non-scan shift-register cells
          u_ctrl/tx_byte_ff2_reg_7_
          u_ctrl/tx_byte_ff2_reg_6_

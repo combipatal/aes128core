@@ -3,7 +3,7 @@
 Report : area
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sat Apr 11 22:50:06 2026
+Date   : Sun Apr 12 02:38:06 2026
 ****************************************
 
 Library(s) Used:
@@ -13,23 +13,23 @@ Library(s) Used:
     saed32sram_ss0p95v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db)
     saed32pll_ss0p95v125c_2p25v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db)
 
-Number of ports:                         1002
-Number of nets:                         13024
-Number of cells:                        12478
-Number of combinational cells:          10838
+Number of ports:                         1006
+Number of nets:                         14897
+Number of cells:                        14321
+Number of combinational cells:          12680
 Number of sequential cells:              1533
 Number of macros/black boxes:               2
-Number of buf/inv:                       1259
-Number of references:                       8
+Number of buf/inv:                       1688
+Number of references:                       7
 
-Combinational area:              22965.214406
-Buf/Inv area:                     1733.007950
-Noncombinational area:           13995.202129
+Combinational area:              28579.509715
+Buf/Inv area:                     2282.213138
+Noncombinational area:           14000.793291
 Macro/Black Box area:            31230.701660
-Net Interconnect area:           13168.047993
+Net Interconnect area:           13914.264793
 
-Total cell area:                 68191.118195
-Total area:                      81359.166188
+Total cell area:                 73811.004666
+Total area:                      87725.269459
 
 Information: This design contains unmapped logic. (RPT-7)
 
@@ -41,12 +41,13 @@ Hierarchical area distribution
 Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
                                   Total       Total    national    national    boxes       Design
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-top_mcu_pll_sram_multiclk_soc     68191.1182    100.0     24.3978      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
-u_ctrl                            36926.8695     54.2   3015.4186   4984.2723      0.0000  soc_ctrl_multiclk_soc
-u_ctrl/u_aes                      28927.1787     42.4  19925.3980   9001.7807      0.0000  aes128_core
+top_mcu_pll_sram_multiclk_soc     73811.0047    100.0     14.7404      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            42556.4135     57.7   2994.8329   4979.1894      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      34571.9713     46.8  25564.5994   9007.3719      0.0000  aes128_core
+u_ctrl/u_icg_aes                     10.4199      0.0      5.3370      5.0829      0.0000  icg_latch
 u_div8                                9.1492      0.0      0.0000      9.1492      0.0000  clk_div2_toggle
-u_mem                             25783.7695     37.8      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
+u_mem                             25783.7695     34.9      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-Total                                                  22965.2144  13995.2021  31230.7017
+Total                                                  28579.5097  14000.7933  31230.7017
 
 1

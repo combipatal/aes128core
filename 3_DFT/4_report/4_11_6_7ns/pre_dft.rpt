@@ -18,7 +18,7 @@ Begin Modeling violations...
 
 Warning: Cell u_pll (PLL) is unknown (black box) because functionality for output pin CLK_1X is bad or incomplete. (TEST-451)
 Information: There is 1 other cell with the same violation. (TEST-173)
-Warning: Cell u_ctrl/u_icg_aes_en_lat_reg (LATCHX1_RVT) is not scannable. (TEST-126)
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg (LATCHX1_RVT) is not scannable. (TEST-126)
 
 Modeling violations completed...
 -----------------------------------------------------------------
@@ -26,7 +26,7 @@ Modeling violations completed...
 -----------------------------------------------------------------
 Begin Other violations...
 
-Warning: Cell u_ctrl/u_icg_aes_en_lat_reg has constant 1 value. (TEST-505)
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg has constant 1 value. (TEST-505)
 
 Other violations completed...
 -----------------------------------------------------------------

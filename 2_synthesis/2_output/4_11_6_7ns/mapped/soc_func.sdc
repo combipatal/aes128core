@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sat Apr 11 22:38:32 2026
+# Created by write_sdc on Sun Apr 12 02:35:27 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -15,6 +15,12 @@ set_ideal_network -no_propagate  [get_ports rst_n]
 create_clock [get_ports ref_clk]  -period 7  -waveform {0 3.5}
 set_clock_uncertainty -setup 0.2  [get_clocks ref_clk]
 set_clock_uncertainty -hold 0.05  [get_clocks ref_clk]
+create_generated_clock [get_pins u_pll/CLK_4X]  -name clk_fast  -source [get_pins u_pll/REF_CLK]  -multiply_by 4
+set_clock_uncertainty -setup 0.2  [get_clocks clk_fast]
+set_clock_uncertainty -hold 0.05  [get_clocks clk_fast]
+create_generated_clock [get_pins u_ctrl/u_icg_aes/gclk] -name clk_fast_aes -source [get_pins u_ctrl/u_icg_aes/clk] -combinational
+set_clock_uncertainty -setup 0.2  [get_clocks clk_fast_aes]
+set_clock_uncertainty -hold 0.05  [get_clocks clk_fast_aes]
 create_generated_clock [get_pins u_pll/CLK_2X]  -name clk_div2  -source [get_pins u_pll/REF_CLK]  -multiply_by 2
 set_clock_uncertainty -setup 0.2  [get_clocks clk_div2]
 set_clock_uncertainty -hold 0.05  [get_clocks clk_div2]

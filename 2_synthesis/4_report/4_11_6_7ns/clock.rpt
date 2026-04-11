@@ -3,7 +3,7 @@
 Report : clocks
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sat Apr 11 22:38:32 2026
+Date   : Sun Apr 12 02:35:27 2026
 ****************************************
 
 Attributes:
@@ -18,6 +18,8 @@ Clock          Period   Waveform            Attrs     Sources
 clk_div2         3.50   {0 1.75}            G         {u_pll/CLK_2X}
 clk_div4         7.00   {0 3.5}             G         {u_pll/CLK_1X}
 clk_div8        14.00   {0 7}               G         {u_div8/clk_out}
+clk_fast         1.75   {0 0.875}           G         {u_pll/CLK_4X}
+clk_fast_aes     1.75   {0 0.875}           G         {u_ctrl/u_icg_aes/gclk}
 ref_clk          7.00   {0 3.5}                       {ref_clk}
 --------------------------------------------------------------------------------
 
@@ -28,5 +30,9 @@ clk_div2      u_pll/REF_CLK  {u_pll/CLK_2X} ref_clk        multiply_by(2)
 clk_div4      u_pll/REF_CLK  {u_pll/CLK_1X} ref_clk        multiply_by(1)
 clk_div8      u_div8/clk_in  {u_div8/clk_out}
                                             clk_div4       divide_by(2)
+clk_fast      u_pll/REF_CLK  {u_pll/CLK_4X} ref_clk        multiply_by(4)
+clk_fast_aes  u_ctrl/u_icg_aes/clk
+                             {u_ctrl/u_icg_aes/gclk}
+                                            clk_fast       divide_by(1), combinational
 --------------------------------------------------------------------------------
 1
