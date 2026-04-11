@@ -61,10 +61,10 @@ set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 # easy drc 
 set_auto_disable_drc_nets -all 
 
-compile_ultra
+compile_ultra -scan
+set_critical_range 1.0 [current_design]
+compile_ultra -scan -incremental
 
-set_critical_range 2.0 [current_design]
-compile_ultra -incremental
 
 report_qor                          > ./4_report/$ver/qor.rpt
 report_timing                       > ./4_report/$ver/timing.rpt

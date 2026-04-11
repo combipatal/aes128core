@@ -1,4 +1,4 @@
-setenv ver 4_11_2_5ns
+setenv ver 4_11_4_6p5ns
 source ../.synopsys_dc.setup
 
 file mkdir ./2_output/${ver}

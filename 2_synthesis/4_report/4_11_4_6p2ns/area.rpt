@@ -3,7 +3,7 @@
 Report : area
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sat Apr 11 21:34:42 2026
+Date   : Sat Apr 11 21:40:00 2026
 ****************************************
 
 Library(s) Used:
@@ -14,22 +14,22 @@ Library(s) Used:
     saed32pll_ss0p95v125c_2p25v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db)
 
 Number of ports:                          994
-Number of nets:                         16444
-Number of cells:                        15706
-Number of combinational cells:          14152
+Number of nets:                         16091
+Number of cells:                        15449
+Number of combinational cells:          13888
 Number of sequential cells:              1533
 Number of macros/black boxes:               2
-Number of buf/inv:                       1833
+Number of buf/inv:                       1795
 Number of references:                       6
 
-Combinational area:              33432.643658
-Buf/Inv area:                     2725.440284
-Noncombinational area:           13999.776716
+Combinational area:              32729.427210
+Buf/Inv area:                     2613.871069
+Noncombinational area:           14001.301578
 Macro/Black Box area:            31230.701660
-Net Interconnect area:           19257.987154
+Net Interconnect area:           18880.744217
 
-Total cell area:                 78663.122034
-Total area:                      97921.109188
+Total cell area:                 77961.430448
+Total area:                      96842.174665
 
 Information: This design contains unmapped logic. (RPT-7)
 
@@ -41,12 +41,12 @@ Hierarchical area distribution
 Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
                                   Total       Total    national    national    boxes       Design
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-top_mcu_pll_sram_multiclk_soc     78663.1220    100.0     12.7072      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
-u_ctrl                            47410.5640     60.3   3021.5180   4984.2723      0.0000  soc_ctrl_multiclk_soc
-u_ctrl/u_aes                      39404.7737     50.1  30398.4184   9006.3553      0.0000  aes128_core
+top_mcu_pll_sram_multiclk_soc     77961.4304    100.0     12.7072      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            46708.8724     59.9   3025.0760   4984.2723      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      38699.5241     49.6  29691.6440   9007.8801      0.0000  aes128_core
 u_div8                                9.1492      0.0      0.0000      9.1492      0.0000  clk_div2_toggle
-u_mem                             25783.7695     32.8      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
+u_mem                             25783.7695     33.1      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
 --------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
-Total                                                  33432.6437  13999.7767  31230.7017
+Total                                                  32729.4272  14001.3016  31230.7017
 
 1

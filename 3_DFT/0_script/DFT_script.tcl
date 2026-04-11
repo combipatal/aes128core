@@ -1,4 +1,9 @@
 set ver $env(ver)
+file mkdir ./2_output
+file mkdir ./2_output/${ver}
+file mkdir ./4_report
+file mkdir ./4_report/${ver}
+file mkdir ./3_log
 
 
 source -e -v ../.synopsys_dc.setup
@@ -22,13 +27,13 @@ set verilogout_no_tri true
 set test_dft_drc_ungate_clocks "true"
 set power_cg_auto_identify true
 
-set_dft_configuration -connect_clock_gating enable
-set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
-    -pin_name test_en\
-    -control_signal ScanEnable
+# set_dft_configuration -connect_clock_gating enable
+# set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
+#     -pin_name test_en\
+#     -control_signal ScanEnable
 
-#  latch 셀들을 scan chain element로 취급하지 말라는 뜻
-set_scan_element false [get_cells u_ctrl/u_icg_aes] 
+# #  latch 셀들을 scan chain element로 취급하지 말라는 뜻
+# set_scan_element false [get_cells u_ctrl/u_icg_aes] 
 
 #DFT 삽입 중 불필요한 추가 최적화를 막고, 
 #설계 이름도 유지해서 원래 설계와 비교하기 쉽게 만드는 설정
@@ -42,8 +47,7 @@ set_dft_signal -view exist -type ScanClock  -port ref_clk   -timing {45 55}
 set_dft_signal -view exist -type ScanEnable -port scan_en   -active_state 1 
 set_dft_signal -view exist -type Reset      -port rst_n     -active_state 0
 
-#set_dft_signal -view exist -type TestMode -active_state 1 -port test_mode -view existing_dft
-
+set_dft_signal -view exist -type TestMode -active_state 1 -port test_mode 
 # scan_in, scan_out
 set_dft_signal -view spec  -type ScanDataIn     -port scan_in
 set_dft_signal -view spec  -type ScanDataOut    -port scan_out
