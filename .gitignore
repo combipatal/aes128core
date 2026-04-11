@@ -13,7 +13,7 @@ SAED32_EDK/
 2_synthesis/work/
 
 .worktrees/
-
+docs/superpowers
 *.log
 *.svf
 *.ddc
