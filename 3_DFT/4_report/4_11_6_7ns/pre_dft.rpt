@@ -3,7 +3,7 @@ Information: Performing automatic clock gating circuitry identification in desig
 Information: No gating element has been automatically identified (PWR-878)
   Pre-DFT DRC enabled
 Warning: Reference PLL contains internal pins with clock attribute. (TIM-103)
-Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
 
 Information: Starting test design rule checking. (TEST-222)
   Loading test protocol

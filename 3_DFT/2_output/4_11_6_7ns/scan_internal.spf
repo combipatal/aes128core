@@ -3,7 +3,7 @@ STIL 1.0 {
 }
 Header {
     Title "Minimal STIL for design `top_mcu_pll_sram_multiclk_soc'";
-    Date "Sun Apr 12 02:37:58 2026";
+    Date "Sun Apr 12 10:17:23 2026";
     Source "DFT Compiler W-2024.09-SP5-5";
 }
 Signals {

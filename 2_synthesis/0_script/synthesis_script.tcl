@@ -44,9 +44,6 @@ set_dont_use [get_lib_cells */LAR*]
 # no tri
 set verilogout_no_tri true
 
-# ideal networt rst_n
-set_ideal_network -no_propagate [get_nets rst_n]
-
 # block box 
 set_dont_touch [get_cells u_mem]
 set_dont_touch [get_cells u_pll]

@@ -39,7 +39,7 @@ if {$corner == "ff1p16vn40c"} {
 }
 
 set_app_var target_library "$TARGET_LIBRARY_FILES $TARGET_LIBRARY_FILES_LVT $TARGET_LIBRARY_FILES_HVT"
-set_app_var synthetic_library [list standard.sldb]
+set synthetic_library [list standard.sldb]
 set_app_var link_path "* $target_library $TARGET_LIBRARY_FILES_MEM gtech.db"
 
 set run_dir [pwd]
@@ -60,6 +60,8 @@ update_timing -full
 
 check_timing > ${rpt_dir}/${mode}_${corner}_check_timing.rpt
 check_timing -override_defaults no_clock -verbose > ${rpt_dir}/${mode}_${corner}_no_clocks.rpt
+report_disable_timing > ${rpt_dir}/${mode}_${corner}_disable_timing.rpt
+report_analysis_coverage > ${rpt_dir}/${mode}_${corner}_analysis_coverage.rpt
 
 report_constraints -all_violators -nosplit -significant_digits 4 \
     > ${rpt_dir}/${mode}_${corner}_all_violations.rpt

@@ -1,12 +1,12 @@
 Warning: Reference PLL contains internal pins with clock attribute. (TIM-103)
 Information: Updating design information... (UID-85)
-Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 3 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
  
 ****************************************
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sun Apr 12 02:35:27 2026
+Date   : Sun Apr 12 10:15:46 2026
 ****************************************
 
 
@@ -77,8 +77,8 @@ Date   : Sun Apr 12 02:35:27 2026
 
   Timing Path Group 'clk_fast_aes'
   -----------------------------------
-  Levels of Logic:              15.00
-  Critical Path Length:          1.44
+  Levels of Logic:              19.00
+  Critical Path Length:          1.43
   Critical Path Slack:           0.00
   Critical Path Clk Period:      1.75
   Total Negative Slack:          0.00
@@ -93,12 +93,12 @@ Date   : Sun Apr 12 02:35:27 2026
   -----------------------------------
   Hierarchical Cell Count:          5
   Hierarchical Port Count:        726
-  Leaf Cell Count:              14214
-  Buf/Inv Cell Count:            1687
-  Buf Cell Count:                 123
-  Inv Cell Count:                1564
+  Leaf Cell Count:              14334
+  Buf/Inv Cell Count:            1808
+  Buf Cell Count:                 207
+  Inv Cell Count:                1601
   CT Buf/Inv Cell Count:            1
-  Combinational Cell Count:     12679
+  Combinational Cell Count:     12799
   Sequential Cell Count:         1535
   Macro Count:                      0
   -----------------------------------
@@ -106,21 +106,21 @@ Date   : Sun Apr 12 02:35:27 2026
 
   Area
   -----------------------------------
-  Combinational Area:    28577.476563
+  Combinational Area:    28814.592926
   Noncombinational Area: 14000.793291
-  Buf/Inv Area:           2280.179986
-  Total Buffer Area:           262.53
-  Total Inverter Area:        2017.65
+  Buf/Inv Area:           2519.329498
+  Total Buffer Area:           451.87
+  Total Inverter Area:        2067.46
   Macro/Black Box Area:  31230.701660
-  Net Area:              17522.036854
+  Net Area:              18076.336556
   -----------------------------------
-  Cell Area:             73808.971514
-  Design Area:           91331.008368
+  Cell Area:             74046.087877
+  Design Area:           92122.424432
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         14579
+  Total Number of Nets:         14697
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -133,10 +133,10 @@ Date   : Sun Apr 12 02:35:27 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.19
-  Mapping Optimization:                2.06
+  Mapping Optimization:                2.21
   -----------------------------------------
-  Overall Compile Time:                6.89
-  Overall Compile Wall Clock Time:     7.56
+  Overall Compile Time:                7.52
+  Overall Compile Wall Clock Time:     8.20
 
   --------------------------------------------------------------------
 

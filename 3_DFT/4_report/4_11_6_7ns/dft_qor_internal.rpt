@@ -1,11 +1,11 @@
 Information: Updating design information... (UID-85)
-Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
  
 ****************************************
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Sun Apr 12 02:38:06 2026
+Date   : Sun Apr 12 10:17:31 2026
 ****************************************
 
 
@@ -76,12 +76,12 @@ Date   : Sun Apr 12 02:38:06 2026
 
   Timing Path Group 'clk_fast_aes'
   -----------------------------------
-  Levels of Logic:              15.00
-  Critical Path Length:          1.44
+  Levels of Logic:              16.00
+  Critical Path Length:          1.41
   Critical Path Slack:          -0.01
   Critical Path Clk Period:      1.75
-  Total Negative Slack:         -0.04
-  No. of Violating Paths:       16.00
+  Total Negative Slack:         -0.05
+  No. of Violating Paths:       20.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -92,12 +92,12 @@ Date   : Sun Apr 12 02:38:06 2026
   -----------------------------------
   Hierarchical Cell Count:          5
   Hierarchical Port Count:        734
-  Leaf Cell Count:              14215
-  Buf/Inv Cell Count:            1688
-  Buf Cell Count:                 124
-  Inv Cell Count:                1564
+  Leaf Cell Count:              14335
+  Buf/Inv Cell Count:            1809
+  Buf Cell Count:                 208
+  Inv Cell Count:                1601
   CT Buf/Inv Cell Count:            1
-  Combinational Cell Count:     12680
+  Combinational Cell Count:     12800
   Sequential Cell Count:         1535
   Macro Count:                      0
   -----------------------------------
@@ -105,24 +105,24 @@ Date   : Sun Apr 12 02:38:06 2026
 
   Area
   -----------------------------------
-  Combinational Area:    28579.509715
+  Combinational Area:    28816.626078
   Noncombinational Area: 14000.793291
-  Buf/Inv Area:           2282.213138
-  Total Buffer Area:           264.56
-  Total Inverter Area:        2017.65
+  Buf/Inv Area:           2521.362650
+  Total Buffer Area:           453.90
+  Total Inverter Area:        2067.46
   Macro/Black Box Area:  31230.701660
-  Net Area:              13914.264793
+  Net Area:              14465.938386
   -----------------------------------
-  Cell Area:             73811.004666
-  Design Area:           87725.269459
+  Cell Area:             74048.121029
+  Design Area:           88514.059415
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         14685
-  Nets With Violations:             8
+  Total Number of Nets:         14807
+  Nets With Violations:             6
   Max Trans Violations:             0
-  Max Cap Violations:               8
+  Max Cap Violations:               6
   -----------------------------------
 
 
@@ -132,14 +132,14 @@ Date   : Sun Apr 12 02:38:06 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.19
-  Mapping Optimization:                2.06
+  Mapping Optimization:                2.21
   -----------------------------------------
-  Overall Compile Time:                6.89
-  Overall Compile Wall Clock Time:     7.56
+  Overall Compile Time:                7.52
+  Overall Compile Wall Clock Time:     8.20
 
   --------------------------------------------------------------------
 
-  Design  WNS: 0.01  TNS: 0.04  Number of Violating Paths: 16
+  Design  WNS: 0.01  TNS: 0.05  Number of Violating Paths: 20
 
 
   Design (Hold)  WNS: 0.01  TNS: 0.12  Number of Violating Paths: 12

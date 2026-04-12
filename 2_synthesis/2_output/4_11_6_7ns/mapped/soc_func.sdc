@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Sun Apr 12 02:35:27 2026
+# Created by write_sdc on Sun Apr 12 10:15:47 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -11,7 +11,6 @@ set_load -pin_load 0.05 [get_ports done]
 set_load -pin_load 0.05 [get_ports pass]
 set_case_analysis 0 [get_ports test_mode]
 set_case_analysis 0 [get_ports scan_en]
-set_ideal_network -no_propagate  [get_ports rst_n]
 create_clock [get_ports ref_clk]  -period 7  -waveform {0 3.5}
 set_clock_uncertainty -setup 0.2  [get_clocks ref_clk]
 set_clock_uncertainty -hold 0.05  [get_clocks ref_clk]

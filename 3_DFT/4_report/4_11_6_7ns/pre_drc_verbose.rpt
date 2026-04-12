@@ -610,7 +610,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/state_reg_110_
          u_ctrl/u_aes/state_reg_109_
          u_ctrl/u_aes/state_reg_108_
-         u_ctrl/u_aes/state_reg_107_
          u_ctrl/u_aes/state_reg_106_
          u_ctrl/u_aes/state_reg_105_
          u_ctrl/u_aes/state_reg_101_
@@ -1536,20 +1535,19 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/state_reg_43_
          u_ctrl/u_aes/state_reg_76_
          u_ctrl/u_aes/state_reg_17_
+         u_ctrl/u_aes/state_reg_71_
          u_ctrl/u_aes/state_reg_91_
          u_ctrl/u_aes/state_reg_68_
          u_ctrl/u_aes/state_reg_95_
          u_ctrl/u_aes/state_reg_60_
          u_ctrl/u_aes/state_reg_119_
-         u_ctrl/u_aes/state_reg_3_
          u_ctrl/u_aes/state_reg_12_
-         u_ctrl/u_aes/state_reg_23_
          u_ctrl/u_aes/state_reg_111_
          u_ctrl/u_aes/state_reg_30_
+         u_ctrl/u_aes/state_reg_79_
          u_ctrl/u_aes/state_reg_36_
          u_ctrl/u_aes/state_reg_100_
          u_ctrl/u_aes/state_reg_63_
-         u_ctrl/u_aes/state_reg_79_
          u_ctrl/u_aes/state_reg_51_
          u_ctrl/u_aes/state_reg_35_
          u_ctrl/u_aes/state_reg_104_
@@ -1558,19 +1556,21 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/state_reg_103_
          u_ctrl/u_aes/state_reg_112_
          u_ctrl/u_aes/state_reg_81_
+         u_ctrl/u_aes/state_reg_23_
          u_ctrl/u_aes/state_reg_40_
          u_ctrl/u_aes/state_reg_94_
          u_ctrl/u_aes/state_reg_49_
-         u_ctrl/u_aes/state_reg_62_
          u_ctrl/u_aes/state_reg_33_
+         u_ctrl/u_aes/state_reg_62_
          u_ctrl/u_aes/state_reg_88_
          u_ctrl/u_aes/state_reg_56_
          u_ctrl/u_aes/state_reg_116_
          u_ctrl/u_aes/state_reg_28_
-         u_ctrl/u_aes/state_reg_75_
          u_ctrl/u_aes/state_reg_53_
+         u_ctrl/u_aes/state_reg_75_
          u_ctrl/u_aes/state_reg_27_
-         u_ctrl/u_aes/state_reg_71_
+         u_ctrl/u_aes/state_reg_3_
+         u_ctrl/u_aes/state_reg_107_
       *  17 cells are non-scan shift-register cells
          u_ctrl/tx_byte_ff2_reg_7_
          u_ctrl/tx_byte_ff2_reg_6_

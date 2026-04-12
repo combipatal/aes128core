@@ -2,7 +2,7 @@
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Sun Apr 12 02:38:55 2026
+Date   : Sun Apr 12 10:18:05 2026
 ****************************************
 
   Timing Path Group '**clock_gating_default**' (max_delay/setup)
@@ -61,10 +61,10 @@ Date   : Sun Apr 12 02:38:55 2026
 
   Timing Path Group 'clk_fast_aes' (max_delay/setup)
   ---------------------------------------------
-  Levels of Logic:                           15
-  Critical Path Length:                  1.7028
-  Critical Path Slack:                  -0.2880
-  Total Negative Slack:                -27.1111
+  Levels of Logic:                           18
+  Critical Path Length:                  1.7130
+  Critical Path Slack:                  -0.2965
+  Total Negative Slack:                -25.9697
   No. of Violating Paths:                   135
   ---------------------------------------------
 
@@ -133,29 +133,29 @@ Date   : Sun Apr 12 02:38:55 2026
 
   Area
   ---------------------------------------------
-  Net Interconnect area:              5393.8262
-  Total cell area:                   73808.7734
-  Design Area:                       79202.6016
+  Net Interconnect area:              5198.9595
+  Total cell area:                   74045.9609
+  Design Area:                       79244.9219
   ---------------------------------------------
 
 
   Cell & Pin Count
   ---------------------------------------------
-  Pin Count:                              55536
+  Pin Count:                              55775
   Hierarchical Cell Count:                    5
   Hierarchical Port Count:                  734
-  Leaf Cell Count:                        14214
+  Leaf Cell Count:                        14334
   ---------------------------------------------
 
 
   Design Rule Violations
   ---------------------------------------------
-  Total No. of Pins in Design:            55536
-  max_capacitance Count:                    484
-  max_transition Count:                      65
-  max_capacitance Cost:               3062.1719
-  max_transition Cost:                   1.4923
-  Total DRC Cost:                     3063.6643
+  Total No. of Pins in Design:            55775
+  max_capacitance Count:                    595
+  max_transition Count:                      63
+  max_capacitance Cost:               3331.6545
+  max_transition Cost:                   1.4756
+  Total DRC Cost:                     3333.1301
   ---------------------------------------------
 
 1
