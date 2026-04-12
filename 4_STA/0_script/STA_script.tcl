@@ -7,15 +7,16 @@ set design_name $env(design_name)
 set NET $env(net)
 set SDC $env(sdc)
 
-set lib ./1_input/SAED32_EDK
+set lib /DATA/home/edu135/aes128_core/SAED32_EDK
 set syn_lib /tools/synopsys/prime/W-2024.09-SP5-3/libraries/syn
 
 set_app_var search_path [list \
-    $lib/sc/ss0p95v125c \
-    $lib/sc/ff1p16vn40c \
-    $lib/io \
-    $lib/sram \
-    $lib/pll \
+    $lib/lib/stdcell_rvt/db_nldm \
+    $lib/lib/stdcell_lvt/db_nldm \
+    $lib/lib/stdcell_hvt/db_nldm \
+    $lib/lib/io_std/db_nldm \
+    $lib/lib/sram/db_nldm \
+    $lib/lib/pll/db_nldm \
     $syn_lib]
 
 if {$corner == "ss0p95v125c"} {
@@ -54,6 +55,13 @@ sh date
 read_verilog $NET
 current_design $design_name
 link
+
+set auto_wire_load_selection false
+set_wire_load_mode enclosed
+set_wire_load_model -name ForQA [current_design]
+set_wire_load_model -name 70000 [get_cells u_ctrl]
+set_wire_load_model -name 35000 [get_cells u_ctrl/u_aes]
+
 read_sdc $SDC
 
 update_timing -full
@@ -73,3 +81,5 @@ report_timing -delay_type min -path full_clock_expanded -nosplit -input_pins -ma
     > ${rpt_dir}/${mode}_${corner}_hold.rpt
 
 report_qor > ${rpt_dir}/${mode}_${corner}_qor.rpt
+
+exit

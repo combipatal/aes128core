@@ -2,14 +2,14 @@
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Sun Apr 12 11:53:58 2026
+Date   : Sun Apr 12 12:04:30 2026
 ****************************************
 
   Timing Path Group '**clock_gating_default**' (max_delay/setup)
   ---------------------------------------------
   Levels of Logic:                            1
   Critical Path Length:                  0.0914
-  Critical Path Slack:                   0.5836
+  Critical Path Slack:                   0.6211
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -18,7 +18,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            3
   Critical Path Length:                  1.2613
-  Critical Path Slack:                   0.1615
+  Critical Path Slack:                   0.2365
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -27,7 +27,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            1
   Critical Path Length:                  0.1753
-  Critical Path Slack:                   0.3747
+  Critical Path Slack:                   0.4497
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -36,7 +36,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            2
   Critical Path Length:                  0.2552
-  Critical Path Slack:                   1.1645
+  Critical Path Slack:                   1.2394
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -45,7 +45,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            2
   Critical Path Length:                  0.2015
-  Critical Path Slack:                   1.2207
+  Critical Path Slack:                   1.2957
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -54,18 +54,18 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            7
   Critical Path Length:                  0.7072
-  Critical Path Slack:                   0.7149
+  Critical Path Slack:                   0.7900
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
 
   Timing Path Group 'clk_fast_aes' (max_delay/setup)
   ---------------------------------------------
-  Levels of Logic:                           17
-  Critical Path Length:                  1.4134
-  Critical Path Slack:                  -0.0054
-  Total Negative Slack:                 -0.0518
-  No. of Violating Paths:                    20
+  Levels of Logic:                           16
+  Critical Path Length:                  1.5031
+  Critical Path Slack:                   0.0003
+  Total Negative Slack:                  0.0000
+  No. of Violating Paths:                     0
   ---------------------------------------------
 
   Timing Path Group '**clock_gating_default**' (min_delay/hold)
@@ -81,7 +81,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            1
   Critical Path Length:                  0.3022
-  Critical Path Slack:                   0.3153
+  Critical Path Slack:                   0.3154
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -98,9 +98,9 @@ Date   : Sun Apr 12 11:53:58 2026
   Timing Path Group 'clk_div2' (min_delay/hold)
   ---------------------------------------------
   Levels of Logic:                            1
-  Critical Path Length:                  0.1644
-  Critical Path Slack:                  -0.0112
-  Total Negative Slack:                 -0.1319
+  Critical Path Length:                  0.1643
+  Critical Path Slack:                  -0.0110
+  Total Negative Slack:                 -0.1307
   No. of Violating Paths:                    12
   ---------------------------------------------
 
@@ -117,7 +117,7 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            1
   Critical Path Length:                  0.1538
-  Critical Path Slack:                   0.1193
+  Critical Path Slack:                   0.1194
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -126,34 +126,34 @@ Date   : Sun Apr 12 11:53:58 2026
   ---------------------------------------------
   Levels of Logic:                            2
   Critical Path Length:                  0.1397
-  Critical Path Slack:                   0.1547
+  Critical Path Slack:                   0.1554
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
 
   Area
   ---------------------------------------------
-  Net Interconnect area:             14462.8975
-  Total cell area:                   74045.9609
-  Design Area:                       88508.8594
+  Net Interconnect area:             15005.1270
+  Total cell area:                   69946.4844
+  Design Area:                       84951.6094
   ---------------------------------------------
 
 
   Cell & Pin Count
   ---------------------------------------------
-  Pin Count:                              55775
+  Pin Count:                              53920
   Hierarchical Cell Count:                    5
   Hierarchical Port Count:                  734
-  Leaf Cell Count:                        14334
+  Leaf Cell Count:                        12945
   ---------------------------------------------
 
 
   Design Rule Violations
   ---------------------------------------------
-  Total No. of Pins in Design:            55775
-  max_capacitance Count:                    135
-  max_capacitance Cost:                158.4890
-  Total DRC Cost:                      158.4890
+  Total No. of Pins in Design:            53920
+  max_capacitance Count:                    160
+  max_capacitance Cost:                196.6517
+  Total DRC Cost:                      196.6517
   ---------------------------------------------
 
 1

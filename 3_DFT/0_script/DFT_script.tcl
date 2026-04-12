@@ -79,6 +79,12 @@ set compile_instance_name_prefix DFTC_
 
 insert_dft
 
+set_case_analysis 0 [get_ports scan_en]
+set_case_analysis 0 [get_ports test_mode]
+set_critical_range 0.5 [current_design]
+compile_ultra -scan -incremental
+report_qor > ./4_report/${ver}/dft_qor_func.rpt
+
 current_test_mode Internal_scan
 dft_drc -verbose    > ./4_report/${ver}/insert_drc_internal.dft
 

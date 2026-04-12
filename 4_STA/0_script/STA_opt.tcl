@@ -13,7 +13,7 @@ set link_create_black_boxes "false"
 # 타이밍 계산/업데이트 관련
 set timing_update_status_level "high"
 set timing_save_pin_arrival_and_slack "true"
-set timing_enable_preset_clear_arcs "false"
+set timing_enable_preset_clear_arcs "true"
 
 # clock gating / recovery-removal check 활성
 set timing_disable_recovery_removal_checks "false"

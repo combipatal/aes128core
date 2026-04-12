@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 # STA run configuration
-setenv ver 4_11_6_7ns
+if ( ! $?ver ) setenv ver 4_12_7p3ns
 setenv corner ss0p95v125c
 setenv mode pre
 setenv run_mode pre

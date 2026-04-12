@@ -1,5 +1,8 @@
+set clk_period $env(clk_period)
+set clk_half_period [expr {$clk_period / 2.0}]
+
 # define clock 
-create_clock [get_ports ref_clk] -period 7 -waveform {0 3.5}
+create_clock [get_ports ref_clk] -period $clk_period -waveform [list 0 $clk_half_period]
 
 #generated clock 
 create_generated_clock [get_pins u_pll/CLK_4X] \
