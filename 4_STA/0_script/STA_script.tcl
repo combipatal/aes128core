@@ -6,6 +6,11 @@ set hier_mode $env(hier_mode)
 set design_name $env(design_name)
 set NET $env(net)
 set SDC $env(sdc)
+set sta_scenario $env(sta_scenario)
+set STA_OVERRIDE ""
+if {[info exists env(sta_override)]} {
+    set STA_OVERRIDE $env(sta_override)
+}
 
 set lib /DATA/home/edu135/aes128_core/SAED32_EDK
 set syn_lib /tools/synopsys/prime/W-2024.09-SP5-3/libraries/syn
@@ -48,6 +53,42 @@ set rpt_dir "${run_dir}/4_report/${ver}"
 
 file mkdir $rpt_dir
 
+set scenario_dir_name $sta_scenario
+if {$sta_scenario == "scan_shift"} {
+    set scenario_dir_name "shift"
+}
+if {$sta_scenario == "scan_capture"} {
+    set scenario_dir_name "capture"
+}
+
+set scenario_rpt_dir "${rpt_dir}/${scenario_dir_name}"
+file mkdir $scenario_rpt_dir
+
+set rpt_check_timing_dir "${scenario_rpt_dir}/check_timing"
+set rpt_no_clocks_dir "${scenario_rpt_dir}/no_clocks"
+set rpt_disable_timing_dir "${scenario_rpt_dir}/disable_timing"
+set rpt_analysis_coverage_dir "${scenario_rpt_dir}/analysis_coverage"
+set rpt_clocks_dir "${scenario_rpt_dir}/clocks"
+set rpt_clock_gating_dir "${scenario_rpt_dir}/clock_gating"
+set rpt_all_violations_dir "${scenario_rpt_dir}/all_violations"
+set rpt_setup_dir "${scenario_rpt_dir}/setup"
+set rpt_hold_dir "${scenario_rpt_dir}/hold"
+set rpt_qor_dir "${scenario_rpt_dir}/qor"
+
+foreach dir [list \
+    $rpt_check_timing_dir \
+    $rpt_no_clocks_dir \
+    $rpt_disable_timing_dir \
+    $rpt_analysis_coverage_dir \
+    $rpt_clocks_dir \
+    $rpt_clock_gating_dir \
+    $rpt_all_violations_dir \
+    $rpt_setup_dir \
+    $rpt_hold_dir \
+    $rpt_qor_dir] {
+    file mkdir $dir
+}
+
 source 0_script/STA_opt.tcl
 
 sh date
@@ -63,23 +104,28 @@ set_wire_load_model -name 70000 [get_cells u_ctrl]
 set_wire_load_model -name 35000 [get_cells u_ctrl/u_aes]
 
 read_sdc $SDC
+if {$STA_OVERRIDE != ""} {
+    source $STA_OVERRIDE
+}
 
 update_timing -full
 
-check_timing > ${rpt_dir}/${mode}_${corner}_check_timing.rpt
-check_timing -override_defaults no_clock -verbose > ${rpt_dir}/${mode}_${corner}_no_clocks.rpt
-report_disable_timing > ${rpt_dir}/${mode}_${corner}_disable_timing.rpt
-report_analysis_coverage > ${rpt_dir}/${mode}_${corner}_analysis_coverage.rpt
+check_timing > ${rpt_check_timing_dir}/${sta_scenario}_${mode}_${corner}_check_timing.rpt
+check_timing -override_defaults no_clock -verbose > ${rpt_no_clocks_dir}/${sta_scenario}_${mode}_${corner}_no_clocks.rpt
+report_disable_timing > ${rpt_disable_timing_dir}/${sta_scenario}_${mode}_${corner}_disable_timing.rpt
+report_analysis_coverage > ${rpt_analysis_coverage_dir}/${sta_scenario}_${mode}_${corner}_analysis_coverage.rpt
+report_clocks > ${rpt_clocks_dir}/${sta_scenario}_${mode}_${corner}_clocks.rpt
+report_clock_gating_check > ${rpt_clock_gating_dir}/${sta_scenario}_${mode}_${corner}_clock_gating.rpt
 
 report_constraints -all_violators -nosplit -significant_digits 4 \
-    > ${rpt_dir}/${mode}_${corner}_all_violations.rpt
+    > ${rpt_all_violations_dir}/${sta_scenario}_${mode}_${corner}_all_violations.rpt
 
 report_timing -delay_type max -path full_clock_expanded -nosplit -input_pins -max_paths 25 \
-    > ${rpt_dir}/${mode}_${corner}_setup.rpt
+    > ${rpt_setup_dir}/${sta_scenario}_${mode}_${corner}_setup.rpt
 
 report_timing -delay_type min -path full_clock_expanded -nosplit -input_pins -max_paths 25 \
-    > ${rpt_dir}/${mode}_${corner}_hold.rpt
+    > ${rpt_hold_dir}/${sta_scenario}_${mode}_${corner}_hold.rpt
 
-report_qor > ${rpt_dir}/${mode}_${corner}_qor.rpt
+report_qor > ${rpt_qor_dir}/${sta_scenario}_${mode}_${corner}_qor.rpt
 
 exit
