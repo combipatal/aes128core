@@ -1,0 +1,10 @@
+Directory = /DATA/home/edu135/aes128_core/5_FM
+Total     = 6704 GB
+Available = 6401 GB
+Used      = 303 GB (5%)
+
+Directory = /tmp
+Total     = 400 GB
+Available = 139 GB
+Used      = 261 GB (66%)
+
