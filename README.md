@@ -1,6 +1,6 @@
 # aes128_core
 
-이 저장소는 AES128 기반 SoC 형태의 RTL, 기능 검증, 합성, DFT 플로우를 정리한 프로젝트입니다.
+이 저장소는 AES128 기반 SoC 형태의 RTL, 기능 검증, 합성, DFT, STA, FM 플로우를 정리한 프로젝트입니다.
 
 현재 기준 top module은 `top_mcu_pll_sram_multiclk_soc`이며, 내부에 다음과 같은 블록이 포함되어 있습니다.
 
@@ -30,6 +30,16 @@ aes128_core/
 │   ├── 3_log/
 │   └── 4_report/
 ├── 3_DFT/
+│   ├── 0_script/
+│   ├── 2_output/
+│   ├── 3_log/
+│   └── 4_report/
+├── 4_STA/
+│   ├── 0_script/
+│   ├── 1_input/
+│   ├── 3_log/
+│   └── 4_report/
+├── 5_FM/
 │   ├── 0_script/
 │   ├── 2_output/
 │   ├── 3_log/
@@ -76,6 +86,8 @@ aes128_core/
 ### `docs/`
 
 - 프로젝트 메모, 문서, 참고 자료 정리용 폴더
+- 현재 FM 중심 개선 계획 문서:
+  - [docs/aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
 
 ### `.synopsys_dc.setup`
 
@@ -90,12 +102,17 @@ aes128_core/
 2. `1_vcs/`에서 기능 검증
 3. `2_synthesis/`에서 합성 및 timing/area 확인
 4. `3_DFT/`에서 scan insertion 및 DFT 리포트 확인
+5. `4_STA/`에서 functional / scan scenario STA 확인
+6. `5_FM/`에서 r2n / n2n equivalence 확인
 
 각 단계는 앞 단계 결과를 다음 단계 입력으로 사용합니다.
 
 - `0_rtl -> 1_vcs`
 - `0_rtl -> 2_synthesis`
 - `2_synthesis/mapped DDC -> 3_DFT`
+- `3_DFT/netlist + 2_synthesis SDC -> 4_STA`
+- `RTL <-> synthesis gate -> 5_FM/r2n`
+- `synthesis gate <-> DFT gate -> 5_FM/n2n`
 
 ## 실행 기준
 
@@ -110,6 +127,15 @@ aes128_core/
 ### DFT
 
 - `3_DFT/run.csh`
+
+### STA
+
+- `4_STA/run.csh`
+
+### FM
+
+- `5_FM/run_r2n.csh`
+- `5_FM/run_n2n.csh`
 
 각 단계는 보통 `ver` 환경변수를 기준으로 결과 폴더를 분리합니다.
 
@@ -129,13 +155,46 @@ setenv ver 4_11_4_6p5ns
 
 ## 현재 상태 메모
 
-- 합성은 `ver`별로 target period를 바꿔가며 실험 중입니다
-- DFT는 `4_11_6_7ns` 기준으로 single scan chain 삽입 성공 상태입니다
-- 최신 DFT 결과 기준:
+현재 권장 baseline은 `4_12_7p3ns`입니다.
+
+- VCS regression 3종은 통과 상태입니다.
+  - `default_nist`
+  - `ext_zero`
+  - `ext_ecb_nist`
+- synthesis baseline:
+  - target period `7.3ns`
+  - setup clean
+  - `clk_div2` -> SRAM interface hold violation `12`개 잔존
+- DFT baseline:
+  - single scan chain 삽입 성공
   - `scan_in -> chain0 -> scan_out`
   - chain length `1532`
-  - post-DFT setup clean
-  - post-DFT hold 소규모 잔여 위반 존재
+  - dedicated scan-out port 생성 없이 기존 `scan_out` 포트 재사용
+- STA baseline:
+  - functional `clk_fast_aes` setup slack `0.0003ns`
+  - functional / capture 기준 SRAM interface hold violation `12`개 잔존
+  - `scan_shift` scenario는 아직 제약 refinement가 더 필요함
+- FM baseline:
+  - r2n PASS
+  - n2n PASS
+  - n2n은 functional equivalence 기준으로 `scan_out`를 `dont_verify` 처리
+
+즉 현재 상태는 "FM까지 연결은 되었지만, 실무형 signoff 관점에서는 플로우 정제와 hold closure가 남아 있는 상태"로 보는 것이 맞습니다.
+
+## 현재 가장 먼저 손봐야 할 항목
+
+우선순위는 아래 순서가 적절합니다.
+
+1. synthesis에서 `u_mem` wrapper 전체 `dont_touch` 때문에 남는 `GTECH_NOT` 제거
+2. VCS / synthesis / FM source list를 단일 manifest로 정리
+3. sim-only external AES vector interface를 production top과 분리
+4. `scan_shift` STA 제약 강화
+5. SRAM interface hold violation 12개 closure
+6. 이후 DFT multi-chain / PPA 재정리
+
+자세한 분석과 실행 계획은 아래 문서를 기준으로 봅니다.
+
+- [docs/aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
 
 ## Git 관리 기준
 
