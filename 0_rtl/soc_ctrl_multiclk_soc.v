@@ -473,13 +473,16 @@ end
       start_seen <= 1'b0;
       aes_key    <= AES_KEY_DFLT;
       aes_pt     <= AES_PT_DFLT;
+`ifdef SIM_EXTVEC
       use_ext_vec_active <= 1'b0;
+`endif
     end else begin
 
       // issue start (and keep it high) until AES core reports busy
       if (start_fast && !start_seen && !aes_busy) begin
         aes_start <= 1'b1;
 
+`ifdef SIM_EXTVEC
         if (aes_vec_valid) begin
           aes_key <= aes_key_ext;
           aes_pt  <= aes_pt_ext;
@@ -489,6 +492,7 @@ end
           aes_pt  <= AES_PT_DFLT;
           use_ext_vec_active <= 1'b0;
         end
+`endif
         start_seen <= 1'b1;
 
       end else if (aes_start && aes_busy) begin
@@ -526,8 +530,12 @@ end
   always @(posedge clk_fast or negedge rst_n) begin
     if (!rst_n) ct_ok <= 1'b0;
     else if (aes_done_pulse) begin
+`ifdef SIM_EXTVEC
       if (use_ext_vec_active) ct_ok <= 1'b1;
       else                    ct_ok <= (aes_ct == 128'h69C4E0D86A7B0430D8CDB78070B4C55A);
+`else
+      ct_ok <= (aes_ct == 128'h69C4E0D86A7B0430D8CDB78070B4C55A);
+`endif
     end
   end
 

@@ -8,7 +8,7 @@ set lib_lvt 	"$edk_root/lib/stdcell_lvt/db_nldm" 	;#  Logic cell library directo
 set lib_io 		"$edk_root/lib/io_std/db_nldm" 		;#  IO library directory
 set lib_mem 	"$edk_root/lib/sram/db_nldm" 		;#  Memory library directory
 set lib_pll 	"$edk_root/lib/pll/db_nldm" 		;#  PLL library directory
-set RTL_path 	"./1_input/rtl" 					;#  RTL directory
+set RTL_path 	"./0_rtl" 					;#  RTL directory
 
 ######################################################################
 # Search path Settings
