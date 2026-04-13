@@ -1,0 +1,907 @@
+****************************************
+Report : timing
+	-path_type full_clock_expanded
+	-delay_type max
+	-nosplit
+	-input_pins
+	-slack_lesser_than 0.0000
+	-max_paths 25
+	-sort_by slack
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Mon Apr 13 20:10:23 2026
+****************************************
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_32_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U470/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U470/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_32_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_32_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_33_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U469/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U469/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_33_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_33_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_34_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U468/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U468/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_34_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_34_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_35_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U467/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U467/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_35_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_35_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_36_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U466/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U466/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_36_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_36_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_30_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U472/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U472/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_30_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_30_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_31_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U471/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U471/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_31_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_31_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9741
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_100_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U401/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U401/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_100_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_100_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_101_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U400/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U400/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_101_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_101_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_102_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U399/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U399/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_102_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_102_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_105_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U396/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U396/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_105_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_105_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_108_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U393/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U393/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_108_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_108_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_29_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U473/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U473/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_29_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_29_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_104_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U397/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U397/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_104_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_104_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_107_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U394/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U394/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_107_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_107_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_97_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U404/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U404/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_97_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_97_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_103_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U398/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U398/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_103_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_103_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_99_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U402/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U402/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_99_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_99_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_106_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U395/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U395/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_106_/D (SDFFARX1_RVT)                  0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_106_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_98_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U71/A (NBUFFX2_RVT)                                   6682.9868  6683.1138 f
+  u_ctrl/U71/Y (NBUFFX2_RVT)                                     0.0430   6683.1567 f
+  u_ctrl/U15/A (INVX2_RVT)                                     328.1084   7011.2651 f
+  u_ctrl/U15/Y (INVX2_RVT)                                       0.0254   7011.2905 r
+  u_ctrl/U403/A3 (AO22X1_RVT)                                  162.9697   7174.2603 r
+  u_ctrl/U403/Y (AO22X1_RVT)                                     0.0273   7174.2876 r
+  u_ctrl/ct_hold_div2_reg_98_/D (SDFFARX1_RVT)                   0.0845   7174.3721 r
+  data arrival time                                                       7174.3721
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_98_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7174.3721
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7170.9736
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_49_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U12/A (INVX2_RVT)                                     6682.9868  6683.1138 f
+  u_ctrl/U12/Y (INVX2_RVT)                                       0.0308   6683.1445 r
+  u_ctrl/U453/A3 (AO22X1_RVT)                                  424.3594   7107.5039 r
+  u_ctrl/U453/Y (AO22X1_RVT)                                     0.0278   7107.5317 r
+  u_ctrl/ct_hold_div2_reg_49_/D (SDFFARX1_RVT)                   0.0845   7107.6162 r
+  data arrival time                                                       7107.6162
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_49_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0519     3.3981
+  data required time                                                        3.3981
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3981
+  data arrival time                                                       -7107.6162
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7104.2183
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_50_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U12/A (INVX2_RVT)                                     6682.9868  6683.1138 f
+  u_ctrl/U12/Y (INVX2_RVT)                                       0.0308   6683.1445 r
+  u_ctrl/U452/A3 (AO22X1_RVT)                                  424.3594   7107.5039 r
+  u_ctrl/U452/Y (AO22X1_RVT)                                     0.0278   7107.5317 r
+  u_ctrl/ct_hold_div2_reg_50_/D (SDFFARX1_RVT)                   0.0845   7107.6162 r
+  data arrival time                                                       7107.6162
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_50_/CLK (SDFFARX1_RVT)                            3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7107.6162
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7104.2178
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_4_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U12/A (INVX2_RVT)                                     6682.9868  6683.1138 f
+  u_ctrl/U12/Y (INVX2_RVT)                                       0.0308   6683.1445 r
+  u_ctrl/U370/A3 (AO22X1_RVT)                                  424.3594   7107.5039 r
+  u_ctrl/U370/Y (AO22X1_RVT)                                     0.0278   7107.5317 r
+  u_ctrl/ct_hold_div2_reg_4_/D (SDFFARX1_RVT)                    0.0845   7107.6162 r
+  data arrival time                                                       7107.6162
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_4_/CLK (SDFFARX1_RVT)                             3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7107.6162
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7104.2178
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_121_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U12/A (INVX2_RVT)                                     6682.9868  6683.1138 f
+  u_ctrl/U12/Y (INVX2_RVT)                                       0.0308   6683.1445 r
+  u_ctrl/U380/A3 (AO22X1_RVT)                                  424.3594   7107.5039 r
+  u_ctrl/U380/Y (AO22X1_RVT)                                     0.0278   7107.5317 r
+  u_ctrl/ct_hold_div2_reg_121_/D (SDFFARX1_RVT)                  0.0845   7107.6162 r
+  data arrival time                                                       7107.6162
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_121_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7107.6162
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7104.2178
+
+
+  Startpoint: u_ctrl/u_ct_cdc/pulse_dst_reg (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_ctrl/ct_hold_div2_reg_125_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: max
+
+  Point                                                            Incr       Path
+  ---------------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                                     0.0000     0.0000
+  clock network delay (ideal)                                    0.0000     0.0000
+  u_ctrl/u_ct_cdc/pulse_dst_reg/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_ct_cdc/pulse_dst_reg/Q (SDFFARX1_RVT)                 0.0635     0.0635 f
+  u_ctrl/u_ct_cdc/U3/A (NBUFFX8_RVT)                             0.0254     0.0889 f
+  u_ctrl/u_ct_cdc/U3/Y (NBUFFX8_RVT)                             0.0381     0.1270 f
+  u_ctrl/U12/A (INVX2_RVT)                                     6682.9868  6683.1138 f
+  u_ctrl/U12/Y (INVX2_RVT)                                       0.0308   6683.1445 r
+  u_ctrl/U376/A3 (AO22X1_RVT)                                  424.3594   7107.5039 r
+  u_ctrl/U376/Y (AO22X1_RVT)                                     0.0278   7107.5317 r
+  u_ctrl/ct_hold_div2_reg_125_/D (SDFFARX1_RVT)                  0.0845   7107.6162 r
+  data arrival time                                                       7107.6162
+
+  clock clk_div2 (rise edge)                                     3.6500     3.6500
+  clock network delay (ideal)                                    0.0000     3.6500
+  u_ctrl/ct_hold_div2_reg_125_/CLK (SDFFARX1_RVT)                           3.6500 r
+  clock reconvergence pessimism                                  0.0000     3.6500
+  clock uncertainty                                             -0.2000     3.4500
+  library setup time                                            -0.0518     3.3982
+  data required time                                                        3.3982
+  ---------------------------------------------------------------------------------------
+  data required time                                                        3.3982
+  data arrival time                                                       -7107.6162
+  ---------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                        -7104.2178
+
+Warning: report_timing has satisfied the max_paths criteria. There are 1318 further endpoints which have paths of interest with slack less than   0.0000 that were not considered when generating this report. (UITE-502)
+
+1

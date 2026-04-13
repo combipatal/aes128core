@@ -1,0 +1,380 @@
+****************************************
+Report : timing
+	-path_type full_clock_expanded
+	-delay_type min
+	-nosplit
+	-input_pins
+	-slack_lesser_than 0.0000
+	-max_paths 25
+	-sort_by slack
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Mon Apr 13 20:10:23 2026
+****************************************
+
+
+  Startpoint: u_ctrl/mem_addr_reg_0_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                     Incr       Path
+  --------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_ctrl/mem_addr_reg_0_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_addr_reg_0_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/A[0] (SRAM1RW1024x8)                       0.0292     0.0897 f
+  data arrival time                                                  0.0897
+
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                    0.0000 r
+  clock reconvergence pessimism                           0.0000     0.0000
+  clock uncertainty                                       0.0500     0.0500
+  library hold time                                       0.0545     0.1045
+  data required time                                                 0.1045
+  --------------------------------------------------------------------------------
+  data required time                                                 0.1045
+  data arrival time                                                 -0.0897
+  --------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.0148
+
+
+  Startpoint: u_ctrl/mem_addr_reg_1_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                     Incr       Path
+  --------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_ctrl/mem_addr_reg_1_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_addr_reg_1_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/A[1] (SRAM1RW1024x8)                       0.0292     0.0897 f
+  data arrival time                                                  0.0897
+
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                    0.0000 r
+  clock reconvergence pessimism                           0.0000     0.0000
+  clock uncertainty                                       0.0500     0.0500
+  library hold time                                       0.0545     0.1045
+  data required time                                                 0.1045
+  --------------------------------------------------------------------------------
+  data required time                                                 0.1045
+  data arrival time                                                 -0.0897
+  --------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.0148
+
+
+  Startpoint: u_ctrl/mem_addr_reg_2_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                     Incr       Path
+  --------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_ctrl/mem_addr_reg_2_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_addr_reg_2_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/A[2] (SRAM1RW1024x8)                       0.0292     0.0897 f
+  data arrival time                                                  0.0897
+
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                    0.0000 r
+  clock reconvergence pessimism                           0.0000     0.0000
+  clock uncertainty                                       0.0500     0.0500
+  library hold time                                       0.0545     0.1045
+  data required time                                                 0.1045
+  --------------------------------------------------------------------------------
+  data required time                                                 0.1045
+  data arrival time                                                 -0.0897
+  --------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.0148
+
+
+  Startpoint: u_ctrl/mem_addr_reg_3_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                     Incr       Path
+  --------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_ctrl/mem_addr_reg_3_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_addr_reg_3_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/A[3] (SRAM1RW1024x8)                       0.0292     0.0897 f
+  data arrival time                                                  0.0897
+
+  clock clk_div2 (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                             0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                    0.0000 r
+  clock reconvergence pessimism                           0.0000     0.0000
+  clock uncertainty                                       0.0500     0.0500
+  library hold time                                       0.0545     0.1045
+  data required time                                                 0.1045
+  --------------------------------------------------------------------------------
+  data required time                                                 0.1045
+  data arrival time                                                 -0.0897
+  --------------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.0148
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_0_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_0_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_0_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[0] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_1_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_1_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_1_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[1] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_2_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_2_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_2_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[2] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_3_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_3_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_3_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[3] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_4_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_4_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_4_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[4] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_5_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_5_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_5_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[5] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_6_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_6_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_6_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[6] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/mem_wdata_reg_7_ (rising edge-triggered flip-flop clocked by clk_div2)
+  Endpoint: u_mem/u_sram (rising edge-triggered flip-flop clocked by clk_div2)
+  Path Group: clk_div2
+  Path Type: min
+
+  Point                                                      Incr       Path
+  ---------------------------------------------------------------------------------
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_ctrl/mem_wdata_reg_7_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/mem_wdata_reg_7_/Q (SDFFARX1_RVT)                 0.0605     0.0605 f
+  u_mem/u_sram/I[7] (SRAM1RW1024x8)                        0.0294     0.0899 f
+  data arrival time                                                   0.0899
+
+  clock clk_div2 (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                              0.0000     0.0000
+  u_mem/u_sram/CE (SRAM1RW1024x8)                                     0.0000 r
+  clock reconvergence pessimism                            0.0000     0.0000
+  clock uncertainty                                        0.0500     0.0500
+  library hold time                                        0.0545     0.1045
+  data required time                                                  0.1045
+  ---------------------------------------------------------------------------------
+  data required time                                                  0.1045
+  data arrival time                                                  -0.0899
+  ---------------------------------------------------------------------------------
+  slack (VIOLATED)                                                   -0.0145
+
+
+  Startpoint: u_ctrl/u_icg_aes/en_lat_reg (positive level-sensitive latch clocked by clk_fast')
+  Endpoint: u_ctrl/u_icg_aes/U3 (rising clock gating-check end-point clocked by clk_fast)
+  Path Group: **clock_gating_default**
+  Path Type: min
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast' (rise edge)                                 0.9125     0.9125
+  clock network delay (ideal)                                 0.0000     0.9125
+  u_ctrl/u_icg_aes/en_lat_reg/CLK (LATCHX1_RVT)               0.0000     0.9125 r
+  u_ctrl/u_icg_aes/en_lat_reg/Q (LATCHX1_RVT)                 0.0300     0.9425 f
+  u_ctrl/u_icg_aes/U3/A2 (AND2X1_RVT)                         0.0095     0.9520 f
+  data arrival time                                                      0.9520
+
+  clock clk_fast (fall edge)                                  0.9125     0.9125
+  clock network delay (ideal)                                 0.0000     0.9125
+  u_ctrl/u_icg_aes/U3/A1 (AND2X1_RVT)                                    0.9125 f
+  clock reconvergence pessimism                               0.0000     0.9125
+  clock uncertainty                                           0.0500     0.9625
+  clock gating hold time                                      0.0000     0.9625
+  data required time                                                     0.9625
+  ------------------------------------------------------------------------------------
+  data required time                                                     0.9625
+  data arrival time                                                     -0.9520
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0105
+
+
+1

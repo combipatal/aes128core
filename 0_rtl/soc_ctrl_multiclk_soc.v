@@ -198,6 +198,12 @@ module soc_ctrl_multiclk_soc (
   // SRAM state machine on clk_div2
   reg [4:0] byte_idx;
   reg fail;
+  wire byte_idx_last = (byte_idx == 5'd15);
+  wire [9:0] mem_addr_cur = {5'd0, byte_idx};
+  wire [7:0] ct_byte_cur = ct_hold_div2[127 - byte_idx*8 -: 8];
+  wire ct_byte_mismatch = (mem_rdata !== ct_byte_cur);
+  wire sst_is_idle = (sst == S_IDLE);
+  wire sst_is_done = (sst == S_DONE);
 
   // We'll store ciphertext bytes at SRAM addresses 0..15
   // Then read back 0..15 to verify, feeding CRC.
@@ -229,9 +235,14 @@ module soc_ctrl_multiclk_soc (
           mem_cs <= 1'b1;
           mem_we <= 1'b1;
           mem_oe <= 1'b0;
+          /*
           mem_addr <= {5'd0, byte_idx}; // 0..15
           mem_wdata <= ct_hold_div2[127 - byte_idx*8 -: 8];
           if (byte_idx == 5'd15) begin
+          */
+          mem_addr <= mem_addr_cur; // 0..15
+          mem_wdata <= ct_byte_cur;
+          if (byte_idx_last) begin
             byte_idx <= 5'd0;
             sst <= S_R;
           end else begin
@@ -243,31 +254,35 @@ module soc_ctrl_multiclk_soc (
           mem_cs <= 1'b1;
           mem_we <= 1'b0;
           mem_oe <= 1'b1;
-          mem_addr <= {5'd0, byte_idx};
+          /* mem_addr <= {5'd0, byte_idx}; */
+          mem_addr <= mem_addr_cur;
           sst <= S_RWAIT;
         end
 	S_RWAIT: begin
-	  mem_cs <= 1'b1;
-	  mem_we <= 1'b0;
-	  mem_oe <= 1'b1;
-	  mem_addr <= {5'd0, byte_idx};
-	  sst <= S_CHK;
-	end
+		  mem_cs <= 1'b1;
+		  mem_we <= 1'b0;
+		  mem_oe <= 1'b1;
+		  /* mem_addr <= {5'd0, byte_idx}; */
+		  mem_addr <= mem_addr_cur;
+		  sst <= S_CHK;
+		end
 
-        S_CHK: begin
-          // compare
-          if (mem_rdata !== ct_hold_div2[127 - byte_idx*8 -: 8]) fail <= 1'b1;
+	        S_CHK: begin
+	          // compare
+	          /* if (mem_rdata !== ct_hold_div2[127 - byte_idx*8 -: 8]) fail <= 1'b1; */
+	          if (ct_byte_mismatch) fail <= 1'b1;
 
-          // feed CRC with read-back byte (meaningful CRC over SRAM-read data)
-          crc_dv <= 1'b1;
-          crc_byte <= mem_rdata;
+	          // feed CRC with read-back byte (meaningful CRC over SRAM-read data)
+	          crc_dv <= 1'b1;
+	          crc_byte <= mem_rdata;
 
-	  if (byte_idx == 5'd15) begin
-	    sst <= S_FIN;
-	  end else begin
-	    byte_idx <= byte_idx + 5'd1;
-	    sst <= S_R;
-	  end
+		  /* if (byte_idx == 5'd15) begin */
+		  if (byte_idx_last) begin
+		    sst <= S_FIN;
+		  end else begin
+		    byte_idx <= byte_idx + 5'd1;
+		    sst <= S_R;
+		  end
 	end
 	S_FIN: begin
   	  mem_cs <= 1'b0; mem_we <= 1'b0; mem_oe <= 1'b0;
@@ -312,6 +327,9 @@ module soc_ctrl_multiclk_soc (
 
   reg [4:0] tx_idx_div2; // 0..19
   reg [7:0] tx_byte_div2;
+  wire tx_idx_is_ct = (tx_idx_div2 < 5'd16);
+  wire tx_idx_last = (tx_idx_div2 == 5'd19);
+  wire [7:0] tx_ct_byte = ct_hold_div2[127 - tx_idx_div2*8 -: 8];
 
 
 always @(posedge clk_div2 or negedge rst_n) begin
@@ -327,39 +345,44 @@ always @(posedge clk_div2 or negedge rst_n) begin
     send_go_div2 <= 1'b0;
     allow_send_div2_d <= allow_send_div2;
 
-    // 새 트랜잭션 시작(CT 넘어옴) 시 스트림 상태 리셋
-    if (ct_xfer_pulse_div2 && (sst == S_IDLE)) begin
-      tx_idx_div2       <= 5'd0;
-      stream_ready_div2 <= 1'b0;
-      stream_sent_div2  <= 1'b0;
-    end
-
-    // ready는 "CRC 끝 + SRAM verify 끝(S_DONE)" AND 아직 한 번도 20바이트 전송요청 안했을 때
-    if ((sst == S_DONE) && crc_done && !stream_sent_div2) begin
-      stream_ready_div2 <= 1'b1;
-    end
-
-    // 20바이트만 전송 요청하고 멈춤
-    if (allow_send_div2 && !allow_send_div2_d) begin
-      if (tx_idx_div2 < 5'd16) begin
-        tx_byte_div2 <= ct_hold_div2[127 - tx_idx_div2*8 -: 8];
-      end else begin
-        case (tx_idx_div2)
-          5'd16: tx_byte_div2 <= crc_out[31:24];
-          5'd17: tx_byte_div2 <= crc_out[23:16];
+	    // 새 트랜잭션 시작(CT 넘어옴) 시 스트림 상태 리셋
+	    if (ct_xfer_pulse_div2 && sst_is_idle) begin
+	      tx_idx_div2       <= 5'd0;
+	      stream_ready_div2 <= 1'b0;
+	      stream_sent_div2  <= 1'b0;
+	    end
+	
+	    // ready는 "CRC 끝 + SRAM verify 끝(S_DONE)" AND 아직 한 번도 20바이트 전송요청 안했을 때
+	    if (sst_is_done && crc_done && !stream_sent_div2) begin
+	      stream_ready_div2 <= 1'b1;
+	    end
+	
+	    // 20바이트만 전송 요청하고 멈춤
+	    if (allow_send_div2 && !allow_send_div2_d) begin
+	      /*
+	      if (tx_idx_div2 < 5'd16) begin
+	        tx_byte_div2 <= ct_hold_div2[127 - tx_idx_div2*8 -: 8];
+	      */
+	      if (tx_idx_is_ct) begin
+	        tx_byte_div2 <= tx_ct_byte;
+	      end else begin
+	        case (tx_idx_div2)
+	          5'd16: tx_byte_div2 <= crc_out[31:24];
+	          5'd17: tx_byte_div2 <= crc_out[23:16];
           5'd18: tx_byte_div2 <= crc_out[15:8];
           5'd19: tx_byte_div2 <= crc_out[7:0];
           default: tx_byte_div2 <= 8'h00;
         endcase
       end
 
-      send_go_div2 <= 1'b1; // div4로 "1바이트 보내라" 요청
-
-      if (tx_idx_div2 == 5'd19) begin
-        // 마지막 바이트 요청 완료 → 더 이상 보내지 않음
-        stream_sent_div2  <= 1'b1;
-        stream_ready_div2 <= 1'b0;
-        tx_idx_div2       <= 5'd0;
+	      send_go_div2 <= 1'b1; // div4로 "1바이트 보내라" 요청
+	
+	      /* if (tx_idx_div2 == 5'd19) begin */
+	      if (tx_idx_last) begin
+	        // 마지막 바이트 요청 완료 → 더 이상 보내지 않음
+	        stream_sent_div2  <= 1'b1;
+	        stream_ready_div2 <= 1'b0;
+	        tx_idx_div2       <= 5'd0;
       end else begin
         tx_idx_div2 <= tx_idx_div2 + 5'd1;
       end
