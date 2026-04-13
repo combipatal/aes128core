@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Mon Apr 13 11:37:31 2026
+Date   : Mon Apr 13 13:32:27 2026
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.

@@ -134,11 +134,18 @@ module soc_ctrl_multiclk_soc (
     else        aes_done_ff1 <= aes_done;
   end
 
+  /*
   reg [127:0] ct_hold_fast;
   always @(posedge clk_fast or negedge rst_n) begin
     if (!rst_n) ct_hold_fast <= 128'd0;
-    else if (aes_done_pulse) ct_hold_fast <= aes_ct;
+    else if (aes_done_pulse) ct_hold그럼 _fast <= aes_ct;
   end
+  */
+
+  // aes_ct is already a fast-domain register output from u_aes and remains
+  // stable after done until the next transaction, so a second 128-bit shadow
+  // capture is unnecessary and creates a large aes_done_pulse-driven fanout.
+  wire [127:0] ct_fast_bus = aes_ct;
 
   // CDC handshake: fast -> div2
   wire ct_xfer_pulse_div2;
@@ -169,7 +176,7 @@ module soc_ctrl_multiclk_soc (
   reg [127:0] ct_hold_div2;
   always @(posedge clk_div2 or negedge rst_n) begin
     if (!rst_n) ct_hold_div2 <= 128'd0;
-    else if (ct_xfer_pulse_div2) ct_hold_div2 <= ct_hold_fast;
+    else if (ct_xfer_pulse_div2) ct_hold_div2 <= ct_fast_bus;
   end
 
   // CRC engine

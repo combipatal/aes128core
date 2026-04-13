@@ -268,7 +268,7 @@ module aes128_core (
       done <= 1'b0;
 
       if (start && !busy) begin
-        rkeys <= expand_key128(key_in);
+기        rkeys <= expand_key128(key_in);
         state <= pt_in ^ get_rk(expand_key128(key_in), 0);
         round <= 4'd1;
         busy  <= 1'b1;

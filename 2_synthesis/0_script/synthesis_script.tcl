@@ -58,9 +58,22 @@ set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 # easy drc 
 set_auto_disable_drc_nets -all 
 
-compile_ultra -scan
+#
+# Original aggressive flow kept for reference.
+#
+# compile_ultra -scan
+# set_critical_range 1.0 [current_design]
+# compile_ultra -scan -incremental
+
+# Preserve controller/AES hierarchy so FF-corner remapping does not
+# aggressively restructure the same logic into a very different netlist.
+set_ungroup [get_cells u_ctrl] false
+set_ungroup [get_cells u_ctrl/u_aes] false
+
+# Keep the compile flow close to the original, but disable auto-ungrouping.
+compile_ultra -scan -no_autoungroup
 set_critical_range 1.0 [current_design]
-compile_ultra -scan -incremental
+compile_ultra -scan -incremental -no_autoungroup
 
 
 report_qor                          > ./4_report/$ver/qor.rpt

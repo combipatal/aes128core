@@ -1,0 +1,49 @@
+ 
+****************************************
+Report : area
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Mon Apr 13 14:41:52 2026
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_ff1p16v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16v125c.db)
+    saed32sram_ff1p16v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16v125c.db)
+    saed32pll_ff1p16v125c_2p75v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16v125c_2p75v.db)
+
+Number of ports:                          968
+Number of nets:                         15032
+Number of cells:                        14465
+Number of combinational cells:          12678
+Number of sequential cells:              1533
+Number of macros/black boxes:               2
+Number of buf/inv:                       3040
+Number of references:                       6
+
+Combinational area:              27390.369876
+Buf/Inv area:                     5335.753406
+Noncombinational area:           13997.235279
+Macro/Black Box area:            31230.701660
+Net Interconnect area:           16101.754331
+
+Total cell area:                 72618.306815
+Total area:                      88720.061145
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  -------------------  ---------------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes       Design
+--------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
+top_mcu_pll_sram_multiclk_soc     72618.3068    100.0     12.7072      0.0000  31230.7017  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            41365.7488     57.0   4930.9019   4986.8137      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      31437.6132     43.3  22441.4237   8996.1895      0.0000  aes128_core
+u_ctrl/u_icg_aes                     10.4199      0.0      5.3370      5.0829      0.0000  icg_latch
+u_div8                                9.1492      0.0      0.0000      9.1492      0.0000  clk_div2_toggle
+--------------------------------  ----------  -------  ----------  ----------  ----------  ---------------------
+Total                                                  27390.3699  13997.2353  31230.7017
+
+1
