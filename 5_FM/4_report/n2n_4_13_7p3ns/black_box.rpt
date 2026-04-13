@@ -1,0 +1,2400 @@
+**************************************************
+Report         : black_boxes
+
+Reference      : r:/WORK/top_mcu_pll_sram_multiclk_soc
+Implementation : i:/WORK/top_mcu_pll_sram_multiclk_soc
+Version        : W-2024.09-SP5
+Date           : Mon Apr 13 09:57:42 2026
+**************************************************
+Information: Reporting black boxes for current reference and implementation designs. (FM-184)
+
+ ___________________________________________________
+|                                                   |
+|  Legend:                                          |
+|           Black Box Attributes                    |
+|              s = Set with set_black_box command   |
+|              i = Module read with -interface_only |
+|              u = Unresolved design module         |
+|              e = Empty design module              |
+|              * = Unlinked design module           |
+|             ut = Unread tech cells pins           |
+|              L = Linked to non-black box design   |
+|             cp = Cutpoint blackbox                |
+|             ir = Internal rounded blackbox        |
+|              f = Formality Power Model            |
+|              m = Technology Macro cell (.db)      |
+|___________________________________________________|
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32SRAM_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m      SRAM1RW1024x8
+
+       Instances : 1 of 1
+       ------------------------
+       i:/WORK/top_mcu_pll_sram_multiclk_soc/u_mem_u_sram
+
+m      SRAM1RW1024x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW1024x8#PWR/pwrBB
+
+m *    SRAM1RW128x46
+
+       Instances : 0
+
+m      SRAM1RW128x46#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW128x46#PWR/pwrBB
+
+m *    SRAM1RW128x48
+
+       Instances : 0
+
+m      SRAM1RW128x48#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW128x48#PWR/pwrBB
+
+m *    SRAM1RW128x8
+
+       Instances : 0
+
+m      SRAM1RW128x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW128x8#PWR/pwrBB
+
+m *    SRAM1RW256x128
+
+       Instances : 0
+
+m      SRAM1RW256x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW256x128#PWR/pwrBB
+
+m *    SRAM1RW256x32
+
+       Instances : 0
+
+m      SRAM1RW256x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW256x32#PWR/pwrBB
+
+m *    SRAM1RW256x46
+
+       Instances : 0
+
+m      SRAM1RW256x46#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW256x46#PWR/pwrBB
+
+m *    SRAM1RW256x48
+
+       Instances : 0
+
+m      SRAM1RW256x48#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW256x48#PWR/pwrBB
+
+m *    SRAM1RW256x8
+
+       Instances : 0
+
+m      SRAM1RW256x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW256x8#PWR/pwrBB
+
+m *    SRAM1RW32x50
+
+       Instances : 0
+
+m      SRAM1RW32x50#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW32x50#PWR/pwrBB
+
+m *    SRAM1RW512x128
+
+       Instances : 0
+
+m      SRAM1RW512x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW512x128#PWR/pwrBB
+
+m *    SRAM1RW512x32
+
+       Instances : 0
+
+m      SRAM1RW512x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW512x32#PWR/pwrBB
+
+m *    SRAM1RW512x8
+
+       Instances : 0
+
+m      SRAM1RW512x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW512x8#PWR/pwrBB
+
+m *    SRAM1RW64x128
+
+       Instances : 0
+
+m      SRAM1RW64x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW64x128#PWR/pwrBB
+
+m *    SRAM1RW64x32
+
+       Instances : 0
+
+m      SRAM1RW64x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW64x32#PWR/pwrBB
+
+m *    SRAM1RW64x34
+
+       Instances : 0
+
+m      SRAM1RW64x34#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW64x34#PWR/pwrBB
+
+m *    SRAM1RW64x8
+
+       Instances : 0
+
+m      SRAM1RW64x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM1RW64x8#PWR/pwrBB
+
+m *    SRAM2RW128x16
+
+       Instances : 0
+
+m      SRAM2RW128x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW128x16#PWR/pwrBB
+
+m *    SRAM2RW128x32
+
+       Instances : 0
+
+m      SRAM2RW128x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW128x32#PWR/pwrBB
+
+m *    SRAM2RW128x4
+
+       Instances : 0
+
+m      SRAM2RW128x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW128x4#PWR/pwrBB
+
+m *    SRAM2RW128x8
+
+       Instances : 0
+
+m      SRAM2RW128x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW128x8#PWR/pwrBB
+
+m *    SRAM2RW16x16
+
+       Instances : 0
+
+m      SRAM2RW16x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW16x16#PWR/pwrBB
+
+m *    SRAM2RW16x32
+
+       Instances : 0
+
+m      SRAM2RW16x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW16x32#PWR/pwrBB
+
+m *    SRAM2RW16x4
+
+       Instances : 0
+
+m      SRAM2RW16x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW16x4#PWR/pwrBB
+
+m *    SRAM2RW16x8
+
+       Instances : 0
+
+m      SRAM2RW16x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW16x8#PWR/pwrBB
+
+m *    SRAM2RW32x16
+
+       Instances : 0
+
+m      SRAM2RW32x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x16#PWR/pwrBB
+
+m *    SRAM2RW32x22
+
+       Instances : 0
+
+m      SRAM2RW32x22#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x22#PWR/pwrBB
+
+m *    SRAM2RW32x32
+
+       Instances : 0
+
+m      SRAM2RW32x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x32#PWR/pwrBB
+
+m *    SRAM2RW32x39
+
+       Instances : 0
+
+m      SRAM2RW32x39#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x39#PWR/pwrBB
+
+m *    SRAM2RW32x4
+
+       Instances : 0
+
+m      SRAM2RW32x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x4#PWR/pwrBB
+
+m *    SRAM2RW32x8
+
+       Instances : 0
+
+m      SRAM2RW32x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW32x8#PWR/pwrBB
+
+m *    SRAM2RW64x16
+
+       Instances : 0
+
+m      SRAM2RW64x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW64x16#PWR/pwrBB
+
+m *    SRAM2RW64x32
+
+       Instances : 0
+
+m      SRAM2RW64x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW64x32#PWR/pwrBB
+
+m *    SRAM2RW64x4
+
+       Instances : 0
+
+m      SRAM2RW64x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW64x4#PWR/pwrBB
+
+m *    SRAM2RW64x8
+
+       Instances : 0
+
+m      SRAM2RW64x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32SRAM_SS0P95V125C/SRAM2RW64x8#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32PLL_SS0P95V125C_2P25V
+##################################################################
+Type  Design Name
+----  ----------
+m      PLL
+
+       Instances : 1 of 1
+       ------------------------
+       i:/WORK/top_mcu_pll_sram_multiclk_soc/u_pll
+
+m      PLL#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32PLL_SS0P95V125C_2P25V/PLL#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32IO_FC_SS0P95V125C_2P25V
+##################################################################
+Type  Design Name
+----  ----------
+m *    A1825
+
+       Instances : 0
+
+m      A1825#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32IO_FC_SS0P95V125C_2P25V/A1825#PWR/pwrBB
+
+m *    AR1825
+
+       Instances : 0
+
+m      AR1825#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32IO_FC_SS0P95V125C_2P25V/AR1825#PWR/pwrBB
+
+m *    AVDD_EW
+
+       Instances : 0
+
+m *    AVDD_EW#PWR
+
+       Instances : 0
+
+m *    AVDD_NS
+
+       Instances : 0
+
+m *    AVDD_NS#PWR
+
+       Instances : 0
+
+m *    AVSS_EW
+
+       Instances : 0
+
+m *    AVSS_EW#PWR
+
+       Instances : 0
+
+m *    AVSS_NS
+
+       Instances : 0
+
+m *    AVSS_NS#PWR
+
+       Instances : 0
+
+m *    BONDPAD
+
+       Instances : 0
+
+m      BONDPAD#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32IO_FC_SS0P95V125C_2P25V/BONDPAD#PWR/pwrBB
+
+m *    BREAKCORE
+
+       Instances : 0
+
+m      BREAKCORE#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32IO_FC_SS0P95V125C_2P25V/BREAKCORE#PWR/pwrBB
+
+m *    BREAKIO
+
+       Instances : 0
+
+m      BREAKIO#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32IO_FC_SS0P95V125C_2P25V/BREAKIO#PWR/pwrBB
+
+m *    BUMP
+
+       Instances : 0
+
+m *    BUMP_G
+
+       Instances : 0
+
+m *    BUMP_P
+
+       Instances : 0
+
+m *    CAPCORNER
+
+       Instances : 0
+
+m *    CAPCORNER#PWR
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_EW
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_EW#PWR
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_NS
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_NS#PWR
+
+       Instances : 0
+
+m *    CORNER
+
+       Instances : 0
+
+m *    CORNER#PWR
+
+       Instances : 0
+
+m *    CVDDVSS_EW
+
+       Instances : 0
+
+m *    CVDDVSS_EW#PWR
+
+       Instances : 0
+
+m *    CVDDVSS_NS
+
+       Instances : 0
+
+m *    CVDDVSS_NS#PWR
+
+       Instances : 0
+
+m *    DIOVSSVSS
+
+       Instances : 0
+
+m *    DIOVSSVSS#PWR
+
+       Instances : 0
+
+m *    FILLER
+
+       Instances : 0
+
+m *    FILLER#PWR
+
+       Instances : 0
+
+m *    FILLER01
+
+       Instances : 0
+
+m *    FILLER01#PWR
+
+       Instances : 0
+
+m *    FILLER1
+
+       Instances : 0
+
+m *    FILLER1#PWR
+
+       Instances : 0
+
+m *    FILLER10
+
+       Instances : 0
+
+m *    FILLER10#PWR
+
+       Instances : 0
+
+m *    FILLER15
+
+       Instances : 0
+
+m *    FILLER15#PWR
+
+       Instances : 0
+
+m *    FILLER20
+
+       Instances : 0
+
+m *    FILLER20#PWR
+
+       Instances : 0
+
+m *    FILLER35
+
+       Instances : 0
+
+m *    FILLER35#PWR
+
+       Instances : 0
+
+m *    FILLER40
+
+       Instances : 0
+
+m *    FILLER40#PWR
+
+       Instances : 0
+
+m *    FILLER5
+
+       Instances : 0
+
+m *    FILLER5#PWR
+
+       Instances : 0
+
+m *    FILLER50
+
+       Instances : 0
+
+m *    FILLER50#PWR
+
+       Instances : 0
+
+m *    IOVDD_EW
+
+       Instances : 0
+
+m *    IOVDD_EW#PWR
+
+       Instances : 0
+
+m *    IOVDD_NS
+
+       Instances : 0
+
+m *    IOVDD_NS#PWR
+
+       Instances : 0
+
+m *    IOVSS_EW
+
+       Instances : 0
+
+m *    IOVSS_EW#PWR
+
+       Instances : 0
+
+m *    IOVSS_NS
+
+       Instances : 0
+
+m *    IOVSS_NS#PWR
+
+       Instances : 0
+
+m *    VDD_EW
+
+       Instances : 0
+
+m *    VDD_EW#PWR
+
+       Instances : 0
+
+m *    VDD_NS
+
+       Instances : 0
+
+m *    VDD_NS#PWR
+
+       Instances : 0
+
+m *    VSS_EW
+
+       Instances : 0
+
+m *    VSS_EW#PWR
+
+       Instances : 0
+
+m *    VSS_NS
+
+       Instances : 0
+
+m *    VSS_NS#PWR
+
+       Instances : 0
+
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32LVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_LVT
+
+       Instances : 0
+
+m      ANTENNA_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/ANTENNA_LVT#PWR/pwrBB
+
+m      BSLEX1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX1_LVT#PWR/pwrBB
+
+m      BSLEX1_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX1_LVT/pwrBB
+
+m      BSLEX2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX2_LVT#PWR/pwrBB
+
+m      BSLEX2_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX2_LVT/pwrBB
+
+m      BSLEX4_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX4_LVT#PWR/pwrBB
+
+m      BSLEX4_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BSLEX4_LVT/pwrBB
+
+m *    BUSKP_LVT
+
+       Instances : 0
+
+m      BUSKP_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/BUSKP_LVT#PWR/pwrBB
+
+m *    CLOAD1_LVT
+
+       Instances : 0
+
+m      CLOAD1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/CLOAD1_LVT#PWR/pwrBB
+
+m *    NMT1_LVT
+
+       Instances : 0
+
+m      NMT1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/NMT1_LVT#PWR/pwrBB
+
+m *    NMT2_LVT
+
+       Instances : 0
+
+m      NMT2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/NMT2_LVT#PWR/pwrBB
+
+m *    NMT3_LVT
+
+       Instances : 0
+
+m      NMT3_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/NMT3_LVT#PWR/pwrBB
+
+m      PGX1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX1_LVT#PWR/pwrBB
+
+m      PGX1_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX1_LVT/pwrBB
+
+m      PGX2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX2_LVT#PWR/pwrBB
+
+m      PGX2_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX2_LVT/pwrBB
+
+m      PGX4_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX4_LVT#PWR/pwrBB
+
+m      PGX4_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PGX4_LVT/pwrBB
+
+m *    PMT1_LVT
+
+       Instances : 0
+
+m      PMT1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PMT1_LVT#PWR/pwrBB
+
+m *    PMT2_LVT
+
+       Instances : 0
+
+m      PMT2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PMT2_LVT#PWR/pwrBB
+
+m *    PMT3_LVT
+
+       Instances : 0
+
+m      PMT3_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32LVT_SS0P95V125C/PMT3_LVT#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32HVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_HVT
+
+       Instances : 0
+
+m      ANTENNA_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/ANTENNA_HVT#PWR/pwrBB
+
+m      BSLEX1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX1_HVT#PWR/pwrBB
+
+m      BSLEX1_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX1_HVT/pwrBB
+
+m      BSLEX2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX2_HVT#PWR/pwrBB
+
+m      BSLEX2_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX2_HVT/pwrBB
+
+m      BSLEX4_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX4_HVT#PWR/pwrBB
+
+m      BSLEX4_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BSLEX4_HVT/pwrBB
+
+m *    BUSKP_HVT
+
+       Instances : 0
+
+m      BUSKP_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/BUSKP_HVT#PWR/pwrBB
+
+m *    CLOAD1_HVT
+
+       Instances : 0
+
+m      CLOAD1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/CLOAD1_HVT#PWR/pwrBB
+
+m *    NMT1_HVT
+
+       Instances : 0
+
+m      NMT1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/NMT1_HVT#PWR/pwrBB
+
+m *    NMT2_HVT
+
+       Instances : 0
+
+m      NMT2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/NMT2_HVT#PWR/pwrBB
+
+m *    NMT3_HVT
+
+       Instances : 0
+
+m      NMT3_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/NMT3_HVT#PWR/pwrBB
+
+m      PGX1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX1_HVT#PWR/pwrBB
+
+m      PGX1_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX1_HVT/pwrBB
+
+m      PGX2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX2_HVT#PWR/pwrBB
+
+m      PGX2_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX2_HVT/pwrBB
+
+m      PGX4_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX4_HVT#PWR/pwrBB
+
+m      PGX4_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PGX4_HVT/pwrBB
+
+m *    PMT1_HVT
+
+       Instances : 0
+
+m      PMT1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PMT1_HVT#PWR/pwrBB
+
+m *    PMT2_HVT
+
+       Instances : 0
+
+m      PMT2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PMT2_HVT#PWR/pwrBB
+
+m *    PMT3_HVT
+
+       Instances : 0
+
+m      PMT3_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32HVT_SS0P95V125C/PMT3_HVT#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - i:/SAED32RVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_RVT
+
+       Instances : 0
+
+m      ANTENNA_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/ANTENNA_RVT#PWR/pwrBB
+
+m      BSLEX1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX1_RVT#PWR/pwrBB
+
+m      BSLEX1_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX1_RVT/pwrBB
+
+m      BSLEX2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX2_RVT#PWR/pwrBB
+
+m      BSLEX2_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX2_RVT/pwrBB
+
+m      BSLEX4_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX4_RVT#PWR/pwrBB
+
+m      BSLEX4_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BSLEX4_RVT/pwrBB
+
+m *    BUSKP_RVT
+
+       Instances : 0
+
+m      BUSKP_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/BUSKP_RVT#PWR/pwrBB
+
+m *    CLOAD1_RVT
+
+       Instances : 0
+
+m      CLOAD1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/CLOAD1_RVT#PWR/pwrBB
+
+m *    NMT1_RVT
+
+       Instances : 0
+
+m      NMT1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/NMT1_RVT#PWR/pwrBB
+
+m *    NMT2_RVT
+
+       Instances : 0
+
+m      NMT2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/NMT2_RVT#PWR/pwrBB
+
+m *    NMT3_RVT
+
+       Instances : 0
+
+m      NMT3_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/NMT3_RVT#PWR/pwrBB
+
+m      PGX1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX1_RVT#PWR/pwrBB
+
+m      PGX1_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX1_RVT/pwrBB
+
+m      PGX2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX2_RVT#PWR/pwrBB
+
+m      PGX2_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX2_RVT/pwrBB
+
+m      PGX4_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX4_RVT#PWR/pwrBB
+
+m      PGX4_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PGX4_RVT/pwrBB
+
+m *    PMT1_RVT
+
+       Instances : 0
+
+m      PMT1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PMT1_RVT#PWR/pwrBB
+
+m *    PMT2_RVT
+
+       Instances : 0
+
+m      PMT2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PMT2_RVT#PWR/pwrBB
+
+m *    PMT3_RVT
+
+       Instances : 0
+
+m      PMT3_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       i:/SAED32RVT_SS0P95V125C/PMT3_RVT#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32SRAM_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m      SRAM1RW1024x8
+
+       Instances : 1 of 1
+       ------------------------
+       r:/WORK/top_mcu_pll_sram_multiclk_soc/u_mem_u_sram
+
+m      SRAM1RW1024x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW1024x8#PWR/pwrBB
+
+m *    SRAM1RW128x46
+
+       Instances : 0
+
+m      SRAM1RW128x46#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW128x46#PWR/pwrBB
+
+m *    SRAM1RW128x48
+
+       Instances : 0
+
+m      SRAM1RW128x48#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW128x48#PWR/pwrBB
+
+m *    SRAM1RW128x8
+
+       Instances : 0
+
+m      SRAM1RW128x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW128x8#PWR/pwrBB
+
+m *    SRAM1RW256x128
+
+       Instances : 0
+
+m      SRAM1RW256x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW256x128#PWR/pwrBB
+
+m *    SRAM1RW256x32
+
+       Instances : 0
+
+m      SRAM1RW256x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW256x32#PWR/pwrBB
+
+m *    SRAM1RW256x46
+
+       Instances : 0
+
+m      SRAM1RW256x46#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW256x46#PWR/pwrBB
+
+m *    SRAM1RW256x48
+
+       Instances : 0
+
+m      SRAM1RW256x48#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW256x48#PWR/pwrBB
+
+m *    SRAM1RW256x8
+
+       Instances : 0
+
+m      SRAM1RW256x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW256x8#PWR/pwrBB
+
+m *    SRAM1RW32x50
+
+       Instances : 0
+
+m      SRAM1RW32x50#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW32x50#PWR/pwrBB
+
+m *    SRAM1RW512x128
+
+       Instances : 0
+
+m      SRAM1RW512x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW512x128#PWR/pwrBB
+
+m *    SRAM1RW512x32
+
+       Instances : 0
+
+m      SRAM1RW512x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW512x32#PWR/pwrBB
+
+m *    SRAM1RW512x8
+
+       Instances : 0
+
+m      SRAM1RW512x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW512x8#PWR/pwrBB
+
+m *    SRAM1RW64x128
+
+       Instances : 0
+
+m      SRAM1RW64x128#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW64x128#PWR/pwrBB
+
+m *    SRAM1RW64x32
+
+       Instances : 0
+
+m      SRAM1RW64x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW64x32#PWR/pwrBB
+
+m *    SRAM1RW64x34
+
+       Instances : 0
+
+m      SRAM1RW64x34#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW64x34#PWR/pwrBB
+
+m *    SRAM1RW64x8
+
+       Instances : 0
+
+m      SRAM1RW64x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM1RW64x8#PWR/pwrBB
+
+m *    SRAM2RW128x16
+
+       Instances : 0
+
+m      SRAM2RW128x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW128x16#PWR/pwrBB
+
+m *    SRAM2RW128x32
+
+       Instances : 0
+
+m      SRAM2RW128x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW128x32#PWR/pwrBB
+
+m *    SRAM2RW128x4
+
+       Instances : 0
+
+m      SRAM2RW128x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW128x4#PWR/pwrBB
+
+m *    SRAM2RW128x8
+
+       Instances : 0
+
+m      SRAM2RW128x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW128x8#PWR/pwrBB
+
+m *    SRAM2RW16x16
+
+       Instances : 0
+
+m      SRAM2RW16x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW16x16#PWR/pwrBB
+
+m *    SRAM2RW16x32
+
+       Instances : 0
+
+m      SRAM2RW16x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW16x32#PWR/pwrBB
+
+m *    SRAM2RW16x4
+
+       Instances : 0
+
+m      SRAM2RW16x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW16x4#PWR/pwrBB
+
+m *    SRAM2RW16x8
+
+       Instances : 0
+
+m      SRAM2RW16x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW16x8#PWR/pwrBB
+
+m *    SRAM2RW32x16
+
+       Instances : 0
+
+m      SRAM2RW32x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x16#PWR/pwrBB
+
+m *    SRAM2RW32x22
+
+       Instances : 0
+
+m      SRAM2RW32x22#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x22#PWR/pwrBB
+
+m *    SRAM2RW32x32
+
+       Instances : 0
+
+m      SRAM2RW32x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x32#PWR/pwrBB
+
+m *    SRAM2RW32x39
+
+       Instances : 0
+
+m      SRAM2RW32x39#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x39#PWR/pwrBB
+
+m *    SRAM2RW32x4
+
+       Instances : 0
+
+m      SRAM2RW32x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x4#PWR/pwrBB
+
+m *    SRAM2RW32x8
+
+       Instances : 0
+
+m      SRAM2RW32x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW32x8#PWR/pwrBB
+
+m *    SRAM2RW64x16
+
+       Instances : 0
+
+m      SRAM2RW64x16#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW64x16#PWR/pwrBB
+
+m *    SRAM2RW64x32
+
+       Instances : 0
+
+m      SRAM2RW64x32#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW64x32#PWR/pwrBB
+
+m *    SRAM2RW64x4
+
+       Instances : 0
+
+m      SRAM2RW64x4#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW64x4#PWR/pwrBB
+
+m *    SRAM2RW64x8
+
+       Instances : 0
+
+m      SRAM2RW64x8#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32SRAM_SS0P95V125C/SRAM2RW64x8#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32PLL_SS0P95V125C_2P25V
+##################################################################
+Type  Design Name
+----  ----------
+m      PLL
+
+       Instances : 1 of 1
+       ------------------------
+       r:/WORK/top_mcu_pll_sram_multiclk_soc/u_pll
+
+m      PLL#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32PLL_SS0P95V125C_2P25V/PLL#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32IO_FC_SS0P95V125C_2P25V
+##################################################################
+Type  Design Name
+----  ----------
+m *    A1825
+
+       Instances : 0
+
+m      A1825#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32IO_FC_SS0P95V125C_2P25V/A1825#PWR/pwrBB
+
+m *    AR1825
+
+       Instances : 0
+
+m      AR1825#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32IO_FC_SS0P95V125C_2P25V/AR1825#PWR/pwrBB
+
+m *    AVDD_EW
+
+       Instances : 0
+
+m *    AVDD_EW#PWR
+
+       Instances : 0
+
+m *    AVDD_NS
+
+       Instances : 0
+
+m *    AVDD_NS#PWR
+
+       Instances : 0
+
+m *    AVSS_EW
+
+       Instances : 0
+
+m *    AVSS_EW#PWR
+
+       Instances : 0
+
+m *    AVSS_NS
+
+       Instances : 0
+
+m *    AVSS_NS#PWR
+
+       Instances : 0
+
+m *    BONDPAD
+
+       Instances : 0
+
+m      BONDPAD#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32IO_FC_SS0P95V125C_2P25V/BONDPAD#PWR/pwrBB
+
+m *    BREAKCORE
+
+       Instances : 0
+
+m      BREAKCORE#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32IO_FC_SS0P95V125C_2P25V/BREAKCORE#PWR/pwrBB
+
+m *    BREAKIO
+
+       Instances : 0
+
+m      BREAKIO#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32IO_FC_SS0P95V125C_2P25V/BREAKIO#PWR/pwrBB
+
+m *    BUMP
+
+       Instances : 0
+
+m *    BUMP_G
+
+       Instances : 0
+
+m *    BUMP_P
+
+       Instances : 0
+
+m *    CAPCORNER
+
+       Instances : 0
+
+m *    CAPCORNER#PWR
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_EW
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_EW#PWR
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_NS
+
+       Instances : 0
+
+m *    CIOVDDIOVSS_NS#PWR
+
+       Instances : 0
+
+m *    CORNER
+
+       Instances : 0
+
+m *    CORNER#PWR
+
+       Instances : 0
+
+m *    CVDDVSS_EW
+
+       Instances : 0
+
+m *    CVDDVSS_EW#PWR
+
+       Instances : 0
+
+m *    CVDDVSS_NS
+
+       Instances : 0
+
+m *    CVDDVSS_NS#PWR
+
+       Instances : 0
+
+m *    DIOVSSVSS
+
+       Instances : 0
+
+m *    DIOVSSVSS#PWR
+
+       Instances : 0
+
+m *    FILLER
+
+       Instances : 0
+
+m *    FILLER#PWR
+
+       Instances : 0
+
+m *    FILLER01
+
+       Instances : 0
+
+m *    FILLER01#PWR
+
+       Instances : 0
+
+m *    FILLER1
+
+       Instances : 0
+
+m *    FILLER1#PWR
+
+       Instances : 0
+
+m *    FILLER10
+
+       Instances : 0
+
+m *    FILLER10#PWR
+
+       Instances : 0
+
+m *    FILLER15
+
+       Instances : 0
+
+m *    FILLER15#PWR
+
+       Instances : 0
+
+m *    FILLER20
+
+       Instances : 0
+
+m *    FILLER20#PWR
+
+       Instances : 0
+
+m *    FILLER35
+
+       Instances : 0
+
+m *    FILLER35#PWR
+
+       Instances : 0
+
+m *    FILLER40
+
+       Instances : 0
+
+m *    FILLER40#PWR
+
+       Instances : 0
+
+m *    FILLER5
+
+       Instances : 0
+
+m *    FILLER5#PWR
+
+       Instances : 0
+
+m *    FILLER50
+
+       Instances : 0
+
+m *    FILLER50#PWR
+
+       Instances : 0
+
+m *    IOVDD_EW
+
+       Instances : 0
+
+m *    IOVDD_EW#PWR
+
+       Instances : 0
+
+m *    IOVDD_NS
+
+       Instances : 0
+
+m *    IOVDD_NS#PWR
+
+       Instances : 0
+
+m *    IOVSS_EW
+
+       Instances : 0
+
+m *    IOVSS_EW#PWR
+
+       Instances : 0
+
+m *    IOVSS_NS
+
+       Instances : 0
+
+m *    IOVSS_NS#PWR
+
+       Instances : 0
+
+m *    VDD_EW
+
+       Instances : 0
+
+m *    VDD_EW#PWR
+
+       Instances : 0
+
+m *    VDD_NS
+
+       Instances : 0
+
+m *    VDD_NS#PWR
+
+       Instances : 0
+
+m *    VSS_EW
+
+       Instances : 0
+
+m *    VSS_EW#PWR
+
+       Instances : 0
+
+m *    VSS_NS
+
+       Instances : 0
+
+m *    VSS_NS#PWR
+
+       Instances : 0
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32LVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_LVT
+
+       Instances : 0
+
+m      ANTENNA_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/ANTENNA_LVT#PWR/pwrBB
+
+m      BSLEX1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX1_LVT#PWR/pwrBB
+
+m      BSLEX1_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX1_LVT/pwrBB
+
+m      BSLEX2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX2_LVT#PWR/pwrBB
+
+m      BSLEX2_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX2_LVT/pwrBB
+
+m      BSLEX4_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX4_LVT#PWR/pwrBB
+
+m      BSLEX4_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BSLEX4_LVT/pwrBB
+
+m *    BUSKP_LVT
+
+       Instances : 0
+
+m      BUSKP_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/BUSKP_LVT#PWR/pwrBB
+
+m *    CLOAD1_LVT
+
+       Instances : 0
+
+m      CLOAD1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/CLOAD1_LVT#PWR/pwrBB
+
+m *    NMT1_LVT
+
+       Instances : 0
+
+m      NMT1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/NMT1_LVT#PWR/pwrBB
+
+m *    NMT2_LVT
+
+       Instances : 0
+
+m      NMT2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/NMT2_LVT#PWR/pwrBB
+
+m *    NMT3_LVT
+
+       Instances : 0
+
+m      NMT3_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/NMT3_LVT#PWR/pwrBB
+
+m      PGX1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX1_LVT#PWR/pwrBB
+
+m      PGX1_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX1_LVT/pwrBB
+
+m      PGX2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX2_LVT#PWR/pwrBB
+
+m      PGX2_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX2_LVT/pwrBB
+
+m      PGX4_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX4_LVT#PWR/pwrBB
+
+m      PGX4_LVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PGX4_LVT/pwrBB
+
+m *    PMT1_LVT
+
+       Instances : 0
+
+m      PMT1_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PMT1_LVT#PWR/pwrBB
+
+m *    PMT2_LVT
+
+       Instances : 0
+
+m      PMT2_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PMT2_LVT#PWR/pwrBB
+
+m *    PMT3_LVT
+
+       Instances : 0
+
+m      PMT3_LVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32LVT_SS0P95V125C/PMT3_LVT#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32HVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_HVT
+
+       Instances : 0
+
+m      ANTENNA_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/ANTENNA_HVT#PWR/pwrBB
+
+m      BSLEX1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX1_HVT#PWR/pwrBB
+
+m      BSLEX1_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX1_HVT/pwrBB
+
+m      BSLEX2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX2_HVT#PWR/pwrBB
+
+m      BSLEX2_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX2_HVT/pwrBB
+
+m      BSLEX4_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX4_HVT#PWR/pwrBB
+
+m      BSLEX4_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BSLEX4_HVT/pwrBB
+
+m *    BUSKP_HVT
+
+       Instances : 0
+
+m      BUSKP_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/BUSKP_HVT#PWR/pwrBB
+
+m *    CLOAD1_HVT
+
+       Instances : 0
+
+m      CLOAD1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/CLOAD1_HVT#PWR/pwrBB
+
+m *    NMT1_HVT
+
+       Instances : 0
+
+m      NMT1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/NMT1_HVT#PWR/pwrBB
+
+m *    NMT2_HVT
+
+       Instances : 0
+
+m      NMT2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/NMT2_HVT#PWR/pwrBB
+
+m *    NMT3_HVT
+
+       Instances : 0
+
+m      NMT3_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/NMT3_HVT#PWR/pwrBB
+
+m      PGX1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX1_HVT#PWR/pwrBB
+
+m      PGX1_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX1_HVT/pwrBB
+
+m      PGX2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX2_HVT#PWR/pwrBB
+
+m      PGX2_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX2_HVT/pwrBB
+
+m      PGX4_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX4_HVT#PWR/pwrBB
+
+m      PGX4_HVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PGX4_HVT/pwrBB
+
+m *    PMT1_HVT
+
+       Instances : 0
+
+m      PMT1_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PMT1_HVT#PWR/pwrBB
+
+m *    PMT2_HVT
+
+       Instances : 0
+
+m      PMT2_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PMT2_HVT#PWR/pwrBB
+
+m *    PMT3_HVT
+
+       Instances : 0
+
+m      PMT3_HVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32HVT_SS0P95V125C/PMT3_HVT#PWR/pwrBB
+
+
+
+##################################################################
+####    TECH LIBRARY - r:/SAED32RVT_SS0P95V125C
+##################################################################
+Type  Design Name
+----  ----------
+m *    ANTENNA_RVT
+
+       Instances : 0
+
+m      ANTENNA_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/ANTENNA_RVT#PWR/pwrBB
+
+m      BSLEX1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX1_RVT#PWR/pwrBB
+
+m      BSLEX1_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX1_RVT/pwrBB
+
+m      BSLEX2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX2_RVT#PWR/pwrBB
+
+m      BSLEX2_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX2_RVT/pwrBB
+
+m      BSLEX4_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX4_RVT#PWR/pwrBB
+
+m      BSLEX4_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BSLEX4_RVT/pwrBB
+
+m *    BUSKP_RVT
+
+       Instances : 0
+
+m      BUSKP_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/BUSKP_RVT#PWR/pwrBB
+
+m *    CLOAD1_RVT
+
+       Instances : 0
+
+m      CLOAD1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/CLOAD1_RVT#PWR/pwrBB
+
+m *    NMT1_RVT
+
+       Instances : 0
+
+m      NMT1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/NMT1_RVT#PWR/pwrBB
+
+m *    NMT2_RVT
+
+       Instances : 0
+
+m      NMT2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/NMT2_RVT#PWR/pwrBB
+
+m *    NMT3_RVT
+
+       Instances : 0
+
+m      NMT3_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/NMT3_RVT#PWR/pwrBB
+
+m      PGX1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX1_RVT#PWR/pwrBB
+
+m      PGX1_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX1_RVT/pwrBB
+
+m      PGX2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX2_RVT#PWR/pwrBB
+
+m      PGX2_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX2_RVT/pwrBB
+
+m      PGX4_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX4_RVT#PWR/pwrBB
+
+m      PGX4_RVT_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PGX4_RVT/pwrBB
+
+m *    PMT1_RVT
+
+       Instances : 0
+
+m      PMT1_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PMT1_RVT#PWR/pwrBB
+
+m *    PMT2_RVT
+
+       Instances : 0
+
+m      PMT2_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PMT2_RVT#PWR/pwrBB
+
+m *    PMT3_RVT
+
+       Instances : 0
+
+m      PMT3_RVT#PWR_FM_BBOX
+
+       Instances : 1 of 1
+       ------------------------
+       r:/SAED32RVT_SS0P95V125C/PMT3_RVT#PWR/pwrBB
+
+
+1

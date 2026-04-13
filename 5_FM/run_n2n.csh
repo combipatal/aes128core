@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 # 기본 DFT 버전과 FM 결과 폴더 이름을 환경변수로 제어한다.
-if ( ! $?ver ) setenv ver 4_12_7p3ns
+if ( ! $?ver ) setenv ver 4_13_7p3ns
 if ( ! $?fm_ver ) setenv fm_ver n2n_${ver}
 
 # FM 결과물 저장 경로를 미리 만들어서 실행 중 경로 오류를 막는다.

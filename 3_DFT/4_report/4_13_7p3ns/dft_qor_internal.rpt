@@ -1,0 +1,150 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Mon Apr 13 09:51:16 2026
+****************************************
+
+
+  Timing Path Group 'INS'
+  -----------------------------------
+  Levels of Logic:               3.00
+  Critical Path Length:          0.26
+  Critical Path Slack:           0.24
+  Critical Path Clk Period:      1.83
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'OUTS'
+  -----------------------------------
+  Levels of Logic:               0.00
+  Critical Path Length:          0.17
+  Critical Path Slack:           0.46
+  Critical Path Clk Period:      7.30
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div2'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.26
+  Critical Path Slack:           1.24
+  Critical Path Clk Period:      3.65
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:         -0.02
+  Total Hold Violation:         -0.23
+  No. of Hold Violations:       12.00
+  -----------------------------------
+
+  Timing Path Group 'clk_div4'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.20
+  Critical Path Slack:           1.30
+  Critical Path Clk Period:      7.30
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_fast'
+  -----------------------------------
+  Levels of Logic:               1.00
+  Critical Path Length:          0.23
+  Critical Path Slack:           0.48
+  Critical Path Clk Period:      1.83
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+  Timing Path Group 'clk_fast_aes'
+  -----------------------------------
+  Levels of Logic:              17.00
+  Critical Path Length:          1.50
+  Critical Path Slack:           0.00
+  Critical Path Clk Period:      1.83
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          4
+  Hierarchical Port Count:        704
+  Leaf Cell Count:              12873
+  Buf/Inv Cell Count:            1436
+  Buf Cell Count:                 139
+  Inv Cell Count:                1297
+  CT Buf/Inv Cell Count:            1
+  Combinational Cell Count:     11338
+  Sequential Cell Count:         1535
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    24594.277513
+  Noncombinational Area: 14000.793291
+  Buf/Inv Area:           2004.687888
+  Total Buffer Area:           319.71
+  Total Inverter Area:        1684.97
+  Macro/Black Box Area:  31230.701660
+  Net Area:              18366.833524
+  -----------------------------------
+  Cell Area:             69825.772464
+  Design Area:           88192.605988
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         13223
+  Nets With Violations:             0
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  -----------------------------------
+
+
+  Hostname: SGP3
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    0.00
+  Logic Optimization:                  0.17
+  Mapping Optimization:                1.60
+  -----------------------------------------
+  Overall Compile Time:                7.01
+  Overall Compile Wall Clock Time:     7.67
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.02  TNS: 0.23  Number of Violating Paths: 12
+
+  --------------------------------------------------------------------
+
+
+1

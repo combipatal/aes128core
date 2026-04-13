@@ -1,4 +1,4 @@
-if ( ! $?ver ) setenv ver 4_12_7p3ns
+if ( ! $?ver ) setenv ver 4_13_7p3ns
 source ../.synopsys_dc.setup
 
 mkdir -p ./2_output/${ver}

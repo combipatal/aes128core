@@ -1,10 +1,10 @@
 #!/bin/csh -f
 
 # STA run configuration
-if ( ! $?ver ) setenv ver 4_12_7p3ns
+if ( ! $?ver ) setenv ver 4_13_7p3ns
 setenv corner ss0p95v125c
 setenv mode pre
-if ( ! $?sta_scenario ) setenv sta_scenario func
+if ( ! $?sta_scenario ) setenv sta_scenario scan_capture
 setenv run_mode pre
 setenv hier_mode top
 setenv design_name top_mcu_pll_sram_multiclk_soc

@@ -167,7 +167,7 @@ model		: 207
 model name	: INTEL(R) XEON(R) GOLD 6548Y+
 stepping	: 2
 microcode	: 0x210002c0
-cpu MHz		: 3968.376
+cpu MHz		: 4100.000
 cache size	: 61440 KB
 physical id	: 0
 siblings	: 64
@@ -464,7 +464,7 @@ model		: 207
 model name	: INTEL(R) XEON(R) GOLD 6548Y+
 stepping	: 2
 microcode	: 0x210002c0
-cpu MHz		: 4100.000
+cpu MHz		: 4036.554
 cache size	: 61440 KB
 physical id	: 1
 siblings	: 64
@@ -977,7 +977,7 @@ model		: 207
 model name	: INTEL(R) XEON(R) GOLD 6548Y+
 stepping	: 2
 microcode	: 0x210002c0
-cpu MHz		: 4054.920
+cpu MHz		: 4100.000
 cache size	: 61440 KB
 physical id	: 0
 siblings	: 64
@@ -2786,7 +2786,7 @@ model		: 207
 model name	: INTEL(R) XEON(R) GOLD 6548Y+
 stepping	: 2
 microcode	: 0x210002c0
-cpu MHz		: 4081.322
+cpu MHz		: 4100.000
 cache size	: 61440 KB
 physical id	: 1
 siblings	: 64
