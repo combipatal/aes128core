@@ -45,7 +45,7 @@ set_dont_use [get_lib_cells */LAR*]
 set verilogout_no_tri true
 
 # block box 
-set_dont_touch [get_cells u_mem]
+set_dont_touch [get_cells u_mem/u_sram]
 set_dont_touch [get_cells u_pll]
 
 # grup path name 

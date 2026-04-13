@@ -1,4 +1,4 @@
-if ( ! $?ver ) setenv ver 4_12_7p3ns
+if ( ! $?ver ) setenv ver 4_13_7p3ns
 if ( ! $?clk_period ) setenv clk_period 7.3
 mkdir -p 3_log
 source ../.synopsys_dc.setup
