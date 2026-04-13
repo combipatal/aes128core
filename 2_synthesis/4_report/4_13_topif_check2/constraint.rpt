@@ -1,0 +1,50 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Mon Apr 13 11:30:33 2026
+****************************************
+
+
+   min_delay/hold ('clk_div2' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   u_mem/u_sram/A[0]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[1]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[2]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/A[3]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[0]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[1]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[2]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[3]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[4]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[5]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[6]            0.18           0.15 f        -0.02  (VIOLATED)
+   u_mem/u_sram/I[7]            0.18           0.15 f        -0.02  (VIOLATED)
+
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   u_ctrl/n1394                 8.00          12.03          -4.03  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                  -4.03  
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       2663430912.00  -2663430912.00
+                                                                    (VIOLATED)
+
+
+1

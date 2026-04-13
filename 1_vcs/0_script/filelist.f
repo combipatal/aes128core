@@ -10,4 +10,5 @@
 ../0_rtl/top_mcu_pll_sram_multiclk_soc.v
 ../0_rtl/uart_rx.v
 ../0_rtl/uart_tx.v
+1_input/tb/top_mcu_pll_sram_multiclk_soc_tbwrap.sv
 1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv

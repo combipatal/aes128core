@@ -39,7 +39,7 @@ module tb_top_mcu_pll_sram_multiclk_soc;
   reg [127:0] expected_ct;
   reg [31:0]  expected_crc;
 
-  top_mcu_pll_sram_multiclk_soc dut (
+  top_mcu_pll_sram_multiclk_soc_tbwrap dut (
     .ref_clk(ref_clk),
     .rst_n(rst_n),
     .start(start),

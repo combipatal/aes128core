@@ -6,7 +6,7 @@ Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 2 high-fanout nets. A f
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Mon Apr 13 09:33:43 2026
+Date   : Mon Apr 13 11:37:31 2026
 ****************************************
 
 
@@ -133,10 +133,10 @@ Date   : Mon Apr 13 09:33:43 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.19
-  Mapping Optimization:                1.99
+  Mapping Optimization:                2.00
   -----------------------------------------
-  Overall Compile Time:                7.14
-  Overall Compile Wall Clock Time:     7.83
+  Overall Compile Time:                7.19
+  Overall Compile Wall Clock Time:     7.85
 
   --------------------------------------------------------------------
 

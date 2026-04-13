@@ -23,43 +23,43 @@
 
 현재 기준 baseline은 `4_13_7p3ns`다.
 
-- RTL/VCS known-answer regression 3종은 통과했다: [default_nist](../../aes128_core/1_vcs/4_report/default_nist/summary.log), [ext_zero](../../aes128_core/1_vcs/4_report/ext_zero/summary.log), [ext_ecb_nist](../../aes128_core/1_vcs/4_report/ext_ecb_nist/summary.log).
-- synthesis `4_13_7p3ns`는 `GTECH_NOT` 제거에 성공했고 setup clean을 유지하지만, `clk_div2` SRAM interface hold 12개가 남아 있다: [qor.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_13_7p3ns/qor.rpt:78), [area.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_13_7p3ns/area.rpt:1).
-- post-DFT func/capture/shift STA도 다시 정리되었고, 같은 hold 12개를 유지한다. `scan_shift`는 generic-cell 문제는 없어졌지만 `no_input_delay` 2개가 남아 있다: [func qor](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:98), [shift check_timing](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt:1), [shift coverage](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt:8).
-- FM은 최신 baseline에서도 r2n/n2n 모두 성공했다. 다만 n2n은 `scan_out` 1포트를 `dont_verify`로 제외한 functional equivalence 기준이다: [r2n log](/DATA/home/edu135/aes128_core/5_FM/3_log/r2n_4_13_7p3ns.log:377), [n2n log](/DATA/home/edu135/aes128_core/5_FM/3_log/n2n_4_13_7p3ns.log:275), [n2n script](/DATA/home/edu135/aes128_core/5_FM/0_script/n2n/FM_n2n_script.tcl:78).
+- RTL/VCS known-answer regression 3종은 통과했다: [summary.log](../1_vcs/4_report/default_nist/summary.log), [summary.log](../1_vcs/4_report/ext_zero/summary.log), [summary.log](../1_vcs/4_report/ext_ecb_nist/summary.log).
+- synthesis `4_13_7p3ns`는 `GTECH_NOT` 제거에 성공했고 setup clean을 유지하지만, `clk_div2` SRAM interface hold 12개가 남아 있다: [qor.rpt](../2_synthesis/4_report/4_13_7p3ns/qor.rpt), [area.rpt](../2_synthesis/4_report/4_13_7p3ns/area.rpt).
+- post-DFT func/capture/shift STA도 다시 정리되었고, 같은 hold 12개를 유지한다. `scan_shift`는 generic-cell 문제는 없어졌지만 `no_input_delay` 2개가 남아 있다: [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt), [scan_shift_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt), [scan_shift_pre_ss0p95v125c_analysis_coverage.rpt](../4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt).
+- FM은 최신 baseline에서도 r2n/n2n 모두 성공했다. 다만 n2n은 `scan_out` 1포트를 `dont_verify`로 제외한 functional equivalence 기준이다: [r2n_4_13_7p3ns.log](../5_FM/3_log/r2n_4_13_7p3ns.log), [n2n_4_13_7p3ns.log](../5_FM/3_log/n2n_4_13_7p3ns.log), [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl).
 
 ## Current Assessment
 
 ### What Is Working
 
-- 기능 검증 자체는 최소한의 E2E 신뢰도를 확보했다. 세 케이스 모두 UART 20바이트와 `done/pass`가 통과한다: [TB summary](/DATA/home/edu135/aes128_core/1_vcs/4_report/default_nist/summary.log:21), [TB case loader](/DATA/home/edu135/aes128_core/1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv:106).
-- synthesis/DFT/PT/FM까지 단계별 산출물이 끊기지 않고 존재한다. baseline 버전은 이제 `4_13_7p3ns`로 본다: [2_synthesis run](/DATA/home/edu135/aes128_core/2_synthesis/run.csh:1), [3_DFT run](/DATA/home/edu135/aes128_core/3_DFT/run.csh:1), [4_STA run](/DATA/home/edu135/aes128_core/4_STA/run.csh:4), [5_FM run_r2n](/DATA/home/edu135/aes128_core/5_FM/run_r2n.csh:4).
-- PPA sweep 자체는 의미가 있었고, `4_13_7p3ns`는 이전 `4_12_7p3ns`보다 더 clean한 netlist를 제공한다. 다만 area와 hold TNS는 약간 불리해졌다: [4_12 synthesis qor](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_12_7p3ns/qor.rpt:118), [4_13 synthesis qor](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_13_7p3ns/qor.rpt:118), [4_12 func STA](/DATA/home/edu135/aes128_core/4_STA/4_report/4_12_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:156), [4_13 func STA](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:156).
+- 기능 검증 자체는 최소한의 E2E 신뢰도를 확보했다. 세 케이스 모두 UART 20바이트와 `done/pass`가 통과한다: [summary.log](../1_vcs/4_report/default_nist/summary.log), [tb_top_mcu_pll_sram_multiclk_soc.sv](../1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv).
+- synthesis/DFT/PT/FM까지 단계별 산출물이 끊기지 않고 존재한다. baseline 버전은 이제 `4_13_7p3ns`로 본다: [run.csh](../2_synthesis/run.csh), [run.csh](../3_DFT/run.csh), [run.csh](../4_STA/run.csh), [run_r2n.csh](../5_FM/run_r2n.csh).
+- PPA sweep 자체는 의미가 있었고, `4_13_7p3ns`는 이전 `4_12_7p3ns`보다 더 clean한 netlist를 제공한다. 다만 area와 hold TNS는 약간 불리해졌다: [qor.rpt](../2_synthesis/4_report/4_12_7p3ns/qor.rpt), [qor.rpt](../2_synthesis/4_report/4_13_7p3ns/qor.rpt), [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_12_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt), [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt).
 
 ### What Must Be Fixed
 
 1. 실사용 RTL과 검증 전용 RTL intent가 섞여 있다.
-   `aes_key_ext`, `aes_pt_ext`, `aes_vec_valid`는 top/soc에서 항상 포트로 존재하지만 실제 사용은 `SIM_EXTVEC` define 아래로만 제한된다: [top](/DATA/home/edu135/aes128_core/0_rtl/top_mcu_pll_sram_multiclk_soc.v:5), [soc_ctrl](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v:476). 이 구조 때문에 synthesis `check_design`에 대량 `LINT-28` 경고가 쌓인다: [aes_chk_design.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_12_7p3ns/aes_chk_design.rpt:8).
+   `aes_key_ext`, `aes_pt_ext`, `aes_vec_valid`는 top/soc에서 항상 포트로 존재하지만 실제 사용은 `SIM_EXTVEC` define 아래로만 제한된다: [top_mcu_pll_sram_multiclk_soc.v](../0_rtl/top_mcu_pll_sram_multiclk_soc.v), [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v). 이 구조 때문에 synthesis `check_design`에 대량 `LINT-28` 경고가 쌓인다: [aes_chk_design.rpt](../2_synthesis/4_report/4_12_7p3ns/aes_chk_design.rpt).
 
 2. `u_mem` wrapper `dont_touch`로 인한 `GTECH_NOT` 잔존 문제는 해결됐다.
-   `4_13_7p3ns`에서는 synthesis mapped netlist와 DFT netlist에서 `GTECH_`가 제거되었고, STA의 generic-cell 경고도 사라졌다. 다만 이 변경 이후 area / net area / hold TNS는 약간 불리해졌다: [4_13 area.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_13_7p3ns/area.rpt:1), [4_13 func check_timing](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/check_timing/func_pre_ss0p95v125c_check_timing.rpt:1), [4_13 shift check_timing](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt:1).
+   `4_13_7p3ns`에서는 synthesis mapped netlist와 DFT netlist에서 `GTECH_`가 제거되었고, STA의 generic-cell 경고도 사라졌다. 다만 이 변경 이후 area / net area / hold TNS는 약간 불리해졌다: [area.rpt](../2_synthesis/4_report/4_13_7p3ns/area.rpt), [func_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/func/check_timing/func_pre_ss0p95v125c_check_timing.rpt), [scan_shift_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt).
 
 3. scan_shift STA는 여전히 under-constrained다.
-   shift override는 본질적으로 달라지지 않았고, `4_13_7p3ns`에서도 `no clock-relative input delay` 2개가 남아 있으며 coverage도 `37% met / 63% untested`에 머문다: [scan_shift_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_shift_sta.tcl:1), [4_13 shift check_timing](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt:1), [4_13 shift coverage](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt:8).
+   shift override는 본질적으로 달라지지 않았고, `4_13_7p3ns`에서도 `no clock-relative input delay` 2개가 남아 있으며 coverage도 `37% met / 63% untested`에 머문다: [scan_shift_sta.tcl](../4_STA/1_input/constraint/scan_shift_sta.tcl), [scan_shift_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt), [scan_shift_pre_ss0p95v125c_analysis_coverage.rpt](../4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt).
 
 4. FM은 성공했지만 methodology가 아직 brittle하다.
-   r2n은 `guide_hier_map` 부재 경고와 `FMR_ELAB-059` RTL interpretation warning을 안고 통과했다: [r2n log](/DATA/home/edu135/aes128_core/5_FM/3_log/r2n_4_12_7p3ns.log:294), [soc_ctrl line](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v:252). 또한 FM source list에만 `aes_sbox.v`가 들어가 있는데 synthesis/VCS filelist에는 없다: [FM r2n script](/DATA/home/edu135/aes128_core/5_FM/0_script/r2n/FM_r2n_script.tcl:68), [synthesis source list](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl:13), [VCS filelist](/DATA/home/edu135/aes128_core/1_vcs/0_script/filelist.f:1), [FM black_box.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/r2n_4_12_7p3ns/black_box.rpt:1226).
+   r2n은 `guide_hier_map` 부재 경고와 `FMR_ELAB-059` RTL interpretation warning을 안고 통과했다: [r2n_4_12_7p3ns.log](../5_FM/3_log/r2n_4_12_7p3ns.log), [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v). 또한 FM source list에만 `aes_sbox.v`가 들어가 있는데 synthesis/VCS filelist에는 없다: [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl), [synthesis_script.tcl](../2_synthesis/0_script/synthesis_script.tcl), [filelist.f](../1_vcs/0_script/filelist.f), [black_box.rpt](../5_FM/4_report/r2n_4_12_7p3ns/black_box.rpt).
 
 5. DFT 구조는 학습용으로는 충분하지만 실무 test cost 관점에서는 약하다.
-   현재 single scan chain 길이가 1532이고 dedicated scan-out도 만들지 않는다: [scan_config](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/scan_config_internal.rpt:13), [scan_path](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/scan_chains_internal.rpt:23). 이는 bring-up에는 단순하지만 production test time과 ATPG 효율 측면에서는 불리하다.
+   현재 single scan chain 길이가 1532이고 dedicated scan-out도 만들지 않는다: [scan_config_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_config_internal.rpt), [scan_chains_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_chains_internal.rpt). 이는 bring-up에는 단순하지만 production test time과 ATPG 효율 측면에서는 불리하다.
 
 6. top interface에 debug/observe용 internal clock output을 노출해 DFT DRC를 더럽힌다.
-   top이 `clk_fast/div2/div4/div8`를 출력 포트로 유지하고 있고: [top](/DATA/home/edu135/aes128_core/0_rtl/top_mcu_pll_sram_multiclk_soc.v:13), post-DFT DRC에는 `Clock connected to primary output`가 남아 있다: [insert_drc_internal.dft](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/insert_drc_internal.dft:54).
+   top이 `clk_fast/div2/div4/div8`를 출력 포트로 유지하고 있고: [top_mcu_pll_sram_multiclk_soc.v](../0_rtl/top_mcu_pll_sram_multiclk_soc.v), post-DFT DRC에는 `Clock connected to primary output`가 남아 있다: [insert_drc_internal.dft](../3_DFT/4_report/4_12_7p3ns/insert_drc_internal.dft).
 
 ### What Is Acceptable For Now
 
-- `scan_out`를 n2n functional FM에서 `dont_verify` 처리한 것은 현재 목적상 합리적이다. DFT는 동일 포트를 `ScanDataOut`으로 재사용하고 있고 chain도 `scan_in -> scan_out`로 구성된다: [n2n script](/DATA/home/edu135/aes128_core/5_FM/0_script/n2n/FM_n2n_script.tcl:78), [dft_signals_internal.rpt](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/dft_signals_internal.rpt:15), [scan_config](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/scan_config_internal.rpt:26), [scan_path](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_12_7p3ns/scan_chains_internal.rpt:23).
-- `4_13_7p3ns` baseline 선택은 합리적이다. functional PT `clk_fast_aes` slack이 `0.0000ns`로 매우 얇지만 clean이고, func/capture/shift full picture에서도 generic-free 상태를 유지한다: [4_13 func QoR](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:66), [4_13 capture QoR](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/capture/qor/scan_capture_pre_ss0p95v125c_qor.rpt:93), [4_13 shift QoR](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/shift/qor/scan_shift_pre_ss0p95v125c_qor.rpt:75).
+- `scan_out`를 n2n functional FM에서 `dont_verify` 처리한 것은 현재 목적상 합리적이다. DFT는 동일 포트를 `ScanDataOut`으로 재사용하고 있고 chain도 `scan_in -> scan_out`로 구성된다: [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl), [dft_signals_internal.rpt](../3_DFT/4_report/4_12_7p3ns/dft_signals_internal.rpt), [scan_config_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_config_internal.rpt), [scan_chains_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_chains_internal.rpt).
+- `4_13_7p3ns` baseline 선택은 합리적이다. functional PT `clk_fast_aes` slack이 `0.0000ns`로 매우 얇지만 clean이고, func/capture/shift full picture에서도 generic-free 상태를 유지한다: [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt), [scan_capture_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/capture/qor/scan_capture_pre_ss0p95v125c_qor.rpt), [scan_shift_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/shift/qor/scan_shift_pre_ss0p95v125c_qor.rpt).
 
 ## Acceptance Criteria
 
@@ -78,16 +78,16 @@
 
 대상:
 
-- [top_mcu_pll_sram_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/top_mcu_pll_sram_multiclk_soc.v:1)
-- [soc_ctrl_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v:470)
-- [tb_top_mcu_pll_sram_multiclk_soc.sv](/DATA/home/edu135/aes128_core/1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv:42)
+- [top_mcu_pll_sram_multiclk_soc.v](../0_rtl/top_mcu_pll_sram_multiclk_soc.v)
+- [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v)
+- [tb_top_mcu_pll_sram_multiclk_soc.sv](../1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv)
 
 작업:
 
 - `aes_key_ext`, `aes_pt_ext`, `aes_vec_valid`를 production top에 계속 둘지 결정한다.
 - 권장안은 `tb wrapper`를 따로 두고, synth top에서는 sim-only vector ingress를 제거하는 것이다.
 - 최소한 production top에서는 `ifdef`가 아니라 명시적 parameter 또는 별도 wrapper로 intent를 분리한다.
-- `!==` 기반 compare는 FM-friendly하게 바꾼다. 권장안은 synth path에서는 `!=`를 사용하고, X-detect가 필요하면 testbench나 assertion으로 분리하는 것이다: [soc_ctrl line 252](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v:252).
+- `!==` 기반 compare는 FM-friendly하게 바꾼다. 권장안은 synth path에서는 `!=`를 사용하고, X-detect가 필요하면 testbench나 assertion으로 분리하는 것이다: [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v).
 
 이유:
 
@@ -97,9 +97,9 @@
 
 대상:
 
-- [synthesis_script.tcl](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl:13)
-- [sram_wrap_1rw1024x8.v](/DATA/home/edu135/aes128_core/0_rtl/sram_wrap_1rw1024x8.v:11)
-- [soc_gate.v](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v:17)
+- [synthesis_script.tcl](../2_synthesis/0_script/synthesis_script.tcl)
+- [sram_wrap_1rw1024x8.v](../0_rtl/sram_wrap_1rw1024x8.v)
+- [soc_gate.v](../2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v)
 
 작업:
 
@@ -117,9 +117,9 @@
 
 대상:
 
-- [1_vcs/0_script/filelist.f](/DATA/home/edu135/aes128_core/1_vcs/0_script/filelist.f:1)
-- [2_synthesis/0_script/synthesis_script.tcl](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl:13)
-- [5_FM/0_script/r2n/FM_r2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/r2n/FM_r2n_script.tcl:68)
+- [filelist.f](../1_vcs/0_script/filelist.f)
+- [synthesis_script.tcl](../2_synthesis/0_script/synthesis_script.tcl)
+- [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl)
 
 작업:
 
@@ -136,17 +136,17 @@
 
 대상:
 
-- [constraint.con](/DATA/home/edu135/aes128_core/2_synthesis/1_input/constraint/constraint.con:4)
-- [scan_shift_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_shift_sta.tcl:1)
-- [scan_capture_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_capture_sta.tcl:4)
-- [STA_script.tcl](/DATA/home/edu135/aes128_core/4_STA/0_script/STA_script.tcl:106)
+- [constraint.con](../2_synthesis/1_input/constraint/constraint.con)
+- [scan_shift_sta.tcl](../4_STA/1_input/constraint/scan_shift_sta.tcl)
+- [scan_capture_sta.tcl](../4_STA/1_input/constraint/scan_capture_sta.tcl)
+- [STA_script.tcl](../4_STA/0_script/STA_script.tcl)
 
 작업:
 
 - `func`, `scan_shift`, `scan_capture`를 truly distinct scenario로 만든다.
 - `scan_shift`에는 test clock, scan IO delay, non-scan false path, required driving cell/load를 명시한다.
-- current `constraint.con`의 false path와 debug clock output treatment를 재검토한다: [constraint.con](/DATA/home/edu135/aes128_core/2_synthesis/1_input/constraint/constraint.con:50).
-- constraint report에서 timing 이슈와 power-default 이슈를 분리한다. 현재 `max_leakage_power` violation은 timing 판단에 노이즈만 준다: [constraint.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_12_7p3ns/constraint.rpt:30).
+- current `constraint.con`의 false path와 debug clock output treatment를 재검토한다: [constraint.con](../2_synthesis/1_input/constraint/constraint.con).
+- constraint report에서 timing 이슈와 power-default 이슈를 분리한다. 현재 `max_leakage_power` violation은 timing 판단에 노이즈만 준다: [constraint.rpt](../2_synthesis/4_report/4_12_7p3ns/constraint.rpt).
 
 이유:
 
@@ -156,8 +156,8 @@
 
 대상:
 
-- [func hold report](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/hold/func_pre_ss0p95v125c_hold.rpt:16)
-- [func QoR](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:98)
+- [func_pre_ss0p95v125c_hold.rpt](../4_STA/4_report/4_13_7p3ns/func/hold/func_pre_ss0p95v125c_hold.rpt)
+- [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt)
 
 작업:
 
@@ -173,15 +173,15 @@
 
 대상:
 
-- [DFT_script.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/DFT_script.tcl:46)
-- [scan_config_internal.rpt](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt:13)
-- [insert_drc_internal.dft](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_13_7p3ns/insert_drc_internal.dft:46)
+- [DFT_script.tcl](../3_DFT/0_script/DFT_script.tcl)
+- [scan_config_internal.rpt](../3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt)
+- [insert_drc_internal.dft](../3_DFT/4_report/4_13_7p3ns/insert_drc_internal.dft)
 
 작업:
 
 - `chain_count 1`을 유지할지, 2개 이상으로 나눌지 비교 실험을 한다.
 - production 후보라면 compression은 아니더라도 multi-chain split까지는 검토한다.
-- internal clock gating/test enable 연결을 명시적으로 모델링할지 결정한다. 현재 관련 설정이 주석으로 남아 있다: [DFT_script.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/DFT_script.tcl:30).
+- internal clock gating/test enable 연결을 명시적으로 모델링할지 결정한다. 현재 관련 설정이 주석으로 남아 있다: [DFT_script.tcl](../3_DFT/0_script/DFT_script.tcl).
 - debug clock outputs가 실제 제품 IO가 아니라면 top interface에서 제거한다.
 
 이유:
@@ -192,9 +192,9 @@
 
 대상:
 
-- [FM_r2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/r2n/FM_r2n_script.tcl:64)
-- [FM_n2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/n2n/FM_n2n_script.tcl:70)
-- [r2n log](/DATA/home/edu135/aes128_core/5_FM/3_log/r2n_4_13_7p3ns.log:294)
+- [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl)
+- [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl)
+- [r2n_4_13_7p3ns.log](../5_FM/3_log/r2n_4_13_7p3ns.log)
 
 작업:
 
@@ -210,9 +210,9 @@
 
 대상:
 
-- [2_synthesis QoR sweep](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_11_3_6ns/qor.rpt:105)
-- [3_DFT QoR sweep](/DATA/home/edu135/aes128_core/3_DFT/4_report/4_13_7p3ns/dft_qor_internal.rpt:117)
-- [4_STA func QoR](/DATA/home/edu135/aes128_core/4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt:138)
+- [qor.rpt](../2_synthesis/4_report/4_11_3_6ns/qor.rpt)
+- [dft_qor_internal.rpt](../3_DFT/4_report/4_13_7p3ns/dft_qor_internal.rpt)
+- [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt)
 
 작업:
 

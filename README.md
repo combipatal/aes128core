@@ -60,14 +60,14 @@ aes128_core/
 
 - VCS 기반 기능 검증 환경
 - testbench, filelist, 실행 스크립트, 파형/로그/요약 리포트를 관리
-- 자세한 내용은 [1_vcs/README.md](/DATA/home/edu135/aes128_core/1_vcs/README.md) 참고
+- 자세한 내용은 [README.md](1_vcs/README.md) 참고
 
 ### `2_synthesis/`
 
 - Design Compiler 기반 합성 환경
 - RTL 복사본, constraint, 합성 스크립트, 결과 netlist/DDC/리포트를 관리
 - 버전 태그(`ver`) 기준으로 결과를 나눠 저장
-- 자세한 내용은 [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md) 참고
+- 자세한 내용은 [README.md](2_synthesis/README.md) 참고
 
 ### `3_DFT/`
 
@@ -75,7 +75,7 @@ aes128_core/
 - 합성 결과 DDC를 입력으로 받아 single scan chain 기반 DFT 삽입을 수행
 - DFT 로그, preview, pre/post DRC, scan chain 리포트를 관리
 - 현재는 `ref_clk`, `scan_en`, `scan_in`, `scan_out`, `test_mode`를 기준으로 single scan chain을 구성
-- 자세한 내용은 [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md) 참고
+- 자세한 내용은 [README.md](3_DFT/README.md) 참고
 
 ### `SAED32_EDK/`
 
@@ -87,7 +87,7 @@ aes128_core/
 
 - 프로젝트 메모, 문서, 참고 자료 정리용 폴더
 - 현재 FM 중심 개선 계획 문서:
-  - [docs/aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
+  - [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
 
 ### `.synopsys_dc.setup`
 
@@ -211,7 +211,7 @@ setenv ver 4_11_4_6p5ns
 
 자세한 분석과 실행 계획은 아래 문서를 기준으로 봅니다.
 
-- [docs/aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
+- [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
 
 ## Git 관리 기준
 
