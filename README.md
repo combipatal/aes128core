@@ -155,7 +155,7 @@ setenv ver 4_11_4_6p5ns
 
 ## 현재 상태 메모
 
-현재 권장 baseline은 `4_12_7p3ns`입니다.
+현재 권장 baseline은 `4_13_7p3ns`입니다.
 
 - VCS regression 3종은 통과 상태입니다.
   - `default_nist`
@@ -163,6 +163,7 @@ setenv ver 4_11_4_6p5ns
   - `ext_ecb_nist`
 - synthesis baseline:
   - target period `7.3ns`
+  - `GTECH_NOT` 제거 완료
   - setup clean
   - `clk_div2` -> SRAM interface hold violation `12`개 잔존
 - DFT baseline:
@@ -171,26 +172,42 @@ setenv ver 4_11_4_6p5ns
   - chain length `1532`
   - dedicated scan-out port 생성 없이 기존 `scan_out` 포트 재사용
 - STA baseline:
-  - functional `clk_fast_aes` setup slack `0.0003ns`
-  - functional / capture 기준 SRAM interface hold violation `12`개 잔존
-  - `scan_shift` scenario는 아직 제약 refinement가 더 필요함
+  - func / capture / shift 3개 scenario 모두 다시 정리됨
+  - functional `clk_fast_aes` setup slack `0.0000ns`
+  - functional / capture / shift 기준 SRAM interface hold violation `12`개 잔존
+  - `scan_shift`는 generic-cell 문제는 사라졌지만 `no_input_delay` 2개가 아직 남아 있음
 - FM baseline:
   - r2n PASS
   - n2n PASS
   - n2n은 functional equivalence 기준으로 `scan_out`를 `dont_verify` 처리
 
-즉 현재 상태는 "FM까지 연결은 되었지만, 실무형 signoff 관점에서는 플로우 정제와 hold closure가 남아 있는 상태"로 보는 것이 맞습니다.
+즉 현재 상태는 "generic-free clean baseline은 확보했지만, 실무형 signoff 관점에서는 hold closure와 constraint refinement가 남아 있는 상태"로 보는 것이 맞습니다.
+
+## 최근 반영 결과
+
+- synthesis에서 `u_mem` wrapper 전체 `dont_touch`를 제거하고 실제 mapping이 되도록 수정했습니다.
+- 그 결과:
+  - synthesis mapped netlist에서 `GTECH_NOT` 제거
+  - DFT netlist에서도 generic cell 제거
+  - FM r2n / n2n PASS 유지
+
+다만 이 변경 이후:
+
+- area와 net area는 다소 증가
+- `clk_fast_aes` margin은 더 얇아짐
+- SRAM interface hold 12개는 여전히 남아 있음
+
+즉 `4_13_7p3ns`는 "더 깨끗한 baseline"이지만, 아직 "더 최적화된 baseline"은 아닙니다.
 
 ## 현재 가장 먼저 손봐야 할 항목
 
-우선순위는 아래 순서가 적절합니다.
+다음 우선순위는 아래 순서가 적절합니다.
 
-1. synthesis에서 `u_mem` wrapper 전체 `dont_touch` 때문에 남는 `GTECH_NOT` 제거
-2. VCS / synthesis / FM source list를 단일 manifest로 정리
-3. sim-only external AES vector interface를 production top과 분리
-4. `scan_shift` STA 제약 강화
-5. SRAM interface hold violation 12개 closure
-6. 이후 DFT multi-chain / PPA 재정리
+1. VCS / synthesis / FM source list를 단일 manifest로 정리
+2. sim-only external AES vector interface를 production top과 분리
+3. `scan_shift` STA 제약 강화
+4. SRAM interface hold violation 12개 closure
+5. 이후 DFT multi-chain / PPA 재정리
 
 자세한 분석과 실행 계획은 아래 문서를 기준으로 봅니다.
 
