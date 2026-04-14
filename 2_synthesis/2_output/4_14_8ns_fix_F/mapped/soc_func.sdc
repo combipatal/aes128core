@@ -1,6 +1,6 @@
 ###################################################################
 
-# Created by write_sdc on Tue Apr 14 21:08:56 2026
+# Created by write_sdc on Tue Apr 14 21:39:52 2026
 
 ###################################################################
 set sdc_version 2.1
@@ -14,23 +14,23 @@ set_load -pin_load 0.05 [get_ports pass]
 set_case_analysis 0 [get_ports test_mode]
 set_case_analysis 0 [get_ports scan_en]
 create_clock [get_ports ref_clk]  -period 8  -waveform {0 4}
-set_clock_uncertainty -setup 0.2  [get_clocks ref_clk]
-set_clock_uncertainty -hold 0.05  [get_clocks ref_clk]
+set_clock_uncertainty -setup 0.16  [get_clocks ref_clk]
+set_clock_uncertainty -hold 0.04  [get_clocks ref_clk]
 create_generated_clock [get_pins u_pll/CLK_4X]  -name clk_fast  -source [get_pins u_pll/REF_CLK]  -multiply_by 4
-set_clock_uncertainty -setup 0.2  [get_clocks clk_fast]
-set_clock_uncertainty -hold 0.05  [get_clocks clk_fast]
+set_clock_uncertainty -setup 0.04  [get_clocks clk_fast]
+set_clock_uncertainty -hold 0.01  [get_clocks clk_fast]
 create_generated_clock [get_pins u_ctrl/u_icg_aes/gclk] -name clk_fast_aes -source [get_pins u_ctrl/u_icg_aes/clk] -combinational
-set_clock_uncertainty -setup 0.2  [get_clocks clk_fast_aes]
-set_clock_uncertainty -hold 0.05  [get_clocks clk_fast_aes]
+set_clock_uncertainty -setup 0.04  [get_clocks clk_fast_aes]
+set_clock_uncertainty -hold 0.01  [get_clocks clk_fast_aes]
 create_generated_clock [get_pins u_pll/CLK_2X]  -name clk_div2  -source [get_pins u_pll/REF_CLK]  -multiply_by 2
-set_clock_uncertainty -setup 0.2  [get_clocks clk_div2]
-set_clock_uncertainty -hold 0.05  [get_clocks clk_div2]
+set_clock_uncertainty -setup 0.08  [get_clocks clk_div2]
+set_clock_uncertainty -hold 0.02  [get_clocks clk_div2]
 create_generated_clock [get_pins u_pll/CLK_1X]  -name clk_div4  -source [get_pins u_pll/REF_CLK]  -multiply_by 1
-set_clock_uncertainty -setup 0.2  [get_clocks clk_div4]
-set_clock_uncertainty -hold 0.05  [get_clocks clk_div4]
+set_clock_uncertainty -setup 0.16  [get_clocks clk_div4]
+set_clock_uncertainty -hold 0.04  [get_clocks clk_div4]
 create_generated_clock [get_pins u_div8/clk_out]  -name clk_div8  -source [get_pins u_div8/clk_in]  -divide_by 2
-set_clock_uncertainty -setup 0.2  [get_clocks clk_div8]
-set_clock_uncertainty -hold 0.05  [get_clocks clk_div8]
+set_clock_uncertainty -setup 0.32  [get_clocks clk_div8]
+set_clock_uncertainty -hold 0.08  [get_clocks clk_div8]
 group_path -name INS  -from [list [get_ports ref_clk] [get_ports rst_n] [get_ports start]           \
 [get_ports uart_rxd] [get_ports {aes_key_ext[127]}] [get_ports                 \
 {aes_key_ext[126]}] [get_ports {aes_key_ext[125]}] [get_ports                  \
