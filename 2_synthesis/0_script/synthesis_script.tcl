@@ -84,6 +84,8 @@ set_ungroup [get_cells u_ctrl/u_icg_aes] false
 compile_ultra -scan
 set_critical_range 1.0 [current_design]
 compile_ultra -scan -incremental
+set_critical_range 1.0 [current_design]
+compile_ultra -scan -incremental
 
 
 report_qor                          > ./4_report/$ver/qor.rpt

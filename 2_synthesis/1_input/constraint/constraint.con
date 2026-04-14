@@ -40,7 +40,7 @@ foreach spec {
     {clk_div4 0.16 0.04}
     {clk_div2 0.08 0.02}
     {clk_fast 0.04 0.01}
-    {clk_fast_aes 0.04 0.01}
+    {clk_fast_aes 0.05 0.01}
     {clk_div8 0.32 0.08}
 } {
     lassign $spec clk_name setup_u hold_u

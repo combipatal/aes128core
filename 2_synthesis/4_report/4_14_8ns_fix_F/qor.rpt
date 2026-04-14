@@ -6,15 +6,15 @@ Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 1 high-fanout nets. A f
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Tue Apr 14 23:19:18 2026
+Date   : Tue Apr 14 23:35:58 2026
 ****************************************
 
 
   Timing Path Group 'INS'
   -----------------------------------
   Levels of Logic:               4.00
-  Critical Path Length:          0.47
-  Critical Path Slack:           0.45
+  Critical Path Length:          0.46
+  Critical Path Slack:           0.46
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -38,9 +38,9 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Timing Path Group 'clk_div2'
   -----------------------------------
-  Levels of Logic:               9.00
-  Critical Path Length:          3.87
-  Critical Path Slack:           0.01
+  Levels of Logic:               8.00
+  Critical Path Length:          3.84
+  Critical Path Slack:           0.02
   Critical Path Clk Period:      4.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -64,9 +64,9 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Timing Path Group 'clk_fast'
   -----------------------------------
-  Levels of Logic:               9.00
-  Critical Path Length:          1.52
-  Critical Path Slack:           0.40
+  Levels of Logic:               8.00
+  Critical Path Length:          1.34
+  Critical Path Slack:           0.58
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -77,8 +77,8 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Timing Path Group 'clk_fast_aes'
   -----------------------------------
-  Levels of Logic:              14.00
-  Critical Path Length:          1.91
+  Levels of Logic:              18.00
+  Critical Path Length:          1.90
   Critical Path Slack:           0.00
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
@@ -93,12 +93,12 @@ Date   : Tue Apr 14 23:19:18 2026
   -----------------------------------
   Hierarchical Cell Count:          4
   Hierarchical Port Count:        696
-  Leaf Cell Count:              16664
-  Buf/Inv Cell Count:            4848
-  Buf Cell Count:                1912
-  Inv Cell Count:                2936
+  Leaf Cell Count:              17091
+  Buf/Inv Cell Count:            5305
+  Buf Cell Count:                2011
+  Inv Cell Count:                3294
   CT Buf/Inv Cell Count:            1
-  Combinational Cell Count:     15553
+  Combinational Cell Count:     15980
   Sequential Cell Count:         1111
   Macro Count:                      0
   -----------------------------------
@@ -106,21 +106,21 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Area
   -----------------------------------
-  Combinational Area:    31971.569596
-  Noncombinational Area: 10112.898290
-  Buf/Inv Area:           7625.082644
-  Total Buffer Area:          3887.39
-  Total Inverter Area:        3737.70
+  Combinational Area:    32641.747332
+  Noncombinational Area: 10115.439727
+  Buf/Inv Area:           8297.801824
+  Total Buffer Area:          4105.95
+  Total Inverter Area:        4191.85
   Macro/Black Box Area:  31230.701660
-  Net Area:               5068.953808
+  Net Area:               5053.460794
   -----------------------------------
-  Cell Area:             73315.169546
-  Design Area:           78384.123354
+  Cell Area:             73987.888719
+  Design Area:           79041.349513
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         17347
+  Total Number of Nets:         17922
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -131,12 +131,12 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    0.00
-  Logic Optimization:                  0.24
-  Mapping Optimization:               12.15
+  Resource Sharing:                    0.01
+  Logic Optimization:                  0.23
+  Mapping Optimization:               35.00
   -----------------------------------------
-  Overall Compile Time:               19.51
-  Overall Compile Wall Clock Time:    20.30
+  Overall Compile Time:               43.18
+  Overall Compile Wall Clock Time:    43.96
 
   --------------------------------------------------------------------
 
