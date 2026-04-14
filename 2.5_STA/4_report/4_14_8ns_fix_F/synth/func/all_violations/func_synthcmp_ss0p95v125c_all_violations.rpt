@@ -1,0 +1,117 @@
+****************************************
+Report : constraint
+	-all_violators
+	-path slack_only
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Tue Apr 14 21:18:14 2026
+****************************************
+
+
+
+
+
+
+   max_capacitance
+
+                             Required        Actual
+   Pin                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   u_ctrl/U257/Y             82.0000        92.5369       -10.5369  (VIOLATED)
+   u_ctrl/u_crc/U35/Y        32.0000        35.7093        -3.7093  (VIOLATED)
+   u_ctrl/u_aes/U8293/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8308/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8317/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8337/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8353/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8391/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8396/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8465/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8559/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8613/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8675/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8683/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8692/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8706/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8738/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8788/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8794/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8827/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8839/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8859/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8890/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8897/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8940/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8956/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8995/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9054/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9118/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9147/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9184/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9185/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9201/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9202/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9203/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9204/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9205/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U9220/Y      16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_crc/U36/Y        16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_rx/U24/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_rx/U25/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_rx/U26/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_rx/U27/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_tx/U29/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_tx/U30/Y         16.0000        17.8178        -1.8178  (VIOLATED)
+   u_ctrl/u_aes/U8339/Y      16.0000        17.8037        -1.8037  (VIOLATED)
+   u_ctrl/u_aes/U8447/Y      16.0000        17.8037        -1.8037  (VIOLATED)
+   u_ctrl/u_aes/U8673/Y      16.0000        17.8037        -1.8037  (VIOLATED)
+   u_ctrl/u_aes/U9152/Y      16.0000        17.8037        -1.8037  (VIOLATED)
+   u_ctrl/u_aes/U9207/Y      16.0000        17.7897        -1.7897  (VIOLATED)
+   u_ctrl/u_aes/U9206/Y      16.0000        17.7616        -1.7616  (VIOLATED)
+   u_ctrl/u_crc/U33/Y        16.0000        17.6846        -1.6846  (VIOLATED)
+   u_ctrl/u_crc/U34/Y        16.0000        17.6846        -1.6846  (VIOLATED)
+   u_ctrl/u_aes/U9208/Y      16.0000        17.4287        -1.4287  (VIOLATED)
+   u_ctrl/u_aes/U9210/Y      16.0000        17.4287        -1.4287  (VIOLATED)
+   u_ctrl/u_rx/U3/Y           8.0000         9.3306        -1.3306  (VIOLATED)
+   u_ctrl/u_tx/U36/Y          8.0000         9.3285        -1.3285  (VIOLATED)
+   u_ctrl/U132/Y              8.0000         9.2571        -1.2571  (VIOLATED)
+   u_ctrl/u_rx/U153/Y         8.0000         9.2571        -1.2571  (VIOLATED)
+   u_ctrl/tx_start_reg/Q      8.0000         9.2113        -1.2113  (VIOLATED)
+   u_ctrl/u_send_cdc/pulse_dst_reg/Q   8.0000   9.0930     -1.0930  (VIOLATED)
+   u_ctrl/U231/Y              8.0000         9.0579        -1.0579  (VIOLATED)
+   u_ctrl/u_rx/U51/Y          8.0000         9.0277        -1.0277  (VIOLATED)
+   u_ctrl/u_rx/U53/Y          8.0000         8.9892        -0.9892  (VIOLATED)
+   u_ctrl/u_aes/U9232/Y      16.0000        16.9529        -0.9529  (VIOLATED)
+   u_ctrl/u_crc/U37/Y        16.0000        16.4361        -0.4361  (VIOLATED)
+   u_ctrl/u_crc/U60/SO        8.0000         8.4011        -0.4011  (VIOLATED)
+   u_ctrl/U715/Y              8.0000         8.3979        -0.3979  (VIOLATED)
+   u_ctrl/u_aes/U9242/Y       8.0000         8.3715        -0.3715  (VIOLATED)
+   u_ctrl/u_aes/U9318/Y       8.0000         8.3715        -0.3715  (VIOLATED)
+   u_ctrl/u_aes/U9252/Y       8.0000         8.3394        -0.3394  (VIOLATED)
+   u_ctrl/u_crc/U54/SO        8.0000         8.3156        -0.3156  (VIOLATED)
+   u_ctrl/U112/Y              8.0000         8.3128        -0.3128  (VIOLATED)
+   u_ctrl/u_tx/U67/Y          8.0000         8.2878        -0.2878  (VIOLATED)
+   u_ctrl/U121/Y              8.0000         8.2813        -0.2813  (VIOLATED)
+   u_ctrl/u_aes/U9214/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9215/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9217/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9209/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9211/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9212/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9213/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9216/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9218/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U9219/Y      16.0000        16.2672        -0.2672  (VIOLATED)
+   u_ctrl/u_aes/U460/Y        8.0000         8.2598        -0.2598  (VIOLATED)
+   u_ctrl/u_crc/U22/Y         8.0000         8.2578        -0.2578  (VIOLATED)
+   u_ctrl/u_crc/U23/Y         8.0000         8.2578        -0.2578  (VIOLATED)
+   u_ctrl/U126/Y              8.0000         8.2006        -0.2006  (VIOLATED)
+   u_ctrl/U119/Y              8.0000         8.1859        -0.1859  (VIOLATED)
+   u_ctrl/u_tx/U31/Y         16.0000        16.1747        -0.1747  (VIOLATED)
+   u_ctrl/u_rx/U54/Y          8.0000         8.1552        -0.1552  (VIOLATED)
+   u_ctrl/u_rx/U5/Y           8.0000         8.1289        -0.1289  (VIOLATED)
+   u_ctrl/U117/Y              8.0000         8.0790        -0.0790  (VIOLATED)
+   u_ctrl/U125/Y              8.0000         8.0666        -0.0666  (VIOLATED)
+
+
+1

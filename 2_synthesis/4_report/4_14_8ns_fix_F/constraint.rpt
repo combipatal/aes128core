@@ -1,0 +1,484 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Tue Apr 14 21:08:55 2026
+****************************************
+
+
+   max_delay/setup ('clk_fast_aes' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   u_ctrl/u_aes/state_q_reg[91]/D
+                                1.75           1.83 r        -0.08  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[18]/D
+                                1.76           1.83 f        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[2]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[104]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[19]/D
+                                1.76           1.83 f        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[17]/D
+                                1.76           1.83 f        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[21]/D
+                                1.76           1.83 f        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[4]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[16]/D
+                                1.76           1.83 f        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[61]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[1]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[7]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[1]/D
+                                1.75           1.81 r        -0.07  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[117]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[22]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[3]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[122]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[57]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[109]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[26]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[59]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[41]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[56]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[64]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[80]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[30]/D
+                                1.74           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[63]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[82]/D
+                                1.74           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/ct_q_reg[16]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/ct_q_reg[4]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/ct_q_reg[24]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/ct_q_reg[25]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[9]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[90]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[31]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[28]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[84]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[27]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[115]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[17]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[21]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[22]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[5]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[30]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[1]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[0]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[12]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[120]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[68]/D
+                                1.75           1.81 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[106]/D
+                                1.75           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[31]/D
+                                1.75           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[0]/D
+                                1.75           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[70]/D
+                                1.75           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[42]/D
+                                1.76           1.82 f        -0.06  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[66]/D
+                                1.75           1.80 r        -0.06  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[22]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[114]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[45]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[125]/D
+                                1.76           1.81 f        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[12]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[108]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[65]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[121]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[5]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[111]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[6]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[71]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[101]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[25]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[127]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[4]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[73]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[112]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[124]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[47]/D
+                                1.76           1.81 f        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[78]/D
+                                1.74           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[60]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[116]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[24]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[44]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[69]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[6]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[7]/D
+                                1.75           1.80 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[43]/D
+                                1.76           1.81 f        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[118]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[34]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[33]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[58]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[74]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[3]/D
+                                1.75           1.79 r        -0.05  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[99]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[8]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[126]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[15]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[12]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[5]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[7]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[13]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[20]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[6]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[8]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[10]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/rk2_q_reg[14]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[16]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[29]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[97]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[40]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[83]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[19]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[17]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[11]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[20]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[87]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[72]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[92]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[8]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[23]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[18]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[67]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[51]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[56]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[62]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[60]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[61]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[123]/D
+                                1.76           1.80 f        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[27]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[85]/D
+                                1.75           1.79 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[13]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[2]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[48]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[95]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[119]/D
+                                1.75           1.78 r        -0.04  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[30]/D
+                                1.75           1.79 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[46]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[38]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[89]/D
+                                1.76           1.80 f        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[5]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[10]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[75]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[77]/D
+                                1.74           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[37]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[32]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[58]/D
+                                1.76           1.79 f        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[14]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[0]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[54]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[25]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[12]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[52]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[21]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[20]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[110]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[86]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[93]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[102]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[39]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[94]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[28]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[103]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[81]/D
+                                1.76           1.79 f        -0.03  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[55]/D
+                                1.76           1.79 f        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[23]/D
+                                1.75           1.78 r        -0.03  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[9]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[24]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[14]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[36]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[79]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[35]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[28]/D
+                                1.74           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[88]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[113]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[5]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[8]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[14]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[20]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[23]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/rk3_q_reg[31]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[15]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[98]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[107]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[50]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/next_rk1_q_reg[28]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[103]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[53]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[100]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[101]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[99]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/temp_q_reg[102]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[49]/D
+                                1.75           1.77 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[29]/D
+                                1.75           1.76 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[105]/D
+                                1.75           1.76 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[100]/D
+                                1.75           1.76 r        -0.02  (VIOLATED)
+   u_ctrl/u_aes/next_rk1_q_reg[29]/D
+                                1.75           1.77 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk1_q_reg[4]/D
+                                1.75           1.77 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[62]/D
+                                1.75           1.76 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk0_q_reg[26]/D
+                                1.75           1.76 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[76]/D
+                                1.75           1.76 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/state_q_reg[96]/D
+                                1.75           1.76 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[13]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[10]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[11]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[15]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[19]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[25]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk2_q_reg[29]/D
+                                1.76           1.77 f        -0.01  (VIOLATED)
+   u_ctrl/u_aes/rk1_q_reg[2]/D
+                                1.75           1.75 r        -0.01  (VIOLATED)
+   u_ctrl/u_aes/next_rk3_q_reg[1]/D
+                                1.75           1.76 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/next_rk0_q_reg[15]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[11]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[2]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[9]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[8]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[39]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[59]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[58]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[10]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[95]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+   u_ctrl/u_aes/ct_q_reg[121]/D
+                                1.75           1.75 r         0.00  (VIOLATED: increase significant digits)
+
+
+   min_delay/hold ('clk_div2' group)
+
+                             Required        Actual
+   Endpoint                 Path Delay     Path Delay        Slack
+   -----------------------------------------------------------------
+   u_mem/u_sram/I[0]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[1]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[2]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[3]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[4]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[5]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[6]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/I[7]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/A[0]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/A[1]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/A[2]            0.10           0.09 f        -0.01  (VIOLATED)
+   u_mem/u_sram/A[3]            0.10           0.09 f        -0.01  (VIOLATED)
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       391099187200.00
+                                                          -391099187200.00
+                                                                    (VIOLATED)
+
+
+1

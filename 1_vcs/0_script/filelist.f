@@ -1,5 +1,6 @@
 1_input/model/saed32sram.v
 ../0_rtl/aes128_core.v
+../0_rtl/aes128_core_rewrite.v
 ../0_rtl/cdc_toggle_sync.v
 ../0_rtl/clk_div2_toggle.v
 ../0_rtl/crc32_byte.v

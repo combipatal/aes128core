@@ -24,22 +24,26 @@ set search_path ". $lib_rvt \
 ##########################################################################################
 # Target library setup
 ##########################################################################################
-set target_library "saed32rvt_ss0p95v125c.db"
-#set target_library "saed32rvt_ff1p16v125c.db"
-##########################################################################################
-# Link library setup
-##########################################################################################
-set link_library "* $target_library \
-		saed32io_fc_ss0p95v125c_2p25v.db \
-		saed32pll_ss0p95v125c_2p25v.db \
-		saed32sram_ss0p95v125c.db \
-		dw_foundation.sldb"
+set lib_corner "ss"
+if {[info exists env(lib_corner)]} {
+	set lib_corner $env(lib_corner)
+}
 
-#set link_library "* $target_library \
-#		saed32io_fc_ff1p16v125c_2p75v.db \
-#		saed32pll_ff1p16v125c_2p75v.db \
-#		saed32sram_ff1p16v125c.db \
-#		dw_foundation.sldb"
+if {$lib_corner == "ff"} {
+	set target_library "saed32rvt_ff1p16v125c.db"
+	set link_library "* $target_library \
+			saed32io_fc_ff1p16v125c_2p75v.db \
+			saed32pll_ff1p16v125c_2p75v.db \
+			saed32sram_ff1p16v125c.db \
+			dw_foundation.sldb"
+} else {
+	set target_library "saed32rvt_ss0p95v125c.db"
+	set link_library "* $target_library \
+			saed32io_fc_ss0p95v125c_2p25v.db \
+			saed32pll_ss0p95v125c_2p25v.db \
+			saed32sram_ss0p95v125c.db \
+			dw_foundation.sldb"
+}
 
 ##########################################################################################
 # User setup

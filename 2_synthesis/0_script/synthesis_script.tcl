@@ -12,6 +12,7 @@ source -e -v ../.synopsys_dc.setup
 # read verilog 
 analyze -format verilog {\
                         aes128_core.v\
+                        aes128_core_rewrite.v\
                         cdc_toggle_sync.v\
                         clk_div2_toggle.v\
                         crc32_byte.v\
@@ -36,6 +37,12 @@ write_file -f ddc -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk
 write -f verilog -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk_soc.v
 # source constraint file 
 source -e -v 1_input/constraint/constraint.con 
+
+# Keep synthesis on a flat top-level wire-load model so the mapped netlist
+# sees the same pre-layout direction as STA by default.
+set auto_wire_load_selection false
+set_wire_load_mode top
+set_wire_load_model -name ForQA [current_design]
 
 # latch dont use
 set_dont_use [get_lib_cells */LAS*]
@@ -70,6 +77,9 @@ set_auto_disable_drc_nets -all
 set_ungroup [get_cells u_ctrl] false
 set_ungroup [get_cells u_ctrl/u_aes] false
 
+# Preserve the multicycle AES stage boundaries. Without these guards DC can
+# merge the phase/index-driven update cones back into very large FF-corner
+# datapaths, which defeats the purpose of the staged microarchitecture.
 # Keep the compile flow close to the original, but disable auto-ungrouping.
 compile_ultra -scan -no_autoungroup
 set_critical_range 1.0 [current_design]

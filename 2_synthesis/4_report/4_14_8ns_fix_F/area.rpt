@@ -1,0 +1,55 @@
+ 
+****************************************
+Report : area
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Tue Apr 14 21:08:55 2026
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_ff1p16v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16v125c.db)
+    saed32sram_ff1p16v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16v125c.db)
+    saed32pll_ff1p16v125c_2p75v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16v125c_2p75v.db)
+
+Number of ports:                         1085
+Number of nets:                         17981
+Number of cells:                        17038
+Number of combinational cells:          15901
+Number of sequential cells:              1109
+Number of macros/black boxes:               2
+Number of buf/inv:                       5093
+Number of references:                       6
+
+Combinational area:              32725.360733
+Buf/Inv area:                     8151.923178
+Noncombinational area:           10112.898292
+Macro/Black Box area:            31230.701660
+Net Interconnect area:            5100.232489
+
+Total cell area:                 74068.960686
+Total area:                      79169.193174
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area              Local cell area
+                                  -------------------  ---------------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
+                                  Total       Total    national    national    boxes       Design
+--------------------------------  ----------  -------  ----------  ----------  ----------  ----------------------------------
+top_mcu_pll_sram_multiclk_soc     74068.9607    100.0     12.7072      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            42816.4026     57.8   2499.7604   2480.4455      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      34884.0600     47.1  28904.5598   5979.5002      0.0000  aes128_core_rewrite
+u_ctrl/u_crc                       1093.5816      1.5    498.8847    594.6970      0.0000  crc32_byte
+u_ctrl/u_ct_cdc                      72.6852      0.1     12.7072     59.9780      0.0000  cdc_toggle_sync_1
+u_ctrl/u_icg_aes                     10.4199      0.0      5.3370      5.0829      0.0000  icg_latch
+u_ctrl/u_rx                         898.6532      1.2    404.5973    494.0559      0.0000  uart_rx_CLK_HZ100000000_BAUD115200
+u_ctrl/u_send_cdc                    75.2266      0.1     15.2486     59.9780      0.0000  cdc_toggle_sync_0
+u_ctrl/u_tx                         801.5702      1.1    371.5585    430.0117      0.0000  uart_tx_CLK_HZ100000000_BAUD115200
+u_div8                                9.1492      0.0      0.0000      9.1492      0.0000  clk_div2_toggle
+u_mem                             25783.7695     34.8      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
+--------------------------------  ----------  -------  ----------  ----------  ----------  ----------------------------------
+Total                                                  32725.3607  10112.8983  31230.7017
+
+1

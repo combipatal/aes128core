@@ -33,8 +33,14 @@ create_generated_clock [get_pins u_div8/clk_out] \
 set_case_analysis 0 [get_ports scan_en]
 set_case_analysis 0 [get_ports test_mode]
 
-set_clock_uncertainty -setup 0.2 [all_clocks]
-set_clock_uncertainty -hold 0.05 [all_clocks]
+foreach clk_obj [all_clocks] {
+    set clk_name [get_object_name $clk_obj]
+    set clk_period_val [get_attribute $clk_obj period]
+    set setup_u [expr {$clk_period_val * 0.02}]
+    set hold_u  [expr {$clk_period_val * 0.005}]
+    set_clock_uncertainty -setup $setup_u [get_clocks $clk_name]
+    set_clock_uncertainty -hold  $hold_u  [get_clocks $clk_name]
+}
 
 
 set_input_delay 1.0 -max -clock ref_clk [get_ports start]
