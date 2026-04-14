@@ -6,16 +6,16 @@ Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 1 high-fanout nets. A f
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Tue Apr 14 23:19:18 2026
+Date   : Tue Apr 14 23:12:07 2026
 ****************************************
 
 
   Timing Path Group 'INS'
   -----------------------------------
   Levels of Logic:               4.00
-  Critical Path Length:          0.47
-  Critical Path Slack:           0.45
-  Critical Path Clk Period:      2.00
+  Critical Path Length:          5.98
+  Critical Path Slack:           0.32
+  Critical Path Clk Period:      7.50
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -27,8 +27,8 @@ Date   : Tue Apr 14 23:19:18 2026
   -----------------------------------
   Levels of Logic:               0.00
   Critical Path Length:          0.10
-  Critical Path Slack:           0.74
-  Critical Path Clk Period:      8.00
+  Critical Path Slack:           0.62
+  Critical Path Clk Period:      7.50
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -38,10 +38,10 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Timing Path Group 'clk_div2'
   -----------------------------------
-  Levels of Logic:               9.00
-  Critical Path Length:          3.87
-  Critical Path Slack:           0.01
-  Critical Path Clk Period:      4.00
+  Levels of Logic:               8.00
+  Critical Path Length:          3.60
+  Critical Path Slack:           0.02
+  Critical Path Clk Period:      3.75
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -52,9 +52,9 @@ Date   : Tue Apr 14 23:19:18 2026
   Timing Path Group 'clk_div4'
   -----------------------------------
   Levels of Logic:              10.00
-  Critical Path Length:          7.52
-  Critical Path Slack:           0.27
-  Critical Path Clk Period:      8.00
+  Critical Path Length:          6.14
+  Critical Path Slack:           1.15
+  Critical Path Clk Period:      7.50
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -64,23 +64,10 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Timing Path Group 'clk_fast'
   -----------------------------------
-  Levels of Logic:               9.00
-  Critical Path Length:          1.52
-  Critical Path Slack:           0.40
-  Critical Path Clk Period:      2.00
-  Total Negative Slack:          0.00
-  No. of Violating Paths:        0.00
-  Worst Hold Violation:          0.00
-  Total Hold Violation:          0.00
-  No. of Hold Violations:        0.00
-  -----------------------------------
-
-  Timing Path Group 'clk_fast_aes'
-  -----------------------------------
-  Levels of Logic:              14.00
-  Critical Path Length:          1.91
+  Levels of Logic:              12.00
+  Critical Path Length:          1.78
   Critical Path Slack:           0.00
-  Critical Path Clk Period:      2.00
+  Critical Path Clk Period:      1.88
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
   Worst Hold Violation:          0.00
@@ -91,14 +78,14 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:          4
-  Hierarchical Port Count:        696
-  Leaf Cell Count:              16664
-  Buf/Inv Cell Count:            4848
-  Buf Cell Count:                1912
-  Inv Cell Count:                2936
+  Hierarchical Cell Count:          3
+  Hierarchical Port Count:        692
+  Leaf Cell Count:              17360
+  Buf/Inv Cell Count:            5392
+  Buf Cell Count:                2587
+  Inv Cell Count:                2805
   CT Buf/Inv Cell Count:            1
-  Combinational Cell Count:     15553
+  Combinational Cell Count:     16249
   Sequential Cell Count:         1111
   Macro Count:                      0
   -----------------------------------
@@ -106,21 +93,21 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Area
   -----------------------------------
-  Combinational Area:    31971.569596
-  Noncombinational Area: 10112.898290
-  Buf/Inv Area:           7625.082644
-  Total Buffer Area:          3887.39
-  Total Inverter Area:        3737.70
+  Combinational Area:    33502.278988
+  Noncombinational Area: 10111.373427
+  Buf/Inv Area:           8828.708698
+  Total Buffer Area:          5259.76
+  Total Inverter Area:        3568.94
   Macro/Black Box Area:  31230.701660
-  Net Area:               5068.953808
+  Net Area:               5080.103666
   -----------------------------------
-  Cell Area:             73315.169546
-  Design Area:           78384.123354
+  Cell Area:             74844.354076
+  Design Area:           79924.457742
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         17347
+  Total Number of Nets:         18110
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -131,12 +118,12 @@ Date   : Tue Apr 14 23:19:18 2026
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                    0.00
-  Logic Optimization:                  0.24
-  Mapping Optimization:               12.15
+  Resource Sharing:                    0.01
+  Logic Optimization:                  0.27
+  Mapping Optimization:               12.64
   -----------------------------------------
-  Overall Compile Time:               19.51
-  Overall Compile Wall Clock Time:    20.30
+  Overall Compile Time:               19.75
+  Overall Compile Wall Clock Time:    20.49
 
   --------------------------------------------------------------------
 

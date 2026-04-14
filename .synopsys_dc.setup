@@ -24,7 +24,7 @@ set search_path ". $lib_rvt \
 ##########################################################################################
 # Target library setup
 ##########################################################################################
-set lib_corner "ss"
+set lib_corner "ff"
 if {[info exists env(lib_corner)]} {
 	set lib_corner $env(lib_corner)
 }

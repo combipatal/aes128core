@@ -27,13 +27,13 @@ set verilogout_no_tri true
 set test_dft_drc_ungate_clocks "true"
 set power_cg_auto_identify true
 
-# set_dft_configuration -connect_clock_gating enable
-# set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
-#     -pin_name test_en\
-#     -control_signal ScanEnable
+set_dft_configuration -connect_clock_gating enable
+set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
+    -pin_name test_en\
+    -control_signal ScanEnable
 
-# #  latch 셀들을 scan chain element로 취급하지 말라는 뜻
-# set_scan_element false [get_cells u_ctrl/u_icg_aes] 
+# latch 셀들을 scan chain element로 취급하지 말라는 뜻
+set_scan_element false [get_cells u_ctrl/u_icg_aes]
 
 #DFT 삽입 중 불필요한 추가 최적화를 막고, 
 #설계 이름도 유지해서 원래 설계와 비교하기 쉽게 만드는 설정

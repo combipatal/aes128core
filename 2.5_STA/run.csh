@@ -1,8 +1,8 @@
 #!/bin/csh -f
 
 # STA run configuration
-if ( ! $?ver ) setenv ver 4_13_7p3ns
-if ( ! $?corner ) setenv corner ss0p95v125c
+if ( ! $?ver ) setenv ver 4_14_8ns_fix_F
+if ( ! $?corner ) setenv corner ff1p16v125c
 if ( ! $?mode ) setenv mode synthcmp
 if ( ! $?sta_scenario ) setenv sta_scenario func
 if ( ! $?run_mode ) setenv run_mode pre

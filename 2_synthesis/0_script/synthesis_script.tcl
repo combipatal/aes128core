@@ -72,18 +72,18 @@ set_auto_disable_drc_nets -all
 # set_critical_range 1.0 [current_design]
 # compile_ultra -scan -incremental
 
-# Preserve controller/AES hierarchy so FF-corner remapping does not
-# aggressively restructure the same logic into a very different netlist.
+# Preserve the top-level controller hierarchy, but allow the AES core to be
+# restructured so the 2 ns clk_fast_aes domain can be optimized more freely.
 set_ungroup [get_cells u_ctrl] false
-set_ungroup [get_cells u_ctrl/u_aes] false
+# Keep the custom AES ICG instance intact so the generated clock definition on
+# u_ctrl/u_icg_aes/gclk remains valid while the AES datapath is restructured.
+set_ungroup [get_cells u_ctrl/u_icg_aes] false
 
-# Preserve the multicycle AES stage boundaries. Without these guards DC can
-# merge the phase/index-driven update cones back into very large FF-corner
-# datapaths, which defeats the purpose of the staged microarchitecture.
-# Keep the compile flow close to the original, but disable auto-ungrouping.
-compile_ultra -scan -no_autoungroup
+# Keep the controller structure stable, but let DC flatten/reshape AES logic
+# inside the preserved controller boundary to recover clk_fast_aes slack.
+compile_ultra -scan
 set_critical_range 1.0 [current_design]
-compile_ultra -scan -incremental -no_autoungroup
+compile_ultra -scan -incremental
 
 
 report_qor                          > ./4_report/$ver/qor.rpt
