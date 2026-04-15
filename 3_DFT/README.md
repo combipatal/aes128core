@@ -37,7 +37,7 @@
 
 ## 실행 방법
 
-[run.csh](/DATA/home/edu135/aes128_core/3_DFT/run.csh)의 현재 기본값은 아래와 같습니다.
+[run.csh](run.csh)의 현재 기본값은 아래와 같습니다.
 
 ```csh
 if ( ! $?ver ) setenv ver 4_15_8ns_ff
@@ -53,14 +53,14 @@ dc_shell -64 -f 0_script/DFT_script.tcl | tee 3_log/${ver}_scan_dc.log
 실행 예시:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/3_DFT
+cd ./3_DFT
 csh run.csh
 env ver=4_13_7p3ns csh run.csh
 ```
 
 ## DFT 설정 요약
 
-[DFT_script.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/DFT_script.tcl) 기준 현재 설정은 아래와 같습니다.
+[DFT_script.tcl](0_script/DFT_script.tcl) 기준 현재 설정은 아래와 같습니다.
 
 - scan clock: `ref_clk`
   - `set_dft_signal -view exist -type ScanClock -port ref_clk -timing {45 55}`

@@ -91,7 +91,7 @@ aes128_core/
 기능 검증은 VCS 환경에서 수행합니다. 이 단계의 목적은 합성 이전에 기능이 맞는지 확인하는 것입니다.
 
 관련 README:
-- [1_vcs/README.md](/DATA/home/edu135/aes128_core/1_vcs/README.md)
+- [1_vcs/README.md](1_vcs/README.md)
 
 ### 2. 합성: `2_synthesis`
 
@@ -103,7 +103,7 @@ aes128_core/
 - warning을 무조건 bug로 보기보다 허용 경고와 실제 이슈를 구분
 
 관련 README:
-- [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
+- [2_synthesis/README.md](2_synthesis/README.md)
 
 ### 3. 실험/비교용 STA: `2.5_STA`
 
@@ -115,7 +115,7 @@ aes128_core/
 - custom ICG 내부 arc를 generated clock 관점으로 정리
 
 관련 README:
-- [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
+- [2.5_STA/README.md](2.5_STA/README.md)
 
 ### 4. DFT: `3_DFT`
 
@@ -127,7 +127,7 @@ DFT는 `2_synthesis`의 mapped DDC를 입력으로 받아 single scan chain을 �
 - pre/post DFT DRC와 scan chain 구조 확인
 
 관련 README:
-- [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
+- [3_DFT/README.md](3_DFT/README.md)
 
 ### 5. 최종 STA: `4_STA`
 
@@ -139,7 +139,7 @@ DFT는 `2_synthesis`의 mapped DDC를 입력으로 받아 single scan chain을 �
 - post-DFT hold violation을 ECO로 닫는 것
 
 관련 README:
-- [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- [4_STA/README.md](4_STA/README.md)
 
 ### 6. Formality: `5_FM`
 
@@ -191,8 +191,8 @@ FM은 아래 두 가지를 확인합니다.
 - SRAM `A[*]`, `I[*]` 앞에 inverter pair를 삽입했습니다.
 
 관련 파일:
-- [post_dft_hold_eco.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/post_dft_hold_eco.tcl)
-- [run_hold_eco.csh](/DATA/home/edu135/aes128_core/3_DFT/run_hold_eco.csh)
+- [post_dft_hold_eco.tcl](3_DFT/0_script/post_dft_hold_eco.tcl)
+- [run_hold_eco.csh](3_DFT/run_hold_eco.csh)
 
 ## 현재 최종 baseline
 
@@ -202,19 +202,19 @@ FM은 아래 두 가지를 확인합니다.
 
 - `4_15_8ns_ff`
 - 생성물:
-  - [soc_gate.v](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.v)
-  - [soc_gate.ddc](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.ddc)
-  - [soc_func.sdc](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_func.sdc)
+  - [soc_gate.v](2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.v)
+  - [soc_gate.ddc](2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.ddc)
+  - [soc_func.sdc](2_synthesis/2_output/4_15_8ns_ff/mapped/soc_func.sdc)
 
 ### post-DFT ECO baseline
 
 - `4_15_8ns_ff_holdfix_tcl6`
 - 생성물:
-  - [aes_128_internal.v](/DATA/home/edu135/aes128_core/3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
+  - [aes_128_internal.v](3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
 
 ### 최종 STA 결과
 
-- [4_STA/4_report/4_15_8ns_ff_holdfix_tcl6](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6)
+- [4_STA/4_report/4_15_8ns_ff_holdfix_tcl6](4_STA/4_report/4_15_8ns_ff_holdfix_tcl6)
 
 현재 이 결과에서 확인된 상태:
 
@@ -244,14 +244,14 @@ FM은 아래 두 가지를 확인합니다.
 
 세부 내용은 아래 README를 보면 됩니다.
 
-- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
-- 실험용 STA: [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
-- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
-- 최종 STA: [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- 합성: [2_synthesis/README.md](2_synthesis/README.md)
+- 실험용 STA: [2.5_STA/README.md](2.5_STA/README.md)
+- DFT: [3_DFT/README.md](3_DFT/README.md)
+- 최종 STA: [4_STA/README.md](4_STA/README.md)
 
 분석 문서:
-- [aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
-- [aes128_core_dft_production_aware_plan_2026-04-13.md](/DATA/home/edu135/aes128_core/docs/aes128_core_dft_production_aware_plan_2026-04-13.md)
+- [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
+- [aes128_core_dft_production_aware_plan_2026-04-13.md](docs/aes128_core_dft_production_aware_plan_2026-04-13.md)
 
 ## Git 관리 기준
 

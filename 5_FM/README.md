@@ -69,20 +69,20 @@
 
 ## 현재 스크립트 구조
 
-- [run_r2n.csh](/DATA/home/edu135/aes128_core/5_FM/run_r2n.csh)
+- [run_r2n.csh](run_r2n.csh)
   - 기본 `ver=4_15_8ns_ff`
   - `lib_corner` 지원
   - synthesis gate 존재 여부를 먼저 확인
-- [run_n2n.csh](/DATA/home/edu135/aes128_core/5_FM/run_n2n.csh)
+- [run_n2n.csh](run_n2n.csh)
   - `ref_ver=4_15_8ns_ff`
   - `impl_ver=4_15_8ns_ff_holdfix_tcl6`
   - `lib_corner` 지원
   - reference/implementation netlist 존재 여부를 먼저 확인
-- [FM_r2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/r2n/FM_r2n_script.tcl)
+- [FM_r2n_script.tcl](0_script/r2n/FM_r2n_script.tcl)
   - reference RTL은 `../0_rtl` 기준으로 읽음
   - `aes128_core_rewrite.v`까지 포함
   - library는 `lib_corner` 기준으로 선택
-- [FM_n2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/n2n/FM_n2n_script.tcl)
+- [FM_n2n_script.tcl](0_script/n2n/FM_n2n_script.tcl)
   - `ref_ver`와 `impl_ver`를 분리해서 읽음
   - post-DFT ECO netlist까지 비교 가능
 
@@ -130,7 +130,7 @@
   을 `dont_verify_point`로 처리
 
 관련 설명:
-- [N2N_SCAN_OUT_DONT_VERIFY_NOTE.md](/DATA/home/edu135/aes128_core/5_FM/N2N_SCAN_OUT_DONT_VERIFY_NOTE.md)
+- [N2N_SCAN_OUT_DONT_VERIFY_NOTE.md](N2N_SCAN_OUT_DONT_VERIFY_NOTE.md)
 
 의미:
 - scan chain test output은 compare 대상에서 제외하고
@@ -157,11 +157,11 @@
 - unverified 없음
 
 근거:
-- [unmatched_points_post_matching.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/r2n_4_15_8ns_ff/unmatched_points_post_matching.rpt)
-- [failing_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/r2n_4_15_8ns_ff/failing_points.rpt)
-- [aborted_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/r2n_4_15_8ns_ff/aborted_points.rpt)
-- [unverified_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/r2n_4_15_8ns_ff/unverified_points.rpt)
-- [r2n_4_15_8ns_ff.log](/DATA/home/edu135/aes128_core/5_FM/3_log/r2n_4_15_8ns_ff.log)
+- [unmatched_points_post_matching.rpt](4_report/r2n_4_15_8ns_ff/unmatched_points_post_matching.rpt)
+- [failing_points.rpt](4_report/r2n_4_15_8ns_ff/failing_points.rpt)
+- [aborted_points.rpt](4_report/r2n_4_15_8ns_ff/aborted_points.rpt)
+- [unverified_points.rpt](4_report/r2n_4_15_8ns_ff/unverified_points.rpt)
+- 로그는 실행 환경에서 생성되지만 repo에는 항상 포함되지 않을 수 있습니다.
 
 추가 해석:
 - `scan_out`는 reference 쪽에서 `dont_verify` 처리됨
@@ -178,11 +178,11 @@
 - unverified 없음
 
 근거:
-- [unmatched_points_post_matching.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/n2n_4_15_8ns_ff_holdfix_tcl6/unmatched_points_post_matching.rpt)
-- [failing_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/n2n_4_15_8ns_ff_holdfix_tcl6/failing_points.rpt)
-- [aborted_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/n2n_4_15_8ns_ff_holdfix_tcl6/aborted_points.rpt)
-- [unverified_points.rpt](/DATA/home/edu135/aes128_core/5_FM/4_report/n2n_4_15_8ns_ff_holdfix_tcl6/unverified_points.rpt)
-- [n2n_4_15_8ns_ff_holdfix_tcl6.log](/DATA/home/edu135/aes128_core/5_FM/3_log/n2n_4_15_8ns_ff_holdfix_tcl6.log)
+- [unmatched_points_post_matching.rpt](4_report/n2n_4_15_8ns_ff_holdfix_tcl6/unmatched_points_post_matching.rpt)
+- [failing_points.rpt](4_report/n2n_4_15_8ns_ff_holdfix_tcl6/failing_points.rpt)
+- [aborted_points.rpt](4_report/n2n_4_15_8ns_ff_holdfix_tcl6/aborted_points.rpt)
+- [unverified_points.rpt](4_report/n2n_4_15_8ns_ff_holdfix_tcl6/unverified_points.rpt)
+- 로그는 실행 환경에서 생성되지만 repo에는 항상 포함되지 않을 수 있습니다.
 
 추가 해석:
 - `scan_out`는 reference/implementation 양쪽 모두 `dont_verify`
@@ -213,15 +213,15 @@
 
 나중에 FM 쪽이 기억 안 나면 아래부터 보면 됩니다.
 
-1. [run_r2n.csh](/DATA/home/edu135/aes128_core/5_FM/run_r2n.csh)
-2. [run_n2n.csh](/DATA/home/edu135/aes128_core/5_FM/run_n2n.csh)
-3. [FM_r2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/r2n/FM_r2n_script.tcl)
-4. [FM_n2n_script.tcl](/DATA/home/edu135/aes128_core/5_FM/0_script/n2n/FM_n2n_script.tcl)
-5. [N2N_SCAN_OUT_DONT_VERIFY_NOTE.md](/DATA/home/edu135/aes128_core/5_FM/N2N_SCAN_OUT_DONT_VERIFY_NOTE.md)
+1. [run_r2n.csh](run_r2n.csh)
+2. [run_n2n.csh](run_n2n.csh)
+3. [FM_r2n_script.tcl](0_script/r2n/FM_r2n_script.tcl)
+4. [FM_n2n_script.tcl](0_script/n2n/FM_n2n_script.tcl)
+5. [N2N_SCAN_OUT_DONT_VERIFY_NOTE.md](N2N_SCAN_OUT_DONT_VERIFY_NOTE.md)
 
 ## 함께 보면 좋은 README
 
-- RTL: [0_rtl/README.md](/DATA/home/edu135/aes128_core/0_rtl/README.md)
-- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
-- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
-- 최종 STA: [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- RTL: [0_rtl/README.md](../0_rtl/README.md)
+- 합성: [2_synthesis/README.md](../2_synthesis/README.md)
+- DFT: [3_DFT/README.md](../3_DFT/README.md)
+- 최종 STA: [4_STA/README.md](../4_STA/README.md)

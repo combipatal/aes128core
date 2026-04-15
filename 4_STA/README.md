@@ -42,12 +42,12 @@
 
 ## 실행 방법
 
-현재 [run.csh](/DATA/home/edu135/aes128_core/4_STA/run.csh)는 `ver`, `net_ver`, `sdc_ver`를 따로 받을 수 있습니다.
+현재 [run.csh](run.csh)는 `ver`, `net_ver`, `sdc_ver`를 따로 받을 수 있습니다.
 
 기본 실행 예시:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/4_STA
+cd ./4_STA
 env ver=4_15_8ns_ff_holdfix_tcl6 \
     net_ver=4_15_8ns_ff_holdfix_tcl6 \
     sdc_ver=4_15_8ns_ff \
@@ -70,17 +70,17 @@ env ver=4_15_8ns_ff_holdfix_tcl6 \
 
 ## 현재 스크립트 구조
 
-- [run.csh](/DATA/home/edu135/aes128_core/4_STA/run.csh)
+- [run.csh](run.csh)
   - `net_ver`와 `sdc_ver`를 분리해서 입력 받을 수 있도록 수정됨
   - netlist/SDC가 없으면 바로 종료
-- [STA_script.tcl](/DATA/home/edu135/aes128_core/4_STA/0_script/STA_script.tcl)
+- [STA_script.tcl](0_script/STA_script.tcl)
   - `ss`, `ff`, `tt` short corner 지원
   - synthesis SDC에서 wire-load 명령을 제거한 `sanitized SDC`를 만든 뒤 읽음
   - top-level `ForQA` wire-load만 적용
 - scenario override
-  - [func_pre_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/func_pre_sta.tcl)
-  - [scan_capture_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_capture_sta.tcl)
-  - [scan_shift_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_shift_sta.tcl)
+  - [func_pre_sta.tcl](1_input/constraint/func_pre_sta.tcl)
+  - [scan_capture_sta.tcl](1_input/constraint/scan_capture_sta.tcl)
+  - [scan_shift_sta.tcl](1_input/constraint/scan_shift_sta.tcl)
 
 ## 실제로 겪은 문제와 수정 방법
 
@@ -118,11 +118,11 @@ env ver=4_15_8ns_ff_holdfix_tcl6 \
 수정:
 - `3_DFT`에서 post-DFT netlist용 Tcl ECO 스크립트를 만들었습니다.
 - 관련 파일:
-  - [post_dft_hold_eco.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/post_dft_hold_eco.tcl)
-  - [run_hold_eco.csh](/DATA/home/edu135/aes128_core/3_DFT/run_hold_eco.csh)
+  - [post_dft_hold_eco.tcl](../3_DFT/0_script/post_dft_hold_eco.tcl)
+  - [run_hold_eco.csh](../3_DFT/run_hold_eco.csh)
 - 이 스크립트는 원본 netlist를 손으로 수정하지 않고, 새 버전 디렉터리에 ECO netlist를 생성합니다.
 - 현재 사용한 ECO 결과 버전:
-  - [aes_128_internal.v](/DATA/home/edu135/aes128_core/3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
+  - [aes_128_internal.v](../3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
 
 ECO 내용:
 - `mem_addr[3:0]` 앞에 inverter pair 추가
@@ -143,9 +143,9 @@ ECO 내용:
 - hold clean
 - `clk_fast_aes` setup slack: `0.4740ns`
 - 참고:
-  - [func_pre_ss_setup.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/setup/func_pre_ss_setup.rpt)
-  - [func_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/hold/func_pre_ss_hold.rpt)
-  - [func_pre_ss_qor.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/qor/func_pre_ss_qor.rpt)
+  - [func_pre_ss_setup.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/func/setup/func_pre_ss_setup.rpt)
+  - [func_pre_ss_hold.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/func/hold/func_pre_ss_hold.rpt)
+  - [func_pre_ss_qor.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/func/qor/func_pre_ss_qor.rpt)
 
 ### Scan Capture
 
@@ -153,9 +153,9 @@ ECO 내용:
 - hold clean
 - recovery/removal `1108/1108 met`
 - 참고:
-  - [scan_capture_pre_ss_check_timing.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/check_timing/scan_capture_pre_ss_check_timing.rpt)
-  - [scan_capture_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/hold/scan_capture_pre_ss_hold.rpt)
-  - [scan_capture_pre_ss_analysis_coverage.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/analysis_coverage/scan_capture_pre_ss_analysis_coverage.rpt)
+  - [scan_capture_pre_ss_check_timing.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/capture/check_timing/scan_capture_pre_ss_check_timing.rpt)
+  - [scan_capture_pre_ss_hold.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/capture/hold/scan_capture_pre_ss_hold.rpt)
+  - [scan_capture_pre_ss_analysis_coverage.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/capture/analysis_coverage/scan_capture_pre_ss_analysis_coverage.rpt)
 
 ### Scan Shift
 
@@ -163,9 +163,9 @@ ECO 내용:
 - hold clean
 - coverage 숫자는 낮지만, scenario 목적상 바로 문제로 보지는 않음
 - 참고:
-  - [scan_shift_pre_ss_check_timing.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/check_timing/scan_shift_pre_ss_check_timing.rpt)
-  - [scan_shift_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/hold/scan_shift_pre_ss_hold.rpt)
-  - [scan_shift_pre_ss_qor.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/qor/scan_shift_pre_ss_qor.rpt)
+  - [scan_shift_pre_ss_check_timing.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/shift/check_timing/scan_shift_pre_ss_check_timing.rpt)
+  - [scan_shift_pre_ss_hold.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/shift/hold/scan_shift_pre_ss_hold.rpt)
+  - [scan_shift_pre_ss_qor.rpt](4_report/4_15_8ns_ff_holdfix_tcl6/shift/qor/scan_shift_pre_ss_qor.rpt)
 
 ## 아직 남아 있는 것
 
@@ -196,6 +196,6 @@ ECO 내용:
 
 ## 같이 보면 좋은 다른 README
 
-- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core_copy_exec/2_synthesis/README.md)
-- 실험용 STA: [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
-- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
+- 합성: [2_synthesis/README.md](../2_synthesis/README.md)
+- 실험용 STA: [2.5_STA/README.md](../2.5_STA/README.md)
+- DFT: [3_DFT/README.md](../3_DFT/README.md)

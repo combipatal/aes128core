@@ -42,7 +42,7 @@
 
 ## 실행 방법
 
-현재 [run.csh](/DATA/home/edu135/aes128_core/2.5_STA/run.csh)의 기본값은 아래와 같습니다.
+현재 [run.csh](run.csh)의 기본값은 아래와 같습니다.
 
 ```csh
 if ( ! $?ver ) setenv ver 4_15_8ns_ff
@@ -58,7 +58,7 @@ if ( ! $?net_source ) setenv net_source synth
 대표 실행 예시는 아래와 같습니다.
 
 ```bash
-cd /DATA/home/edu135/aes128_core/2.5_STA
+cd ./2.5_STA
 
 env ver=4_15_8ns_ff corner=ss sta_scenario=func net_source=synth csh run.csh
 env ver=4_15_8ns_ff corner=ff sta_scenario=func net_source=synth csh run.csh
@@ -80,18 +80,18 @@ env ver=4_15_8ns_ff corner=ss sta_scenario=scan_shift net_source=dft csh run.csh
 
 ## 현재 스크립트 구조
 
-- [run.csh](/DATA/home/edu135/aes128_core/2.5_STA/run.csh)
+- [run.csh](run.csh)
   - `net_source=synth|dft`를 구분해서 입력 netlist를 선택
   - `func`, `scan_shift`, `scan_capture`에 따라 override 파일 선택
-- [STA_script.tcl](/DATA/home/edu135/aes128_core/2.5_STA/0_script/STA_script.tcl)
+- [STA_script.tcl](0_script/STA_script.tcl)
   - `ss`, `ff`, `tt`, `ff1p16vn40c` corner 지원
   - synth/DDC가 남긴 wire-load 명령을 제거한 sanitized SDC 생성
   - `flat_forqa`와 `legacy_hier` 두 종류 wire-load policy 지원
   - custom ICG timing arc를 기본적으로 disable
 - override 파일
-  - [func_pre_sta.tcl](/DATA/home/edu135/aes128_core/2.5_STA/1_input/constraint/func_pre_sta.tcl)
-  - [scan_shift_sta.tcl](/DATA/home/edu135/aes128_core/2.5_STA/1_input/constraint/scan_shift_sta.tcl)
-  - [scan_capture_sta.tcl](/DATA/home/edu135/aes128_core/2.5_STA/1_input/constraint/scan_capture_sta.tcl)
+  - [func_pre_sta.tcl](1_input/constraint/func_pre_sta.tcl)
+  - [scan_shift_sta.tcl](1_input/constraint/scan_shift_sta.tcl)
+  - [scan_capture_sta.tcl](1_input/constraint/scan_capture_sta.tcl)
 
 ## 실제로 겪었던 문제와 수정 방법
 
@@ -159,13 +159,13 @@ env ver=4_15_8ns_ff corner=ss sta_scenario=scan_shift net_source=dft csh run.csh
 대표 결과:
 
 - `ss`
-  - [func_synthcmp_ss_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_ss_qor.rpt)
+  - [func_synthcmp_ss_qor.rpt](4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_ss_qor.rpt)
   - `clk_fast_aes` setup slack: `0.4528ns`
 - `ff`
-  - [func_synthcmp_ff_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_ff_qor.rpt)
+  - [func_synthcmp_ff_qor.rpt](4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_ff_qor.rpt)
   - `clk_fast_aes` setup slack: `0.0100ns`
 - `tt`
-  - [func_synthcmp_tt_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_tt_qor.rpt)
+  - [func_synthcmp_tt_qor.rpt](4_report/4_15_8ns_ff/synth/func/qor/func_synthcmp_tt_qor.rpt)
   - `clk_fast_aes` setup slack: `0.7367ns`
 
 즉 이 워크스페이스는
@@ -177,9 +177,9 @@ env ver=4_15_8ns_ff corner=ss sta_scenario=scan_shift net_source=dft csh run.csh
 `func` coverage는 세 corner에서 거의 같은 형태로 보입니다.
 
 예:
-- [func_synthcmp_ss_analysis_coverage.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_ss_analysis_coverage.rpt)
-- [func_synthcmp_ff_analysis_coverage.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_ff_analysis_coverage.rpt)
-- [func_synthcmp_tt_analysis_coverage.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_tt_analysis_coverage.rpt)
+- [func_synthcmp_ss_analysis_coverage.rpt](4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_ss_analysis_coverage.rpt)
+- [func_synthcmp_ff_analysis_coverage.rpt](4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_ff_analysis_coverage.rpt)
+- [func_synthcmp_tt_analysis_coverage.rpt](4_report/4_15_8ns_ff/synth/func/analysis_coverage/func_synthcmp_tt_analysis_coverage.rpt)
 
 해석:
 - `setup/hold` met 비율이 `34%` 수준으로 낮아 보여도,
@@ -214,17 +214,17 @@ env ver=4_15_8ns_ff corner=ss sta_scenario=scan_shift net_source=dft csh run.csh
 
 나중에 이 워크스페이스의 의미가 기억 안 나면 아래 순서로 보면 됩니다.
 
-1. [STA_script.tcl](/DATA/home/edu135/aes128_core/2.5_STA/0_script/STA_script.tcl)
+1. [STA_script.tcl](0_script/STA_script.tcl)
    - sanitize/WLM/custom ICG 처리 로직이 다 들어 있음
 2. `4_report/<ver>/synth/func/qor/*.rpt`
    - corner별 WNS 비교
 3. `4_report/<ver>/synth/func/analysis_coverage/*.rpt`
    - func coverage 해석
-4. [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+4. [4_STA/README.md](../4_STA/README.md)
    - 최종 post-DFT/ECO 결과
 
 ## 함께 보면 좋은 README
 
-- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
-- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
-- 최종 STA: [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- 합성: [2_synthesis/README.md](../2_synthesis/README.md)
+- DFT: [3_DFT/README.md](../3_DFT/README.md)
+- 최종 STA: [4_STA/README.md](../4_STA/README.md)

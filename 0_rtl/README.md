@@ -2,6 +2,10 @@
 
 이 디렉터리는 `aes128_core` 프로젝트의 기준 RTL 소스 폴더입니다. 이후 `1_vcs`, `2_synthesis`, `3_DFT`, `4_STA`, `5_FM`는 모두 이 폴더의 RTL을 출발점으로 사용합니다.
 
+중요:
+- `0_rtl`이 authoritative RTL source입니다.
+- `1_vcs/1_input/rtl` 아래 파일들은 시뮬레이션용 snapshot 성격이며, 항상 최신 `0_rtl`과 완전히 같다고 가정하면 안 됩니다.
+
 포트폴리오 관점에서 이 디렉터리에서 가장 중요한 변화는, 단순히 RTL이 동작하는 수준을 넘어서 **후속 합성/STA/DFT까지 고려한 구조 수정**이 실제로 들어갔다는 점입니다.
 
 즉 이 디렉터리의 RTL 수정은 기능 버그를 고치는 수준이 아니라,
@@ -37,8 +41,8 @@
 
 이 커밋에서 RTL 변경 파일은 두 개입니다.
 
-- [aes128_core_rewrite.v](/DATA/home/edu135/aes128_core/0_rtl/aes128_core_rewrite.v)
-- [soc_ctrl_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v)
+- [aes128_core_rewrite.v](aes128_core_rewrite.v)
+- [soc_ctrl_multiclk_soc.v](soc_ctrl_multiclk_soc.v)
 
 이 커밋의 핵심 방향은 한 문장으로 요약하면 다음과 같습니다.
 
@@ -62,7 +66,7 @@
 
 ### 수정
 
-새 파일 [aes128_core_rewrite.v](/DATA/home/edu135/aes128_core/0_rtl/aes128_core_rewrite.v)를 추가했습니다.
+새 파일 [aes128_core_rewrite.v](aes128_core_rewrite.v)를 추가했습니다.
 
 핵심 구조:
 
@@ -121,7 +125,7 @@ AES core를 새 구조로 바꾸면, 주변 control path도 같이 정리해야 
 
 ### 수정
 
-[soc_ctrl_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v)에서 아래를 바꿨습니다.
+[soc_ctrl_multiclk_soc.v](soc_ctrl_multiclk_soc.v)에서 아래를 바꿨습니다.
 
 #### 1. AES 인스턴스 교체
 
@@ -221,7 +225,7 @@ AES core를 새 구조로 바꾸면, 주변 control path도 같이 정리해야 
 - controller를 완전히 흩뜨리지 않고, 내부 datapath만 조정할 수 있는 구조로 가는 기반이 됐습니다.
 
 관련 문서:
-- [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
+- [2_synthesis/README.md](../2_synthesis/README.md)
 
 ### STA 관점
 
@@ -230,8 +234,8 @@ AES core를 새 구조로 바꾸면, 주변 control path도 같이 정리해야 
 - 나중에 남은 hold 문제를 “RTL bug”가 아니라 “SRAM macro short path ECO 문제”로 분리해서 볼 수 있게 했습니다.
 
 관련 문서:
-- [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
-- [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- [2.5_STA/README.md](../2.5_STA/README.md)
+- [4_STA/README.md](../4_STA/README.md)
 
 ### DFT 관점
 
@@ -239,7 +243,7 @@ AES core를 새 구조로 바꾸면, 주변 control path도 같이 정리해야 
 - scan insertion 이후에도 netlist 구조를 비교적 설명 가능한 형태로 유지하는 데 도움이 됐습니다.
 
 관련 문서:
-- [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
+- [3_DFT/README.md](../3_DFT/README.md)
 
 ## 이 RTL 수정의 결과를 어떻게 봐야 하는가
 
@@ -280,11 +284,11 @@ AES core를 새 구조로 바꾸면, 주변 control path도 같이 정리해야 
 
 이 RTL 수정의 의미를 나중에 다시 확인하려면 아래를 먼저 보면 됩니다.
 
-1. [aes128_core_rewrite.v](/DATA/home/edu135/aes128_core/0_rtl/aes128_core_rewrite.v)
+1. [aes128_core_rewrite.v](aes128_core_rewrite.v)
    - AES core staged 구조 자체
-2. [soc_ctrl_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v)
+2. [soc_ctrl_multiclk_soc.v](soc_ctrl_multiclk_soc.v)
    - controller, SRAM path, TX path 정리
-3. [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
+3. [2_synthesis/README.md](../2_synthesis/README.md)
    - 이 RTL이 합성에서 어떤 의미를 가졌는지
-4. [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+4. [4_STA/README.md](../4_STA/README.md)
    - 최종적으로 어떤 timing 결과로 이어졌는지

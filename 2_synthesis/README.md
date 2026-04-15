@@ -45,7 +45,7 @@
 
 ## 실행 방법
 
-현재 [run.csh](/DATA/home/edu135/aes128_core/2_synthesis/run.csh)의 기본값은 아래와 같습니다.
+현재 [run.csh](run.csh)의 기본값은 아래와 같습니다.
 
 ```csh
 if ( ! $?ver ) setenv ver 4_15_8ns_ff
@@ -58,7 +58,7 @@ dc_shell -64 -f 0_script/synthesis_script.tcl | tee 3_log/${ver}_syn_dc.log
 실행 예시:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/2_synthesis
+cd ./2_synthesis
 csh run.csh
 env ver=4_13_7p3ns clk_period=7.3 csh run.csh
 env ver=4_15_8ns_ff clk_period=8 csh run.csh
@@ -66,7 +66,7 @@ env ver=4_15_8ns_ff clk_period=8 csh run.csh
 
 ## 스크립트 동작 요약
 
-[synthesis_script.tcl](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl)은 아래 순서로 동작합니다.
+[synthesis_script.tcl](0_script/synthesis_script.tcl)은 아래 순서로 동작합니다.
 
 1. `env(ver)` 기준으로 output/report 디렉터리를 생성합니다.
 2. RTL을 `analyze`하고 `top_mcu_pll_sram_multiclk_soc`를 `elaborate`/`link`합니다.
@@ -83,7 +83,7 @@ env ver=4_15_8ns_ff clk_period=8 csh run.csh
 
 ## 현재 제약 파일 핵심
 
-[constraint.con](/DATA/home/edu135/aes128_core/2_synthesis/1_input/constraint/constraint.con)에는 아래 항목이 들어 있습니다.
+[constraint.con](1_input/constraint/constraint.con)에는 아래 항목이 들어 있습니다.
 
 - primary clock: `ref_clk`
 - generated clocks:
@@ -275,19 +275,19 @@ hold closure는 post-DFT ECO에서 마무리했습니다.
 
 나중에 왜 이런 구조로 합성했는지 다시 확인해야 할 때는 아래를 먼저 보면 됩니다.
 
-1. [synthesis_script.tcl](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl)
+1. [synthesis_script.tcl](0_script/synthesis_script.tcl)
    - 현재 compile 전략과 hierarchy 제어가 들어 있음
 2. `4_report/<ver>/qor.rpt`
    - setup/hold summary와 path group 상태 확인
 3. `4_report/<ver>/aes_chk_design.rpt`
    - 구조 경고와 lint noise 확인
-4. [aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
+4. [aes128_core_fm_flow_plan_2026-04-12.md](../docs/aes128_core_fm_flow_plan_2026-04-12.md)
    - synthesis, DFT, STA, FM을 연결해서 어떻게 해석했는지 정리돼 있음
-5. [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+5. [4_STA/README.md](../4_STA/README.md)
    - post-DFT ECO까지 포함한 최종 결과가 정리돼 있음
 
 ## 함께 보면 좋은 README
 
-- 실험용 STA: [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
-- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
-- 최종 STA: [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
+- 실험용 STA: [2.5_STA/README.md](../2.5_STA/README.md)
+- DFT: [3_DFT/README.md](../3_DFT/README.md)
+- 최종 STA: [4_STA/README.md](../4_STA/README.md)
