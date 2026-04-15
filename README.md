@@ -1,8 +1,22 @@
 # aes128_core
 
-이 저장소는 AES128 기반 SoC 형태의 RTL, 기능 검증, 합성, DFT, STA, FM 플로우를 정리한 프로젝트입니다.
+이 저장소는 AES128 기반 SoC 형태의 RTL부터 기능 검증, 합성, DFT, STA, FM까지 이어지는 전체 디지털 구현 흐름을 정리한 프로젝트입니다. 현재 기준 top module은 `top_mcu_pll_sram_multiclk_soc`입니다.
 
-현재 기준 top module은 `top_mcu_pll_sram_multiclk_soc`이며, 내부에 다음과 같은 블록이 포함되어 있습니다.
+이 프로젝트의 핵심은 단순히 AES 코어 하나를 동작시키는 것이 아니라, 아래 흐름을 실제로 연결해서 검증한 점입니다.
+
+- RTL 작성
+- VCS 기능 검증
+- Design Compiler 합성
+- single scan chain 기반 DFT insertion
+- PrimeTime STA
+- Formality r2n / n2n
+- post-DFT hold ECO
+
+즉 “RTL이 맞는다” 수준이 아니라, “합성/DFT/STA/FM까지 이어지는 흐름이 실제로 굴러간다”는 점이 이 저장소의 가장 중요한 결과입니다.
+
+## SoC 구성
+
+현재 top 내부에는 아래 블록이 포함됩니다.
 
 - AES128 core
 - UART RX/TX
@@ -18,214 +32,240 @@
 aes128_core/
 ├── 0_rtl/
 ├── 1_vcs/
-│   ├── 0_script/
-│   ├── 1_input/
-│   ├── 2_output/
-│   ├── 3_log/
-│   └── 4_report/
 ├── 2_synthesis/
-│   ├── 0_script/
-│   ├── 1_input/
-│   ├── 2_output/
-│   ├── 3_log/
-│   └── 4_report/
+├── 2.5_STA/
 ├── 3_DFT/
-│   ├── 0_script/
-│   ├── 2_output/
-│   ├── 3_log/
-│   └── 4_report/
 ├── 4_STA/
-│   ├── 0_script/
-│   ├── 1_input/
-│   ├── 3_log/
-│   └── 4_report/
 ├── 5_FM/
-│   ├── 0_script/
-│   ├── 2_output/
-│   ├── 3_log/
-│   └── 4_report/
 ├── SAED32_EDK/
 ├── docs/
 └── .synopsys_dc.setup
 ```
 
-## 디렉터리 설명
+각 디렉터리의 역할은 다음과 같습니다.
 
-### `0_rtl/`
+- `0_rtl`
+  - 기준 RTL 소스
+- `1_vcs`
+  - 기능 검증 환경
+- `2_synthesis`
+  - Design Compiler 합성
+- `2.5_STA`
+  - 실험/비교용 PrimeTime STA
+- `3_DFT`
+  - scan insertion
+- `4_STA`
+  - post-DFT 기준 최종 pre-layout STA
+- `5_FM`
+  - RTL vs synth / synth vs DFT formal check
+- `docs`
+  - 분석 메모와 계획 문서
 
-- 프로젝트의 기준 RTL 소스 폴더
-- top 및 하위 모듈 원본을 보관
+## 전체 흐름
 
-### `1_vcs/`
+이 저장소의 작업 순서는 아래처럼 보면 됩니다.
 
-- VCS 기반 기능 검증 환경
-- testbench, filelist, 실행 스크립트, 파형/로그/요약 리포트를 관리
-- 자세한 내용은 [README.md](1_vcs/README.md) 참고
+1. `0_rtl`
+   - RTL 작성 및 구조 수정
+2. `1_vcs`
+   - 기능 검증
+3. `2_synthesis`
+   - mapped netlist와 synthesis SDC 생성
+4. `3_DFT`
+   - post-DFT netlist 생성
+5. `4_STA`
+   - post-DFT timing 검증
+6. `5_FM`
+   - formal equivalence 검증
 
-### `2_synthesis/`
+중간에 `2.5_STA`는 final signoff용이라기보다, 아래를 비교/실험하는 워크스페이스입니다.
 
-- Design Compiler 기반 합성 환경
-- RTL 복사본, constraint, 합성 스크립트, 결과 netlist/DDC/리포트를 관리
-- 버전 태그(`ver`) 기준으로 결과를 나눠 저장
-- 자세한 내용은 [README.md](2_synthesis/README.md) 참고
+- synth vs DFT netlist
+- SS/FF/TT corner
+- generated clock / wire-load / custom ICG 해석 방식
 
-### `3_DFT/`
+## 각 단계의 의미
 
-- DFT/scan insertion 환경
-- 합성 결과 DDC를 입력으로 받아 single scan chain 기반 DFT 삽입을 수행
-- DFT 로그, preview, pre/post DRC, scan chain 리포트를 관리
-- 현재는 `ref_clk`, `scan_en`, `scan_in`, `scan_out`, `test_mode`를 기준으로 single scan chain을 구성
-- 자세한 내용은 [README.md](3_DFT/README.md) 참고
+### 1. 기능 검증: `1_vcs`
 
-### `SAED32_EDK/`
+기능 검증은 VCS 환경에서 수행합니다. 이 단계의 목적은 합성 이전에 기능이 맞는지 확인하는 것입니다.
 
-- SAED32 라이브러리/매크로/문서
-- 표준셀, IO, PLL, SRAM 관련 `.db`, Verilog model, LEF/GDS 등의 기술 파일 포함
-- 용량이 크므로 Git에는 포함하지 않도록 관리
+관련 README:
+- [1_vcs/README.md](/DATA/home/edu135/aes128_core/1_vcs/README.md)
 
-### `docs/`
+### 2. 합성: `2_synthesis`
 
-- 프로젝트 메모, 문서, 참고 자료 정리용 폴더
-- 현재 FM 중심 개선 계획 문서:
-  - [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
+합성은 mapped netlist와 `soc_func.sdc`를 만들어 이후 DFT/STA/FM의 기준을 세우는 단계입니다.
 
-### `.synopsys_dc.setup`
+이 단계에서 중요했던 점:
+- `clk_fast_aes`처럼 민감한 generated clock domain을 clean하게 유지
+- hierarchy와 ICG anchor를 후속 단계에서 다시 쓸 수 있게 유지
+- warning을 무조건 bug로 보기보다 허용 경고와 실제 이슈를 구분
 
-- 프로젝트 공통 Synopsys 환경 설정 파일
-- library search path, target/link library, work library를 정의
+관련 README:
+- [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
 
-## 기본 진행 흐름
+### 3. 실험/비교용 STA: `2.5_STA`
 
-보통 작업 순서는 아래와 같습니다.
+이 단계는 최종 결과를 내기 위한 공간이 아니라, synthesis netlist와 DFT netlist를 비교하고, corner sweep과 constraint 해석 방식을 정리하는 공간입니다.
 
-1. `0_rtl/` 기준으로 RTL 작성/수정
-2. `1_vcs/`에서 기능 검증
-3. `2_synthesis/`에서 합성 및 timing/area 확인
-4. `3_DFT/`에서 scan insertion 및 DFT 리포트 확인
-5. `4_STA/`에서 functional / scan scenario STA 확인
-6. `5_FM/`에서 r2n / n2n equivalence 확인
+이 단계에서 중요했던 점:
+- synthesis SDC를 sanitize해서 cross-corner STA를 안정화
+- flat wire-load와 legacy hierarchy wire-load를 비교
+- custom ICG 내부 arc를 generated clock 관점으로 정리
 
-각 단계는 앞 단계 결과를 다음 단계 입력으로 사용합니다.
+관련 README:
+- [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
 
-- `0_rtl -> 1_vcs`
-- `0_rtl -> 2_synthesis`
-- `2_synthesis/mapped DDC -> 3_DFT`
-- `3_DFT/netlist + 2_synthesis SDC -> 4_STA`
-- `RTL <-> synthesis gate -> 5_FM/r2n`
-- `synthesis gate <-> DFT gate -> 5_FM/n2n`
+### 4. DFT: `3_DFT`
 
-## 실행 기준
+DFT는 `2_synthesis`의 mapped DDC를 입력으로 받아 single scan chain을 삽입하는 단계입니다.
 
-### 기능 검증
+이 단계에서 중요했던 점:
+- `ref_clk`, `scan_en`, `scan_in`, `scan_out`, `test_mode` 기반 single chain 구성
+- custom AES clock gating cell을 test 시 열 수 있도록 hookup
+- pre/post DFT DRC와 scan chain 구조 확인
 
-- `1_vcs/0_script/run.csh`
+관련 README:
+- [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
 
-### 합성
+### 5. 최종 STA: `4_STA`
 
-- `2_synthesis/run.csh`
+최종 STA는 post-DFT netlist 기준으로 `func`, `scan_capture`, `scan_shift`를 나눠 timing을 검증하는 단계입니다.
 
-### DFT
+이 단계에서 중요했던 점:
+- scenario별로 coverage를 다르게 해석
+- `scan_capture`에서 recovery/removal을 실제로 met시키는 것
+- post-DFT hold violation을 ECO로 닫는 것
 
-- `3_DFT/run.csh`
+관련 README:
+- [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
 
-### STA
+### 6. Formality: `5_FM`
 
-- `4_STA/run.csh`
+FM은 아래 두 가지를 확인합니다.
 
-### FM
+- `r2n`
+  - RTL vs synthesis gate
+- `n2n`
+  - synthesis gate vs DFT gate
 
-- `5_FM/run_r2n.csh`
-- `5_FM/run_n2n.csh`
+즉 기능적으로 RTL이 유지됐는지, DFT insertion 이후에도 논리 등가가 유지됐는지를 확인하는 단계입니다.
 
-각 단계는 보통 `ver` 환경변수를 기준으로 결과 폴더를 분리합니다.
+## 실제로 겪었던 대표 문제
 
-예:
+이 프로젝트에서는 아래 문제가 실제로 중요했습니다.
 
-```csh
-setenv ver 4_11_4_6p5ns
-```
+### 1. `clk_fast_aes` margin이 얇았다
 
-## 현재 작업 시 주의사항
+- 합성과 PT 해석이 완전히 같은 방향으로 나오지 않았고,
+- AES clock-gated domain이 특히 빡빡했습니다.
 
-- Linux 환경에서는 경로 대소문자를 정확히 맞춰야 합니다
-- 합성/DFT 결과는 `2_output/`, `3_log/`, `4_report/` 아래 버전별로 누적됩니다
-- PLL/SRAM macro는 black-box 또는 macro cell로 다뤄지므로 일반 RTL처럼 보지 않아야 합니다
-- setup과 hold는 분리해서 해석해야 합니다
-- DFT 후 timing은 보통 pre-DFT보다 나빠질 수 있습니다
+해결 방향:
+- hierarchy/ungroup 전략 조정
+- generated clock anchor 유지
+- wire-load policy 단순화
 
-## 현재 상태 메모
+### 2. synthesis SDC를 STA에서 그대로 읽기 어려웠다
 
-현재 권장 baseline은 `4_13_7p3ns`입니다.
+- source-corner wire-load 명령 때문에 cross-corner STA가 흔들렸습니다.
 
-- VCS regression 3종은 통과 상태입니다.
-  - `default_nist`
-  - `ext_zero`
-  - `ext_ecb_nist`
-- synthesis baseline:
-  - target period `7.3ns`
-  - `GTECH_NOT` 제거 완료
+해결 방향:
+- `2.5_STA`, `4_STA`에서 sanitized SDC 생성 후 사용
+
+### 3. custom ICG 때문에 clock-gating 관련 해석이 복잡했다
+
+- RTL 기반 custom ICG가 gate/latch로 바뀌면서 PT에서 implementation arc를 과도하게 해석하는 경우가 있었습니다.
+
+해결 방향:
+- generated clock 기준 해석
+- custom ICG 내부 arc disable
+
+### 4. post-DFT SRAM input hold violation 12개가 남았다
+
+- `u_ctrl -> SRAM macro input` short path 문제였습니다.
+
+해결 방향:
+- synthesis에서 억지로 숨기지 않고,
+- `3_DFT`에서 Tcl 기반 post-DFT ECO를 만들어
+- SRAM `A[*]`, `I[*]` 앞에 inverter pair를 삽입했습니다.
+
+관련 파일:
+- [post_dft_hold_eco.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/post_dft_hold_eco.tcl)
+- [run_hold_eco.csh](/DATA/home/edu135/aes128_core/3_DFT/run_hold_eco.csh)
+
+## 현재 최종 baseline
+
+현재 흐름상 가장 중요한 버전은 아래 두 개입니다.
+
+### synthesis baseline
+
+- `4_15_8ns_ff`
+- 생성물:
+  - [soc_gate.v](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.v)
+  - [soc_gate.ddc](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_gate.ddc)
+  - [soc_func.sdc](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_15_8ns_ff/mapped/soc_func.sdc)
+
+### post-DFT ECO baseline
+
+- `4_15_8ns_ff_holdfix_tcl6`
+- 생성물:
+  - [aes_128_internal.v](/DATA/home/edu135/aes128_core/3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
+
+### 최종 STA 결과
+
+- [4_STA/4_report/4_15_8ns_ff_holdfix_tcl6](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6)
+
+현재 이 결과에서 확인된 상태:
+
+- `func`
   - setup clean
-  - `clk_div2` -> SRAM interface hold violation `12`개 잔존
-- DFT baseline:
-  - single scan chain 삽입 성공
-  - `scan_in -> chain0 -> scan_out`
-  - chain length `1532`
-  - dedicated scan-out port 생성 없이 기존 `scan_out` 포트 재사용
-- STA baseline:
-  - func / capture / shift 3개 scenario 모두 다시 정리됨
-  - functional `clk_fast_aes` setup slack `0.0000ns`
-  - functional / capture / shift 기준 SRAM interface hold violation `12`개 잔존
-  - `scan_shift`는 generic-cell 문제는 사라졌지만 `no_input_delay` 2개가 아직 남아 있음
-- FM baseline:
-  - r2n PASS
-  - n2n PASS
-  - n2n은 functional equivalence 기준으로 `scan_out`를 `dont_verify` 처리
+  - hold clean
+- `scan_capture`
+  - setup clean
+  - hold clean
+  - recovery/removal met
+- `scan_shift`
+  - setup clean
+  - hold clean
 
-즉 현재 상태는 "generic-free clean baseline은 확보했지만, 실무형 signoff 관점에서는 hold closure와 constraint refinement가 남아 있는 상태"로 보는 것이 맞습니다.
+즉 현재 기준으로는:
+- synthesis baseline 확보
+- DFT insertion 완료
+- post-DFT hold ECO 완료
+- pre-layout STA clean
+까지 연결된 상태입니다.
 
-## 최근 반영 결과
+## 현재 결과를 한 줄로 요약하면
 
-- synthesis에서 `u_mem` wrapper 전체 `dont_touch`를 제거하고 실제 mapping이 되도록 수정했습니다.
-- 그 결과:
-  - synthesis mapped netlist에서 `GTECH_NOT` 제거
-  - DFT netlist에서도 generic cell 제거
-  - FM r2n / n2n PASS 유지
+이 프로젝트는 `AES128 SoC RTL -> 합성 -> DFT -> STA -> FM` 흐름을 실제로 연결했고, 최종적으로 post-DFT hold까지 ECO로 정리한 상태입니다.
 
-다만 이 변경 이후:
+## 먼저 보면 좋은 문서
 
-- area와 net area는 다소 증가
-- `clk_fast_aes` margin은 더 얇아짐
-- SRAM interface hold 12개는 여전히 남아 있음
+세부 내용은 아래 README를 보면 됩니다.
 
-즉 `4_13_7p3ns`는 "더 깨끗한 baseline"이지만, 아직 "더 최적화된 baseline"은 아닙니다.
+- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core/2_synthesis/README.md)
+- 실험용 STA: [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
+- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
+- 최종 STA: [4_STA/README.md](/DATA/home/edu135/aes128_core/4_STA/README.md)
 
-## 현재 가장 먼저 손봐야 할 항목
-
-다음 우선순위는 아래 순서가 적절합니다.
-
-1. VCS / synthesis / FM source list를 단일 manifest로 정리
-2. sim-only external AES vector interface를 production top과 분리
-3. `scan_shift` STA 제약 강화
-4. SRAM interface hold violation 12개 closure
-5. 이후 DFT multi-chain / PPA 재정리
-
-자세한 분석과 실행 계획은 아래 문서를 기준으로 봅니다.
-
-- [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
+분석 문서:
+- [aes128_core_fm_flow_plan_2026-04-12.md](/DATA/home/edu135/aes128_core/docs/aes128_core_fm_flow_plan_2026-04-12.md)
+- [aes128_core_dft_production_aware_plan_2026-04-13.md](/DATA/home/edu135/aes128_core/docs/aes128_core_dft_production_aware_plan_2026-04-13.md)
 
 ## Git 관리 기준
 
-현재 저장소에서는 보통 아래 항목은 Git에 포함하지 않습니다.
+보통 Git에는 아래를 직접 넣지 않습니다.
 
 - `SAED32_EDK/`
-- 합성 결과물 (`2_output/`)
-- 로그 (`3_log/`)
-- 리포트 (`4_report/`)
-- work/alib 같은 툴 생성물
+- `2_output/`
+- `3_log/`
+- `4_report/`
+- tool-generated work/alib
 
-즉 Git에는 주로 다음을 남깁니다.
+주로 Git에 남기는 것은 아래입니다.
 
 - RTL
 - constraint
-- Tcl / csh 스크립트
-- README / 문서
+- Tcl / csh scripts
+- README / docs
