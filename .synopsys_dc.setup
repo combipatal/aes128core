@@ -1,30 +1,58 @@
 ##########################################################################################
-# User-defined variables for logical library, RTL setup
+# Basic path setup
 ##########################################################################################
-set edk_root 	"../SAED32_EDK"
-set lib_rvt 	"$edk_root/lib/stdcell_rvt/db_nldm" 	;#  Logic cell library directory
-set lib_hvt 	"$edk_root/lib/stdcell_hvt/db_nldm" 	;#  Logic cell library directory
-set lib_lvt 	"$edk_root/lib/stdcell_lvt/db_nldm" 	;#  Logic cell library directory
-set lib_io 		"$edk_root/lib/io_std/db_nldm" 		;#  IO library directory
-set lib_mem 	"$edk_root/lib/sram/db_nldm" 		;#  Memory library directory
-set lib_pll 	"$edk_root/lib/pll/db_nldm" 		;#  PLL library directory
-set RTL_path 	"../0_rtl" 					;#  RTL directory
+set edk_root [file normalize "../SAED32_EDK"]
 
-######################################################################
-# Search path Settings
-######################################################################
+# Logical libraries used by normal synth/link
+set lib_rvt "$edk_root/lib/stdcell_rvt/db_nldm"
+set lib_hvt "$edk_root/lib/stdcell_hvt/db_nldm"
+set lib_lvt "$edk_root/lib/stdcell_lvt/db_nldm"
+set lib_io  "$edk_root/lib/io_std/db_nldm"
+set lib_mem "$edk_root/lib/sram/db_nldm"
+set lib_pll "$edk_root/lib/pll/db_nldm"
+
+# RTL location
+set RTL_path [file normalize "../0_rtl"]
+
+# Physical files used only in topographical mode
+set mw_tech_file      [file normalize "$edk_root/tech/milkyway/saed32nm_1p9m_mw.tf"]
+set tluplus_max_file  [file normalize "$edk_root/tech/star_rcxt/saed32nm_1p9m_Cmax.tluplus"]
+set tluplus_min_file  [file normalize "$edk_root/tech/star_rcxt/saed32nm_1p9m_Cmin.tluplus"]
+set tech2itf_map_file [file normalize "$edk_root/tech/star_rcxt/saed32nm_tf_itf_tluplus.map"]
+
+# Physical reference libraries used by topographical mode
+set mw_stdcell_rvt [file normalize "$edk_root/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m"]
+set mw_io          [file normalize "$edk_root/lib/io_std/milkyway/saed32_io_fc"]
+set mw_pll         [file normalize "$edk_root/lib/pll/milkyway/SAED32_PLL_FR"]
+set mw_sram        [file normalize "$edk_root/lib/sram/milkyway/SRAM32NM"]
+
+set mw_reference_library [list \
+	$mw_stdcell_rvt \
+	$mw_io \
+	$mw_pll \
+	$mw_sram]
+
+# Use a separate Milkyway design library for each run version
+set mw_design_library [file normalize "./work/mw_design_lib"]
+if {[info exists env(ver)]} {
+	set mw_design_library [file normalize "./work/${env(ver)}_mw_design_lib"]
+}
+
+##########################################################################################
+# Search path
+##########################################################################################
 set search_path ". $lib_rvt \
-		$lib_hvt \
-		$lib_lvt \
-		$lib_io \
-		$lib_mem \
-		$lib_pll \
-		$RTL_path"
+	$lib_hvt \
+	$lib_lvt \
+	$lib_io \
+	$lib_mem \
+	$lib_pll \
+	$RTL_path"
 
 ##########################################################################################
-# Target library setup
+# Logical corner setup
 ##########################################################################################
-set lib_corner "ff"
+set lib_corner "ss"
 if {[info exists env(lib_corner)]} {
 	set lib_corner $env(lib_corner)
 }
@@ -46,8 +74,48 @@ if {$lib_corner == "ff"} {
 }
 
 ##########################################################################################
-# User setup
+# Common DC setup
 ##########################################################################################
 define_design_lib work -path "./work"
 set hdlin_enable_rtldrc_info true
 set hdlin_enable_presto_for_vl true
+
+# Topographical mode needs physical reference libraries, tech file, and TLU+
+if {[shell_is_in_topographical_mode]} {
+	if {![file exists $mw_tech_file]} {
+		echo "Error: Missing Milkyway tech file: $mw_tech_file"
+	}
+	if {![file exists $tluplus_max_file] || ![file exists $tluplus_min_file]} {
+		echo "Error: Missing TLU+ file(s): $tluplus_max_file / $tluplus_min_file"
+	}
+	if {![file exists $tech2itf_map_file]} {
+		echo "Error: Missing tech2itf map file: $tech2itf_map_file"
+	}
+
+	# Reuse the Milkyway design library if it already exists
+	if {[file exists $mw_design_library] && ![file isdirectory $mw_design_library]} {
+		echo "Error: Milkyway design library path exists as a non-directory: $mw_design_library"
+	} elseif {[file isdirectory $mw_design_library] && ![file exists "$mw_design_library/CEL"]} {
+		file delete -force $mw_design_library
+	}
+
+	if {[file isdirectory $mw_design_library]} {
+		open_mw_lib $mw_design_library
+	} else {
+		# First run: create the Milkyway design library
+		create_mw_lib \
+			-technology $mw_tech_file \
+			-mw_reference_library $mw_reference_library \
+			-hier_separator {/} \
+			-bus_naming_style {[%d]} \
+			-open \
+			$mw_design_library
+	}
+
+	# Connect RC tables for topo estimation
+	set_tlu_plus_files \
+		-max_tluplus $tluplus_max_file \
+		-min_tluplus $tluplus_min_file \
+		-tech2itf_map $tech2itf_map_file
+	check_tlu_plus_files
+}

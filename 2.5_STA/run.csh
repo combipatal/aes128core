@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 # STA run configuration
-if ( ! $?ver ) setenv ver 4_15_8ns_ff
+if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss
 if ( ! $?corner ) setenv corner ff
 if ( ! $?mode ) setenv mode synthcmp
 if ( ! $?sta_scenario ) setenv sta_scenario func

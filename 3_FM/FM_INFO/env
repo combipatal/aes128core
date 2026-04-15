@@ -1,0 +1,160 @@
+NVM_DIR=/DATA/home/edu135/.nvm
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+LD_LIBRARY_PATH=/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/shlib:/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/shlib/qt:/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/shlib/export:/lib:/lib64:/lib64:/usr/lib64:/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/shlib/missing:.
+HOSTTYPE=x86_64-linux
+SSH_CONNECTION=182.227.222.80 1594 192.168.0.53 22
+MODULES_RUN_QUARANTINE=LD_LIBRARY_PATH LD_PRELOAD
+LANG=ko_KR.UTF-8
+HISTCONTROL=ignoredups
+DISPLAY=localhost:11.0
+HOSTNAME=SGP3
+SYNOPSYS_TMAX=/tools/synopsys/syn/W-2024.09-SP5-5
+OLDPWD=/DATA/home/edu135/aes128_core/2.5_STA
+NVM_CD_FLAGS=
+SNPSLMD_LICENSE_FILE=27022@192.168.0.51
+VENDOR=unknown
+MACHTYPE=x86_64
+MODULES_USE_COMPAT_VERSION=0
+S_COLORS=auto
+which_declare=declare -f
+OSTYPE=linux
+FMSHELL=/tools/synopsys/fm/W-2024.09-SP5/bin/fm_shell
+XDG_SESSION_ID=317
+MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
+fm_ver=r2n_4_15_8ns_topo_ss
+USER=edu135
+DC_HOME=/tools/synopsys/syn/W-2024.09-SP5-5
+SYNOPSYS_LC_ROOT=/tools/synopsys/lc/W-2024.09-SP5-3
+SELINUX_ROLE_REQUESTED=
+GROUP=edu135
+ver=4_15_8ns_topo_ss
+PWD=/DATA/home/edu135/aes128_core/3_FM
+FM_HOME=/tools/synopsys/fm/W-2024.09-SP5
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+HOME=/DATA/home/edu135
+HOST=SGP3
+SSH_CLIENT=182.227.222.80 1594 22
+lib_corner=ss
+SELINUX_LEVEL_REQUESTED=
+XDG_DATA_DIRS=/DATA/home/edu135/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+PT_HOME=/tools/synopsys/prime/W-2024.09-SP5-3
+LOADEDMODULES=
+SSH_TTY=/dev/pts/8
+MAIL=/var/spool/mail/edu135
+SYNOPSYS=/tools/synopsys/fm/W-2024.09-SP5
+REMOTEHOST=182.227.222.80
+SHELL=/bin/bash
+TERM=xterm
+LM_LICENSE_FILE=27022@192.168.0.51
+NVM_BIN=/DATA/home/edu135/.nvm/versions/node/v20.20.1/bin
+SELINUX_USE_CURRENT_RANGE=
+VERDI_HOME=/tools/synopsys/verdi/W-2024.09-SP2-7
+SHLVL=3
+MANPATH=/usr/share/man:/DATA/home/edu135/.nvm/versions/node/v20.20.1/share/man::
+TMAX_HOME=/tools/synopsys/syn/W-2024.09-SP5-5
+MODULEPATH=/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+GDK_BACKEND=x11
+LOGNAME=edu135
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-nPzTBcn1cB,guid=5eec7b3fd9191e0cf76b5ef269df3e22
+XDG_RUNTIME_DIR=/run/user/1026
+MODULEPATH_modshare=/usr/share/Modules/modulefiles:2:/etc/modulefiles:2:/usr/share/modulefiles:2
+PATH=/DATA/home/edu135/.opencode/bin:/DATA/home/edu135/.nvm/versions/node/v20.20.1/bin:/tools/synopsys/lc/W-2024.09-SP5-3/bin:/tools/synopsys/syn/W-2024.09-SP5-5/bin:/tools/synopsys/verdi/W-2024.09-SP2-7/bin:/tools/synopsys/prime/W-2024.09-SP5-3/bin:/tools/synopsys/vcs/W-2024.09-SP2-7/bin:/tools/synopsys/fm/W-2024.09-SP5/bin:/DATA/home/edu135/.local/bin:/DATA/home/edu135/bin:/usr/share/Modules/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+VCS_HOME=/tools/synopsys/vcs/W-2024.09-SP2-7
+MODULESHOME=/usr/share/Modules
+NVM_INC=/DATA/home/edu135/.nvm/versions/node/v20.20.1/include/node
+HISTSIZE=1000
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+BASH_FUNC_which%%=() {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+BASH_FUNC_module%%=() {  _module_raw "$@" 2>&1
+}
+BASH_FUNC__module_raw%%=() {  unset _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ unset _mlre _mlIFS;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ eval `eval ${_mlre} /usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash '"$@"'`;
+ else
+ eval `/usr/bin/tclsh /usr/share/Modules/libexec/modulecmd.tcl bash "$@"`;
+ fi;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlshdbg;
+ return $_mlstatus
+}
+BASH_FUNC_switchml%%=() {  typeset swfound=1;
+ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
+ typeset swname='main';
+ if [ -e /usr/share/Modules/libexec/modulecmd.tcl ]; then
+ typeset swfound=0;
+ unset MODULES_USE_COMPAT_VERSION;
+ fi;
+ else
+ typeset swname='compatibility';
+ if [ -e /usr/share/Modules/libexec/modulecmd-compat ]; then
+ typeset swfound=0;
+ MODULES_USE_COMPAT_VERSION=1;
+ export MODULES_USE_COMPAT_VERSION;
+ fi;
+ fi;
+ if [ $swfound -eq 0 ]; then
+ echo "Switching to Modules $swname version";
+ source /usr/share/Modules/init/bash;
+ else
+ echo "Cannot switch to Modules $swname version, command not found";
+ return 1;
+ fi
+}
+BASH_FUNC_scl%%=() {  if [ "$1" = "load" -o "$1" = "unload" ]; then
+ eval "module $@";
+ else
+ /usr/bin/scl "$@";
+ fi
+}
+BASH_FUNC_ml%%=() {  module ml "$@"
+}
+_=/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/bin/fm_shell_exec
+GLIBCXX_FORCE_NEW=1
+GLIBCPP_FORCE_NEW=1
+FLEXLM_BORROWFILE=/DATA/home/edu135/.SGP3-borrow.txt
+FM_WORK_PATH=/DATA/home/edu135/aes128_core/3_FM

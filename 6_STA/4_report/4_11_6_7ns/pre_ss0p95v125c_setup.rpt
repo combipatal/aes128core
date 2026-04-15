@@ -1,0 +1,1228 @@
+****************************************
+Report : timing
+	-path_type full_clock_expanded
+	-delay_type max
+	-nosplit
+	-input_pins
+	-slack_lesser_than 0.0000
+	-max_paths 25
+	-sort_by slack
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Sun Apr 12 11:53:58 2026
+****************************************
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_35_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_12_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_35_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_35_/Q (SDFFARX1_RVT)                 0.1682     0.1682 r
+  u_ctrl/u_aes/U1075/A (NBUFFX2_RVT)                          0.0000     0.1682 r
+  u_ctrl/u_aes/U1075/Y (NBUFFX2_RVT)                          0.0782     0.2465 r
+  u_ctrl/u_aes/U856/A1 (NOR2X0_RVT)                           0.0000     0.2465 r
+  u_ctrl/u_aes/U856/Y (NOR2X0_RVT)                            0.1094     0.3558 f
+  u_ctrl/u_aes/U4695/A (INVX0_RVT)                            0.0000     0.3558 f
+  u_ctrl/u_aes/U4695/Y (INVX0_RVT)                            0.0319     0.3877 r
+  u_ctrl/u_aes/U1134/A2 (OR2X1_RVT)                           0.0000     0.3877 r
+  u_ctrl/u_aes/U1134/Y (OR2X1_RVT)                            0.0786     0.4663 r
+  u_ctrl/u_aes/U8383/A1 (NOR2X0_RVT)                          0.0000     0.4663 r
+  u_ctrl/u_aes/U8383/Y (NOR2X0_RVT)                           0.0871     0.5533 f
+  u_ctrl/u_aes/U8384/A1 (OR2X1_RVT)                           0.0000     0.5533 f
+  u_ctrl/u_aes/U8384/Y (OR2X1_RVT)                            0.0513     0.6047 f
+  u_ctrl/u_aes/U8385/A1 (MUX21X1_RVT)                         0.0000     0.6047 f
+  u_ctrl/u_aes/U8385/Y (MUX21X1_RVT)                          0.0793     0.6840 f
+  u_ctrl/u_aes/U8386/A2 (OR2X1_RVT)                           0.0000     0.6840 f
+  u_ctrl/u_aes/U8386/Y (OR2X1_RVT)                            0.0519     0.7359 f
+  u_ctrl/u_aes/U8387/A2 (OR2X1_RVT)                           0.0000     0.7359 f
+  u_ctrl/u_aes/U8387/Y (OR2X1_RVT)                            0.0451     0.7810 f
+  u_ctrl/u_aes/U571/A2 (OA222X1_RVT)                          0.0000     0.7810 f
+  u_ctrl/u_aes/U571/Y (OA222X1_RVT)                           0.1239     0.9049 f
+  u_ctrl/u_aes/U513/A (INVX1_RVT)                             0.0000     0.9049 f
+  u_ctrl/u_aes/U513/Y (INVX1_RVT)                             0.0443     0.9493 r
+  u_ctrl/u_aes/U460/A2 (AO22X1_RVT)                           0.0000     0.9493 r
+  u_ctrl/u_aes/U460/Y (AO22X1_RVT)                            0.1075     1.0567 r
+  u_ctrl/u_aes/U46/A1 (XOR3X1_RVT)                            0.0000     1.0567 r
+  u_ctrl/u_aes/U46/Y (XOR3X1_RVT)                             0.1887     1.2455 f
+  u_ctrl/u_aes/U899/A3 (XOR3X1_RVT)                           0.0000     1.2455 f
+  u_ctrl/u_aes/U899/Y (XOR3X1_RVT)                            0.0639     1.3093 f
+  u_ctrl/u_aes/U108/A4 (OA22X1_RVT)                           0.0000     1.3093 f
+  u_ctrl/u_aes/U108/Y (OA22X1_RVT)                            0.0655     1.3748 f
+  u_ctrl/u_aes/U10557/A1 (NAND2X0_RVT)                        0.0000     1.3748 f
+  u_ctrl/u_aes/U10557/Y (NAND2X0_RVT)                         0.0387     1.4134 r
+  u_ctrl/u_aes/state_reg_12_/D (SDFFARX2_RVT)                 0.0000     1.4134 r
+  data arrival time                                                      1.4134
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_12_/CLK (SDFFARX2_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1420     1.4080
+  data required time                                                     1.4080
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4080
+  data arrival time                                                     -1.4134
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0054
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_7_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_97_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/state_reg_7_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_7_/Q (SDFFARX1_RVT)                 0.1740     0.1740 r
+  u_ctrl/u_aes/U1256/A (NBUFFX4_RVT)                         0.0000     0.1740 r
+  u_ctrl/u_aes/U1256/Y (NBUFFX4_RVT)                         0.0749     0.2489 r
+  u_ctrl/u_aes/U350/A (INVX4_RVT)                            0.0000     0.2489 r
+  u_ctrl/u_aes/U350/Y (INVX4_RVT)                            0.0324     0.2813 f
+  u_ctrl/u_aes/U259/A3 (NAND3X1_RVT)                         0.0000     0.2813 f
+  u_ctrl/u_aes/U259/Y (NAND3X1_RVT)                          0.1201     0.4014 r
+  u_ctrl/u_aes/U257/A (INVX1_RVT)                            0.0000     0.4014 r
+  u_ctrl/u_aes/U257/Y (INVX1_RVT)                            0.0439     0.4454 f
+  u_ctrl/u_aes/U4057/A1 (NAND2X0_RVT)                        0.0000     0.4454 f
+  u_ctrl/u_aes/U4057/Y (NAND2X0_RVT)                         0.0836     0.5290 r
+  u_ctrl/u_aes/U6704/A2 (OA22X1_RVT)                         0.0000     0.5290 r
+  u_ctrl/u_aes/U6704/Y (OA22X1_RVT)                          0.0893     0.6183 r
+  u_ctrl/u_aes/U6706/A2 (OA22X1_RVT)                         0.0000     0.6183 r
+  u_ctrl/u_aes/U6706/Y (OA22X1_RVT)                          0.0719     0.6903 r
+  u_ctrl/u_aes/U6708/A3 (NAND4X0_RVT)                        0.0000     0.6903 r
+  u_ctrl/u_aes/U6708/Y (NAND4X0_RVT)                         0.0613     0.7516 f
+  u_ctrl/u_aes/U6709/A4 (OA22X1_RVT)                         0.0000     0.7516 f
+  u_ctrl/u_aes/U6709/Y (OA22X1_RVT)                          0.0768     0.8284 f
+  u_ctrl/u_aes/U227/A6 (OA222X2_RVT)                         0.0000     0.8284 f
+  u_ctrl/u_aes/U227/Y (OA222X2_RVT)                          0.1026     0.9310 f
+  u_ctrl/u_aes/U190/A1 (XOR2X1_RVT)                          0.0000     0.9310 f
+  u_ctrl/u_aes/U190/Y (XOR2X1_RVT)                           0.1381     1.0691 r
+  u_ctrl/u_aes/U6748/A1 (XOR3X2_RVT)                         0.0000     1.0691 r
+  u_ctrl/u_aes/U6748/Y (XOR3X2_RVT)                          0.1637     1.2328 f
+  u_ctrl/u_aes/U220/A3 (XOR3X2_RVT)                          0.0000     1.2328 f
+  u_ctrl/u_aes/U220/Y (XOR3X2_RVT)                           0.0632     1.2960 f
+  u_ctrl/u_aes/U6749/A2 (NOR2X0_RVT)                         0.0000     1.2960 f
+  u_ctrl/u_aes/U6749/Y (NOR2X0_RVT)                          0.0751     1.3711 r
+  u_ctrl/u_aes/U6750/A2 (OR2X1_RVT)                          0.0000     1.3711 r
+  u_ctrl/u_aes/U6750/Y (OR2X1_RVT)                           0.0461     1.4172 r
+  u_ctrl/u_aes/state_reg_97_/D (SDFFARX2_RVT)                0.0000     1.4172 r
+  data arrival time                                                     1.4172
+
+  clock clk_fast_aes (rise edge)                             1.7500     1.7500
+  clock network delay (ideal)                                0.0000     1.7500
+  u_ctrl/u_aes/state_reg_97_/CLK (SDFFARX2_RVT)                         1.7500 r
+  clock reconvergence pessimism                              0.0000     1.7500
+  clock uncertainty                                         -0.2000     1.5500
+  library setup time                                        -0.1378     1.4122
+  data required time                                                    1.4122
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.4122
+  data arrival time                                                    -1.4172
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -0.0050
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_118_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_19_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_118_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_118_/Q (SDFFARX1_RVT)                 0.1799     0.1799 r
+  u_ctrl/u_aes/U4878/A (INVX2_RVT)                             0.0000     0.1799 r
+  u_ctrl/u_aes/U4878/Y (INVX2_RVT)                             0.0434     0.2234 f
+  u_ctrl/u_aes/U345/A (INVX2_RVT)                              0.0000     0.2234 f
+  u_ctrl/u_aes/U345/Y (INVX2_RVT)                              0.0628     0.2861 r
+  u_ctrl/u_aes/U1118/A1 (OR2X1_RVT)                            0.0000     0.2861 r
+  u_ctrl/u_aes/U1118/Y (OR2X1_RVT)                             0.0742     0.3603 r
+  u_ctrl/u_aes/U767/A2 (NOR2X0_RVT)                            0.0000     0.3603 r
+  u_ctrl/u_aes/U767/Y (NOR2X0_RVT)                             0.0795     0.4398 f
+  u_ctrl/u_aes/U646/A (INVX1_RVT)                              0.0000     0.4398 f
+  u_ctrl/u_aes/U646/Y (INVX1_RVT)                              0.0340     0.4738 r
+  u_ctrl/u_aes/U628/A1 (NOR2X0_RVT)                            0.0000     0.4738 r
+  u_ctrl/u_aes/U628/Y (NOR2X0_RVT)                             0.0940     0.5678 f
+  u_ctrl/u_aes/U7930/A2 (OR2X1_RVT)                            0.0000     0.5678 f
+  u_ctrl/u_aes/U7930/Y (OR2X1_RVT)                             0.0511     0.6189 f
+  u_ctrl/u_aes/U7931/A2 (MUX21X1_RVT)                          0.0000     0.6189 f
+  u_ctrl/u_aes/U7931/Y (MUX21X1_RVT)                           0.0772     0.6961 f
+  u_ctrl/u_aes/U7935/A3 (NOR4X1_RVT)                           0.0000     0.6961 f
+  u_ctrl/u_aes/U7935/Y (NOR4X1_RVT)                            0.1127     0.8088 r
+  u_ctrl/u_aes/U7936/A2 (NOR2X0_RVT)                           0.0000     0.8088 r
+  u_ctrl/u_aes/U7936/Y (NOR2X0_RVT)                            0.0670     0.8757 f
+  u_ctrl/u_aes/U7949/A3 (AO22X1_RVT)                           0.0000     0.8757 f
+  u_ctrl/u_aes/U7949/Y (AO22X1_RVT)                            0.0707     0.9465 f
+  u_ctrl/u_aes/U9022/A (INVX0_RVT)                             0.0000     0.9465 f
+  u_ctrl/u_aes/U9022/Y (INVX0_RVT)                             0.0382     0.9847 r
+  u_ctrl/u_aes/U10141/A1 (AO22X1_RVT)                          0.0000     0.9847 r
+  u_ctrl/u_aes/U10141/Y (AO22X1_RVT)                           0.0839     1.0686 r
+  u_ctrl/u_aes/U10146/A1 (XOR3X2_RVT)                          0.0000     1.0686 r
+  u_ctrl/u_aes/U10146/Y (XOR3X2_RVT)                           0.1566     1.2252 f
+  u_ctrl/u_aes/U292/A3 (XOR3X1_RVT)                            0.0000     1.2252 f
+  u_ctrl/u_aes/U292/Y (XOR3X1_RVT)                             0.0818     1.3070 r
+  u_ctrl/u_aes/U10147/A2 (NOR2X0_RVT)                          0.0000     1.3070 r
+  u_ctrl/u_aes/U10147/Y (NOR2X0_RVT)                           0.0762     1.3832 f
+  u_ctrl/u_aes/U10148/A3 (OR3X1_RVT)                           0.0000     1.3832 f
+  u_ctrl/u_aes/U10148/Y (OR3X1_RVT)                            0.0543     1.4375 f
+  u_ctrl/u_aes/state_reg_19_/D (SDFFARX1_RVT)                  0.0000     1.4375 f
+  data arrival time                                                       1.4375
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_19_/CLK (SDFFARX1_RVT)                           1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1171     1.4329
+  data required time                                                      1.4329
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4329
+  data arrival time                                                      -1.4375
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0045
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_46_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_114_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_46_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_46_/Q (SDFFARX1_RVT)                 0.2238     0.2238 r
+  u_ctrl/u_aes/U4229/A1 (NAND2X0_RVT)                         0.0000     0.2238 r
+  u_ctrl/u_aes/U4229/Y (NAND2X0_RVT)                          0.1071     0.3308 f
+  u_ctrl/u_aes/U955/A (INVX0_RVT)                             0.0000     0.3308 f
+  u_ctrl/u_aes/U955/Y (INVX0_RVT)                             0.0766     0.4074 r
+  u_ctrl/u_aes/U862/A2 (NAND3X0_RVT)                          0.0000     0.4074 r
+  u_ctrl/u_aes/U862/Y (NAND3X0_RVT)                           0.1194     0.5269 f
+  u_ctrl/u_aes/U4276/A2 (OA21X1_RVT)                          0.0000     0.5269 f
+  u_ctrl/u_aes/U4276/Y (OA21X1_RVT)                           0.1008     0.6277 f
+  u_ctrl/u_aes/U6547/A2 (NAND4X0_RVT)                         0.0000     0.6277 f
+  u_ctrl/u_aes/U6547/Y (NAND4X0_RVT)                          0.0462     0.6738 r
+  u_ctrl/u_aes/U6548/A5 (AO221X1_RVT)                         0.0000     0.6738 r
+  u_ctrl/u_aes/U6548/Y (AO221X1_RVT)                          0.0815     0.7553 r
+  u_ctrl/u_aes/U6557/A2 (OA22X1_RVT)                          0.0000     0.7553 r
+  u_ctrl/u_aes/U6557/Y (OA22X1_RVT)                           0.0739     0.8292 r
+  u_ctrl/u_aes/U536/A2 (AO22X1_RVT)                           0.0000     0.8292 r
+  u_ctrl/u_aes/U536/Y (AO22X1_RVT)                            0.1115     0.9406 r
+  u_ctrl/u_aes/U6579/A2 (XOR2X1_RVT)                          0.0000     0.9406 r
+  u_ctrl/u_aes/U6579/Y (XOR2X1_RVT)                           0.1519     1.0926 f
+  u_ctrl/u_aes/U1245/A1 (XNOR3X1_RVT)                         0.0000     1.0926 f
+  u_ctrl/u_aes/U1245/Y (XNOR3X1_RVT)                          0.1953     1.2879 r
+  u_ctrl/u_aes/U9883/A1 (AO222X1_RVT)                         0.0000     1.2879 r
+  u_ctrl/u_aes/U9883/Y (AO222X1_RVT)                          0.1337     1.4216 r
+  u_ctrl/u_aes/state_reg_114_/D (SDFFARX1_RVT)                0.0000     1.4216 r
+  data arrival time                                                      1.4216
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_114_/CLK (SDFFARX1_RVT)                         1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1327     1.4173
+  data required time                                                     1.4173
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4173
+  data arrival time                                                     -1.4216
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0043
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_60_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_37_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_60_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_60_/Q (SDFFARX1_RVT)                 0.2202     0.2202 r
+  u_ctrl/u_aes/U1078/A1 (NOR2X0_RVT)                          0.0000     0.2202 r
+  u_ctrl/u_aes/U1078/Y (NOR2X0_RVT)                           0.1120     0.3322 f
+  u_ctrl/u_aes/U992/A (INVX1_RVT)                             0.0000     0.3322 f
+  u_ctrl/u_aes/U992/Y (INVX1_RVT)                             0.0574     0.3896 r
+  u_ctrl/u_aes/U852/A2 (OR2X1_RVT)                            0.0000     0.3896 r
+  u_ctrl/u_aes/U852/Y (OR2X1_RVT)                             0.0915     0.4811 r
+  u_ctrl/u_aes/U2524/A2 (NOR2X0_RVT)                          0.0000     0.4811 r
+  u_ctrl/u_aes/U2524/Y (NOR2X0_RVT)                           0.0887     0.5698 f
+  u_ctrl/u_aes/U2529/A2 (NOR3X0_RVT)                          0.0000     0.5698 f
+  u_ctrl/u_aes/U2529/Y (NOR3X0_RVT)                           0.0930     0.6627 r
+  u_ctrl/u_aes/U2530/A3 (AO21X1_RVT)                          0.0000     0.6627 r
+  u_ctrl/u_aes/U2530/Y (AO21X1_RVT)                           0.0437     0.7064 r
+  u_ctrl/u_aes/U2568/A1 (AO22X1_RVT)                          0.0000     0.7064 r
+  u_ctrl/u_aes/U2568/Y (AO22X1_RVT)                           0.0771     0.7836 r
+  u_ctrl/u_aes/U582/A1 (AOI22X1_RVT)                          0.0000     0.7836 r
+  u_ctrl/u_aes/U582/Y (AOI22X1_RVT)                           0.1296     0.9132 f
+  u_ctrl/u_aes/U7433/A1 (XOR3X2_RVT)                          0.0000     0.9132 f
+  u_ctrl/u_aes/U7433/Y (XOR3X2_RVT)                           0.1619     1.0751 r
+  u_ctrl/u_aes/U7434/A1 (XOR2X2_RVT)                          0.0000     1.0751 r
+  u_ctrl/u_aes/U7434/Y (XOR2X2_RVT)                           0.0983     1.1734 f
+  u_ctrl/u_aes/U415/A0 (HADDX1_RVT)                           0.0000     1.1734 f
+  u_ctrl/u_aes/U415/SO (HADDX1_RVT)                           0.0999     1.2733 r
+  u_ctrl/u_aes/U7512/A1 (AND2X1_RVT)                          0.0000     1.2733 r
+  u_ctrl/u_aes/U7512/Y (AND2X1_RVT)                           0.0480     1.3213 r
+  u_ctrl/u_aes/U7513/A3 (OR3X1_RVT)                           0.0000     1.3213 r
+  u_ctrl/u_aes/U7513/Y (OR3X1_RVT)                            0.0580     1.3793 r
+  u_ctrl/u_aes/U7514/A3 (AO21X1_RVT)                          0.0000     1.3793 r
+  u_ctrl/u_aes/U7514/Y (AO21X1_RVT)                           0.0468     1.4260 r
+  u_ctrl/u_aes/state_reg_37_/D (SDFFARX1_RVT)                 0.0000     1.4260 r
+  data arrival time                                                      1.4260
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_37_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1278     1.4222
+  data required time                                                     1.4222
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4222
+  data arrival time                                                     -1.4260
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0038
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_16_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_40_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_16_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_16_/Q (SDFFARX1_RVT)                 0.1726     0.1726 f
+  u_ctrl/u_aes/U252/A1 (NAND2X1_RVT)                          0.0000     0.1726 f
+  u_ctrl/u_aes/U252/Y (NAND2X1_RVT)                           0.1139     0.2866 r
+  u_ctrl/u_aes/U251/A (INVX1_RVT)                             0.0000     0.2866 r
+  u_ctrl/u_aes/U251/Y (INVX1_RVT)                             0.0602     0.3468 f
+  u_ctrl/u_aes/U2200/A1 (NAND2X0_RVT)                         0.0000     0.3468 f
+  u_ctrl/u_aes/U2200/Y (NAND2X0_RVT)                          0.0738     0.4205 r
+  u_ctrl/u_aes/U7057/A1 (NAND2X0_RVT)                         0.0000     0.4205 r
+  u_ctrl/u_aes/U7057/Y (NAND2X0_RVT)                          0.0502     0.4708 f
+  u_ctrl/u_aes/U8748/A (INVX0_RVT)                            0.0000     0.4708 f
+  u_ctrl/u_aes/U8748/Y (INVX0_RVT)                            0.0339     0.5046 r
+  u_ctrl/u_aes/U8749/A1 (OR2X1_RVT)                           0.0000     0.5046 r
+  u_ctrl/u_aes/U8749/Y (OR2X1_RVT)                            0.0611     0.5657 r
+  u_ctrl/u_aes/U8751/A2 (NAND4X0_RVT)                         0.0000     0.5657 r
+  u_ctrl/u_aes/U8751/Y (NAND4X0_RVT)                          0.0561     0.6218 f
+  u_ctrl/u_aes/U8752/A5 (AO221X1_RVT)                         0.0000     0.6218 f
+  u_ctrl/u_aes/U8752/Y (AO221X1_RVT)                          0.0688     0.6906 f
+  u_ctrl/u_aes/U8758/A2 (OA22X1_RVT)                          0.0000     0.6906 f
+  u_ctrl/u_aes/U8758/Y (OA22X1_RVT)                           0.0727     0.7633 f
+  u_ctrl/u_aes/U8759/A2 (NOR2X0_RVT)                          0.0000     0.7633 f
+  u_ctrl/u_aes/U8759/Y (NOR2X0_RVT)                           0.0695     0.8328 r
+  u_ctrl/u_aes/U572/A2 (AOI22X1_RVT)                          0.0000     0.8328 r
+  u_ctrl/u_aes/U572/Y (AOI22X1_RVT)                           0.1284     0.9612 f
+  u_ctrl/u_aes/U9691/A1 (XOR2X2_RVT)                          0.0000     0.9612 f
+  u_ctrl/u_aes/U9691/Y (XOR2X2_RVT)                           0.1135     1.0747 r
+  u_ctrl/u_aes/U10308/A1 (XOR3X2_RVT)                         0.0000     1.0747 r
+  u_ctrl/u_aes/U10308/Y (XOR3X2_RVT)                          0.1572     1.2319 f
+  u_ctrl/u_aes/U10309/A0 (HADDX1_RVT)                         0.0000     1.2319 f
+  u_ctrl/u_aes/U10309/SO (HADDX1_RVT)                         0.1047     1.3366 r
+  u_ctrl/u_aes/U10310/A2 (NAND2X0_RVT)                        0.0000     1.3366 r
+  u_ctrl/u_aes/U10310/Y (NAND2X0_RVT)                         0.0340     1.3706 f
+  u_ctrl/u_aes/U10313/A1 (NAND3X0_RVT)                        0.0000     1.3706 f
+  u_ctrl/u_aes/U10313/Y (NAND3X0_RVT)                         0.0405     1.4111 r
+  u_ctrl/u_aes/state_reg_40_/D (SDFFARX2_RVT)                 0.0000     1.4111 r
+  data arrival time                                                      1.4111
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_40_/CLK (SDFFARX2_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1423     1.4077
+  data required time                                                     1.4077
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4077
+  data arrival time                                                     -1.4111
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0033
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_65_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_33_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_65_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_65_/Q (SDFFARX1_RVT)                 0.1680     0.1680 r
+  u_ctrl/u_aes/U2661/A2 (AND2X1_RVT)                          0.0000     0.1680 r
+  u_ctrl/u_aes/U2661/Y (AND2X1_RVT)                           0.0621     0.2302 r
+  u_ctrl/u_aes/U91/A (INVX1_RVT)                              0.0000     0.2302 r
+  u_ctrl/u_aes/U91/Y (INVX1_RVT)                              0.0258     0.2559 f
+  u_ctrl/u_aes/U433/A2 (OR2X1_RVT)                            0.0000     0.2559 f
+  u_ctrl/u_aes/U433/Y (OR2X1_RVT)                             0.0766     0.3326 f
+  u_ctrl/u_aes/U705/A2 (OR2X1_RVT)                            0.0000     0.3326 f
+  u_ctrl/u_aes/U705/Y (OR2X1_RVT)                             0.0794     0.4120 f
+  u_ctrl/u_aes/U6437/A3 (AND3X1_RVT)                          0.0000     0.4120 f
+  u_ctrl/u_aes/U6437/Y (AND3X1_RVT)                           0.0865     0.4986 f
+  u_ctrl/u_aes/U6438/A3 (AO21X1_RVT)                          0.0000     0.4986 f
+  u_ctrl/u_aes/U6438/Y (AO21X1_RVT)                           0.0487     0.5473 f
+  u_ctrl/u_aes/U6440/A1 (NAND2X0_RVT)                         0.0000     0.5473 f
+  u_ctrl/u_aes/U6440/Y (NAND2X0_RVT)                          0.0345     0.5818 r
+  u_ctrl/u_aes/U6445/A1 (NAND2X0_RVT)                         0.0000     0.5818 r
+  u_ctrl/u_aes/U6445/Y (NAND2X0_RVT)                          0.0350     0.6168 f
+  u_ctrl/u_aes/U6451/A1 (NAND3X0_RVT)                         0.0000     0.6168 f
+  u_ctrl/u_aes/U6451/Y (NAND3X0_RVT)                          0.0383     0.6551 r
+  u_ctrl/u_aes/U6452/A2 (OR2X1_RVT)                           0.0000     0.6551 r
+  u_ctrl/u_aes/U6452/Y (OR2X1_RVT)                            0.0513     0.7064 r
+  u_ctrl/u_aes/U6453/A3 (AO21X1_RVT)                          0.0000     0.7064 r
+  u_ctrl/u_aes/U6453/Y (AO21X1_RVT)                           0.0464     0.7528 r
+  u_ctrl/u_aes/U6458/A1 (NOR2X0_RVT)                          0.0000     0.7528 r
+  u_ctrl/u_aes/U6458/Y (NOR2X0_RVT)                           0.0769     0.8297 f
+  u_ctrl/u_aes/U1445/A2 (NOR2X0_RVT)                          0.0000     0.8297 f
+  u_ctrl/u_aes/U1445/Y (NOR2X0_RVT)                           0.0656     0.8954 r
+  u_ctrl/u_aes/U241/A1 (AOI22X2_RVT)                          0.0000     0.8954 r
+  u_ctrl/u_aes/U241/Y (AOI22X2_RVT)                           0.1216     1.0170 f
+  u_ctrl/u_aes/U9665/A1 (XNOR2X2_RVT)                         0.0000     1.0170 f
+  u_ctrl/u_aes/U9665/Y (XNOR2X2_RVT)                          0.1062     1.1232 r
+  u_ctrl/u_aes/U389/A (INVX1_RVT)                             0.0000     1.1232 r
+  u_ctrl/u_aes/U389/Y (INVX1_RVT)                             0.0284     1.1516 f
+  u_ctrl/u_aes/U9666/A3 (XOR3X2_RVT)                          0.0000     1.1516 f
+  u_ctrl/u_aes/U9666/Y (XOR3X2_RVT)                           0.0737     1.2253 r
+  u_ctrl/u_aes/U9668/A2 (OR2X1_RVT)                           0.0000     1.2253 r
+  u_ctrl/u_aes/U9668/Y (OR2X1_RVT)                            0.0537     1.2791 r
+  u_ctrl/u_aes/U9669/A2 (NAND2X0_RVT)                         0.0000     1.2791 r
+  u_ctrl/u_aes/U9669/Y (NAND2X0_RVT)                          0.0319     1.3110 f
+  u_ctrl/u_aes/U9670/A4 (OA22X1_RVT)                          0.0000     1.3110 f
+  u_ctrl/u_aes/U9670/Y (OA22X1_RVT)                           0.0634     1.3744 f
+  u_ctrl/u_aes/U9674/A1 (NAND2X0_RVT)                         0.0000     1.3744 f
+  u_ctrl/u_aes/U9674/Y (NAND2X0_RVT)                          0.0387     1.4131 r
+  u_ctrl/u_aes/state_reg_33_/D (SDFFARX2_RVT)                 0.0000     1.4131 r
+  data arrival time                                                      1.4131
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_33_/CLK (SDFFARX2_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1402     1.4098
+  data required time                                                     1.4098
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4098
+  data arrival time                                                     -1.4131
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0033
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_65_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_32_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_65_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_65_/Q (SDFFARX1_RVT)                 0.1680     0.1680 r
+  u_ctrl/u_aes/U2661/A2 (AND2X1_RVT)                          0.0000     0.1680 r
+  u_ctrl/u_aes/U2661/Y (AND2X1_RVT)                           0.0621     0.2302 r
+  u_ctrl/u_aes/U91/A (INVX1_RVT)                              0.0000     0.2302 r
+  u_ctrl/u_aes/U91/Y (INVX1_RVT)                              0.0258     0.2559 f
+  u_ctrl/u_aes/U433/A2 (OR2X1_RVT)                            0.0000     0.2559 f
+  u_ctrl/u_aes/U433/Y (OR2X1_RVT)                             0.0766     0.3326 f
+  u_ctrl/u_aes/U705/A2 (OR2X1_RVT)                            0.0000     0.3326 f
+  u_ctrl/u_aes/U705/Y (OR2X1_RVT)                             0.0794     0.4120 f
+  u_ctrl/u_aes/U6437/A3 (AND3X1_RVT)                          0.0000     0.4120 f
+  u_ctrl/u_aes/U6437/Y (AND3X1_RVT)                           0.0865     0.4986 f
+  u_ctrl/u_aes/U6438/A3 (AO21X1_RVT)                          0.0000     0.4986 f
+  u_ctrl/u_aes/U6438/Y (AO21X1_RVT)                           0.0487     0.5473 f
+  u_ctrl/u_aes/U6440/A1 (NAND2X0_RVT)                         0.0000     0.5473 f
+  u_ctrl/u_aes/U6440/Y (NAND2X0_RVT)                          0.0345     0.5818 r
+  u_ctrl/u_aes/U6445/A1 (NAND2X0_RVT)                         0.0000     0.5818 r
+  u_ctrl/u_aes/U6445/Y (NAND2X0_RVT)                          0.0350     0.6168 f
+  u_ctrl/u_aes/U6451/A1 (NAND3X0_RVT)                         0.0000     0.6168 f
+  u_ctrl/u_aes/U6451/Y (NAND3X0_RVT)                          0.0383     0.6551 r
+  u_ctrl/u_aes/U6452/A2 (OR2X1_RVT)                           0.0000     0.6551 r
+  u_ctrl/u_aes/U6452/Y (OR2X1_RVT)                            0.0513     0.7064 r
+  u_ctrl/u_aes/U6453/A3 (AO21X1_RVT)                          0.0000     0.7064 r
+  u_ctrl/u_aes/U6453/Y (AO21X1_RVT)                           0.0464     0.7528 r
+  u_ctrl/u_aes/U6458/A1 (NOR2X0_RVT)                          0.0000     0.7528 r
+  u_ctrl/u_aes/U6458/Y (NOR2X0_RVT)                           0.0769     0.8297 f
+  u_ctrl/u_aes/U1445/A2 (NOR2X0_RVT)                          0.0000     0.8297 f
+  u_ctrl/u_aes/U1445/Y (NOR2X0_RVT)                           0.0656     0.8954 r
+  u_ctrl/u_aes/U241/A1 (AOI22X2_RVT)                          0.0000     0.8954 r
+  u_ctrl/u_aes/U241/Y (AOI22X2_RVT)                           0.1216     1.0170 f
+  u_ctrl/u_aes/U9665/A1 (XNOR2X2_RVT)                         0.0000     1.0170 f
+  u_ctrl/u_aes/U9665/Y (XNOR2X2_RVT)                          0.1062     1.1232 r
+  u_ctrl/u_aes/U1166/A1 (AOI22X1_RVT)                         0.0000     1.1232 r
+  u_ctrl/u_aes/U1166/Y (AOI22X1_RVT)                          0.1098     1.2330 f
+  u_ctrl/u_aes/U379/A3 (XOR3X1_RVT)                           0.0000     1.2330 f
+  u_ctrl/u_aes/U379/Y (XOR3X1_RVT)                            0.0723     1.3053 r
+  u_ctrl/u_aes/U9695/A1 (NOR2X0_RVT)                          0.0000     1.3053 r
+  u_ctrl/u_aes/U9695/Y (NOR2X0_RVT)                           0.0821     1.3874 f
+  u_ctrl/u_aes/U9701/A1 (OR2X1_RVT)                           0.0000     1.3874 f
+  u_ctrl/u_aes/U9701/Y (OR2X1_RVT)                            0.0511     1.4385 f
+  u_ctrl/u_aes/state_reg_32_/D (SDFFARX1_RVT)                 0.0000     1.4385 f
+  data arrival time                                                      1.4385
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_32_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1146     1.4354
+  data required time                                                     1.4354
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4354
+  data arrival time                                                     -1.4385
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0031
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_65_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_47_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_65_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_65_/Q (SDFFARX1_RVT)                 0.1680     0.1680 r
+  u_ctrl/u_aes/U2661/A2 (AND2X1_RVT)                          0.0000     0.1680 r
+  u_ctrl/u_aes/U2661/Y (AND2X1_RVT)                           0.0621     0.2302 r
+  u_ctrl/u_aes/U91/A (INVX1_RVT)                              0.0000     0.2302 r
+  u_ctrl/u_aes/U91/Y (INVX1_RVT)                              0.0258     0.2559 f
+  u_ctrl/u_aes/U433/A2 (OR2X1_RVT)                            0.0000     0.2559 f
+  u_ctrl/u_aes/U433/Y (OR2X1_RVT)                             0.0766     0.3326 f
+  u_ctrl/u_aes/U705/A2 (OR2X1_RVT)                            0.0000     0.3326 f
+  u_ctrl/u_aes/U705/Y (OR2X1_RVT)                             0.0794     0.4120 f
+  u_ctrl/u_aes/U6437/A3 (AND3X1_RVT)                          0.0000     0.4120 f
+  u_ctrl/u_aes/U6437/Y (AND3X1_RVT)                           0.0865     0.4986 f
+  u_ctrl/u_aes/U6438/A3 (AO21X1_RVT)                          0.0000     0.4986 f
+  u_ctrl/u_aes/U6438/Y (AO21X1_RVT)                           0.0487     0.5473 f
+  u_ctrl/u_aes/U6440/A1 (NAND2X0_RVT)                         0.0000     0.5473 f
+  u_ctrl/u_aes/U6440/Y (NAND2X0_RVT)                          0.0345     0.5818 r
+  u_ctrl/u_aes/U6445/A1 (NAND2X0_RVT)                         0.0000     0.5818 r
+  u_ctrl/u_aes/U6445/Y (NAND2X0_RVT)                          0.0350     0.6168 f
+  u_ctrl/u_aes/U6451/A1 (NAND3X0_RVT)                         0.0000     0.6168 f
+  u_ctrl/u_aes/U6451/Y (NAND3X0_RVT)                          0.0383     0.6551 r
+  u_ctrl/u_aes/U6452/A2 (OR2X1_RVT)                           0.0000     0.6551 r
+  u_ctrl/u_aes/U6452/Y (OR2X1_RVT)                            0.0513     0.7064 r
+  u_ctrl/u_aes/U6453/A3 (AO21X1_RVT)                          0.0000     0.7064 r
+  u_ctrl/u_aes/U6453/Y (AO21X1_RVT)                           0.0464     0.7528 r
+  u_ctrl/u_aes/U6458/A1 (NOR2X0_RVT)                          0.0000     0.7528 r
+  u_ctrl/u_aes/U6458/Y (NOR2X0_RVT)                           0.0769     0.8297 f
+  u_ctrl/u_aes/U1445/A2 (NOR2X0_RVT)                          0.0000     0.8297 f
+  u_ctrl/u_aes/U1445/Y (NOR2X0_RVT)                           0.0656     0.8954 r
+  u_ctrl/u_aes/U241/A1 (AOI22X2_RVT)                          0.0000     0.8954 r
+  u_ctrl/u_aes/U241/Y (AOI22X2_RVT)                           0.1216     1.0170 f
+  u_ctrl/u_aes/U11313/A (INVX0_RVT)                           0.0000     1.0170 f
+  u_ctrl/u_aes/U11313/Y (INVX0_RVT)                           0.0286     1.0456 r
+  u_ctrl/u_aes/U11314/A3 (AO22X1_RVT)                         0.0000     1.0456 r
+  u_ctrl/u_aes/U11314/Y (AO22X1_RVT)                          0.0665     1.1121 r
+  u_ctrl/u_aes/U34/A1 (XOR3X1_RVT)                            0.0000     1.1121 r
+  u_ctrl/u_aes/U34/Y (XOR3X1_RVT)                             0.1800     1.2921 f
+  u_ctrl/u_aes/U11319/S0 (MUX21X1_RVT)                        0.0000     1.2921 f
+  u_ctrl/u_aes/U11319/Y (MUX21X1_RVT)                         0.0963     1.3884 f
+  u_ctrl/u_aes/U11322/A1 (NAND3X0_RVT)                        0.0000     1.3884 f
+  u_ctrl/u_aes/U11322/Y (NAND3X0_RVT)                         0.0359     1.4244 r
+  u_ctrl/u_aes/state_reg_47_/D (SDFFARX1_RVT)                 0.0000     1.4244 r
+  data arrival time                                                      1.4244
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_47_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1285     1.4215
+  data required time                                                     1.4215
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4215
+  data arrival time                                                     -1.4244
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0029
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_121_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_100_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_121_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_121_/Q (SDFFARX1_RVT)                 0.1828     0.1828 f
+  u_ctrl/u_aes/U1247/A (NBUFFX2_RVT)                           0.0000     0.1828 f
+  u_ctrl/u_aes/U1247/Y (NBUFFX2_RVT)                           0.0887     0.2716 f
+  u_ctrl/u_aes/U4116/A (INVX1_RVT)                             0.0000     0.2716 f
+  u_ctrl/u_aes/U4116/Y (INVX1_RVT)                             0.0899     0.3615 r
+  u_ctrl/u_aes/U4117/A3 (NAND3X0_RVT)                          0.0000     0.3615 r
+  u_ctrl/u_aes/U4117/Y (NAND3X0_RVT)                           0.0840     0.4455 f
+  u_ctrl/u_aes/U4118/A (INVX0_RVT)                             0.0000     0.4455 f
+  u_ctrl/u_aes/U4118/Y (INVX0_RVT)                             0.0613     0.5067 r
+  u_ctrl/u_aes/U4151/A2 (NAND2X0_RVT)                          0.0000     0.5067 r
+  u_ctrl/u_aes/U4151/Y (NAND2X0_RVT)                           0.0613     0.5681 f
+  u_ctrl/u_aes/U6633/A3 (NAND4X0_RVT)                          0.0000     0.5681 f
+  u_ctrl/u_aes/U6633/Y (NAND4X0_RVT)                           0.0595     0.6276 r
+  u_ctrl/u_aes/U6634/A5 (AO221X1_RVT)                          0.0000     0.6276 r
+  u_ctrl/u_aes/U6634/Y (AO221X1_RVT)                           0.0926     0.7201 r
+  u_ctrl/u_aes/U6644/A2 (OAI22X1_RVT)                          0.0000     0.7201 r
+  u_ctrl/u_aes/U6644/Y (OAI22X1_RVT)                           0.0837     0.8039 f
+  u_ctrl/u_aes/U564/A2 (AO22X1_RVT)                            0.0000     0.8039 f
+  u_ctrl/u_aes/U564/Y (AO22X1_RVT)                             0.0951     0.8990 f
+  u_ctrl/u_aes/U6663/A2 (XOR2X2_RVT)                           0.0000     0.8990 f
+  u_ctrl/u_aes/U6663/Y (XOR2X2_RVT)                            0.1299     1.0290 r
+  u_ctrl/u_aes/U209/A (INVX1_RVT)                              0.0000     1.0290 r
+  u_ctrl/u_aes/U209/Y (INVX1_RVT)                              0.0354     1.0644 f
+  u_ctrl/u_aes/U7291/A3 (OAI22X1_RVT)                          0.0000     1.0644 f
+  u_ctrl/u_aes/U7291/Y (OAI22X1_RVT)                           0.0907     1.1551 r
+  u_ctrl/u_aes/U7292/A3 (XOR3X2_RVT)                           0.0000     1.1551 r
+  u_ctrl/u_aes/U7292/Y (XOR3X2_RVT)                            0.0730     1.2281 f
+  u_ctrl/u_aes/U7294/A1 (XNOR2X2_RVT)                          0.0000     1.2281 f
+  u_ctrl/u_aes/U7294/Y (XNOR2X2_RVT)                           0.0828     1.3108 f
+  u_ctrl/u_aes/U7295/A2 (NOR2X0_RVT)                           0.0000     1.3108 f
+  u_ctrl/u_aes/U7295/Y (NOR2X0_RVT)                            0.0699     1.3808 r
+  u_ctrl/u_aes/U7296/A2 (OR2X1_RVT)                            0.0000     1.3808 r
+  u_ctrl/u_aes/U7296/Y (OR2X1_RVT)                             0.0460     1.4268 r
+  u_ctrl/u_aes/state_reg_100_/D (SDFFARX1_RVT)                 0.0000     1.4268 r
+  data arrival time                                                       1.4268
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_100_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1260     1.4240
+  data required time                                                      1.4240
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4240
+  data arrival time                                                      -1.4268
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0028
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_52_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_83_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_52_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_52_/Q (SDFFARX1_RVT)                 0.1731     0.1731 r
+  u_ctrl/u_aes/U1029/A (NBUFFX2_RVT)                          0.0000     0.1731 r
+  u_ctrl/u_aes/U1029/Y (NBUFFX2_RVT)                          0.0758     0.2489 r
+  u_ctrl/u_aes/U948/A1 (NOR2X0_RVT)                           0.0000     0.2489 r
+  u_ctrl/u_aes/U948/Y (NOR2X0_RVT)                            0.1286     0.3774 f
+  u_ctrl/u_aes/U2153/A1 (AND2X1_RVT)                          0.0000     0.3774 f
+  u_ctrl/u_aes/U2153/Y (AND2X1_RVT)                           0.0800     0.4574 f
+  u_ctrl/u_aes/U2154/A (INVX0_RVT)                            0.0000     0.4574 f
+  u_ctrl/u_aes/U2154/Y (INVX0_RVT)                            0.0337     0.4912 r
+  u_ctrl/u_aes/U3492/A1 (NAND2X0_RVT)                         0.0000     0.4912 r
+  u_ctrl/u_aes/U3492/Y (NAND2X0_RVT)                          0.0324     0.5236 f
+  u_ctrl/u_aes/U3493/A4 (AOI22X1_RVT)                         0.0000     0.5236 f
+  u_ctrl/u_aes/U3493/Y (AOI22X1_RVT)                          0.0775     0.6011 r
+  u_ctrl/u_aes/U3494/A3 (NAND4X0_RVT)                         0.0000     0.6011 r
+  u_ctrl/u_aes/U3494/Y (NAND4X0_RVT)                          0.0618     0.6629 f
+  u_ctrl/u_aes/U3495/A2 (OR2X1_RVT)                           0.0000     0.6629 f
+  u_ctrl/u_aes/U3495/Y (OR2X1_RVT)                            0.0605     0.7234 f
+  u_ctrl/u_aes/U1483/A1 (NOR2X0_RVT)                          0.0000     0.7234 f
+  u_ctrl/u_aes/U1483/Y (NOR2X0_RVT)                           0.0766     0.8000 r
+  u_ctrl/u_aes/U3502/A2 (NOR2X0_RVT)                          0.0000     0.8000 r
+  u_ctrl/u_aes/U3502/Y (NOR2X0_RVT)                           0.0656     0.8656 f
+  u_ctrl/u_aes/U3555/A1 (AO22X1_RVT)                          0.0000     0.8656 f
+  u_ctrl/u_aes/U3555/Y (AO22X1_RVT)                           0.0801     0.9457 f
+  u_ctrl/u_aes/U476/A (INVX1_RVT)                             0.0000     0.9457 f
+  u_ctrl/u_aes/U476/Y (INVX1_RVT)                             0.0434     0.9891 r
+  u_ctrl/u_aes/U10223/A1 (XNOR2X2_RVT)                        0.0000     0.9891 r
+  u_ctrl/u_aes/U10223/Y (XNOR2X2_RVT)                         0.1159     1.1050 r
+  u_ctrl/u_aes/U428/A3 (XOR3X1_RVT)                           0.0000     1.1050 r
+  u_ctrl/u_aes/U428/Y (XOR3X1_RVT)                            0.0747     1.1797 f
+  u_ctrl/u_aes/U10224/A1 (XOR3X2_RVT)                         0.0000     1.1797 f
+  u_ctrl/u_aes/U10224/Y (XOR3X2_RVT)                          0.1522     1.3319 r
+  u_ctrl/u_aes/U10225/A6 (AO222X1_RVT)                        0.0000     1.3319 r
+  u_ctrl/u_aes/U10225/Y (AO222X1_RVT)                         0.0877     1.4196 r
+  u_ctrl/u_aes/state_reg_83_/D (SDFFARX1_RVT)                 0.0000     1.4196 r
+  data arrival time                                                      1.4196
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_83_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1327     1.4173
+  data required time                                                     1.4173
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4173
+  data arrival time                                                     -1.4196
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0023
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_123_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_108_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_123_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_123_/Q (SDFFARX1_RVT)                 0.2056     0.2056 f
+  u_ctrl/u_aes/U344/A1 (NAND2X0_RVT)                           0.0000     0.2056 f
+  u_ctrl/u_aes/U344/Y (NAND2X0_RVT)                            0.0609     0.2666 r
+  u_ctrl/u_aes/U274/A (NBUFFX2_RVT)                            0.0000     0.2666 r
+  u_ctrl/u_aes/U274/Y (NBUFFX2_RVT)                            0.0716     0.3382 r
+  u_ctrl/u_aes/U323/A (INVX4_RVT)                              0.0000     0.3382 r
+  u_ctrl/u_aes/U323/Y (INVX4_RVT)                              0.0297     0.3679 f
+  u_ctrl/u_aes/U1468/A2 (NAND3X0_RVT)                          0.0000     0.3679 f
+  u_ctrl/u_aes/U1468/Y (NAND3X0_RVT)                           0.0765     0.4444 r
+  u_ctrl/u_aes/U4133/A3 (OA21X1_RVT)                           0.0000     0.4444 r
+  u_ctrl/u_aes/U4133/Y (OA21X1_RVT)                            0.0850     0.5294 r
+  u_ctrl/u_aes/U4135/A1 (NAND4X0_RVT)                          0.0000     0.5294 r
+  u_ctrl/u_aes/U4135/Y (NAND4X0_RVT)                           0.0494     0.5788 f
+  u_ctrl/u_aes/U4142/A1 (AND2X1_RVT)                           0.0000     0.5788 f
+  u_ctrl/u_aes/U4142/Y (AND2X1_RVT)                            0.0678     0.6466 f
+  u_ctrl/u_aes/U4147/A2 (NAND3X0_RVT)                          0.0000     0.6466 f
+  u_ctrl/u_aes/U4147/Y (NAND3X0_RVT)                           0.0338     0.6804 r
+  u_ctrl/u_aes/U4148/A6 (AO222X1_RVT)                          0.0000     0.6804 r
+  u_ctrl/u_aes/U4148/Y (AO222X1_RVT)                           0.0862     0.7666 r
+  u_ctrl/u_aes/U4188/A4 (AO222X1_RVT)                          0.0000     0.7666 r
+  u_ctrl/u_aes/U4188/Y (AO222X1_RVT)                           0.1464     0.9130 r
+  u_ctrl/u_aes/U4189/B0 (HADDX1_RVT)                           0.0000     0.9130 r
+  u_ctrl/u_aes/U4189/SO (HADDX1_RVT)                           0.1355     1.0486 f
+  u_ctrl/u_aes/U10448/B0 (HADDX1_RVT)                          0.0000     1.0486 f
+  u_ctrl/u_aes/U10448/SO (HADDX1_RVT)                          0.1234     1.1719 r
+  u_ctrl/u_aes/U10454/A (FADDX1_RVT)                           0.0000     1.1719 r
+  u_ctrl/u_aes/U10454/S (FADDX1_RVT)                           0.1449     1.3169 f
+  u_ctrl/u_aes/U10455/A4 (OA22X1_RVT)                          0.0000     1.3169 f
+  u_ctrl/u_aes/U10455/Y (OA22X1_RVT)                           0.0634     1.3803 f
+  u_ctrl/u_aes/U10458/A1 (NAND2X0_RVT)                         0.0000     1.3803 f
+  u_ctrl/u_aes/U10458/Y (NAND2X0_RVT)                          0.0389     1.4192 r
+  u_ctrl/u_aes/state_reg_108_/D (SDFFARX1_RVT)                 0.0000     1.4192 r
+  data arrival time                                                       1.4192
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_108_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1331     1.4169
+  data required time                                                      1.4169
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4169
+  data arrival time                                                      -1.4192
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0022
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_105_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_51_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_105_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_105_/Q (SDFFARX1_RVT)                 0.1727     0.1727 r
+  u_ctrl/u_aes/U2277/A (NBUFFX2_RVT)                           0.0000     0.1727 r
+  u_ctrl/u_aes/U2277/Y (NBUFFX2_RVT)                           0.0588     0.2315 r
+  u_ctrl/u_aes/U255/A1 (NAND2X1_RVT)                           0.0000     0.2315 r
+  u_ctrl/u_aes/U255/Y (NAND2X1_RVT)                            0.0998     0.3313 f
+  u_ctrl/u_aes/U253/A (INVX1_RVT)                              0.0000     0.3313 f
+  u_ctrl/u_aes/U253/Y (INVX1_RVT)                              0.0579     0.3893 r
+  u_ctrl/u_aes/U2285/A1 (NAND2X0_RVT)                          0.0000     0.3893 r
+  u_ctrl/u_aes/U2285/Y (NAND2X0_RVT)                           0.0564     0.4457 f
+  u_ctrl/u_aes/U172/A (INVX0_RVT)                              0.0000     0.4457 f
+  u_ctrl/u_aes/U172/Y (INVX0_RVT)                              0.0595     0.5052 r
+  u_ctrl/u_aes/U636/A3 (NAND3X0_RVT)                           0.0000     0.5052 r
+  u_ctrl/u_aes/U636/Y (NAND3X0_RVT)                            0.0648     0.5700 f
+  u_ctrl/u_aes/U2420/A1 (AND2X1_RVT)                           0.0000     0.5700 f
+  u_ctrl/u_aes/U2420/Y (AND2X1_RVT)                            0.0682     0.6383 f
+  u_ctrl/u_aes/U2422/A1 (AND2X1_RVT)                           0.0000     0.6383 f
+  u_ctrl/u_aes/U2422/Y (AND2X1_RVT)                            0.0482     0.6864 f
+  u_ctrl/u_aes/U2431/A2 (NAND4X0_RVT)                          0.0000     0.6864 f
+  u_ctrl/u_aes/U2431/Y (NAND4X0_RVT)                           0.0373     0.7237 r
+  u_ctrl/u_aes/U2432/A2 (NOR2X0_RVT)                           0.0000     0.7237 r
+  u_ctrl/u_aes/U2432/Y (NOR2X0_RVT)                            0.0822     0.8060 f
+  u_ctrl/u_aes/U2433/A3 (NOR3X0_RVT)                           0.0000     0.8060 f
+  u_ctrl/u_aes/U2433/Y (NOR3X0_RVT)                            0.0791     0.8850 r
+  u_ctrl/u_aes/U231/A2 (OR2X2_RVT)                             0.0000     0.8850 r
+  u_ctrl/u_aes/U231/Y (OR2X2_RVT)                              0.0659     0.9510 r
+  u_ctrl/u_aes/U441/A1 (XOR3X1_RVT)                            0.0000     0.9510 r
+  u_ctrl/u_aes/U441/Y (XOR3X1_RVT)                             0.1812     1.1322 f
+  u_ctrl/u_aes/U214/A (INVX0_RVT)                              0.0000     1.1322 f
+  u_ctrl/u_aes/U214/Y (INVX0_RVT)                              0.0294     1.1616 r
+  u_ctrl/u_aes/U9575/A1 (NAND2X0_RVT)                          0.0000     1.1616 r
+  u_ctrl/u_aes/U9575/Y (NAND2X0_RVT)                           0.0300     1.1916 f
+  u_ctrl/u_aes/U9576/A2 (NAND2X0_RVT)                          0.0000     1.1916 f
+  u_ctrl/u_aes/U9576/Y (NAND2X0_RVT)                           0.0573     1.2489 r
+  u_ctrl/u_aes/U9577/A1 (XNOR2X2_RVT)                          0.0000     1.2489 r
+  u_ctrl/u_aes/U9577/Y (XNOR2X2_RVT)                           0.0963     1.3452 r
+  u_ctrl/u_aes/U9578/A6 (OAI222X1_RVT)                         0.0000     1.3452 r
+  u_ctrl/u_aes/U9578/Y (OAI222X1_RVT)                          0.0904     1.4356 f
+  u_ctrl/u_aes/state_reg_51_/D (SDFFARX1_RVT)                  0.0000     1.4356 f
+  data arrival time                                                       1.4356
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_51_/CLK (SDFFARX1_RVT)                           1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1164     1.4336
+  data required time                                                      1.4336
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4336
+  data arrival time                                                      -1.4356
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0020
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_102_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_93_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_102_/CLK (SDFFARX2_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_102_/Q (SDFFARX2_RVT)                 0.2191     0.2191 r
+  u_ctrl/u_aes/U1006/A2 (OR2X1_RVT)                            0.0000     0.2191 r
+  u_ctrl/u_aes/U1006/Y (OR2X1_RVT)                             0.0866     0.3058 r
+  u_ctrl/u_aes/U2930/A1 (NOR2X0_RVT)                           0.0000     0.3058 r
+  u_ctrl/u_aes/U2930/Y (NOR2X0_RVT)                            0.0962     0.4020 f
+  u_ctrl/u_aes/U3883/A (INVX0_RVT)                             0.0000     0.4020 f
+  u_ctrl/u_aes/U3883/Y (INVX0_RVT)                             0.0267     0.4286 r
+  u_ctrl/u_aes/U3884/A1 (OR2X1_RVT)                            0.0000     0.4286 r
+  u_ctrl/u_aes/U3884/Y (OR2X1_RVT)                             0.0610     0.4896 r
+  u_ctrl/u_aes/U8315/A2 (NAND2X0_RVT)                          0.0000     0.4896 r
+  u_ctrl/u_aes/U8315/Y (NAND2X0_RVT)                           0.0346     0.5242 f
+  u_ctrl/u_aes/U8316/A2 (AOI21X1_RVT)                          0.0000     0.5242 f
+  u_ctrl/u_aes/U8316/Y (AOI21X1_RVT)                           0.0976     0.6218 r
+  u_ctrl/u_aes/U8317/A2 (NAND2X0_RVT)                          0.0000     0.6218 r
+  u_ctrl/u_aes/U8317/Y (NAND2X0_RVT)                           0.0338     0.6556 f
+  u_ctrl/u_aes/U1318/A2 (OR2X1_RVT)                            0.0000     0.6556 f
+  u_ctrl/u_aes/U1318/Y (OR2X1_RVT)                             0.0575     0.7131 f
+  u_ctrl/u_aes/U8319/A2 (OR3X1_RVT)                            0.0000     0.7131 f
+  u_ctrl/u_aes/U8319/Y (OR3X1_RVT)                             0.0686     0.7817 f
+  u_ctrl/u_aes/U8321/A1 (OR2X1_RVT)                            0.0000     0.7817 f
+  u_ctrl/u_aes/U8321/Y (OR2X1_RVT)                             0.0546     0.8363 f
+  u_ctrl/u_aes/U8329/A1 (NOR2X0_RVT)                           0.0000     0.8363 f
+  u_ctrl/u_aes/U8329/Y (NOR2X0_RVT)                            0.0736     0.9100 r
+  u_ctrl/u_aes/U8330/A2 (NOR2X0_RVT)                           0.0000     0.9100 r
+  u_ctrl/u_aes/U8330/Y (NOR2X0_RVT)                            0.0669     0.9768 f
+  u_ctrl/u_aes/U1244/A2 (OR2X1_RVT)                            0.0000     0.9768 f
+  u_ctrl/u_aes/U1244/Y (OR2X1_RVT)                             0.0651     1.0420 f
+  u_ctrl/u_aes/U424/A (INVX0_RVT)                              0.0000     1.0420 f
+  u_ctrl/u_aes/U424/Y (INVX0_RVT)                              0.0449     1.0868 r
+  u_ctrl/u_aes/U279/A2 (XOR3X1_RVT)                            0.0000     1.0868 r
+  u_ctrl/u_aes/U279/Y (XOR3X1_RVT)                             0.1862     1.2730 f
+  u_ctrl/u_aes/U9717/A1 (OAI22X1_RVT)                          0.0000     1.2730 f
+  u_ctrl/u_aes/U9717/Y (OAI22X1_RVT)                           0.1008     1.3738 r
+  u_ctrl/u_aes/U9720/A1 (OR2X1_RVT)                            0.0000     1.3738 r
+  u_ctrl/u_aes/U9720/Y (OR2X1_RVT)                             0.0520     1.4257 r
+  u_ctrl/u_aes/state_reg_93_/D (SDFFARX1_RVT)                  0.0000     1.4257 r
+  data arrival time                                                       1.4257
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_93_/CLK (SDFFARX1_RVT)                           1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1260     1.4240
+  data required time                                                      1.4240
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4240
+  data arrival time                                                      -1.4257
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0017
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_47_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_125_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_47_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_47_/Q (SDFFARX1_RVT)                 0.1752     0.1752 r
+  u_ctrl/u_aes/U1011/A (INVX2_RVT)                            0.0000     0.1752 r
+  u_ctrl/u_aes/U1011/Y (INVX2_RVT)                            0.0487     0.2238 f
+  u_ctrl/u_aes/U342/A2 (NAND2X0_RVT)                          0.0000     0.2238 f
+  u_ctrl/u_aes/U342/Y (NAND2X0_RVT)                           0.0894     0.3132 r
+  u_ctrl/u_aes/U181/A (INVX1_RVT)                             0.0000     0.3132 r
+  u_ctrl/u_aes/U181/Y (INVX1_RVT)                             0.0688     0.3821 f
+  u_ctrl/u_aes/U662/A2 (NAND2X0_RVT)                          0.0000     0.3821 f
+  u_ctrl/u_aes/U662/Y (NAND2X0_RVT)                           0.1136     0.4956 r
+  u_ctrl/u_aes/U4507/A2 (AND2X1_RVT)                          0.0000     0.4956 r
+  u_ctrl/u_aes/U4507/Y (AND2X1_RVT)                           0.0667     0.5623 r
+  u_ctrl/u_aes/U4508/A1 (AND2X1_RVT)                          0.0000     0.5623 r
+  u_ctrl/u_aes/U4508/Y (AND2X1_RVT)                           0.0531     0.6154 r
+  u_ctrl/u_aes/U7586/A1 (NAND2X0_RVT)                         0.0000     0.6154 r
+  u_ctrl/u_aes/U7586/Y (NAND2X0_RVT)                          0.0321     0.6475 f
+  u_ctrl/u_aes/U1462/A1 (NOR2X0_RVT)                          0.0000     0.6475 f
+  u_ctrl/u_aes/U1462/Y (NOR2X0_RVT)                           0.0795     0.7270 r
+  u_ctrl/u_aes/U7590/A2 (NAND4X0_RVT)                         0.0000     0.7270 r
+  u_ctrl/u_aes/U7590/Y (NAND4X0_RVT)                          0.0635     0.7905 f
+  u_ctrl/u_aes/U7601/A1 (OA221X1_RVT)                         0.0000     0.7905 f
+  u_ctrl/u_aes/U7601/Y (OA221X1_RVT)                          0.1277     0.9181 f
+  u_ctrl/u_aes/U532/A4 (AO22X1_RVT)                           0.0000     0.9181 f
+  u_ctrl/u_aes/U532/Y (AO22X1_RVT)                            0.0869     1.0051 f
+  u_ctrl/u_aes/U9725/A1 (XOR2X2_RVT)                          0.0000     1.0051 f
+  u_ctrl/u_aes/U9725/Y (XOR2X2_RVT)                           0.1171     1.1222 r
+  u_ctrl/u_aes/U49/A1 (XNOR2X1_RVT)                           0.0000     1.1222 r
+  u_ctrl/u_aes/U49/Y (XNOR2X1_RVT)                            0.1176     1.2398 r
+  u_ctrl/u_aes/U399/A3 (XOR3X1_RVT)                           0.0000     1.2398 r
+  u_ctrl/u_aes/U399/Y (XOR3X1_RVT)                            0.0658     1.3055 f
+  u_ctrl/u_aes/U10511/A2 (OA22X1_RVT)                         0.0000     1.3055 f
+  u_ctrl/u_aes/U10511/Y (OA22X1_RVT)                          0.0755     1.3810 f
+  u_ctrl/u_aes/U10513/A1 (NAND2X0_RVT)                        0.0000     1.3810 f
+  u_ctrl/u_aes/U10513/Y (NAND2X0_RVT)                         0.0390     1.4200 r
+  u_ctrl/u_aes/state_reg_125_/D (SDFFARX1_RVT)                0.0000     1.4200 r
+  data arrival time                                                      1.4200
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_125_/CLK (SDFFARX1_RVT)                         1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1316     1.4184
+  data required time                                                     1.4184
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4184
+  data arrival time                                                     -1.4200
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0016
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_87_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_124_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_87_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_87_/QN (SDFFARX1_RVT)                0.1148     0.1148 r
+  u_ctrl/u_aes/U197/A (NBUFFX4_RVT)                           0.0000     0.1148 r
+  u_ctrl/u_aes/U197/Y (NBUFFX4_RVT)                           0.0765     0.1913 r
+  u_ctrl/u_aes/U273/A (INVX8_RVT)                             0.0000     0.1913 r
+  u_ctrl/u_aes/U273/Y (INVX8_RVT)                             0.0318     0.2231 f
+  u_ctrl/u_aes/U1465/A1 (NAND2X0_RVT)                         0.0000     0.2231 f
+  u_ctrl/u_aes/U1465/Y (NAND2X0_RVT)                          0.0412     0.2643 r
+  u_ctrl/u_aes/U187/A (NBUFFX2_RVT)                           0.0000     0.2643 r
+  u_ctrl/u_aes/U187/Y (NBUFFX2_RVT)                           0.0632     0.3275 r
+  u_ctrl/u_aes/U688/A (INVX2_RVT)                             0.0000     0.3275 r
+  u_ctrl/u_aes/U688/Y (INVX2_RVT)                             0.0304     0.3579 f
+  u_ctrl/u_aes/U4542/A2 (NAND2X0_RVT)                         0.0000     0.3579 f
+  u_ctrl/u_aes/U4542/Y (NAND2X0_RVT)                          0.0484     0.4063 r
+  u_ctrl/u_aes/U4543/A2 (NAND2X0_RVT)                         0.0000     0.4063 r
+  u_ctrl/u_aes/U4543/Y (NAND2X0_RVT)                          0.0666     0.4729 f
+  u_ctrl/u_aes/U4544/A3 (NAND3X0_RVT)                         0.0000     0.4729 f
+  u_ctrl/u_aes/U4544/Y (NAND3X0_RVT)                          0.0678     0.5408 r
+  u_ctrl/u_aes/U4546/A2 (OA222X1_RVT)                         0.0000     0.5408 r
+  u_ctrl/u_aes/U4546/Y (OA222X1_RVT)                          0.1051     0.6459 r
+  u_ctrl/u_aes/U4552/A1 (NAND4X0_RVT)                         0.0000     0.6459 r
+  u_ctrl/u_aes/U4552/Y (NAND4X0_RVT)                          0.0585     0.7044 f
+  u_ctrl/u_aes/U4573/A1 (OA221X1_RVT)                         0.0000     0.7044 f
+  u_ctrl/u_aes/U4573/Y (OA221X1_RVT)                          0.1257     0.8301 f
+  u_ctrl/u_aes/U530/A6 (OA222X1_RVT)                          0.0000     0.8301 f
+  u_ctrl/u_aes/U530/Y (OA222X1_RVT)                           0.1005     0.9306 f
+  u_ctrl/u_aes/U475/B0 (HADDX1_RVT)                           0.0000     0.9306 f
+  u_ctrl/u_aes/U475/SO (HADDX1_RVT)                           0.1452     1.0758 r
+  u_ctrl/u_aes/U8365/A1 (XOR3X2_RVT)                          0.0000     1.0758 r
+  u_ctrl/u_aes/U8365/Y (XOR3X2_RVT)                           0.1653     1.2412 f
+  u_ctrl/u_aes/U8366/B0 (HADDX1_RVT)                          0.0000     1.2412 f
+  u_ctrl/u_aes/U8366/SO (HADDX1_RVT)                          0.1047     1.3459 r
+  u_ctrl/u_aes/U8367/A2 (NAND2X0_RVT)                         0.0000     1.3459 r
+  u_ctrl/u_aes/U8367/Y (NAND2X0_RVT)                          0.0343     1.3802 f
+  u_ctrl/u_aes/U8370/A1 (NAND3X0_RVT)                         0.0000     1.3802 f
+  u_ctrl/u_aes/U8370/Y (NAND3X0_RVT)                          0.0405     1.4206 r
+  u_ctrl/u_aes/state_reg_124_/D (SDFFARX1_RVT)                0.0000     1.4206 r
+  data arrival time                                                      1.4206
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_124_/CLK (SDFFARX1_RVT)                         1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1305     1.4195
+  data required time                                                     1.4195
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4195
+  data arrival time                                                     -1.4206
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0011
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_94_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_80_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_94_/CLK (SDFFARX2_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_94_/Q (SDFFARX2_RVT)                 0.2301     0.2301 r
+  u_ctrl/u_aes/U170/A2 (OR2X1_RVT)                            0.0000     0.2301 r
+  u_ctrl/u_aes/U170/Y (OR2X1_RVT)                             0.1044     0.3345 r
+  u_ctrl/u_aes/U814/A2 (OR2X1_RVT)                            0.0000     0.3345 r
+  u_ctrl/u_aes/U814/Y (OR2X1_RVT)                             0.0924     0.4269 r
+  u_ctrl/u_aes/U2938/A2 (NOR2X0_RVT)                          0.0000     0.4269 r
+  u_ctrl/u_aes/U2938/Y (NOR2X0_RVT)                           0.0887     0.5157 f
+  u_ctrl/u_aes/U2939/A2 (NOR2X0_RVT)                          0.0000     0.5157 f
+  u_ctrl/u_aes/U2939/Y (NOR2X0_RVT)                           0.0823     0.5980 r
+  u_ctrl/u_aes/U2940/A2 (NOR2X0_RVT)                          0.0000     0.5980 r
+  u_ctrl/u_aes/U2940/Y (NOR2X0_RVT)                           0.0709     0.6689 f
+  u_ctrl/u_aes/U1393/A1 (OA21X1_RVT)                          0.0000     0.6689 f
+  u_ctrl/u_aes/U1393/Y (OA21X1_RVT)                           0.0657     0.7346 f
+  u_ctrl/u_aes/U2967/A1 (OR3X1_RVT)                           0.0000     0.7346 f
+  u_ctrl/u_aes/U2967/Y (OR3X1_RVT)                            0.0763     0.8109 f
+  u_ctrl/u_aes/U501/A2 (OA222X1_RVT)                          0.0000     0.8109 f
+  u_ctrl/u_aes/U501/Y (OA222X1_RVT)                           0.1297     0.9406 f
+  u_ctrl/u_aes/U443/A2 (AO22X1_RVT)                           0.0000     0.9406 f
+  u_ctrl/u_aes/U443/Y (AO22X1_RVT)                            0.1134     1.0540 f
+  u_ctrl/u_aes/U10369/A (INVX0_RVT)                           0.0000     1.0540 f
+  u_ctrl/u_aes/U10369/Y (INVX0_RVT)                           0.0298     1.0837 r
+  u_ctrl/u_aes/U10370/A2 (AO22X1_RVT)                         0.0000     1.0837 r
+  u_ctrl/u_aes/U10370/Y (AO22X1_RVT)                          0.0887     1.1724 r
+  u_ctrl/u_aes/U10371/CI (FADDX1_RVT)                         0.0000     1.1724 r
+  u_ctrl/u_aes/U10371/S (FADDX1_RVT)                          0.1364     1.3088 f
+  u_ctrl/u_aes/U10372/A2 (OA22X1_RVT)                         0.0000     1.3088 f
+  u_ctrl/u_aes/U10372/Y (OA22X1_RVT)                          0.0731     1.3819 f
+  u_ctrl/u_aes/U10374/A1 (NAND2X0_RVT)                        0.0000     1.3819 f
+  u_ctrl/u_aes/U10374/Y (NAND2X0_RVT)                         0.0376     1.4194 r
+  u_ctrl/u_aes/state_reg_80_/D (SDFFARX1_RVT)                 0.0000     1.4194 r
+  data arrival time                                                      1.4194
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_80_/CLK (SDFFARX1_RVT)                          1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1316     1.4184
+  data required time                                                     1.4184
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4184
+  data arrival time                                                     -1.4194
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0011
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_8_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_77_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/state_reg_8_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_8_/Q (SDFFARX1_RVT)                 0.1726     0.1726 r
+  u_ctrl/u_aes/U370/A (NBUFFX2_RVT)                          0.0000     0.1726 r
+  u_ctrl/u_aes/U370/Y (NBUFFX2_RVT)                          0.0791     0.2516 r
+  u_ctrl/u_aes/U935/A1 (NOR2X0_RVT)                          0.0000     0.2516 r
+  u_ctrl/u_aes/U935/Y (NOR2X0_RVT)                           0.0997     0.3513 f
+  u_ctrl/u_aes/U792/A (INVX1_RVT)                            0.0000     0.3513 f
+  u_ctrl/u_aes/U792/Y (INVX1_RVT)                            0.0504     0.4018 r
+  u_ctrl/u_aes/U2055/A1 (OR2X1_RVT)                          0.0000     0.4018 r
+  u_ctrl/u_aes/U2055/Y (OR2X1_RVT)                           0.0721     0.4739 r
+  u_ctrl/u_aes/U2056/A2 (AND2X1_RVT)                         0.0000     0.4739 r
+  u_ctrl/u_aes/U2056/Y (AND2X1_RVT)                          0.0523     0.5262 r
+  u_ctrl/u_aes/U2059/A1 (AND2X1_RVT)                         0.0000     0.5262 r
+  u_ctrl/u_aes/U2059/Y (AND2X1_RVT)                          0.0529     0.5791 r
+  u_ctrl/u_aes/U8079/A2 (NAND3X0_RVT)                        0.0000     0.5791 r
+  u_ctrl/u_aes/U8079/Y (NAND3X0_RVT)                         0.0473     0.6264 f
+  u_ctrl/u_aes/U8083/A1 (AND2X1_RVT)                         0.0000     0.6264 f
+  u_ctrl/u_aes/U8083/Y (AND2X1_RVT)                          0.0616     0.6881 f
+  u_ctrl/u_aes/U8085/A1 (AND2X1_RVT)                         0.0000     0.6881 f
+  u_ctrl/u_aes/U8085/Y (AND2X1_RVT)                          0.0472     0.7353 f
+  u_ctrl/u_aes/U8087/A1 (NAND3X0_RVT)                        0.0000     0.7353 f
+  u_ctrl/u_aes/U8087/Y (NAND3X0_RVT)                         0.0291     0.7644 r
+  u_ctrl/u_aes/U8088/A3 (OA22X1_RVT)                         0.0000     0.7644 r
+  u_ctrl/u_aes/U8088/Y (OA22X1_RVT)                          0.0720     0.8364 r
+  u_ctrl/u_aes/U1517/A2 (NOR2X0_RVT)                         0.0000     0.8364 r
+  u_ctrl/u_aes/U1517/Y (NOR2X0_RVT)                          0.0703     0.9067 f
+  u_ctrl/u_aes/U496/A1 (NOR2X2_RVT)                          0.0000     0.9067 f
+  u_ctrl/u_aes/U496/Y (NOR2X2_RVT)                           0.0896     0.9963 r
+  u_ctrl/u_aes/U8632/A1 (XNOR2X1_RVT)                        0.0000     0.9963 r
+  u_ctrl/u_aes/U8632/Y (XNOR2X1_RVT)                         0.1086     1.1049 r
+  u_ctrl/u_aes/U8633/A3 (XOR3X2_RVT)                         0.0000     1.1049 r
+  u_ctrl/u_aes/U8633/Y (XOR3X2_RVT)                          0.0764     1.1814 f
+  u_ctrl/u_aes/U414/A2 (XNOR2X1_RVT)                         0.0000     1.1814 f
+  u_ctrl/u_aes/U414/Y (XNOR2X1_RVT)                          0.1143     1.2956 f
+  u_ctrl/u_aes/U8634/A2 (NOR2X0_RVT)                         0.0000     1.2956 f
+  u_ctrl/u_aes/U8634/Y (NOR2X0_RVT)                          0.0714     1.3670 r
+  u_ctrl/u_aes/U8635/A3 (OR3X1_RVT)                          0.0000     1.3670 r
+  u_ctrl/u_aes/U8635/Y (OR3X1_RVT)                           0.0561     1.4232 r
+  u_ctrl/u_aes/state_reg_77_/D (SDFFARX1_RVT)                0.0000     1.4232 r
+  data arrival time                                                     1.4232
+
+  clock clk_fast_aes (rise edge)                             1.7500     1.7500
+  clock network delay (ideal)                                0.0000     1.7500
+  u_ctrl/u_aes/state_reg_77_/CLK (SDFFARX1_RVT)                         1.7500 r
+  clock reconvergence pessimism                              0.0000     1.7500
+  clock uncertainty                                         -0.2000     1.5500
+  library setup time                                        -0.1275     1.4225
+  data required time                                                    1.4225
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.4225
+  data arrival time                                                    -1.4232
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -0.0007
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_105_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_49_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                          Incr       Path
+  -------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                               0.0000     0.0000
+  clock network delay (ideal)                                  0.0000     0.0000
+  u_ctrl/u_aes/state_reg_105_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_105_/Q (SDFFARX1_RVT)                 0.1647     0.1647 f
+  u_ctrl/u_aes/U2277/A (NBUFFX2_RVT)                           0.0000     0.1647 f
+  u_ctrl/u_aes/U2277/Y (NBUFFX2_RVT)                           0.0584     0.2230 f
+  u_ctrl/u_aes/U255/A1 (NAND2X1_RVT)                           0.0000     0.2230 f
+  u_ctrl/u_aes/U255/Y (NAND2X1_RVT)                            0.1025     0.3256 r
+  u_ctrl/u_aes/U253/A (INVX1_RVT)                              0.0000     0.3256 r
+  u_ctrl/u_aes/U253/Y (INVX1_RVT)                              0.0519     0.3774 f
+  u_ctrl/u_aes/U2285/A1 (NAND2X0_RVT)                          0.0000     0.3774 f
+  u_ctrl/u_aes/U2285/Y (NAND2X0_RVT)                           0.0676     0.4450 r
+  u_ctrl/u_aes/U172/A (INVX0_RVT)                              0.0000     0.4450 r
+  u_ctrl/u_aes/U172/Y (INVX0_RVT)                              0.0530     0.4980 f
+  u_ctrl/u_aes/U2302/A2 (NAND2X0_RVT)                          0.0000     0.4980 f
+  u_ctrl/u_aes/U2302/Y (NAND2X0_RVT)                           0.0778     0.5758 r
+  u_ctrl/u_aes/U2328/A1 (AO221X1_RVT)                          0.0000     0.5758 r
+  u_ctrl/u_aes/U2328/Y (AO221X1_RVT)                           0.1105     0.6862 r
+  u_ctrl/u_aes/U2330/A3 (NAND4X0_RVT)                          0.0000     0.6862 r
+  u_ctrl/u_aes/U2330/Y (NAND4X0_RVT)                           0.0640     0.7502 f
+  u_ctrl/u_aes/U1506/A4 (OAI22X1_RVT)                          0.0000     0.7502 f
+  u_ctrl/u_aes/U1506/Y (OAI22X1_RVT)                           0.0884     0.8387 r
+  u_ctrl/u_aes/U67/A1 (MUX21X1_RVT)                            0.0000     0.8387 r
+  u_ctrl/u_aes/U67/Y (MUX21X1_RVT)                             0.1066     0.9453 r
+  u_ctrl/u_aes/U261/A (INVX1_RVT)                              0.0000     0.9453 r
+  u_ctrl/u_aes/U261/Y (INVX1_RVT)                              0.0325     0.9778 f
+  u_ctrl/u_aes/U64/A2 (XNOR2X1_RVT)                            0.0000     0.9778 f
+  u_ctrl/u_aes/U64/Y (XNOR2X1_RVT)                             0.1379     1.1157 r
+  u_ctrl/u_aes/U293/A (INVX1_RVT)                              0.0000     1.1157 r
+  u_ctrl/u_aes/U293/Y (INVX1_RVT)                              0.0433     1.1590 f
+  u_ctrl/u_aes/U8884/A2 (XOR3X2_RVT)                           0.0000     1.1590 f
+  u_ctrl/u_aes/U8884/Y (XOR3X2_RVT)                            0.1647     1.3236 r
+  u_ctrl/u_aes/U8885/A2 (OR2X1_RVT)                            0.0000     1.3236 r
+  u_ctrl/u_aes/U8885/Y (OR2X1_RVT)                             0.0542     1.3778 r
+  u_ctrl/u_aes/U381/A1 (NAND3X0_RVT)                           0.0000     1.3778 r
+  u_ctrl/u_aes/U381/Y (NAND3X0_RVT)                            0.0399     1.4177 f
+  u_ctrl/u_aes/state_reg_49_/D (SDFFARX2_RVT)                  0.0000     1.4177 f
+  data arrival time                                                       1.4177
+
+  clock clk_fast_aes (rise edge)                               1.7500     1.7500
+  clock network delay (ideal)                                  0.0000     1.7500
+  u_ctrl/u_aes/state_reg_49_/CLK (SDFFARX2_RVT)                           1.7500 r
+  clock reconvergence pessimism                                0.0000     1.7500
+  clock uncertainty                                           -0.2000     1.5500
+  library setup time                                          -0.1328     1.4172
+  data required time                                                      1.4172
+  -------------------------------------------------------------------------------------
+  data required time                                                      1.4172
+  data arrival time                                                      -1.4177
+  -------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                       -0.0005
+
+
+  Startpoint: u_ctrl/u_aes/state_reg_43_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/state_reg_115_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/state_reg_43_/CLK (SDFFARX1_RVT)               0.0000     0.0000 r
+  u_ctrl/u_aes/state_reg_43_/Q (SDFFARX1_RVT)                 0.1648     0.1648 f
+  u_ctrl/u_aes/U240/A1 (NAND2X1_RVT)                          0.0000     0.1648 f
+  u_ctrl/u_aes/U240/Y (NAND2X1_RVT)                           0.1110     0.2758 r
+  u_ctrl/u_aes/U239/A (INVX1_RVT)                             0.0000     0.2758 r
+  u_ctrl/u_aes/U239/Y (INVX1_RVT)                             0.0531     0.3289 f
+  u_ctrl/u_aes/U4226/A1 (NAND2X0_RVT)                         0.0000     0.3289 f
+  u_ctrl/u_aes/U4226/Y (NAND2X0_RVT)                          0.0964     0.4253 r
+  u_ctrl/u_aes/U4227/A2 (OR2X1_RVT)                           0.0000     0.4253 r
+  u_ctrl/u_aes/U4227/Y (OR2X1_RVT)                            0.0778     0.5031 r
+  u_ctrl/u_aes/U4228/A2 (OR2X1_RVT)                           0.0000     0.5031 r
+  u_ctrl/u_aes/U4228/Y (OR2X1_RVT)                            0.0603     0.5634 r
+  u_ctrl/u_aes/U4232/A1 (AND4X1_RVT)                          0.0000     0.5634 r
+  u_ctrl/u_aes/U4232/Y (AND4X1_RVT)                           0.0747     0.6382 r
+  u_ctrl/u_aes/U4233/A3 (OA22X1_RVT)                          0.0000     0.6382 r
+  u_ctrl/u_aes/U4233/Y (OA22X1_RVT)                           0.0705     0.7087 r
+  u_ctrl/u_aes/U4237/A1 (AND4X1_RVT)                          0.0000     0.7087 r
+  u_ctrl/u_aes/U4237/Y (AND4X1_RVT)                           0.0735     0.7822 r
+  u_ctrl/u_aes/U4247/A1 (NAND3X0_RVT)                         0.0000     0.7822 r
+  u_ctrl/u_aes/U4247/Y (NAND3X0_RVT)                          0.0423     0.8245 f
+  u_ctrl/u_aes/U568/A4 (OA222X1_RVT)                          0.0000     0.8245 f
+  u_ctrl/u_aes/U568/Y (OA222X1_RVT)                           0.1234     0.9479 f
+  u_ctrl/u_aes/U515/A (INVX0_RVT)                             0.0000     0.9479 f
+  u_ctrl/u_aes/U515/Y (INVX0_RVT)                             0.0433     0.9912 r
+  u_ctrl/u_aes/U1486/A3 (AO22X1_RVT)                          0.0000     0.9912 r
+  u_ctrl/u_aes/U1486/Y (AO22X1_RVT)                           0.0718     1.0630 r
+  u_ctrl/u_aes/U9866/CI (FADDX1_RVT)                          0.0000     1.0630 r
+  u_ctrl/u_aes/U9866/S (FADDX1_RVT)                           0.1447     1.2077 f
+  u_ctrl/u_aes/U236/A3 (XNOR3X2_RVT)                          0.0000     1.2077 f
+  u_ctrl/u_aes/U236/Y (XNOR3X2_RVT)                           0.0786     1.2863 r
+  u_ctrl/u_aes/U9867/A1 (AO222X1_RVT)                         0.0000     1.2863 r
+  u_ctrl/u_aes/U9867/Y (AO222X1_RVT)                          0.1311     1.4174 r
+  u_ctrl/u_aes/state_reg_115_/D (SDFFARX1_RVT)                0.0000     1.4174 r
+  data arrival time                                                      1.4174
+
+  clock clk_fast_aes (rise edge)                              1.7500     1.7500
+  clock network delay (ideal)                                 0.0000     1.7500
+  u_ctrl/u_aes/state_reg_115_/CLK (SDFFARX1_RVT)                         1.7500 r
+  clock reconvergence pessimism                               0.0000     1.7500
+  clock uncertainty                                          -0.2000     1.5500
+  library setup time                                         -0.1327     1.4173
+  data required time                                                     1.4173
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.4173
+  data arrival time                                                     -1.4174
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                      -0.0001
+
+
+1

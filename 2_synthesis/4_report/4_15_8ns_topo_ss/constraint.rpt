@@ -1,0 +1,69 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Wed Apr 15 18:50:36 2026
+****************************************
+
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   u_ctrl/n1                  168.00         567.23        -399.23  (VIOLATED)
+   u_ctrl/n8                  168.00         326.45        -158.45  (VIOLATED)
+   u_ctrl/u_aes/n6619          16.00          21.61          -5.61  (VIOLATED)
+   u_ctrl/u_aes/state[125]      8.00          12.31          -4.31  (VIOLATED)
+   u_ctrl/u_aes/n8304          16.00          19.07          -3.07  (VIOLATED)
+   u_ctrl/u_aes/n8308          16.00          18.76          -2.76  (VIOLATED)
+   u_ctrl/u_aes/state[117]      8.00          10.65          -2.65  (VIOLATED)
+   u_ctrl/u_aes/state[78]       8.00          10.47          -2.47  (VIOLATED)
+   u_ctrl/u_aes/n8305          16.00          18.33          -2.33  (VIOLATED)
+   u_ctrl/u_aes/n8314          16.00          17.65          -1.65  (VIOLATED)
+   u_ctrl/u_aes/n4829          16.00          17.61          -1.61  (VIOLATED)
+   u_ctrl/u_aes/state[37]      16.00          17.50          -1.50  (VIOLATED)
+   u_ctrl/u_aes/state[11]       8.00           9.35          -1.35  (VIOLATED)
+   u_ctrl/u_aes/n5257          16.00          17.35          -1.35  (VIOLATED)
+   u_ctrl/u_aes/state[119]     16.00          17.28          -1.28  (VIOLATED)
+   u_ctrl/u_aes/n3387          16.00          17.24          -1.24  (VIOLATED)
+   u_ctrl/u_aes/state[91]       8.00           9.15          -1.15  (VIOLATED)
+   u_ctrl/u_aes/n5440          16.00          17.09          -1.09  (VIOLATED)
+   u_ctrl/u_aes/n8327          16.00          16.83          -0.83  (VIOLATED)
+   u_ctrl/u_aes/state[105]      8.00           8.81          -0.81  (VIOLATED)
+   u_ctrl/u_aes/n24109         16.00          16.81          -0.81  (VIOLATED)
+   u_ctrl/u_aes/rkeys[96]      16.00          16.66          -0.66  (VIOLATED)
+   u_ctrl/u_aes/n5358          16.00          16.50          -0.50  (VIOLATED)
+   u_ctrl/u_aes/n6734           8.00           8.39          -0.39  (VIOLATED)
+   u_ctrl/u_aes/n235            8.00           8.38          -0.38  (VIOLATED)
+   u_ctrl/u_aes/rkeys[102]     16.00          16.35          -0.35  (VIOLATED)
+   u_ctrl/u_aes/state[67]       8.00           8.30          -0.30  (VIOLATED)
+   u_ctrl/u_aes/n24103         16.00          16.29          -0.29  (VIOLATED)
+   u_ctrl/u_aes/n5004          16.00          16.19          -0.19  (VIOLATED)
+   u_ctrl/u_aes/n6446          16.00          16.17          -0.17  (VIOLATED)
+   u_ctrl/u_aes/n5381          16.00          16.15          -0.15  (VIOLATED)
+   u_ctrl/u_aes/n5233          16.00          16.14          -0.14  (VIOLATED)
+   u_ctrl/u_aes/rkeys[99]      16.00          16.11          -0.11  (VIOLATED)
+   u_ctrl/u_aes/n5321          16.00          16.10          -0.10  (VIOLATED)
+   u_ctrl/u_aes/n5455          16.00          16.08          -0.08  (VIOLATED)
+   u_ctrl/u_aes/state[52]       8.00           8.07          -0.07  (VIOLATED)
+   u_ctrl/n59                   8.00           8.07          -0.07  (VIOLATED)
+   u_ctrl/u_aes/rkeys[65]      16.00          16.05          -0.05  (VIOLATED)
+   u_ctrl/u_aes/n7245          16.00          16.04          -0.04  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      39               -599.61  
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       2332333312.00  -2332333312.00
+                                                                    (VIOLATED)
+
+
+1
