@@ -4,15 +4,15 @@ Information: Updating design information... (UID-85)
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Wed Apr 15 20:46:51 2026
+Date   : Wed Apr 15 23:00:13 2026
 ****************************************
 
 
   Timing Path Group 'INS'
   -----------------------------------
-  Levels of Logic:               4.00
+  Levels of Logic:               5.00
   Critical Path Length:          0.30
-  Critical Path Slack:           0.53
+  Critical Path Slack:           0.51
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -24,8 +24,8 @@ Date   : Wed Apr 15 20:46:51 2026
   Timing Path Group 'OUTS'
   -----------------------------------
   Levels of Logic:               0.00
-  Critical Path Length:          0.20
-  Critical Path Slack:           0.64
+  Critical Path Length:          0.19
+  Critical Path Slack:           0.65
   Critical Path Clk Period:      8.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -50,8 +50,8 @@ Date   : Wed Apr 15 20:46:51 2026
   Timing Path Group 'clk_div4'
   -----------------------------------
   Levels of Logic:               2.00
-  Critical Path Length:          0.34
-  Critical Path Slack:           1.37
+  Critical Path Length:          0.32
+  Critical Path Slack:           1.39
   Critical Path Clk Period:      8.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -63,8 +63,8 @@ Date   : Wed Apr 15 20:46:51 2026
   Timing Path Group 'clk_fast'
   -----------------------------------
   Levels of Logic:               1.00
-  Critical Path Length:          0.24
-  Critical Path Slack:           0.72
+  Critical Path Length:          0.25
+  Critical Path Slack:           0.71
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
@@ -75,8 +75,8 @@ Date   : Wed Apr 15 20:46:51 2026
 
   Timing Path Group 'clk_fast_aes'
   -----------------------------------
-  Levels of Logic:              19.00
-  Critical Path Length:          1.81
+  Levels of Logic:              20.00
+  Critical Path Length:          1.82
   Critical Path Slack:           0.00
   Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
@@ -90,13 +90,13 @@ Date   : Wed Apr 15 20:46:51 2026
   Cell Count
   -----------------------------------
   Hierarchical Cell Count:         10
-  Hierarchical Port Count:        952
-  Leaf Cell Count:              11986
-  Buf/Inv Cell Count:            1658
-  Buf Cell Count:                 346
-  Inv Cell Count:                1312
+  Hierarchical Port Count:        964
+  Leaf Cell Count:              12202
+  Buf/Inv Cell Count:            1781
+  Buf Cell Count:                 350
+  Inv Cell Count:                1431
   CT Buf/Inv Cell Count:            1
-  Combinational Cell Count:     10451
+  Combinational Cell Count:     10667
   Sequential Cell Count:         1535
   Macro Count:                      0
   -----------------------------------
@@ -104,27 +104,27 @@ Date   : Wed Apr 15 20:46:51 2026
 
   Area
   -----------------------------------
-  Combinational Area:    22324.517509
-  Noncombinational Area: 14066.362371
-  Buf/Inv Area:           2594.301979
-  Total Buffer Area:           871.21
-  Total Inverter Area:        1723.10
+  Combinational Area:    22749.446277
+  Noncombinational Area: 14096.351333
+  Buf/Inv Area:           2739.672349
+  Total Buffer Area:           854.43
+  Total Inverter Area:        1885.24
   Macro/Black Box Area:  31230.701660
-  Net Area:               4699.347110
-  Net XLength        :      132814.67
-  Net YLength        :      134916.58
+  Net Area:               4800.853268
+  Net XLength        :      135199.23
+  Net YLength        :      141565.25
   -----------------------------------
-  Cell Area:             67621.581540
-  Design Area:           72320.928650
-  Net Length        :       267731.25
+  Cell Area:             68076.499271
+  Design Area:           72877.352539
+  Net Length        :       276764.50
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:         12113
-  Nets With Violations:            23
-  Max Trans Violations:             2
-  Max Cap Violations:              23
+  Total Number of Nets:         12343
+  Nets With Violations:            22
+  Max Trans Violations:             1
+  Max Cap Violations:              22
   -----------------------------------
 
 
@@ -134,10 +134,10 @@ Date   : Wed Apr 15 20:46:51 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.00
-  Mapping Optimization:                5.00
+  Mapping Optimization:                5.88
   -----------------------------------------
-  Overall Compile Time:                9.87
-  Overall Compile Wall Clock Time:    11.30
+  Overall Compile Time:               13.26
+  Overall Compile Wall Clock Time:    14.90
 
   --------------------------------------------------------------------
 

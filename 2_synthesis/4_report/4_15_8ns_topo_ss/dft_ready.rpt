@@ -1,0 +1,63 @@
+In mode: all_dft...
+Information: Checking out the license 'DesignWare'. (SEC-104)
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+Module: DW01_MUX, Ports: 4, Input: 3, Output: 1, Inout: 0
+Module: DW01_MUX, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_MUX'
+Module: DW01_mmux_width2, Ports: 7, Input: 5, Output: 2, Inout: 0
+Module: DW01_mmux_width2, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width2'
+Module: DW01_mmux_width3, Ports: 10, Input: 7, Output: 3, Inout: 0
+Module: DW01_mmux_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width3'
+Module: DW01_mmux_width4, Ports: 13, Input: 9, Output: 4, Inout: 0
+Module: DW01_mmux_width4, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width4'
+Module: DW01_mmux_width5, Ports: 16, Input: 11, Output: 5, Inout: 0
+Module: DW01_mmux_width5, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Building model 'DW01_mmux_width5'
+  Loading test protocol
+Warning: insert_dft does not perform synthesis optimization in DC-Topographical mode. Run incremental compile to reoptimize the design after insert_dft. (TESTXG-58)
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+Begin Pre-DFT violations...
+
+ Warning: Clock input clocked_on of DFF u_ctrl/aes_key_reg[127](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v 470) not active when clocks are set on. (D9-1)
+Information: There are 255 other cells with the same violation. (TEST-171)
+ Warning: Clock input clocked_on of DFF u_ctrl/aes_key_reg[127](/DATA/home/edu135/aes128_core/0_rtl/soc_ctrl_multiclk_soc.v 470) cannot capture data. (D17-1)
+Information: There are 255 other cells with the same violation. (TEST-171)
+
+Pre-DFT violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Other violations...
+
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg(/DATA/home/edu135/aes128_core/0_rtl/icg_latch.v 19) has constant 1 value. (TEST-505)
+
+Other violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 513
+
+-----------------------------------------------------------------
+
+512 PRE-DFT VIOLATIONS
+   256 Clock_port not active when clocks set to on violations (D9)
+   256 Clock_port not capable of capturing data violations (D17)
+
+1 OTHER VIOLATION
+     1 Cell is constant 1 violation (TEST-505)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+Information: Test design rule checking completed. (TEST-123)
+Warning: The current design contains unmapped components. The output netlist might not be read back into the system. (TEST-268)
+1

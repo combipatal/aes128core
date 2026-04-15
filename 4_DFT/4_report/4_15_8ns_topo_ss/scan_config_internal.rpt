@@ -3,14 +3,14 @@
 Report : Scan configuration
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Wed Apr 15 20:46:51 2026
+Date   : Wed Apr 15 23:00:13 2026
 ****************************************
 
 ========================================
 TEST MODE: Internal_scan
 VIEW     : Specification
 ========================================
-Chain count:                           1
+Chain count:                           4
 Scan Style:                            Multiplexed flip-flop
 Maximum scan chain length:             Undefined
 Exact scan chain length:               Undefined

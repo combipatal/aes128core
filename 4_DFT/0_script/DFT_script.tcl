@@ -35,9 +35,9 @@ set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
 # latch 셀들을 scan chain element로 취급하지 말라는 뜻
 set_scan_element false [get_cells u_ctrl/u_icg_aes]
 
-#DFT 삽입 중 불필요한 추가 최적화를 막고, 
-#설계 이름도 유지해서 원래 설계와 비교하기 쉽게 만드는 설정
-set_dft_insertion_configuration -synthesis_optimization none\
+# Keep the design name stable, but allow normal optimization after scan insertion.
+# The previous setting blocked too much restructuring around scan-added fanout trees.
+set_dft_insertion_configuration \
     -preserve_design_name true
 
 # Synopsys가 삽입하는 DFT 전용 로직을 어느 계층/이름 아래 둘지 지정
@@ -56,8 +56,8 @@ set_scan_path chain0 -view spec -scan_data_in scan_in -scan_data_out scan_out
 
 #set_dft_configuration -scan_compression enable
 
-#scan chain 개수 1개
-set_scan_configuration -test_mode all -chain_count 1
+#scan chain 개수 4개
+set_scan_configuration -test_mode all -chain_count 4
 #scan FF 스타일을 muxed scan flop으로 
 set_scan_configuration -test_mode all -style multiplexed_flip_flop
 #internal clock를 별도로 scan clock로 쓰지 않음
@@ -82,11 +82,13 @@ insert_dft
 set_case_analysis 0 [get_ports scan_en]
 set_case_analysis 0 [get_ports test_mode]
 
-# This pulse fans out into many ct_hold_div2 load paths after scan insertion.
-# The previous try used an internal net object, and DC ignored it.
-# Apply the rule on the source module output port so DC can honor it.
+# This pulse drives a wide control tree after scan insertion.
+# Buffer insertion alone was not enough, so ask DC to replicate the source
+# register when the fanout gets too large.
+set_register_replication -max_fanout 16 [get_cells u_ctrl/u_ct_cdc/pulse_dst_reg]
+
+# Keep the source transition tight at the CDC block output.
 current_design cdc_toggle_sync_1
-set_max_fanout 16 [get_ports pulse_dst]
 set_max_transition 0.20 [get_ports pulse_dst]
 current_design top_mcu_pll_sram_multiclk_soc
 

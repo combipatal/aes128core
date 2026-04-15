@@ -3,7 +3,7 @@
 Report : area
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Wed Apr 15 20:46:51 2026
+Date   : Wed Apr 15 23:00:13 2026
 ****************************************
 
 Library(s) Used:
@@ -12,23 +12,23 @@ Library(s) Used:
     saed32sram_ss0p95v125c (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.db)
     saed32pll_ss0p95v125c_2p25v (File: /DATA/home/edu135/aes128_core/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db)
 
-Number of ports:                         1224
-Number of nets:                         12534
-Number of cells:                        11999
-Number of combinational cells:          10451
+Number of ports:                         1242
+Number of nets:                         12778
+Number of cells:                        12215
+Number of combinational cells:          10667
 Number of sequential cells:              1533
 Number of macros/black boxes:               2
-Number of buf/inv:                       1658
-Number of references:                       7
+Number of buf/inv:                       1781
+Number of references:                       8
 
-Combinational area:              22324.517509
-Buf/Inv area:                     2594.301979
-Noncombinational area:           14066.362371
+Combinational area:              22749.446277
+Buf/Inv area:                     2739.672349
+Noncombinational area:           14096.351333
 Macro/Black Box area:            31230.701660
-Net Interconnect area:            4699.347110
+Net Interconnect area:            4800.853268
 
-Total cell area:                 67621.581540
-Total area:                      72320.928650
+Total cell area:                 68076.499271
+Total area:                      72877.352539
 
 Hierarchical area distribution
 ------------------------------
@@ -38,18 +38,18 @@ Hierarchical area distribution
 Hierarchical cell                 Absolute    Percent  Combi-      Noncombi-   Black-
                                   Total       Total    national    national    boxes       Design
 --------------------------------  ----------  -------  ----------  ----------  ----------  ----------------------------------
-top_mcu_pll_sram_multiclk_soc     67621.5815    100.0     15.2486      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
-u_ctrl                            36365.2113     53.8   2042.8095   3347.0766      0.0000  soc_ctrl_multiclk_soc
-u_ctrl/u_aes                      27971.5973     41.4  18907.8056   9063.7918      0.0000  aes128_core
-u_ctrl/u_crc                       1077.3164      1.6    482.1112    595.2053      0.0000  crc32_byte
-u_ctrl/u_ct_cdc                      71.9228      0.1     11.9448     59.9780      0.0000  cdc_toggle_sync_1
+top_mcu_pll_sram_multiclk_soc     68076.4993    100.0     17.7901      0.0000   5446.9321  top_mcu_pll_sram_multiclk_soc
+u_ctrl                            36817.5876     54.1   2033.1520   3360.2920      0.0000  soc_ctrl_multiclk_soc
+u_ctrl/u_aes                      28419.3990     41.7  19339.8504   9079.5487      0.0000  aes128_core
+u_ctrl/u_crc                       1068.9297      1.6    474.2327    594.6970      0.0000  crc32_byte
+u_ctrl/u_ct_cdc                      72.4310      0.1     11.9448     60.4863      0.0000  cdc_toggle_sync_0
 u_ctrl/u_icg_aes                     10.4199      0.0      5.3370      5.0829      0.0000  icg_latch
-u_ctrl/u_rx                         922.0344      1.4    426.9619    495.0725      0.0000  uart_rx_CLK_HZ100000000_BAUD115200
-u_ctrl/u_send_cdc                    78.7846      0.1     18.2984     60.4863      0.0000  cdc_toggle_sync_0
-u_ctrl/u_tx                         843.2498      1.2    412.7299    430.5199      0.0000  uart_tx_CLK_HZ100000000_BAUD115200
+u_ctrl/u_rx                         937.0289      1.4    440.9398    496.0891      0.0000  uart_rx_CLK_HZ100000000_BAUD115200
+u_ctrl/u_send_cdc                    76.2432      0.1     15.7569     60.4863      0.0000  cdc_toggle_sync_1
+u_ctrl/u_tx                         839.6918      1.2    409.1718    430.5199      0.0000  uart_tx_CLK_HZ100000000_BAUD115200
 u_div8                               10.4199      0.0      1.2707      9.1492      0.0000  clk_div2_toggle
-u_mem                             25783.7695     38.1      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
+u_mem                             25783.7695     37.9      0.0000      0.0000  25783.7695  sram_wrap_1rw1024x8
 --------------------------------  ----------  -------  ----------  ----------  ----------  ----------------------------------
-Total                                                  22324.5175  14066.3624  31230.7017
+Total                                                  22749.4463  14096.3513  31230.7017
 
 1

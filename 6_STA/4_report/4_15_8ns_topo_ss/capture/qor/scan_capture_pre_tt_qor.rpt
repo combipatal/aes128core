@@ -2,7 +2,7 @@
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Wed Apr 15 22:11:20 2026
+Date   : Wed Apr 15 22:28:30 2026
 ****************************************
 
   Timing Path Group '**clock_gating_default**' (max_delay/setup)
@@ -17,8 +17,8 @@ Date   : Wed Apr 15 22:11:20 2026
   Timing Path Group 'INS' (max_delay/setup)
   ---------------------------------------------
   Levels of Logic:                            5
-  Critical Path Length:                  1.3418
-  Critical Path Slack:                   6.4267
+  Critical Path Length:                  1.3558
+  Critical Path Slack:                   6.4122
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -35,8 +35,8 @@ Date   : Wed Apr 15 22:11:20 2026
   Timing Path Group 'ref_clk' (max_delay/setup)
   ---------------------------------------------
   Levels of Logic:                           33
-  Critical Path Length:                  1.9104
-  Critical Path Slack:                   5.8648
+  Critical Path Length:                  1.9753
+  Critical Path Slack:                   5.7999
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -53,8 +53,8 @@ Date   : Wed Apr 15 22:11:20 2026
   Timing Path Group 'INS' (min_delay/hold)
   ---------------------------------------------
   Levels of Logic:                            1
-  Critical Path Length:                  0.2885
-  Critical Path Slack:                   0.2793
+  Critical Path Length:                  0.2917
+  Critical Path Slack:                   0.2822
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------
@@ -72,36 +72,36 @@ Date   : Wed Apr 15 22:11:20 2026
   ---------------------------------------------
   Levels of Logic:                            1
   Critical Path Length:                  0.1043
-  Critical Path Slack:                  -0.0143
-  Total Negative Slack:                 -0.1117
+  Critical Path Slack:                  -0.0142
+  Total Negative Slack:                 -0.1137
   No. of Violating Paths:                     8
   ---------------------------------------------
 
   Area
   ---------------------------------------------
-  Net Interconnect area:              4697.8057
-  Total cell area:                   67621.3906
-  Design Area:                       72319.1953
+  Net Interconnect area:              4787.6157
+  Total cell area:                   68051.2031
+  Design Area:                       72838.8203
   ---------------------------------------------
 
 
   Cell & Pin Count
   ---------------------------------------------
-  Pin Count:                              49409
+  Pin Count:                              49963
   Hierarchical Cell Count:                   10
-  Hierarchical Port Count:                  952
-  Leaf Cell Count:                        11986
+  Hierarchical Port Count:                  948
+  Leaf Cell Count:                        12198
   ---------------------------------------------
 
 
   Design Rule Violations
   ---------------------------------------------
-  Total No. of Pins in Design:            49409
-  max_capacitance Count:                    164
-  max_transition Count:                       1
-  max_capacitance Cost:                342.1821
-  max_transition Cost:                   0.0057
-  Total DRC Cost:                      342.1878
+  Total No. of Pins in Design:            49963
+  max_capacitance Count:                    159
+  max_transition Count:                       2
+  max_capacitance Cost:                394.5905
+  max_transition Cost:                   0.0001
+  Total DRC Cost:                      394.5906
   ---------------------------------------------
 
 1

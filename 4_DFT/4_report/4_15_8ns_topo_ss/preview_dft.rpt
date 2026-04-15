@@ -55,10 +55,10 @@ Preview_dft report
 For    : 'Insert_dft' command
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Wed Apr 15 20:46:36 2026
+Date   : Wed Apr 15 22:59:54 2026
 ****************************************
 
-Number of chains: 1
+Number of chains: 4
 Scan methodology: full_scan
 Scan style: multiplexed_flip_flop
 Clock domain: no_mix
@@ -66,5 +66,8 @@ Scan enable: scan_en (no hookup pin)
 
 Chain      Scan Ports (si --> so)        # of Cells   Inst/Chain               Clock (port, time, edge)
 -----      ----------------------        ----------   ----------               ------------------------
-S chain0   scan_in -->  scan_out               1532   shift_reg_identified_4 (s) (ref_clk, 45.0, rising) 
+S chain0   scan_in -->  scan_out                383   shift_reg_identified_9 (s) (ref_clk, 45.0, rising) 
+S 2        test_si2 -->  test_so2               383   u_ctrl/u_aes/rkeys_reg_318_ (ref_clk, 45.0, rising) 
+S 3        test_si3 -->  test_so3               383   u_ctrl/u_aes/rkeys_reg_317_ (ref_clk, 45.0, rising) 
+S 4        test_si4 -->  test_so4               383   u_ctrl/u_aes/rkeys_reg_1085_ (ref_clk, 45.0, rising) 
 1

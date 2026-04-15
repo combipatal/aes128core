@@ -2,7 +2,7 @@
 Report : analysis_coverage
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Wed Apr 15 22:11:20 2026
+Date   : Wed Apr 15 22:28:30 2026
 ****************************************
 
 Type of Check         Total              Met         Violated         Untested

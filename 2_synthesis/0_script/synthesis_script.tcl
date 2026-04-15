@@ -36,6 +36,9 @@ write_file -f ddc -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk
 write -f verilog -hier -output 2_output/$ver/unmapped/top_mcu_pll_sram_multiclk_soc.v
 # source constraint file 
 source -e -v 1_input/constraint/constraint.con 
+if {[info exists env(extra_constraint)]} {
+  source -e -v $env(extra_constraint)
+}
 
 # latch dont use
 set_dont_use [get_lib_cells */LAS*]
@@ -57,6 +60,27 @@ set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 
 # easy drc 
 set_auto_disable_drc_nets -all 
+
+# Tell DC what the later scan environment will look like.
+# This keeps synthesis scan-aware before actual scan insertion.
+set test_default_period 100
+set test_default_bidir_delay 0
+set test_default_delay 0
+set test_default_strobe 40
+set test_enable_dft_drc true
+
+set_dft_signal -view exist -type ScanClock  -port ref_clk   -timing {45 55}
+set_dft_signal -view exist -type ScanEnable -port scan_en   -active_state 1
+set_dft_signal -view exist -type Reset      -port rst_n     -active_state 0
+set_dft_signal -view exist -type TestMode   -port test_mode -active_state 1
+set_dft_signal -view spec  -type ScanDataIn  -port scan_in
+set_dft_signal -view spec  -type ScanDataOut -port scan_out
+
+set_scan_configuration -test_mode all -style multiplexed_flip_flop
+set_scan_configuration -test_mode all -internal_clocks none
+
+create_test_protocol
+dft_drc > ./4_report/$ver/dft_ready.rpt
 
 #
 # Original aggressive flow kept for reference.

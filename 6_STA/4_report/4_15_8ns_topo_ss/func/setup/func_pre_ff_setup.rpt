@@ -1,0 +1,1067 @@
+****************************************
+Report : timing
+	-path_type full_clock_expanded
+	-delay_type max
+	-nosplit
+	-input_pins
+	-slack_lesser_than 0.0000
+	-max_paths 25
+	-sort_by slack
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Wed Apr 15 22:47:39 2026
+****************************************
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_917_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7467/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7467/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_917_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_917_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_398_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7105/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7105/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_398_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_398_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1002_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7250/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7250/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1002_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1002_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_290_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7519/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7519/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_290_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_290_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_405_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7366/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7366/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_405_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_405_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_407_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7373/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7373/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_407_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_407_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_409_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7534/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7534/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_409_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_409_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_528_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7535/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7535/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_528_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_528_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_529_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7542/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7542/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_529_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_529_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1033_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7489/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7489/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1033_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1033_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1247_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7328/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7328/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1247_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1247_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_533_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7541/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7541/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_533_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_533_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_744_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7268/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7268/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_744_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_744_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_535_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7539/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7539/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_535_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_535_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_537_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7612/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7612/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_537_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_537_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_647_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7401/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7401/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_647_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_647_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1159_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7498/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7498/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1159_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1159_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_657_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7618/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7618/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_657_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_657_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1162_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7676/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7676/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1162_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1162_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1164_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7588/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7588/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1164_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1164_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1166_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7597/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7597/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1166_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1166_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_661_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7619/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7619/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_661_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_661_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_663_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7617/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7617/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_663_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_663_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_1169_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                         Incr       Path
+  ------------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                              0.0000     0.0000
+  clock network delay (ideal)                                 0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                    0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                      0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                          0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                          0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                            4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                            0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                         7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                          0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                          4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                          0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                       0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                       0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                          227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                            0.0209   244.6491 r
+  u_ctrl/u_aes/U7680/A1 (OR2X1_RVT)                          77.8612   322.5103 r
+  u_ctrl/u_aes/U7680/Y (OR2X1_RVT)                            0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_1169_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                    322.5472
+
+  clock clk_fast_aes (rise edge)                              2.0000     2.0000
+  clock network delay (ideal)                                 0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_1169_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                               0.0000     2.0000
+  clock uncertainty                                          -0.0500     1.9500
+  library setup time                                         -0.0506     1.8994
+  data required time                                                     1.8994
+  ------------------------------------------------------------------------------------
+  data required time                                                     1.8994
+  data arrival time                                                    -322.5472
+  ------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                     -320.6478
+
+
+  Startpoint: u_ctrl/u_aes/busy_reg (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Endpoint: u_ctrl/u_aes/rkeys_reg_149_ (rising edge-triggered flip-flop clocked by clk_fast_aes)
+  Path Group: clk_fast_aes
+  Path Type: max
+
+  Point                                                        Incr       Path
+  -----------------------------------------------------------------------------------
+  clock clk_fast_aes (rise edge)                             0.0000     0.0000
+  clock network delay (ideal)                                0.0000     0.0000
+  u_ctrl/u_aes/busy_reg/CLK (SDFFARX1_RVT)                   0.0000     0.0000 r
+  u_ctrl/u_aes/busy_reg/Q (SDFFARX1_RVT)                     0.0724     0.0724 f
+  u_ctrl/u_aes/U7004/A (NBUFFX8_RVT)                         0.3228     0.3952 f
+  u_ctrl/u_aes/U7004/Y (NBUFFX8_RVT)                         0.0267     0.4219 f
+  u_ctrl/u_aes/U1582/A (INVX8_RVT)                           4.6787     5.1006 f
+  u_ctrl/u_aes/U1582/Y (INVX8_RVT)                           0.0107     5.1112 r
+  u_ctrl/u_aes/U5615/A2 (NAND2X2_RVT)                        7.1196    12.2309 r
+  u_ctrl/u_aes/U5615/Y (NAND2X2_RVT)                         0.0474    12.2783 f
+  u_ctrl/u_aes/U6986/A (NBUFFX8_RVT)                         4.6879    16.9662 f
+  u_ctrl/u_aes/U6986/Y (NBUFFX8_RVT)                         0.0222    16.9883 f
+  u_ctrl/u_aes/DFTC_16/A (NBUFFX32_RVT)                      0.1832    17.1716 f
+  u_ctrl/u_aes/DFTC_16/Y (NBUFFX32_RVT)                      0.0300    17.2015 f
+  u_ctrl/u_aes/U2296/A (INVX8_RVT)                         227.4267   244.6282 f
+  u_ctrl/u_aes/U2296/Y (INVX8_RVT)                           0.0209   244.6491 r
+  u_ctrl/u_aes/U7602/A1 (OR2X1_RVT)                         77.8612   322.5103 r
+  u_ctrl/u_aes/U7602/Y (OR2X1_RVT)                           0.0261   322.5364 r
+  u_ctrl/u_aes/rkeys_reg_149_/D (SDFFARX1_RVT)               0.0109   322.5472 r
+  data arrival time                                                   322.5472
+
+  clock clk_fast_aes (rise edge)                             2.0000     2.0000
+  clock network delay (ideal)                                0.0000     2.0000
+  u_ctrl/u_aes/rkeys_reg_149_/CLK (SDFFARX1_RVT)                        2.0000 r
+  clock reconvergence pessimism                              0.0000     2.0000
+  clock uncertainty                                         -0.0500     1.9500
+  library setup time                                        -0.0506     1.8994
+  data required time                                                    1.8994
+  -----------------------------------------------------------------------------------
+  data required time                                                    1.8994
+  data arrival time                                                   -322.5472
+  -----------------------------------------------------------------------------------
+  slack (VIOLATED)                                                    -320.6478
+
+Warning: report_timing has satisfied the max_paths criteria. There are 1394 further endpoints which have paths of interest with slack less than   0.0000 that were not considered when generating this report. (UITE-502)
+
+1

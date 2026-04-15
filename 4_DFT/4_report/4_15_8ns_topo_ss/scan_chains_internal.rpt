@@ -3,7 +3,7 @@
 Report : Scan path
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Wed Apr 15 20:46:51 2026
+Date   : Wed Apr 15 23:00:13 2026
 ****************************************
 
 ========================================
@@ -22,6 +22,9 @@ AS BUILT BY insert_dft
 
 Scan_path    Len   ScanDataIn  ScanDataOut ScanEnable  MasterClock SlaveClock
 -----------  ----- ----------- ----------- ----------- ----------- -----------
-I chain0     1532  scan_in     scan_out    scan_en     ref_clk     -
+I chain0     383   scan_in     scan_out    scan_en     ref_clk     -
+I 2          383   test_si2    test_so2    scan_en     ref_clk     -
+I 3          383   test_si3    test_so3    scan_en     ref_clk     -
+I 4          383   test_si4    test_so4    scan_en     ref_clk     -
 
 1

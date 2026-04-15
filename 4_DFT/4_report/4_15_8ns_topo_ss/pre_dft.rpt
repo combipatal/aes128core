@@ -23,6 +23,15 @@ Modeling violations completed...
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
+Begin Topology violations...
+
+Warning: Input pin clk_div8 of cell u_ctrl (soc_ctrl_multiclk_soc) is unconnected. It is assumed 'X' for the purpose of test. (TEST-332)
+Information: There are 2 other pins with the same violation. (TEST-170)
+
+Topology violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
 Begin Other violations...
 
 Warning: Cell u_ctrl/u_icg_aes/en_lat_reg has constant 1 value. (TEST-505)
@@ -33,12 +42,15 @@ Other violations completed...
 -----------------------------------------------------------------
   DRC Report
 
-  Total violations: 3
+  Total violations: 6
 
 -----------------------------------------------------------------
 
 2 MODELING VIOLATIONS
      2 Cell has unknown model violations (TEST-451)
+
+3 TOPOLOGY VIOLATIONS
+     3 Unconnected input pin violations (TEST-332)
 
 1 OTHER VIOLATION
      1 Cell is constant 1 violation (TEST-505)

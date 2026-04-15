@@ -3,7 +3,7 @@ STIL 1.0 {
 }
 Header {
     Title "Minimal STIL for design `top_mcu_pll_sram_multiclk_soc'";
-    Date "Wed Apr 15 20:46:30 2026";
+    Date "Wed Apr 15 22:22:50 2026";
     Source "DFT Compiler W-2024.09-SP5-5";
 }
 Signals {
@@ -279,12 +279,18 @@ Signals {
     "pass" Out;
     "scan_out" Out;
     "uart_txd" Out;
+    "test_si2" In;
+    "test_so2" Out;
+    "test_si3" In;
+    "test_so3" Out;
+    "test_si4" In;
+    "test_so4" Out;
 }
 SignalGroups {
-    "_si" = '"scan_in"' {
+    "_si" = '"scan_in" + "test_si2" + "test_si3" + "test_si4"' {
         ScanIn;
     }
-    "_so" = '"scan_out"' {
+    "_so" = '"scan_out" + "test_so2" + "test_so3" + "test_so4"' {
         ScanOut;
     }
     "_clk" = '"ref_clk" + "rst_n"';
@@ -362,9 +368,10 @@ SignalGroups {
     "aes_pt_ext[91]" + "aes_pt_ext[92]" + "aes_pt_ext[93]" + "aes_pt_ext[94]" + 
     "aes_pt_ext[95]" + "aes_pt_ext[96]" + "aes_pt_ext[97]" + "aes_pt_ext[98]" + 
     "aes_pt_ext[99]" + "aes_pt_ext[9]" + "aes_vec_valid" + "ref_clk" + "rst_n" + 
-    "scan_en" + "scan_in" + "start" + "test_mode" + "uart_rxd"';
+    "scan_en" + "scan_in" + "start" + "test_mode" + "uart_rxd" + "test_si2" + 
+    "test_si3" + "test_si4"';
     "all_outputs" = '"clk_div2" + "clk_div4" + "clk_div8" + "clk_fast" + "done" 
-    + "pass" + "scan_out" + "uart_txd"';
+    + "pass" + "scan_out" + "uart_txd" + "test_so2" + "test_so3" + "test_so4"';
     "all_ports" = '"all_inputs" + "all_outputs"';
     "_pi" = '"aes_key_ext[0]" + "aes_key_ext[100]" + "aes_key_ext[101]" + 
     "aes_key_ext[102]" + "aes_key_ext[103]" + "aes_key_ext[104]" + 
@@ -440,18 +447,40 @@ SignalGroups {
     "aes_pt_ext[91]" + "aes_pt_ext[92]" + "aes_pt_ext[93]" + "aes_pt_ext[94]" + 
     "aes_pt_ext[95]" + "aes_pt_ext[96]" + "aes_pt_ext[97]" + "aes_pt_ext[98]" + 
     "aes_pt_ext[99]" + "aes_pt_ext[9]" + "aes_vec_valid" + "ref_clk" + "rst_n" + 
-    "scan_en" + "scan_in" + "start" + "test_mode" + "uart_rxd"';
+    "scan_en" + "scan_in" + "start" + "test_mode" + "uart_rxd" + "test_si2" + 
+    "test_si3" + "test_si4"';
     "_po" = '"clk_div2" + "clk_div4" + "clk_div8" + "clk_fast" + "done" + "pass" 
-    + "scan_out" + "uart_txd"';
+    + "scan_out" + "uart_txd" + "test_so2" + "test_so3" + "test_so4"';
 }
 ScanStructures {
     ScanChain "chain0" {
-        ScanLength 1532;
+        ScanLength 383;
         ScanIn "scan_in";
         ScanOut "scan_out";
         ScanEnable "scan_en";
         ScanMasterClock "ref_clk";
         ScanInversion 1;
+    }
+    ScanChain "2" {
+        ScanLength 383;
+        ScanIn "test_si2";
+        ScanOut "test_so2";
+        ScanEnable "scan_en";
+        ScanMasterClock "ref_clk";
+    }
+    ScanChain "3" {
+        ScanLength 383;
+        ScanIn "test_si3";
+        ScanOut "test_so3";
+        ScanEnable "scan_en";
+        ScanMasterClock "ref_clk";
+    }
+    ScanChain "4" {
+        ScanLength 383;
+        ScanIn "test_si4";
+        ScanOut "test_so4";
+        ScanEnable "scan_en";
+        ScanMasterClock "ref_clk";
     }
 }
 Timing {
@@ -775,64 +804,64 @@ Procedures {
     "multiclock_capture" {
         W "_multiclock_capture_WFT_";
         C {
-            "all_inputs" = \r257 N 01NNN1N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r257 N 01NNN1NNNN;
+            "all_outputs" = \r11 X;
         }
         F {
             "test_mode" = 1;
         }
         V {
-            "_pi" = \r264 #;
-            "_po" = \r8 #;
+            "_pi" = \r267 #;
+            "_po" = \r11 #;
         }
     }
     "allclock_capture" {
         W "_allclock_capture_WFT_";
         C {
-            "all_inputs" = \r257 N 01NNN1N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r257 N 01NNN1NNNN;
+            "all_outputs" = \r11 X;
         }
         F {
             "test_mode" = 1;
         }
         V {
-            "_pi" = \r264 #;
-            "_po" = \r8 #;
+            "_pi" = \r267 #;
+            "_po" = \r11 #;
         }
     }
     "allclock_launch" {
         W "_allclock_launch_WFT_";
         C {
-            "all_inputs" = \r257 N 01NNN1N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r257 N 01NNN1NNNN;
+            "all_outputs" = \r11 X;
         }
         F {
             "test_mode" = 1;
         }
         V {
-            "_pi" = \r264 #;
-            "_po" = \r8 #;
+            "_pi" = \r267 #;
+            "_po" = \r11 #;
         }
     }
     "allclock_launch_capture" {
         W "_allclock_launch_capture_WFT_";
         C {
-            "all_inputs" = \r257 N 01NNN1N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r257 N 01NNN1NNNN;
+            "all_outputs" = \r11 X;
         }
         F {
             "test_mode" = 1;
         }
         V {
-            "_pi" = \r264 #;
-            "_po" = \r8 #;
+            "_pi" = \r267 #;
+            "_po" = \r11 #;
         }
     }
     "load_unload" {
         W "_default_WFT_";
         C {
-            "all_inputs" = \r257 N 01NNN1N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r257 N 01NNN1NNNN;
+            "all_outputs" = \r11 X;
         }
         "Internal_scan_pre_shift" : V {
             "scan_en" = 1;
@@ -840,8 +869,8 @@ Procedures {
         Shift {
             V {
                 "_clk" = P1;
-                "_si" = #;
-                "_so" = #;
+                "_si" = ####;
+                "_so" = ####;
             }
         }
     }
@@ -850,8 +879,8 @@ MacroDefs {
     "test_setup" {
         W "_default_WFT_";
         C {
-            "all_inputs" = \r264 N;
-            "all_outputs" = \r8 X;
+            "all_inputs" = \r267 N;
+            "all_outputs" = \r11 X;
         }
         V {
             "ref_clk" = 0;

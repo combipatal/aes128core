@@ -155,9 +155,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/ct_hold_fast_reg_80_
          u_ctrl/ct_hold_fast_reg_79_
          u_ctrl/ct_hold_fast_reg_78_
-         u_ctrl/ct_hold_fast_reg_77_
-         u_ctrl/ct_hold_fast_reg_76_
-         u_ctrl/ct_hold_fast_reg_75_
          u_ctrl/ct_hold_fast_reg_74_
          u_ctrl/ct_hold_fast_reg_73_
          u_ctrl/ct_hold_fast_reg_72_
@@ -211,7 +208,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/crc_byte_reg_7_
          u_ctrl/crc_byte_reg_6_
          u_ctrl/crc_byte_reg_5_
-         u_ctrl/crc_byte_reg_4_
          u_ctrl/crc_byte_reg_3_
          u_ctrl/crc_byte_reg_2_
          u_ctrl/crc_byte_reg_1_
@@ -233,24 +229,20 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/mem_wdata_reg_6_
          u_ctrl/mem_wdata_reg_7_
          u_ctrl/tx_idx_div2_reg_4_
-         u_ctrl/tx_idx_div2_reg_3_
          u_ctrl/tx_byte_ff1_reg_7_
          u_ctrl/tx_busy_d_reg
          u_ctrl/tx_buf_valid_reg
          u_ctrl/tx_byte_ff1_reg_0_
          u_ctrl/send_go_div2_reg
-         u_ctrl/tx_byte_ff1_reg_6_
          u_ctrl/tx_byte_ff1_reg_5_
          u_ctrl/tx_byte_ff1_reg_4_
-         u_ctrl/tx_byte_ff1_reg_3_
-         u_ctrl/tx_byte_ff1_reg_2_
-         u_ctrl/tx_byte_ff1_reg_1_
          u_ctrl/stream_sent_div2_reg
          u_ctrl/stream_ready_div2_reg
          u_ctrl/allow_send_div2_d_reg
          u_ctrl/tx_active_div4_reg
          u_ctrl/tx_done_div4_reg
          u_ctrl/txdone_ff1_reg
+         u_ctrl/ct_ok_reg
          u_ctrl/crc_done_hold_reg
          u_ctrl/pass_reg
          u_ctrl/aes_clk_req_reg
@@ -263,14 +255,12 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/ct_hold_div2_reg_23_
          u_ctrl/ct_hold_div2_reg_22_
          u_ctrl/ct_hold_div2_reg_21_
-         u_ctrl/ct_hold_div2_reg_20_
          u_ctrl/ct_hold_div2_reg_19_
          u_ctrl/ct_hold_div2_reg_18_
          u_ctrl/ct_hold_div2_reg_17_
          u_ctrl/ct_hold_div2_reg_16_
          u_ctrl/ct_hold_div2_reg_15_
          u_ctrl/ct_hold_div2_reg_14_
-         u_ctrl/ct_hold_div2_reg_13_
          u_ctrl/ct_hold_div2_reg_12_
          u_ctrl/ct_hold_div2_reg_11_
          u_ctrl/ct_hold_div2_reg_10_
@@ -358,13 +348,10 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/ct_hold_div2_reg_55_
          u_ctrl/ct_hold_div2_reg_54_
          u_ctrl/ct_hold_div2_reg_53_
-         u_ctrl/ct_hold_div2_reg_52_
          u_ctrl/ct_hold_div2_reg_51_
-         u_ctrl/ct_hold_div2_reg_50_
          u_ctrl/ct_hold_div2_reg_49_
          u_ctrl/ct_hold_div2_reg_48_
          u_ctrl/ct_hold_div2_reg_47_
-         u_ctrl/ct_hold_div2_reg_46_
          u_ctrl/ct_hold_div2_reg_45_
          u_ctrl/ct_hold_div2_reg_44_
          u_ctrl/ct_hold_div2_reg_43_
@@ -372,7 +359,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/ct_hold_div2_reg_41_
          u_ctrl/ct_hold_div2_reg_40_
          u_ctrl/ct_hold_div2_reg_39_
-         u_ctrl/ct_hold_div2_reg_38_
          u_ctrl/ct_hold_div2_reg_37_
          u_ctrl/ct_hold_div2_reg_36_
          u_ctrl/ct_hold_div2_reg_35_
@@ -382,7 +368,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/ct_hold_div2_reg_31_
          u_ctrl/ct_hold_div2_reg_30_
          u_ctrl/ct_hold_div2_reg_29_
-         u_ctrl/tx_byte_div2_reg_7_
          u_ctrl/tx_buf_data_reg_7_
          u_ctrl/tx_data_reg_7_
          u_ctrl/tx_byte_div2_reg_0_
@@ -407,32 +392,47 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/tx_data_reg_2_
          u_ctrl/tx_data_reg_1_
          u_ctrl/tx_all_started_div4_reg
-         u_ctrl/tx_cnt_div4_reg_0_
          u_ctrl/tx_cnt_div4_reg_2_
          u_ctrl/tx_cnt_div4_reg_1_
          u_ctrl/tx_cnt_div4_reg_3_
          u_ctrl/tx_cnt_div4_reg_4_
          u_ctrl/aes_done_ff1_reg
-         u_ctrl/mem_addr_reg_0_
+         u_ctrl/tx_start_reg
+         u_ctrl/aes_start_reg
+         u_ctrl/crc_start_reg
+         u_ctrl/tx_idx_div2_reg_0_
          u_ctrl/byte_idx_reg_0_
          u_ctrl/byte_idx_reg_1_
-         u_ctrl/tx_idx_div2_reg_0_
-         u_ctrl/byte_idx_reg_2_
-         u_ctrl/byte_idx_reg_3_
-         u_ctrl/tx_start_reg
-         u_ctrl/crc_start_reg
-         u_ctrl/aes_start_reg
-         u_ctrl/ct_ok_reg
+         u_ctrl/tx_byte_ff1_reg_3_
+         u_ctrl/tx_byte_ff1_reg_2_
+         u_ctrl/tx_byte_ff1_reg_1_
          u_ctrl/tx_idx_div2_reg_1_
-         u_ctrl/tx_idx_div2_reg_2_
-         u_ctrl/mem_addr_reg_2_
-         u_ctrl/mem_addr_reg_1_
          u_ctrl/mem_addr_reg_3_
+         u_ctrl/tx_byte_div2_reg_7_
+         u_ctrl/byte_idx_reg_3_
+         u_ctrl/tx_idx_div2_reg_2_
+         u_ctrl/tx_idx_div2_reg_3_
+         u_ctrl/ct_hold_div2_reg_46_
+         u_ctrl/crc_byte_reg_4_
+         u_ctrl/ct_hold_fast_reg_75_
+         u_ctrl/tx_cnt_div4_reg_0_
+         u_ctrl/ct_hold_div2_reg_13_
+         u_ctrl/ct_hold_fast_reg_77_
+         u_ctrl/ct_hold_div2_reg_38_
+         u_ctrl/ct_hold_div2_reg_20_
+         u_ctrl/ct_hold_div2_reg_50_
+         u_ctrl/ct_hold_fast_reg_76_
+         u_ctrl/byte_idx_reg_2_
+         u_ctrl/tx_byte_ff1_reg_6_
+         u_ctrl/ct_hold_div2_reg_52_
+         u_ctrl/mem_addr_reg_1_
+         u_ctrl/mem_addr_reg_2_
+         u_ctrl/mem_addr_reg_0_
          u_ctrl/u_rx/divcnt_reg_0_
          u_ctrl/u_rx/bitpos_reg_2_
          u_ctrl/u_rx/divcnt_reg_1_
          u_ctrl/u_rx/divcnt_reg_2_
-         u_ctrl/u_rx/divcnt_reg_4_
+         u_ctrl/u_rx/divcnt_reg_3_
          u_ctrl/u_rx/divcnt_reg_5_
          u_ctrl/u_rx/divcnt_reg_6_
          u_ctrl/u_rx/divcnt_reg_7_
@@ -451,11 +451,9 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_rx/divcnt_reg_20_
          u_ctrl/u_rx/divcnt_reg_21_
          u_ctrl/u_rx/divcnt_reg_22_
-         u_ctrl/u_rx/divcnt_reg_23_
          u_ctrl/u_rx/divcnt_reg_24_
          u_ctrl/u_rx/divcnt_reg_25_
          u_ctrl/u_rx/divcnt_reg_26_
-         u_ctrl/u_rx/divcnt_reg_27_
          u_ctrl/u_rx/divcnt_reg_28_
          u_ctrl/u_rx/divcnt_reg_29_
          u_ctrl/u_rx/divcnt_reg_30_
@@ -481,7 +479,9 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_rx/data_shift_reg_0_
          u_ctrl/u_rx/rx_data_reg_0_
          u_ctrl/u_rx/busy_reg
-         u_ctrl/u_rx/divcnt_reg_3_
+         u_ctrl/u_rx/divcnt_reg_4_
+         u_ctrl/u_rx/divcnt_reg_23_
+         u_ctrl/u_rx/divcnt_reg_27_
          u_ctrl/u_tx/divcnt_reg_31_
          u_ctrl/u_tx/divcnt_reg_0_
          u_ctrl/u_tx/divcnt_reg_1_
@@ -497,7 +497,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_tx/divcnt_reg_11_
          u_ctrl/u_tx/divcnt_reg_12_
          u_ctrl/u_tx/divcnt_reg_13_
-         u_ctrl/u_tx/divcnt_reg_14_
          u_ctrl/u_tx/divcnt_reg_15_
          u_ctrl/u_tx/divcnt_reg_16_
          u_ctrl/u_tx/divcnt_reg_17_
@@ -529,6 +528,7 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_tx/shifter_reg_0_
          u_ctrl/u_tx/txd_reg
          u_ctrl/u_tx/tx_busy_reg
+         u_ctrl/u_tx/divcnt_reg_14_
          u_ctrl/u_aes/rkeys_reg_1392_
          u_ctrl/u_aes/rkeys_reg_1385_
          u_ctrl/u_aes/rkeys_reg_1377_
@@ -547,7 +547,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1323_
          u_ctrl/u_aes/rkeys_reg_1321_
          u_ctrl/u_aes/rkeys_reg_1315_
-         u_ctrl/u_aes/rkeys_reg_1313_
          u_ctrl/u_aes/rkeys_reg_1312_
          u_ctrl/u_aes/rkeys_reg_1307_
          u_ctrl/u_aes/rkeys_reg_1306_
@@ -555,7 +554,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1298_
          u_ctrl/u_aes/rkeys_reg_1296_
          u_ctrl/u_aes/rkeys_reg_1291_
-         u_ctrl/u_aes/rkeys_reg_1290_
          u_ctrl/u_aes/rkeys_reg_1289_
          u_ctrl/u_aes/rkeys_reg_1283_
          u_ctrl/u_aes/rkeys_reg_1282_
@@ -579,7 +577,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1253_
          u_ctrl/u_aes/rkeys_reg_1252_
          u_ctrl/u_aes/rkeys_reg_1251_
-         u_ctrl/u_aes/rkeys_reg_1250_
          u_ctrl/u_aes/rkeys_reg_1248_
          u_ctrl/u_aes/rkeys_reg_1247_
          u_ctrl/u_aes/rkeys_reg_1246_
@@ -598,11 +595,13 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1223_
          u_ctrl/u_aes/rkeys_reg_1222_
          u_ctrl/u_aes/rkeys_reg_1221_
+         u_ctrl/u_aes/rkeys_reg_1220_
          u_ctrl/u_aes/rkeys_reg_1219_
          u_ctrl/u_aes/rkeys_reg_1217_
          u_ctrl/u_aes/rkeys_reg_1215_
          u_ctrl/u_aes/rkeys_reg_1214_
          u_ctrl/u_aes/rkeys_reg_1212_
+         u_ctrl/u_aes/rkeys_reg_1211_
          u_ctrl/u_aes/rkeys_reg_1209_
          u_ctrl/u_aes/rkeys_reg_1207_
          u_ctrl/u_aes/rkeys_reg_1205_
@@ -610,12 +609,16 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1201_
          u_ctrl/u_aes/rkeys_reg_1198_
          u_ctrl/u_aes/rkeys_reg_1197_
+         u_ctrl/u_aes/rkeys_reg_1196_
          u_ctrl/u_aes/rkeys_reg_1195_
-         u_ctrl/u_aes/rkeys_reg_1191_
          u_ctrl/u_aes/rkeys_reg_1190_
          u_ctrl/u_aes/rkeys_reg_1189_
+         u_ctrl/u_aes/rkeys_reg_1188_
          u_ctrl/u_aes/rkeys_reg_1184_
+         u_ctrl/u_aes/rkeys_reg_1183_
          u_ctrl/u_aes/rkeys_reg_1182_
+         u_ctrl/u_aes/rkeys_reg_1180_
+         u_ctrl/u_aes/rkeys_reg_1178_
          u_ctrl/u_aes/rkeys_reg_1177_
          u_ctrl/u_aes/rkeys_reg_1175_
          u_ctrl/u_aes/rkeys_reg_1173_
@@ -624,12 +627,21 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1168_
          u_ctrl/u_aes/rkeys_reg_1166_
          u_ctrl/u_aes/rkeys_reg_1165_
+         u_ctrl/u_aes/rkeys_reg_1164_
+         u_ctrl/u_aes/rkeys_reg_1162_
+         u_ctrl/u_aes/rkeys_reg_1161_
          u_ctrl/u_aes/rkeys_reg_1159_
+         u_ctrl/u_aes/rkeys_reg_1158_
          u_ctrl/u_aes/rkeys_reg_1157_
+         u_ctrl/u_aes/rkeys_reg_1156_
          u_ctrl/u_aes/rkeys_reg_1155_
+         u_ctrl/u_aes/rkeys_reg_1154_
+         u_ctrl/u_aes/rkeys_reg_1153_
+         u_ctrl/u_aes/rkeys_reg_1151_
          u_ctrl/u_aes/rkeys_reg_1149_
          u_ctrl/u_aes/rkeys_reg_1148_
          u_ctrl/u_aes/rkeys_reg_1146_
+         u_ctrl/u_aes/rkeys_reg_1145_
          u_ctrl/u_aes/rkeys_reg_1143_
          u_ctrl/u_aes/rkeys_reg_1140_
          u_ctrl/u_aes/rkeys_reg_1137_
@@ -645,11 +657,13 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1118_
          u_ctrl/u_aes/rkeys_reg_1117_
          u_ctrl/u_aes/rkeys_reg_1114_
+         u_ctrl/u_aes/rkeys_reg_1109_
          u_ctrl/u_aes/rkeys_reg_1108_
          u_ctrl/u_aes/rkeys_reg_1107_
          u_ctrl/u_aes/rkeys_reg_1106_
          u_ctrl/u_aes/rkeys_reg_1104_
          u_ctrl/u_aes/rkeys_reg_1103_
+         u_ctrl/u_aes/rkeys_reg_1101_
          u_ctrl/u_aes/rkeys_reg_1100_
          u_ctrl/u_aes/rkeys_reg_1099_
          u_ctrl/u_aes/rkeys_reg_1098_
@@ -659,7 +673,11 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1093_
          u_ctrl/u_aes/rkeys_reg_1092_
          u_ctrl/u_aes/rkeys_reg_1088_
+         u_ctrl/u_aes/rkeys_reg_1087_
+         u_ctrl/u_aes/rkeys_reg_1085_
          u_ctrl/u_aes/rkeys_reg_1084_
+         u_ctrl/u_aes/rkeys_reg_1083_
+         u_ctrl/u_aes/rkeys_reg_1082_
          u_ctrl/u_aes/rkeys_reg_1081_
          u_ctrl/u_aes/rkeys_reg_1079_
          u_ctrl/u_aes/rkeys_reg_1076_
@@ -673,7 +691,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1054_
          u_ctrl/u_aes/rkeys_reg_1053_
          u_ctrl/u_aes/rkeys_reg_1051_
-         u_ctrl/u_aes/rkeys_reg_1045_
          u_ctrl/u_aes/rkeys_reg_1044_
          u_ctrl/u_aes/rkeys_reg_1039_
          u_ctrl/u_aes/rkeys_reg_1037_
@@ -690,7 +707,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_1023_
          u_ctrl/u_aes/rkeys_reg_1021_
          u_ctrl/u_aes/rkeys_reg_1020_
-         u_ctrl/u_aes/rkeys_reg_1018_
          u_ctrl/u_aes/rkeys_reg_1017_
          u_ctrl/u_aes/rkeys_reg_1015_
          u_ctrl/u_aes/rkeys_reg_1014_
@@ -741,7 +757,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_932_
          u_ctrl/u_aes/rkeys_reg_931_
          u_ctrl/u_aes/rkeys_reg_930_
-         u_ctrl/u_aes/rkeys_reg_929_
          u_ctrl/u_aes/rkeys_reg_928_
          u_ctrl/u_aes/rkeys_reg_922_
          u_ctrl/u_aes/rkeys_reg_918_
@@ -779,7 +794,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_869_
          u_ctrl/u_aes/rkeys_reg_868_
          u_ctrl/u_aes/rkeys_reg_867_
-         u_ctrl/u_aes/rkeys_reg_866_
          u_ctrl/u_aes/rkeys_reg_863_
          u_ctrl/u_aes/rkeys_reg_860_
          u_ctrl/u_aes/rkeys_reg_858_
@@ -874,6 +888,7 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_700_
          u_ctrl/u_aes/rkeys_reg_695_
          u_ctrl/u_aes/rkeys_reg_694_
+         u_ctrl/u_aes/rkeys_reg_693_
          u_ctrl/u_aes/rkeys_reg_692_
          u_ctrl/u_aes/rkeys_reg_689_
          u_ctrl/u_aes/rkeys_reg_688_
@@ -925,6 +940,7 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_610_
          u_ctrl/u_aes/rkeys_reg_608_
          u_ctrl/u_aes/rkeys_reg_607_
+         u_ctrl/u_aes/rkeys_reg_606_
          u_ctrl/u_aes/rkeys_reg_605_
          u_ctrl/u_aes/rkeys_reg_604_
          u_ctrl/u_aes/rkeys_reg_602_
@@ -1035,7 +1051,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_386_
          u_ctrl/u_aes/rkeys_reg_385_
          u_ctrl/u_aes/rkeys_reg_382_
-         u_ctrl/u_aes/rkeys_reg_378_
          u_ctrl/u_aes/rkeys_reg_377_
          u_ctrl/u_aes/rkeys_reg_376_
          u_ctrl/u_aes/rkeys_reg_374_
@@ -1134,23 +1149,16 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_183_
          u_ctrl/u_aes/rkeys_reg_180_
          u_ctrl/u_aes/rkeys_reg_177_
-         u_ctrl/u_aes/rkeys_reg_176_
-         u_ctrl/u_aes/rkeys_reg_175_
          u_ctrl/u_aes/rkeys_reg_174_
-         u_ctrl/u_aes/rkeys_reg_173_
-         u_ctrl/u_aes/rkeys_reg_171_
          u_ctrl/u_aes/rkeys_reg_170_
          u_ctrl/u_aes/rkeys_reg_168_
-         u_ctrl/u_aes/rkeys_reg_167_
          u_ctrl/u_aes/rkeys_reg_164_
-         u_ctrl/u_aes/rkeys_reg_163_
          u_ctrl/u_aes/rkeys_reg_162_
          u_ctrl/u_aes/rkeys_reg_159_
          u_ctrl/u_aes/rkeys_reg_157_
          u_ctrl/u_aes/rkeys_reg_156_
          u_ctrl/u_aes/rkeys_reg_155_
          u_ctrl/u_aes/rkeys_reg_154_
-         u_ctrl/u_aes/rkeys_reg_153_
          u_ctrl/u_aes/rkeys_reg_149_
          u_ctrl/u_aes/rkeys_reg_147_
          u_ctrl/u_aes/rkeys_reg_146_
@@ -1163,15 +1171,13 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_131_
          u_ctrl/u_aes/rkeys_reg_130_
          u_ctrl/u_aes/rkeys_reg_129_
-         u_ctrl/u_aes/rkeys_reg_124_
          u_ctrl/u_aes/rkeys_reg_121_
          u_ctrl/u_aes/rkeys_reg_120_
          u_ctrl/u_aes/rkeys_reg_116_
          u_ctrl/u_aes/rkeys_reg_112_
-         u_ctrl/u_aes/rkeys_reg_108_
-         u_ctrl/u_aes/rkeys_reg_107_
-         u_ctrl/u_aes/rkeys_reg_104_
-         u_ctrl/u_aes/rkeys_reg_98_
+         u_ctrl/u_aes/rkeys_reg_102_
+         u_ctrl/u_aes/rkeys_reg_101_
+         u_ctrl/u_aes/rkeys_reg_100_
          u_ctrl/u_aes/rkeys_reg_95_
          u_ctrl/u_aes/rkeys_reg_94_
          u_ctrl/u_aes/rkeys_reg_93_
@@ -1180,11 +1186,12 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_87_
          u_ctrl/u_aes/rkeys_reg_84_
          u_ctrl/u_aes/rkeys_reg_82_
+         u_ctrl/u_aes/rkeys_reg_78_
          u_ctrl/u_aes/rkeys_reg_75_
          u_ctrl/u_aes/rkeys_reg_73_
          u_ctrl/u_aes/rkeys_reg_68_
          u_ctrl/u_aes/rkeys_reg_66_
-         u_ctrl/u_aes/rkeys_reg_64_
+         u_ctrl/u_aes/rkeys_reg_65_
          u_ctrl/u_aes/rkeys_reg_63_
          u_ctrl/u_aes/rkeys_reg_62_
          u_ctrl/u_aes/rkeys_reg_61_
@@ -1200,8 +1207,6 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_41_
          u_ctrl/u_aes/rkeys_reg_40_
          u_ctrl/u_aes/rkeys_reg_39_
-         u_ctrl/u_aes/rkeys_reg_35_
-         u_ctrl/u_aes/rkeys_reg_33_
          u_ctrl/u_aes/rkeys_reg_32_
          u_ctrl/u_aes/rkeys_reg_30_
          u_ctrl/u_aes/rkeys_reg_27_
@@ -1209,309 +1214,304 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_aes/rkeys_reg_24_
          u_ctrl/u_aes/rkeys_reg_21_
          u_ctrl/u_aes/rkeys_reg_19_
+         u_ctrl/u_aes/rkeys_reg_17_
          u_ctrl/u_aes/rkeys_reg_16_
+         u_ctrl/u_aes/rkeys_reg_13_
          u_ctrl/u_aes/rkeys_reg_12_
-         u_ctrl/u_aes/rkeys_reg_7_
+         u_ctrl/u_aes/rkeys_reg_6_
+         u_ctrl/u_aes/rkeys_reg_2_
          u_ctrl/u_aes/rkeys_reg_0_
-         u_ctrl/u_aes/round_reg_0_
-         u_ctrl/u_aes/round_reg_1_
-         u_ctrl/u_aes/round_reg_2_
          u_ctrl/u_aes/round_reg_3_
-         u_ctrl/u_aes/state_reg_4_
-         u_ctrl/u_aes/state_reg_8_
-         u_ctrl/u_aes/state_reg_9_
-         u_ctrl/u_aes/state_reg_14_
-         u_ctrl/u_aes/state_reg_19_
-         u_ctrl/u_aes/state_reg_27_
-         u_ctrl/u_aes/state_reg_31_
-         u_ctrl/u_aes/state_reg_32_
-         u_ctrl/u_aes/state_reg_33_
-         u_ctrl/u_aes/state_reg_48_
-         u_ctrl/u_aes/state_reg_56_
-         u_ctrl/u_aes/state_reg_62_
-         u_ctrl/u_aes/state_reg_71_
-         u_ctrl/u_aes/state_reg_75_
-         u_ctrl/u_aes/state_reg_83_
-         u_ctrl/u_aes/state_reg_88_
-         u_ctrl/u_aes/state_reg_96_
-         u_ctrl/u_aes/state_reg_103_
-         u_ctrl/u_aes/state_reg_120_
+         u_ctrl/u_aes/state_reg_40_
+         u_ctrl/u_aes/state_reg_59_
+         u_ctrl/u_aes/state_reg_64_
+         u_ctrl/u_aes/state_reg_80_
+         u_ctrl/u_aes/state_reg_81_
+         u_ctrl/u_aes/state_reg_91_
+         u_ctrl/u_aes/state_reg_104_
+         u_ctrl/u_aes/state_reg_116_
          u_ctrl/u_aes/state_reg_121_
-         u_ctrl/u_aes/ct_out_reg_124_
+         u_ctrl/u_aes/state_reg_123_
+         u_ctrl/u_aes/state_reg_126_
          u_ctrl/u_aes/ct_out_reg_121_
          u_ctrl/u_aes/ct_out_reg_120_
          u_ctrl/u_aes/ct_out_reg_116_
          u_ctrl/u_aes/ct_out_reg_112_
+         u_ctrl/u_aes/ct_out_reg_109_
          u_ctrl/u_aes/ct_out_reg_108_
          u_ctrl/u_aes/ct_out_reg_107_
          u_ctrl/u_aes/ct_out_reg_106_
-         u_ctrl/u_aes/ct_out_reg_104_
-         u_ctrl/u_aes/ct_out_reg_103_
          u_ctrl/u_aes/ct_out_reg_102_
          u_ctrl/u_aes/ct_out_reg_101_
-         u_ctrl/u_aes/ct_out_reg_100_
          u_ctrl/u_aes/ct_out_reg_99_
          u_ctrl/u_aes/ct_out_reg_98_
          u_ctrl/u_aes/ct_out_reg_97_
-         u_ctrl/u_aes/ct_out_reg_96_
          u_ctrl/u_aes/ct_out_reg_95_
          u_ctrl/u_aes/ct_out_reg_94_
-         u_ctrl/u_aes/ct_out_reg_89_
          u_ctrl/u_aes/ct_out_reg_88_
-         u_ctrl/u_aes/ct_out_reg_87_
          u_ctrl/u_aes/ct_out_reg_84_
          u_ctrl/u_aes/ct_out_reg_82_
          u_ctrl/u_aes/ct_out_reg_78_
          u_ctrl/u_aes/ct_out_reg_77_
          u_ctrl/u_aes/ct_out_reg_75_
-         u_ctrl/u_aes/ct_out_reg_73_
          u_ctrl/u_aes/ct_out_reg_68_
-         u_ctrl/u_aes/ct_out_reg_66_
          u_ctrl/u_aes/ct_out_reg_65_
          u_ctrl/u_aes/ct_out_reg_64_
+         u_ctrl/u_aes/ct_out_reg_63_
          u_ctrl/u_aes/ct_out_reg_62_
          u_ctrl/u_aes/ct_out_reg_61_
          u_ctrl/u_aes/ct_out_reg_60_
+         u_ctrl/u_aes/ct_out_reg_58_
          u_ctrl/u_aes/ct_out_reg_57_
          u_ctrl/u_aes/ct_out_reg_56_
          u_ctrl/u_aes/ct_out_reg_50_
          u_ctrl/u_aes/ct_out_reg_49_
          u_ctrl/u_aes/ct_out_reg_48_
          u_ctrl/u_aes/ct_out_reg_47_
-         u_ctrl/u_aes/ct_out_reg_46_
          u_ctrl/u_aes/ct_out_reg_45_
+         u_ctrl/u_aes/ct_out_reg_44_
          u_ctrl/u_aes/ct_out_reg_42_
          u_ctrl/u_aes/ct_out_reg_41_
          u_ctrl/u_aes/ct_out_reg_40_
          u_ctrl/u_aes/ct_out_reg_39_
+         u_ctrl/u_aes/ct_out_reg_37_
          u_ctrl/u_aes/ct_out_reg_35_
          u_ctrl/u_aes/ct_out_reg_33_
          u_ctrl/u_aes/ct_out_reg_32_
-         u_ctrl/u_aes/ct_out_reg_31_
          u_ctrl/u_aes/ct_out_reg_30_
-         u_ctrl/u_aes/ct_out_reg_29_
-         u_ctrl/u_aes/ct_out_reg_28_
-         u_ctrl/u_aes/ct_out_reg_27_
-         u_ctrl/u_aes/ct_out_reg_26_
-         u_ctrl/u_aes/ct_out_reg_25_
          u_ctrl/u_aes/ct_out_reg_24_
          u_ctrl/u_aes/ct_out_reg_21_
          u_ctrl/u_aes/ct_out_reg_19_
          u_ctrl/u_aes/ct_out_reg_17_
          u_ctrl/u_aes/ct_out_reg_16_
-         u_ctrl/u_aes/ct_out_reg_13_
          u_ctrl/u_aes/ct_out_reg_12_
-         u_ctrl/u_aes/ct_out_reg_7_
-         u_ctrl/u_aes/ct_out_reg_6_
-         u_ctrl/u_aes/ct_out_reg_5_
          u_ctrl/u_aes/ct_out_reg_2_
-         u_ctrl/u_aes/ct_out_reg_1_
          u_ctrl/u_aes/ct_out_reg_0_
          u_ctrl/u_aes/done_reg
-         u_ctrl/u_aes/state_reg_30_
-         u_ctrl/u_aes/state_reg_116_
-         u_ctrl/u_aes/state_reg_76_
+         u_ctrl/u_aes/state_reg_63_
+         u_ctrl/u_aes/state_reg_118_
+         u_ctrl/u_aes/state_reg_60_
+         u_ctrl/u_aes/state_reg_78_
+         u_ctrl/u_aes/state_reg_97_
+         u_ctrl/u_aes/state_reg_100_
+         u_ctrl/u_aes/state_reg_46_
+         u_ctrl/u_aes/state_reg_113_
+         u_ctrl/u_aes/state_reg_7_
+         u_ctrl/u_aes/state_reg_48_
          u_ctrl/u_aes/state_reg_87_
-         u_ctrl/u_aes/rkeys_reg_17_
-         u_ctrl/u_aes/state_reg_15_
-         u_ctrl/u_aes/state_reg_109_
+         u_ctrl/u_aes/state_reg_39_
+         u_ctrl/u_aes/state_reg_110_
+         u_ctrl/u_aes/rkeys_reg_124_
+         u_ctrl/u_aes/state_reg_69_
+         u_ctrl/u_aes/state_reg_21_
+         u_ctrl/u_aes/ct_out_reg_31_
+         u_ctrl/u_aes/ct_out_reg_29_
+         u_ctrl/u_aes/ct_out_reg_10_
          u_ctrl/u_aes/state_reg_53_
-         u_ctrl/u_aes/ct_out_reg_43_
-         u_ctrl/u_aes/state_reg_50_
-         u_ctrl/u_aes/ct_out_reg_125_
-         u_ctrl/u_aes/ct_out_reg_44_
+         u_ctrl/u_aes/state_reg_83_
+         u_ctrl/u_aes/state_reg_82_
+         u_ctrl/u_aes/ct_out_reg_3_
          u_ctrl/u_aes/ct_out_reg_115_
+         u_ctrl/u_aes/ct_out_reg_92_
+         u_ctrl/u_aes/ct_out_reg_86_
+         u_ctrl/u_aes/ct_out_reg_79_
+         u_ctrl/u_aes/ct_out_reg_25_
+         u_ctrl/u_aes/ct_out_reg_5_
+         u_ctrl/u_aes/ct_out_reg_4_
+         u_ctrl/u_aes/state_reg_125_
          u_ctrl/u_aes/ct_out_reg_126_
          u_ctrl/u_aes/ct_out_reg_117_
+         u_ctrl/u_aes/ct_out_reg_22_
+         u_ctrl/u_aes/ct_out_reg_119_
+         u_ctrl/u_aes/state_reg_11_
+         u_ctrl/u_aes/state_reg_26_
+         u_ctrl/u_aes/state_reg_14_
+         u_ctrl/u_aes/rkeys_reg_33_
+         u_ctrl/u_aes/ct_out_reg_81_
+         u_ctrl/u_aes/ct_out_reg_80_
+         u_ctrl/u_aes/state_reg_8_
+         u_ctrl/u_aes/state_reg_99_
+         u_ctrl/u_aes/ct_out_reg_85_
+         u_ctrl/u_aes/rkeys_reg_35_
+         u_ctrl/u_aes/state_reg_47_
+         u_ctrl/u_aes/state_reg_58_
+         u_ctrl/u_aes/state_reg_75_
+         u_ctrl/u_aes/state_reg_76_
+         u_ctrl/u_aes/state_reg_90_
+         u_ctrl/u_aes/state_reg_74_
+         u_ctrl/u_aes/state_reg_107_
+         u_ctrl/u_aes/state_reg_6_
+         u_ctrl/u_aes/state_reg_73_
+         u_ctrl/u_aes/state_reg_111_
+         u_ctrl/u_aes/state_reg_93_
+         u_ctrl/u_aes/state_reg_61_
+         u_ctrl/u_aes/rkeys_reg_1045_
+         u_ctrl/u_aes/ct_out_reg_93_
+         u_ctrl/u_aes/state_reg_27_
+         u_ctrl/u_aes/state_reg_49_
+         u_ctrl/u_aes/state_reg_51_
+         u_ctrl/u_aes/ct_out_reg_51_
+         u_ctrl/u_aes/state_reg_2_
+         u_ctrl/u_aes/ct_out_reg_105_
+         u_ctrl/u_aes/state_reg_92_
+         u_ctrl/u_aes/ct_out_reg_7_
+         u_ctrl/u_aes/state_reg_30_
+         u_ctrl/u_aes/ct_out_reg_73_
+         u_ctrl/u_aes/state_reg_33_
+         u_ctrl/u_aes/state_reg_0_
+         u_ctrl/u_aes/state_reg_28_
+         u_ctrl/u_aes/state_reg_1_
+         u_ctrl/u_aes/state_reg_44_
+         u_ctrl/u_aes/state_reg_105_
+         u_ctrl/u_aes/state_reg_103_
+         u_ctrl/u_aes/state_reg_102_
+         u_ctrl/u_aes/state_reg_9_
+         u_ctrl/u_aes/state_reg_115_
+         u_ctrl/u_aes/state_reg_25_
+         u_ctrl/u_aes/ct_out_reg_90_
+         u_ctrl/u_aes/ct_out_reg_74_
+         u_ctrl/u_aes/ct_out_reg_69_
+         u_ctrl/u_aes/ct_out_reg_91_
+         u_ctrl/u_aes/ct_out_reg_76_
+         u_ctrl/u_aes/ct_out_reg_72_
+         u_ctrl/u_aes/ct_out_reg_70_
+         u_ctrl/u_aes/ct_out_reg_71_
+         u_ctrl/u_aes/ct_out_reg_15_
+         u_ctrl/u_aes/ct_out_reg_14_
+         u_ctrl/u_aes/state_reg_35_
+         u_ctrl/u_aes/state_reg_3_
+         u_ctrl/u_aes/state_reg_62_
+         u_ctrl/u_aes/state_reg_5_
+         u_ctrl/u_aes/state_reg_71_
+         u_ctrl/u_aes/state_reg_10_
+         u_ctrl/u_aes/state_reg_98_
+         u_ctrl/u_aes/state_reg_13_
+         u_ctrl/u_aes/state_reg_29_
+         u_ctrl/u_aes/state_reg_50_
+         u_ctrl/u_aes/state_reg_112_
+         u_ctrl/u_aes/state_reg_37_
+         u_ctrl/u_aes/state_reg_86_
+         u_ctrl/u_aes/state_reg_66_
+         u_ctrl/u_aes/state_reg_77_
          u_ctrl/u_aes/state_reg_101_
+         u_ctrl/u_aes/state_reg_70_
+         u_ctrl/u_aes/rkeys_reg_97_
+         u_ctrl/u_aes/ct_out_reg_103_
+         u_ctrl/u_aes/rkeys_reg_167_
+         u_ctrl/u_aes/ct_out_reg_67_
+         u_ctrl/u_aes/rkeys_reg_163_
+         u_ctrl/u_aes/ct_out_reg_28_
+         u_ctrl/u_aes/rkeys_reg_173_
+         u_ctrl/u_aes/rkeys_reg_175_
+         u_ctrl/u_aes/busy_reg
+         u_ctrl/u_aes/state_reg_114_
+         u_ctrl/u_aes/state_reg_85_
+         u_ctrl/u_aes/state_reg_20_
+         u_ctrl/u_aes/state_reg_23_
+         u_ctrl/u_aes/state_reg_22_
+         u_ctrl/u_aes/state_reg_15_
+         u_ctrl/u_aes/state_reg_106_
+         u_ctrl/u_aes/rkeys_reg_107_
+         u_ctrl/u_aes/round_reg_1_
+         u_ctrl/u_aes/state_reg_79_
+         u_ctrl/u_aes/round_reg_2_
+         u_ctrl/u_aes/state_reg_84_
+         u_ctrl/u_aes/ct_out_reg_26_
+         u_ctrl/u_aes/ct_out_reg_34_
+         u_ctrl/u_aes/ct_out_reg_123_
+         u_ctrl/u_aes/ct_out_reg_125_
+         u_ctrl/u_aes/rkeys_reg_171_
+         u_ctrl/u_aes/ct_out_reg_9_
+         u_ctrl/u_aes/rkeys_reg_1290_
+         u_ctrl/u_aes/ct_out_reg_113_
+         u_ctrl/u_aes/state_reg_43_
+         u_ctrl/u_aes/state_reg_57_
+         u_ctrl/u_aes/state_reg_120_
+         u_ctrl/u_aes/round_reg_0_
+         u_ctrl/u_aes/state_reg_72_
+         u_ctrl/u_aes/rkeys_reg_108_
+         u_ctrl/u_aes/state_reg_56_
+         u_ctrl/u_aes/state_reg_41_
+         u_ctrl/u_aes/state_reg_108_
+         u_ctrl/u_aes/ct_out_reg_6_
+         u_ctrl/u_aes/state_reg_95_
+         u_ctrl/u_aes/ct_out_reg_118_
+         u_ctrl/u_aes/state_reg_31_
+         u_ctrl/u_aes/ct_out_reg_13_
+         u_ctrl/u_aes/ct_out_reg_20_
+         u_ctrl/u_aes/rkeys_reg_153_
+         u_ctrl/u_aes/state_reg_124_
+         u_ctrl/u_aes/state_reg_119_
+         u_ctrl/u_aes/rkeys_reg_98_
+         u_ctrl/u_aes/rkeys_reg_106_
+         u_ctrl/u_aes/ct_out_reg_124_
          u_ctrl/u_aes/ct_out_reg_122_
          u_ctrl/u_aes/ct_out_reg_127_
-         u_ctrl/u_aes/state_reg_45_
-         u_ctrl/u_aes/state_reg_98_
-         u_ctrl/u_aes/ct_out_reg_111_
-         u_ctrl/u_aes/rkeys_reg_65_
-         u_ctrl/u_aes/state_reg_13_
-         u_ctrl/u_aes/ct_out_reg_123_
-         u_ctrl/u_aes/ct_out_reg_119_
-         u_ctrl/u_aes/ct_out_reg_118_
-         u_ctrl/u_aes/ct_out_reg_114_
-         u_ctrl/u_aes/ct_out_reg_113_
-         u_ctrl/u_aes/ct_out_reg_36_
-         u_ctrl/u_aes/state_reg_61_
-         u_ctrl/u_aes/state_reg_113_
-         u_ctrl/u_aes/ct_out_reg_110_
-         u_ctrl/u_aes/ct_out_reg_109_
-         u_ctrl/u_aes/ct_out_reg_38_
-         u_ctrl/u_aes/state_reg_26_
-         u_ctrl/u_aes/ct_out_reg_55_
-         u_ctrl/u_aes/ct_out_reg_54_
-         u_ctrl/u_aes/ct_out_reg_53_
-         u_ctrl/u_aes/state_reg_5_
-         u_ctrl/u_aes/state_reg_21_
-         u_ctrl/u_aes/state_reg_85_
-         u_ctrl/u_aes/state_reg_93_
-         u_ctrl/u_aes/rkeys_reg_78_
-         u_ctrl/u_aes/ct_out_reg_34_
-         u_ctrl/u_aes/rkeys_reg_99_
-         u_ctrl/u_aes/state_reg_90_
-         u_ctrl/u_aes/state_reg_82_
-         u_ctrl/u_aes/ct_out_reg_67_
-         u_ctrl/u_aes/state_reg_29_
-         u_ctrl/u_aes/ct_out_reg_71_
-         u_ctrl/u_aes/ct_out_reg_69_
-         u_ctrl/u_aes/state_reg_42_
-         u_ctrl/u_aes/ct_out_reg_70_
-         u_ctrl/u_aes/rkeys_reg_100_
-         u_ctrl/u_aes/rkeys_reg_13_
-         u_ctrl/u_aes/rkeys_reg_97_
-         u_ctrl/u_aes/ct_out_reg_80_
-         u_ctrl/u_aes/ct_out_reg_81_
-         u_ctrl/u_aes/state_reg_122_
-         u_ctrl/u_aes/state_reg_7_
-         u_ctrl/u_aes/ct_out_reg_72_
-         u_ctrl/u_aes/ct_out_reg_86_
-         u_ctrl/u_aes/rkeys_reg_6_
-         u_ctrl/u_aes/rkeys_reg_2_
-         u_ctrl/u_aes/state_reg_22_
-         u_ctrl/u_aes/state_reg_40_
-         u_ctrl/u_aes/state_reg_86_
-         u_ctrl/u_aes/rkeys_reg_101_
-         u_ctrl/u_aes/state_reg_123_
-         u_ctrl/u_aes/state_reg_73_
-         u_ctrl/u_aes/rkeys_reg_1158_
-         u_ctrl/u_aes/state_reg_63_
-         u_ctrl/u_aes/ct_out_reg_74_
-         u_ctrl/u_aes/rkeys_reg_1161_
-         u_ctrl/u_aes/ct_out_reg_85_
-         u_ctrl/u_aes/ct_out_reg_83_
-         u_ctrl/u_aes/ct_out_reg_90_
-         u_ctrl/u_aes/ct_out_reg_79_
-         u_ctrl/u_aes/ct_out_reg_91_
-         u_ctrl/u_aes/state_reg_94_
-         u_ctrl/u_aes/ct_out_reg_76_
-         u_ctrl/u_aes/state_reg_65_
-         u_ctrl/u_aes/state_reg_118_
-         u_ctrl/u_aes/state_reg_110_
-         u_ctrl/u_aes/state_reg_115_
-         u_ctrl/u_aes/state_reg_59_
-         u_ctrl/u_aes/state_reg_68_
-         u_ctrl/u_aes/state_reg_102_
-         u_ctrl/u_aes/state_reg_64_
-         u_ctrl/u_aes/state_reg_124_
-         u_ctrl/u_aes/state_reg_23_
-         u_ctrl/u_aes/state_reg_25_
-         u_ctrl/u_aes/state_reg_89_
-         u_ctrl/u_aes/ct_out_reg_59_
-         u_ctrl/u_aes/state_reg_66_
-         u_ctrl/u_aes/state_reg_111_
-         u_ctrl/u_aes/state_reg_47_
          u_ctrl/u_aes/state_reg_127_
-         u_ctrl/u_aes/state_reg_18_
-         u_ctrl/u_aes/state_reg_119_
-         u_ctrl/u_aes/state_reg_39_
-         u_ctrl/u_aes/state_reg_57_
-         u_ctrl/u_aes/state_reg_28_
-         u_ctrl/u_aes/state_reg_10_
-         u_ctrl/u_aes/state_reg_95_
-         u_ctrl/u_aes/state_reg_79_
-         u_ctrl/u_aes/state_reg_80_
-         u_ctrl/u_aes/state_reg_104_
-         u_ctrl/u_aes/state_reg_108_
-         u_ctrl/u_aes/ct_out_reg_3_
-         u_ctrl/u_aes/ct_out_reg_4_
-         u_ctrl/u_aes/ct_out_reg_18_
-         u_ctrl/u_aes/rkeys_reg_1082_
-         u_ctrl/u_aes/ct_out_reg_37_
-         u_ctrl/u_aes/rkeys_reg_1085_
-         u_ctrl/u_aes/rkeys_reg_1211_
-         u_ctrl/u_aes/rkeys_reg_1178_
-         u_ctrl/u_aes/rkeys_reg_1109_
-         u_ctrl/u_aes/rkeys_reg_1151_
-         u_ctrl/u_aes/ct_out_reg_20_
-         u_ctrl/u_aes/rkeys_reg_1101_
-         u_ctrl/u_aes/busy_reg
-         u_ctrl/u_aes/state_reg_74_
-         u_ctrl/u_aes/state_reg_77_
-         u_ctrl/u_aes/state_reg_114_
-         u_ctrl/u_aes/state_reg_69_
-         u_ctrl/u_aes/state_reg_51_
-         u_ctrl/u_aes/state_reg_100_
-         u_ctrl/u_aes/state_reg_97_
-         u_ctrl/u_aes/state_reg_54_
-         u_ctrl/u_aes/state_reg_44_
-         u_ctrl/u_aes/state_reg_49_
-         u_ctrl/u_aes/ct_out_reg_63_
-         u_ctrl/u_aes/rkeys_reg_693_
-         u_ctrl/u_aes/rkeys_reg_106_
-         u_ctrl/u_aes/rkeys_reg_1162_
-         u_ctrl/u_aes/state_reg_117_
-         u_ctrl/u_aes/state_reg_3_
-         u_ctrl/u_aes/state_reg_35_
-         u_ctrl/u_aes/state_reg_70_
+         u_ctrl/u_aes/ct_out_reg_83_
+         u_ctrl/u_aes/ct_out_reg_38_
          u_ctrl/u_aes/state_reg_24_
-         u_ctrl/u_aes/state_reg_34_
-         u_ctrl/u_aes/state_reg_2_
-         u_ctrl/u_aes/state_reg_106_
-         u_ctrl/u_aes/ct_out_reg_58_
-         u_ctrl/u_aes/state_reg_12_
-         u_ctrl/u_aes/state_reg_20_
-         u_ctrl/u_aes/state_reg_1_
-         u_ctrl/u_aes/state_reg_36_
-         u_ctrl/u_aes/state_reg_84_
-         u_ctrl/u_aes/state_reg_60_
-         u_ctrl/u_aes/state_reg_43_
-         u_ctrl/u_aes/state_reg_92_
-         u_ctrl/u_aes/state_reg_126_
-         u_ctrl/u_aes/rkeys_reg_1145_
-         u_ctrl/u_aes/state_reg_78_
-         u_ctrl/u_aes/state_reg_91_
-         u_ctrl/u_aes/state_reg_11_
-         u_ctrl/u_aes/state_reg_112_
-         u_ctrl/u_aes/state_reg_107_
-         u_ctrl/u_aes/rkeys_reg_1180_
-         u_ctrl/u_aes/rkeys_reg_1153_
-         u_ctrl/u_aes/ct_out_reg_105_
-         u_ctrl/u_aes/state_reg_6_
-         u_ctrl/u_aes/rkeys_reg_1164_
-         u_ctrl/u_aes/state_reg_17_
-         u_ctrl/u_aes/state_reg_81_
-         u_ctrl/u_aes/ct_out_reg_22_
-         u_ctrl/u_aes/ct_out_reg_14_
-         u_ctrl/u_aes/rkeys_reg_1183_
-         u_ctrl/u_aes/rkeys_reg_1087_
-         u_ctrl/u_aes/ct_out_reg_23_
-         u_ctrl/u_aes/state_reg_99_
-         u_ctrl/u_aes/state_reg_46_
-         u_ctrl/u_aes/ct_out_reg_9_
-         u_ctrl/u_aes/rkeys_reg_1156_
-         u_ctrl/u_aes/rkeys_reg_1154_
-         u_ctrl/u_aes/ct_out_reg_10_
-         u_ctrl/u_aes/rkeys_reg_606_
-         u_ctrl/u_aes/ct_out_reg_52_
-         u_ctrl/u_aes/ct_out_reg_93_
-         u_ctrl/u_aes/rkeys_reg_1196_
-         u_ctrl/u_aes/rkeys_reg_1188_
-         u_ctrl/u_aes/rkeys_reg_1220_
-         u_ctrl/u_aes/state_reg_0_
-         u_ctrl/u_aes/ct_out_reg_8_
-         u_ctrl/u_aes/ct_out_reg_51_
-         u_ctrl/u_aes/rkeys_reg_1083_
-         u_ctrl/u_aes/ct_out_reg_92_
-         u_ctrl/u_aes/state_reg_67_
-         u_ctrl/u_aes/state_reg_52_
-         u_ctrl/u_aes/ct_out_reg_15_
-         u_ctrl/u_aes/ct_out_reg_11_
-         u_ctrl/u_aes/state_reg_38_
-         u_ctrl/u_aes/state_reg_105_
-         u_ctrl/u_aes/state_reg_55_
-         u_ctrl/u_aes/state_reg_41_
-         u_ctrl/u_aes/state_reg_72_
-         u_ctrl/u_aes/state_reg_125_
-         u_ctrl/u_aes/state_reg_16_
-         u_ctrl/u_aes/state_reg_58_
-         u_ctrl/u_aes/state_reg_37_
+         u_ctrl/u_aes/ct_out_reg_43_
+         u_ctrl/u_aes/ct_out_reg_114_
+         u_ctrl/u_aes/ct_out_reg_89_
+         u_ctrl/u_aes/rkeys_reg_64_
          u_ctrl/u_aes/rkeys_reg_96_
-         u_ctrl/u_aes/rkeys_reg_102_
+         u_ctrl/u_aes/state_reg_36_
+         u_ctrl/u_aes/rkeys_reg_1313_
+         u_ctrl/u_aes/ct_out_reg_54_
+         u_ctrl/u_aes/state_reg_38_
+         u_ctrl/u_aes/ct_out_reg_18_
+         u_ctrl/u_aes/state_reg_68_
+         u_ctrl/u_aes/ct_out_reg_100_
+         u_ctrl/u_aes/rkeys_reg_176_
+         u_ctrl/u_aes/ct_out_reg_52_
+         u_ctrl/u_aes/rkeys_reg_929_
+         u_ctrl/u_aes/ct_out_reg_27_
+         u_ctrl/u_aes/ct_out_reg_96_
+         u_ctrl/u_aes/rkeys_reg_1250_
+         u_ctrl/u_aes/rkeys_reg_1018_
+         u_ctrl/u_aes/ct_out_reg_104_
+         u_ctrl/u_aes/rkeys_reg_866_
+         u_ctrl/u_aes/rkeys_reg_1191_
+         u_ctrl/u_aes/state_reg_32_
+         u_ctrl/u_aes/ct_out_reg_111_
+         u_ctrl/u_aes/state_reg_88_
+         u_ctrl/u_aes/ct_out_reg_55_
+         u_ctrl/u_aes/rkeys_reg_104_
+         u_ctrl/u_aes/state_reg_16_
+         u_ctrl/u_aes/ct_out_reg_53_
+         u_ctrl/u_aes/ct_out_reg_46_
+         u_ctrl/u_aes/state_reg_122_
+         u_ctrl/u_aes/ct_out_reg_66_
+         u_ctrl/u_aes/ct_out_reg_59_
+         u_ctrl/u_aes/ct_out_reg_36_
+         u_ctrl/u_aes/ct_out_reg_87_
+         u_ctrl/u_aes/rkeys_reg_99_
+         u_ctrl/u_aes/rkeys_reg_378_
+         u_ctrl/u_aes/state_reg_18_
+         u_ctrl/u_aes/ct_out_reg_23_
+         u_ctrl/u_aes/state_reg_42_
+         u_ctrl/u_aes/ct_out_reg_11_
+         u_ctrl/u_aes/ct_out_reg_8_
+         u_ctrl/u_aes/ct_out_reg_1_
+         u_ctrl/u_aes/state_reg_17_
+         u_ctrl/u_aes/state_reg_19_
+         u_ctrl/u_aes/state_reg_94_
+         u_ctrl/u_aes/state_reg_67_
+         u_ctrl/u_aes/state_reg_45_
+         u_ctrl/u_aes/state_reg_12_
+         u_ctrl/u_aes/state_reg_65_
+         u_ctrl/u_aes/state_reg_117_
+         u_ctrl/u_aes/state_reg_89_
+         u_ctrl/u_aes/state_reg_4_
+         u_ctrl/u_aes/state_reg_55_
+         u_ctrl/u_aes/state_reg_96_
+         u_ctrl/u_aes/state_reg_109_
+         u_ctrl/u_aes/ct_out_reg_110_
+         u_ctrl/u_aes/rkeys_reg_7_
+         u_ctrl/u_aes/state_reg_52_
+         u_ctrl/u_aes/state_reg_54_
+         u_ctrl/u_aes/state_reg_34_
          u_ctrl/u_ct_cdc/req_ff1_reg
          u_ctrl/u_ct_cdc/ack_tog_dst_reg
          u_ctrl/u_ct_cdc/ack_ff1_reg
@@ -1539,6 +1539,7 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_crc/crc_reg_2_
          u_ctrl/u_crc/crc_reg_10_
          u_ctrl/u_crc/crc_reg_5_
+         u_ctrl/u_crc/crc_reg_3_
          u_ctrl/u_crc/crc_reg_11_
          u_ctrl/u_crc/crc_reg_19_
          u_ctrl/u_crc/crc_reg_9_
@@ -1581,25 +1582,24 @@ SEQUENTIAL CELLS WITHOUT VIOLATIONS
          u_ctrl/u_crc/crc_out_reg_1_
          u_ctrl/u_crc/crc_out_reg_0_
          u_ctrl/u_crc/done_reg
-         u_ctrl/u_crc/crc_reg_3_
          u_ctrl/u_send_cdc/req_ff1_reg
+         u_ctrl/u_send_cdc/ack_tog_dst_reg
          u_ctrl/u_send_cdc/ack_ff1_reg
          u_ctrl/u_send_cdc/req_tog_src_reg
          u_ctrl/u_send_cdc/pulse_dst_reg
-         u_ctrl/u_send_cdc/ack_tog_dst_reg
       *  16 cells are non-scan shift-register cells
          u_ctrl/su_ff2_reg
          u_ctrl/crc_ff2_reg
          u_ctrl/fail_ff2_reg
-         u_ctrl/tx_byte_ff2_reg_7_
+         u_ctrl/tx_byte_ff2_reg_3_
+         u_ctrl/txdone_ff2_reg
          u_ctrl/tx_byte_ff2_reg_0_
-         u_ctrl/tx_byte_ff2_reg_6_
          u_ctrl/tx_byte_ff2_reg_5_
          u_ctrl/tx_byte_ff2_reg_4_
-         u_ctrl/tx_byte_ff2_reg_3_
+         u_ctrl/tx_byte_ff2_reg_7_
          u_ctrl/tx_byte_ff2_reg_2_
          u_ctrl/tx_byte_ff2_reg_1_
-         u_ctrl/txdone_ff2_reg
+         u_ctrl/tx_byte_ff2_reg_6_
          u_ctrl/u_ct_cdc/ack_ff2_reg
          u_ctrl/u_ct_cdc/req_ff2_reg
          u_ctrl/u_send_cdc/ack_ff2_reg

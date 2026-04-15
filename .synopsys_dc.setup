@@ -13,6 +13,9 @@ set lib_pll "$edk_root/lib/pll/db_nldm"
 
 # RTL location
 set RTL_path [file normalize "../0_rtl"]
+if {[info exists env(rtl_dir)]} {
+	set RTL_path [file normalize $env(rtl_dir)]
+}
 
 # Physical files used only in topographical mode
 set mw_tech_file      [file normalize "$edk_root/tech/milkyway/saed32nm_1p9m_mw.tf"]

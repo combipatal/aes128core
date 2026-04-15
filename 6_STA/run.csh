@@ -1,10 +1,10 @@
 #!/bin/csh -f
 
 # STA run configuration
-if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss_setupfix1
+if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss
 if ( ! $?net_ver ) setenv net_ver ${ver}
 if ( ! $?sdc_ver ) setenv sdc_ver 4_15_8ns_topo_ss
-if ( ! $?corner ) setenv corner tt
+if ( ! $?corner ) setenv corner ff
 if ( ! $?mode ) setenv mode pre
 if ( ! $?sta_scenario ) setenv sta_scenario scan_capture
 if ( ! $?run_mode ) setenv run_mode pre

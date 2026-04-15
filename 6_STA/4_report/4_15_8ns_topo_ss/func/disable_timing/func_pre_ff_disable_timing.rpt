@@ -2,7 +2,7 @@
 Report : disable_timing
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Wed Apr 15 22:28:30 2026
+Date   : Wed Apr 15 22:47:39 2026
 ****************************************
 
 Flags :     c  case-analysis
@@ -21,32 +21,30 @@ Cell or Port                From    To      Sense           Flag  Reason
 u_pll                       REF_CLK CLK_1X  positive_unate  C     PLL_BYPASS = 0
 u_pll                       REF_CLK CLK_2X  positive_unate  C     PLL_BYPASS = 0
 u_pll                       REF_CLK CLK_4X  positive_unate  C     PLL_BYPASS = 0
-u_ctrl/U203                 A2      Y       positive_unate  c     A2 = 0; Y = 1
-u_ctrl/U203                 A2      Y       positive_unate  c     A2 = 0; Y = 1
-U3                          A1      Y       positive_unate  c     A1 = 1
-U3                          A1      Y       positive_unate  c     A1 = 1
-U3                          A3      Y       positive_unate  c     A3 = 0
-U3                          A3      Y       positive_unate  c     A3 = 0
-U3                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U3                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U4                          A1      Y       positive_unate  c     A1 = 1
-U4                          A1      Y       positive_unate  c     A1 = 1
-U4                          A3      Y       positive_unate  c     A3 = 0
-U4                          A3      Y       positive_unate  c     A3 = 0
-U4                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U4                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U5                          A1      Y       positive_unate  c     A1 = 1
-U5                          A1      Y       positive_unate  c     A1 = 1
-U5                          A3      Y       positive_unate  c     A3 = 0
-U5                          A3      Y       positive_unate  c     A3 = 0
-U5                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U5                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U6                          A1      Y       positive_unate  c     A1 = 1
-U6                          A1      Y       positive_unate  c     A1 = 1
-U6                          A3      Y       positive_unate  c     A3 = 0
-U6                          A3      Y       positive_unate  c     A3 = 0
-U6                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
-U6                          A4      Y       positive_unate  c     A1 = 1, A3 = 0
+U3                          A1      Y       positive_unate  c     A1 = 0
+U3                          A1      Y       positive_unate  c     A1 = 0
+U3                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U3                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U3                          A3      Y       positive_unate  c     A3 = 1
+U3                          A3      Y       positive_unate  c     A3 = 1
+U4                          A1      Y       positive_unate  c     A1 = 0
+U4                          A1      Y       positive_unate  c     A1 = 0
+U4                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U4                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U4                          A3      Y       positive_unate  c     A3 = 1
+U4                          A3      Y       positive_unate  c     A3 = 1
+U5                          A1      Y       positive_unate  c     A1 = 0
+U5                          A1      Y       positive_unate  c     A1 = 0
+U5                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U5                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U5                          A3      Y       positive_unate  c     A3 = 1
+U5                          A3      Y       positive_unate  c     A3 = 1
+U6                          A1      Y       positive_unate  c     A1 = 0
+U6                          A1      Y       positive_unate  c     A1 = 0
+U6                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U6                          A2      Y       positive_unate  c     A1 = 0, A3 = 1
+U6                          A3      Y       positive_unate  c     A3 = 1
+U6                          A3      Y       positive_unate  c     A3 = 1
 u_ctrl/tx_byte_ff1_reg_0_   CLK     SI      hold_clk_rise   c     SE = 0
 u_ctrl/tx_byte_ff1_reg_0_   CLK     SI      setup_clk_rise  c     SE = 0
 u_ctrl/tx_byte_ff1_reg_0_   CLK     SE      hold_clk_rise   c     SE = 0
@@ -131,6 +129,8 @@ u_ctrl/mem_oe_reg           CLK     SI      hold_clk_rise   c     SE = 0
 u_ctrl/mem_oe_reg           CLK     SI      setup_clk_rise  c     SE = 0
 u_ctrl/mem_oe_reg           CLK     SE      hold_clk_rise   c     SE = 0
 u_ctrl/mem_oe_reg           CLK     SE      setup_clk_rise  c     SE = 0
+u_ctrl/u_icg_aes/U3         A2      Y       positive_unate  c     A2 = 0
+u_ctrl/u_icg_aes/U3         A2      Y       positive_unate  c     A2 = 0
 u_ctrl/txdone_ff1_reg       CLK     SI      hold_clk_rise   c     SE = 0
 u_ctrl/txdone_ff1_reg       CLK     SI      setup_clk_rise  c     SE = 0
 u_ctrl/txdone_ff1_reg       CLK     SE      hold_clk_rise   c     SE = 0
@@ -183,10 +183,6 @@ u_ctrl/tx_busy_d_reg        CLK     SI      hold_clk_rise   c     SE = 0
 u_ctrl/tx_busy_d_reg        CLK     SI      setup_clk_rise  c     SE = 0
 u_ctrl/tx_busy_d_reg        CLK     SE      hold_clk_rise   c     SE = 0
 u_ctrl/tx_busy_d_reg        CLK     SE      setup_clk_rise  c     SE = 0
-u_ctrl/u_icg_aes/en_lat_reg CLK     D       hold_clk_fall   c     D = 1
-u_ctrl/u_icg_aes/en_lat_reg CLK     D       setup_clk_fall  c     D = 1
-u_ctrl/u_icg_aes/en_lat_reg D       Q       positive_unate  c     D = 1
-u_ctrl/u_icg_aes/en_lat_reg D       QN      negative_unate  c     D = 1
 u_ctrl/crc_byte_reg_0_      CLK     SI      hold_clk_rise   c     SE = 0
 u_ctrl/crc_byte_reg_0_      CLK     SI      setup_clk_rise  c     SE = 0
 u_ctrl/crc_byte_reg_0_      CLK     SE      hold_clk_rise   c     SE = 0

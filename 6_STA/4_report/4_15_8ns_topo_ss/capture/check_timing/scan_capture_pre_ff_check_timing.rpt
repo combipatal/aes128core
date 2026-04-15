@@ -5,6 +5,8 @@ paths from such ports will be unconstrained.
 
 Information: Checking 'no_driving_cell'.
 Information: Checking 'unconstrained_endpoints'.
+Warning: There are 3 endpoints which are not constrained for maximum delay.
+
 Information: Checking 'unexpandable_clocks'.
 Information: Checking 'latch_fanout'.
 Information: Checking 'no_clock'.
