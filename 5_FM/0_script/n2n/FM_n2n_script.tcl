@@ -1,14 +1,19 @@
 # 현재 실행 버전과 report/output 경로를 먼저 변수로 고정한다.
-set ver $env(ver)
+set ref_ver $env(ref_ver)
+set impl_ver $env(impl_ver)
 set fm_ver $env(fm_ver)
 set curr_dir [pwd]
 set REPORTS ${curr_dir}/4_report/${fm_ver}
 set OUTPUTS ${curr_dir}/2_output/${fm_ver}
 set TOP_MODULE "top_mcu_pll_sram_multiclk_soc"
+set lib_corner "ff"
+if {[info exists env(lib_corner)]} {
+    set lib_corner $env(lib_corner)
+}
 
 # n2n에서는 synthesis gate를 reference로, DFT netlist를 implementation으로 비교한다.
-set reference_design_path ../2_synthesis/2_output/${ver}/mapped
-set implement_design_path ../3_DFT/2_output/${ver}
+set reference_design_path ../2_synthesis/2_output/${ref_ver}/mapped
+set implement_design_path ../3_DFT/2_output/${impl_ver}
 set edk_root ../SAED32_EDK
 
 # report와 saved session 디렉터리를 미리 만들어둔다.
@@ -52,12 +57,21 @@ set search_path ". \
     ${edk_root}/lib/pll/db_nldm"
 
 # gate-level netlist를 해석할 수 있도록 합성 라이브러리 db를 읽는다.
-read_db saed32rvt_ss0p95v125c.db
-read_db saed32hvt_ss0p95v125c.db
-read_db saed32lvt_ss0p95v125c.db
-read_db saed32io_fc_ss0p95v125c_2p25v.db
-read_db saed32pll_ss0p95v125c_2p25v.db
-read_db saed32sram_ss0p95v125c.db
+if {$lib_corner == "ff"} {
+    read_db saed32rvt_ff1p16v125c.db
+    read_db saed32hvt_ff1p16v125c.db
+    read_db saed32lvt_ff1p16v125c.db
+    read_db saed32io_fc_ff1p16v125c_2p75v.db
+    read_db saed32pll_ff1p16v125c_2p75v.db
+    read_db saed32sram_ff1p16v125c.db
+} else {
+    read_db saed32rvt_ss0p95v125c.db
+    read_db saed32hvt_ss0p95v125c.db
+    read_db saed32lvt_ss0p95v125c.db
+    read_db saed32io_fc_ss0p95v125c_2p25v.db
+    read_db saed32pll_ss0p95v125c_2p25v.db
+    read_db saed32sram_ss0p95v125c.db
+}
 
 # reference 쪽에는 synthesis mapped gate를 읽고 top을 지정한다.
 read_verilog -r -libname WORK ${reference_design_path}/soc_gate.v
@@ -86,9 +100,9 @@ report_user_matches > ${REPORTS}/user_matches_post_matching.rpt
 
 # verify는 scan logic가 추가된 뒤에도 기능 등가가 유지되는지 확인한다.
 if {[verify]} {
-    puts "\nFM PASS: n2n equivalence verified for $TOP_MODULE (ver=$ver)\n"
+    puts "\nFM PASS: n2n equivalence verified for $TOP_MODULE (ref=$ref_ver impl=$impl_ver)\n"
 } else {
-    puts "\nFM FAIL: n2n equivalence failed for $TOP_MODULE (ver=$ver)\n"
+    puts "\nFM FAIL: n2n equivalence failed for $TOP_MODULE (ref=$ref_ver impl=$impl_ver)\n"
 }
 
 # 실패 원인 분석용 기본 report들을 남겨 다음 디버깅에 바로 쓰게 한다.

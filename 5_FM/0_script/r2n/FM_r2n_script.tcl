@@ -5,9 +5,13 @@ set curr_dir [pwd]
 set REPORTS ${curr_dir}/4_report/${fm_ver}
 set OUTPUTS ${curr_dir}/2_output/${fm_ver}
 set TOP_MODULE "top_mcu_pll_sram_multiclk_soc"
+set lib_corner "ff"
+if {[info exists env(lib_corner)]} {
+    set lib_corner $env(lib_corner)
+}
 
 # r2n에서는 RTL을 reference로, 합성 gate를 implementation으로 비교한다.
-set rtl_dir ../2_synthesis/1_input/rtl
+set rtl_dir ../0_rtl
 set implement_design_path ../2_synthesis/2_output/${ver}/mapped
 set svf_path ../2_synthesis/default.svf
 set edk_root ../SAED32_EDK
@@ -54,30 +58,40 @@ set search_path ". \
     ${rtl_dir}"
 
 # 합성에 사용한 db 라이브러리를 읽어 gate-level cell을 해석 가능하게 만든다.
-read_db saed32rvt_ss0p95v125c.db
-read_db saed32hvt_ss0p95v125c.db
-read_db saed32lvt_ss0p95v125c.db
-read_db saed32io_fc_ss0p95v125c_2p25v.db
-read_db saed32pll_ss0p95v125c_2p25v.db
-read_db saed32sram_ss0p95v125c.db
+if {$lib_corner == "ff"} {
+    read_db saed32rvt_ff1p16v125c.db
+    read_db saed32hvt_ff1p16v125c.db
+    read_db saed32lvt_ff1p16v125c.db
+    read_db saed32io_fc_ff1p16v125c_2p75v.db
+    read_db saed32pll_ff1p16v125c_2p75v.db
+    read_db saed32sram_ff1p16v125c.db
+} else {
+    read_db saed32rvt_ss0p95v125c.db
+    read_db saed32hvt_ss0p95v125c.db
+    read_db saed32lvt_ss0p95v125c.db
+    read_db saed32io_fc_ss0p95v125c_2p25v.db
+    read_db saed32pll_ss0p95v125c_2p25v.db
+    read_db saed32sram_ss0p95v125c.db
+}
 
 # DC에서 생성한 SVF를 읽어 RTL과 gate 간 매칭 힌트를 제공한다.
 set_svf ${svf_path}
 
 # reference 쪽에는 RTL 전체를 읽고 top을 지정한다.
 read_verilog -r -libname WORK {\
-    ../2_synthesis/1_input/rtl/PLL_bb_for_syn.v \
-    ../2_synthesis/1_input/rtl/aes128_core.v \
-    ../2_synthesis/1_input/rtl/aes_sbox.v \
-    ../2_synthesis/1_input/rtl/cdc_toggle_sync.v \
-    ../2_synthesis/1_input/rtl/clk_div2_toggle.v \
-    ../2_synthesis/1_input/rtl/crc32_byte.v \
-    ../2_synthesis/1_input/rtl/icg_latch.v \
-    ../2_synthesis/1_input/rtl/soc_ctrl_multiclk_soc.v \
-    ../2_synthesis/1_input/rtl/sram_wrap_1rw1024x8.v \
-    ../2_synthesis/1_input/rtl/top_mcu_pll_sram_multiclk_soc.v \
-    ../2_synthesis/1_input/rtl/uart_rx.v \
-    ../2_synthesis/1_input/rtl/uart_tx.v \
+    ../0_rtl/PLL_bb_for_syn.v \
+    ../0_rtl/aes128_core.v \
+    ../0_rtl/aes128_core_rewrite.v \
+    ../0_rtl/aes_sbox.v \
+    ../0_rtl/cdc_toggle_sync.v \
+    ../0_rtl/clk_div2_toggle.v \
+    ../0_rtl/crc32_byte.v \
+    ../0_rtl/icg_latch.v \
+    ../0_rtl/soc_ctrl_multiclk_soc.v \
+    ../0_rtl/sram_wrap_1rw1024x8.v \
+    ../0_rtl/top_mcu_pll_sram_multiclk_soc.v \
+    ../0_rtl/uart_rx.v \
+    ../0_rtl/uart_tx.v \
 }
 set_top r:/WORK/${TOP_MODULE}
 

@@ -1,0 +1,14 @@
+**************************************************
+Report         : dont_verify_points
+
+Reference      : r:/WORK/top_mcu_pll_sram_multiclk_soc
+Implementation : i:/WORK/top_mcu_pll_sram_multiclk_soc
+Version        : W-2024.09-SP5
+Date           : Wed Apr 15 11:44:18 2026
+**************************************************
+
+Don't verify points:
+
+    (Port)  r:/WORK/top_mcu_pll_sram_multiclk_soc/scan_out
+
+1

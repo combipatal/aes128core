@@ -1,6 +1,6 @@
-/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/bin/fm_shell_exec -r /tools/synopsys/fm/W-2024.09-SP5 -f 0_script/r2n/FM_r2n_script.tcl 
+/tools/synopsys/fm/W-2024.09-SP5/linux64/fm/bin/fm_shell_exec -r /tools/synopsys/fm/W-2024.09-SP5 -f 0_script/n2n/FM_n2n_script.tcl 
 
 Version    = W-2024.09-SP5
 Build      = W-2024.09-SP5-formality_w2024.09_sp5_rel-9717777
 Build date = Apr  9, 2025
-Run date   = Mon Apr 13 09:58:00 2026 KST
+Run date   = Wed Apr 15 11:45:22 2026 KST
