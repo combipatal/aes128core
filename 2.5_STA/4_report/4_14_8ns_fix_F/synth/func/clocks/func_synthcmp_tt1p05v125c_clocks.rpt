@@ -1,0 +1,35 @@
+****************************************
+Report : clock
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Tue Apr 14 21:18:13 2026
+****************************************
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    I - Inactive   clock
+
+Clock             Period          Waveform            Attrs     Sources
+-----------------------------------------------------------------------
+clk_div2          4.0000          {0.0000 2.0000}     G         {u_pll/CLK_2X}
+clk_div4          8.0000          {0.0000 4.0000}     G         {u_pll/CLK_1X}
+clk_div8         16.0000          {0.0000 8.0000}     G         {u_div8/clk_out}
+clk_fast          2.0000          {0.0000 1.0000}     G         {u_pll/CLK_4X}
+clk_fast_aes      2.0000          {0.0000 1.0000}     G         {u_ctrl/u_icg_aes/gclk}
+ref_clk           8.0000          {0.0000 4.0000}               {ref_clk}
+
+
+
+Generated     Master          Generated       Master          Waveform
+Clock         Source          Source          Clock           Modification
+-------------------------------------------------------------------------------
+clk_div2      u_pll/REF_CLK   u_pll/CLK_2X    ref_clk         mult(2)
+clk_div4      u_pll/REF_CLK   u_pll/CLK_1X    ref_clk         mult(1)
+clk_div8      u_div8/clk_in   u_div8/clk_out  clk_div4        div(2)
+clk_fast      u_pll/REF_CLK   u_pll/CLK_4X    ref_clk         mult(4)
+clk_fast_aes  u_ctrl/u_icg_aes/clk
+                              u_ctrl/u_icg_aes/gclk
+                                              clk_fast        div(1), combinational
+
+1
