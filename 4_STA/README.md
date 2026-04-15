@@ -1,189 +1,201 @@
 # 4_STA
 
-이 디렉터리는 `top_mcu_pll_sram_multiclk_soc`에 대해 pre-layout STA를 수행하는 폴더입니다.
+이 디렉터리는 `top_mcu_pll_sram_multiclk_soc`의 pre-layout STA를 수행하는 워크스페이스입니다. 현재 목적은 `3_DFT`까지 끝난 post-DFT netlist를 기준으로, ATPG 전에 기능/캡처/시프트 timing이 괜찮은지 확인하는 것입니다.
 
-## 목적
+## 전체 흐름에서의 위치
 
-- `3_DFT`의 netlist와 `2_synthesis`의 SDC를 입력으로 사용
-- PrimeTime으로 functional / scan scenario별 timing 분석 수행
-- setup / hold / coverage / disable timing / clock 관련 리포트 생성
-- DC와 PT 간 pre-layout correlation을 맞추기 위한 wire load model 반영
+이 프로젝트의 관련 순서는 아래처럼 보면 됩니다.
 
-## 디렉터리 구성
+1. `2_synthesis`
+   - 합성 수행
+   - `soc_gate.ddc`, `soc_gate.v`, `soc_func.sdc` 생성
+2. `2.5_STA`
+   - versioned synth/DFT netlist 비교용 PrimeTime 워크스페이스
+   - SS/FF/TT 비교와 실험용 STA를 분리해서 보기 좋게 만든 공간
+3. `3_DFT`
+   - single scan chain insertion
+   - `aes_128_internal.v`, `aes_128_internal.ddc`, `scan_internal.spf`, `scan.def` 생성
+4. `4_STA`
+   - post-DFT netlist 기준 최종 pre-layout STA 확인
+   - `func`, `scan_capture`, `scan_shift`를 나눠서 해석
 
-- `0_script/`
-  - `STA_script.tcl`: 메인 PrimeTime 스크립트
-  - `STA_opt.tcl`: PT 옵션 설정
-- `1_input/constraint/`
-  - `func_pre_sta.tcl`: functional scenario override
-  - `scan_shift_sta.tcl`: scan shift scenario override
-  - `scan_capture_sta.tcl`: scan capture scenario override
-- `3_log/`
-  - 버전/시나리오별 PT 실행 로그
-- `4_report/`
-  - 버전별 STA 리포트
-- `STA_ISSUES_SUMMARY.md`
-  - bring-up 중 발생한 STA 문제, 원인, 수정 방향, 결과 정리 문서
-- `run.csh`
-  - STA 실행 스크립트
+즉 `4_STA`는 `합성 결과 + DFT 결과`가 실제로 timing 관점에서 괜찮은지 점검하는 자리입니다.
 
-## 입력 / 출력 관계
+## 입력과 출력
 
-### 입력
+기본 입력은 아래 두 개입니다.
 
-- DFT netlist:
-  - `../3_DFT/2_output/$ver/aes_128_internal.v`
-- synthesis SDC:
-  - `../2_synthesis/2_output/$ver/mapped/soc_func.sdc`
+- netlist: `../3_DFT/2_output/<net_ver>/aes_128_internal.v`
+- SDC: `../2_synthesis/2_output/<sdc_ver>/mapped/soc_func.sdc`
 
-### 출력
+중요한 점:
+- `net_ver`와 `sdc_ver`는 다를 수 있습니다.
+- ECO로 post-DFT netlist만 새 버전이 생기면,
+  - `net_ver = ECO 버전`
+  - `sdc_ver = 원래 synthesis 버전`
+  으로 두면 됩니다.
 
-- 로그:
-  - `3_log/${ver}_${sta_scenario}_${mode}_${corner}_sta.log`
-- 리포트:
-  - `4_report/$ver/<scenario>/...`
+출력은 아래에 저장됩니다.
+
+- 로그: `3_log/${ver}_${sta_scenario}_${mode}_${corner}_sta.log`
+- 리포트: `4_report/${ver}/func/...`, `capture/...`, `shift/...`
 
 ## 실행 방법
 
-기본 실행 스크립트:
+현재 [run.csh](/DATA/home/edu135/aes128_core/4_STA/run.csh)는 `ver`, `net_ver`, `sdc_ver`를 따로 받을 수 있습니다.
 
-```csh
-#!/bin/csh -f
+기본 실행 예시:
 
-if ( ! $?ver ) setenv ver 4_12_7p3ns
-setenv corner ss0p95v125c
-setenv mode pre
-if ( ! $?sta_scenario ) setenv sta_scenario func
-setenv run_mode pre
-setenv hier_mode top
-setenv design_name top_mcu_pll_sram_multiclk_soc
-setenv net ../3_DFT/2_output/${ver}/aes_128_internal.v
-setenv sdc ../2_synthesis/2_output/${ver}/mapped/soc_func.sdc
+```bash
+cd /DATA/home/edu135/aes128_core/4_STA
+env ver=4_15_8ns_ff_holdfix_tcl6 \
+    net_ver=4_15_8ns_ff_holdfix_tcl6 \
+    sdc_ver=4_15_8ns_ff \
+    corner=ss \
+    sta_scenario=func \
+    csh run.csh
 ```
+
+세 scenario는 아래처럼 봅니다.
+
+- `func`
+  - `scan_en=0`, `test_mode=0`
+  - 기능 경로 setup/hold 확인용
+- `scan_capture`
+  - `scan_en=0`, `test_mode=1`
+  - capture timing과 recovery/removal 확인용
+- `scan_shift`
+  - `scan_en=1`, `test_mode=1`
+  - shift 경로 timing 확인용
+
+## 현재 스크립트 구조
+
+- [run.csh](/DATA/home/edu135/aes128_core/4_STA/run.csh)
+  - `net_ver`와 `sdc_ver`를 분리해서 입력 받을 수 있도록 수정됨
+  - netlist/SDC가 없으면 바로 종료
+- [STA_script.tcl](/DATA/home/edu135/aes128_core/4_STA/0_script/STA_script.tcl)
+  - `ss`, `ff`, `tt` short corner 지원
+  - synthesis SDC에서 wire-load 명령을 제거한 `sanitized SDC`를 만든 뒤 읽음
+  - top-level `ForQA` wire-load만 적용
+- scenario override
+  - [func_pre_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/func_pre_sta.tcl)
+  - [scan_capture_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_capture_sta.tcl)
+  - [scan_shift_sta.tcl](/DATA/home/edu135/aes128_core/4_STA/1_input/constraint/scan_shift_sta.tcl)
+
+## 실제로 겪은 문제와 수정 방법
+
+### 1. SDC / STA bring-up 문제
+
+처음에는 `read_sdc` 이후 warning이 많고, corner를 바꾸면 wire-load 관련 혼선이 있었습니다.
+
+수정:
+- `STA_script.tcl`에서 synthesis가 쓴 SDC를 그대로 읽지 않고,
+  `set_wire_load_mode`, `set_wire_load_model` 줄을 제거한 `soc_func.sdc.sanitized`를 만들어 읽도록 변경했습니다.
+
+의미:
+- synthesis corner와 STA corner를 분리해서 보기 쉬워졌습니다.
+- `2.5_STA`에서 정리한 방식과 맞췄습니다.
+
+### 2. scenario별 coverage 해석 문제
+
+처음에는 `func`만 보고 coverage가 낮다고 판단하기 쉬웠습니다.
+
+수정:
+- `func`, `scan_capture`, `scan_shift`를 분리해서 보도록 유지
+- `scan_capture`에서는 `rst_n`, `scan_in`, `scan_out` timing을 별도 정의
+- `scan_shift`에서는 `scan_in/scan_out`만 timing 대상으로 보고 나머지 기능 입력은 false path 처리
+
+의미:
+- `func` coverage가 낮아도 그건 기능 모드 특성상 자연스러운 현상으로 해석할 수 있습니다.
+- ATPG 전에는 `scan_capture` 결과가 더 중요합니다.
+
+### 3. post-DFT SRAM hold violation 12개
+
+문제:
+- `u_mem_u_sram/A[*]`, `u_mem_u_sram/I[*]` 쪽에 아주 작은 hold violation 12개가 있었습니다.
+- 주로 `u_ctrl -> SRAM macro input` short path 문제였습니다.
+
+수정:
+- `3_DFT`에서 post-DFT netlist용 Tcl ECO 스크립트를 만들었습니다.
+- 관련 파일:
+  - [post_dft_hold_eco.tcl](/DATA/home/edu135/aes128_core/3_DFT/0_script/post_dft_hold_eco.tcl)
+  - [run_hold_eco.csh](/DATA/home/edu135/aes128_core/3_DFT/run_hold_eco.csh)
+- 이 스크립트는 원본 netlist를 손으로 수정하지 않고, 새 버전 디렉터리에 ECO netlist를 생성합니다.
+- 현재 사용한 ECO 결과 버전:
+  - [aes_128_internal.v](/DATA/home/edu135/aes128_core/3_DFT/2_output/4_15_8ns_ff_holdfix_tcl6/aes_128_internal.v)
+
+ECO 내용:
+- `mem_addr[3:0]` 앞에 inverter pair 추가
+- `mem_wdata[7:0]` 앞에 inverter pair 추가
+
+의미:
+- SRAM macro 입력 직전 데이터 경로를 조금 늦춰서 hold를 해결
+- 기능은 바꾸지 않음
+
+## 현재 최종 결과
+
+현재 `4_STA`에서 가장 의미 있게 봐야 하는 결과는
+`4_15_8ns_ff_holdfix_tcl6`입니다.
 
 ### Functional
 
-```bash
-env ver=4_12_7p3ns sta_scenario=func csh run.csh
-```
-
-### Scan Shift
-
-```bash
-env ver=4_12_7p3ns sta_scenario=scan_shift csh run.csh
-```
+- setup clean
+- hold clean
+- `clk_fast_aes` setup slack: `0.4740ns`
+- 참고:
+  - [func_pre_ss_setup.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/setup/func_pre_ss_setup.rpt)
+  - [func_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/hold/func_pre_ss_hold.rpt)
+  - [func_pre_ss_qor.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/func/qor/func_pre_ss_qor.rpt)
 
 ### Scan Capture
 
-```bash
-env ver=4_12_7p3ns sta_scenario=scan_capture csh run.csh
-```
+- setup clean
+- hold clean
+- recovery/removal `1108/1108 met`
+- 참고:
+  - [scan_capture_pre_ss_check_timing.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/check_timing/scan_capture_pre_ss_check_timing.rpt)
+  - [scan_capture_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/hold/scan_capture_pre_ss_hold.rpt)
+  - [scan_capture_pre_ss_analysis_coverage.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/capture/analysis_coverage/scan_capture_pre_ss_analysis_coverage.rpt)
 
-## Scenario 의미
+### Scan Shift
 
-### `func`
+- setup clean
+- hold clean
+- coverage 숫자는 낮지만, scenario 목적상 바로 문제로 보지는 않음
+- 참고:
+  - [scan_shift_pre_ss_check_timing.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/check_timing/scan_shift_pre_ss_check_timing.rpt)
+  - [scan_shift_pre_ss_hold.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/hold/scan_shift_pre_ss_hold.rpt)
+  - [scan_shift_pre_ss_qor.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_15_8ns_ff_holdfix_tcl6/shift/qor/scan_shift_pre_ss_qor.rpt)
 
-- `scan_en=0`
-- `test_mode=0`
-- functional path 기준 setup / hold / coverage 확인용
+## 아직 남아 있는 것
 
-### `scan_shift`
+- `func`에서 `no_input_delay` warning 1개
+- `scan_shift`에서 `no_input_delay` warning 1개
 
-- `scan_en=1`
-- `test_mode=1`
-- scan shift path 기준 timing / coverage 확인용
+이 두 개는 현재 hold violation처럼 치명적인 문제는 아니고, 다음 단계에서 정리할 수 있는 warning입니다.
 
-### `scan_capture`
+즉 현재 판단은:
+- post-DFT hold ECO는 성공
+- 기능/캡처/시프트 timing은 모두 clean
+- ATPG 전 STA 기준으로는 많이 정리된 상태
 
-- `scan_en=0`
-- `test_mode=1`
-- scan capture / reset recovery-removal 확인용
+## 디버깅할 때 먼저 볼 파일
 
-## 리포트 구조
+기억이 안 나거나, 왜 이런 결과가 나왔는지 다시 확인해야 할 때는 아래 순서대로 보면 됩니다.
 
-리포트는 버전 아래에서 scenario별로 먼저 나뉩니다.
+1. `4_STA/STA_ISSUES_SUMMARY.md`
+   - bring-up 때 실제로 어떤 문제를 겪었는지 정리돼 있음
+2. `4_report/<ver>/<scenario>/check_timing/*.rpt`
+   - unconstrained, no_input_delay, generated clock warning 확인
+3. `4_report/<ver>/<scenario>/qor/*.rpt`
+   - scenario별 setup/hold worst summary 확인
+4. `4_report/<ver>/<scenario>/analysis_coverage/*.rpt`
+   - coverage를 scenario 목적에 맞게 해석
+5. `3_DFT/0_script/post_dft_hold_eco.tcl`
+   - SRAM hold ECO가 실제로 어떻게 들어갔는지 확인
 
-```text
-4_report/<ver>/
-  func/
-  capture/
-  shift/
-```
+## 같이 보면 좋은 다른 README
 
-각 scenario 안에는 report 종류별 폴더가 있습니다.
-
-```text
-analysis_coverage/
-all_violations/
-check_timing/
-clock_gating/
-clocks/
-disable_timing/
-hold/
-no_clocks/
-qor/
-setup/
-```
-
-예:
-
-```text
-4_report/4_12_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt
-4_report/4_12_7p3ns/capture/analysis_coverage/scan_capture_pre_ss0p95v125c_analysis_coverage.rpt
-4_report/4_12_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt
-```
-
-## 현재 기준 상태
-
-현재 main project 기준 권장 baseline은 `4_12_7p3ns`입니다.
-
-### Functional setup
-
-- `4_STA/4_report/4_12_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt`
-- `clk_fast_aes` setup slack: `0.0003ns`
-- violating path 수: `0`
-
-### Capture coverage
-
-- `4_STA/4_report/4_12_7p3ns/capture/analysis_coverage/scan_capture_pre_ss0p95v125c_analysis_coverage.rpt`
-- `recovery 1532/1532 met`
-- `removal 1532/1532 met`
-- 전체 `55% met / 45% untested`
-
-### 남은 이슈
-
-- SRAM interface hold violation 12개는 아직 남아 있음
-- `scan_shift`는 scenario 분리는 되었지만, 추가 제약 refinement 여지가 있음
-
-## Correlation 메모
-
-현재 PT script는 DC와 pre-layout correlation을 맞추기 위해 hierarchy별 wire load model을 강제로 반영합니다.
-
-적용 위치:
-
-- `4_STA/0_script/STA_script.tcl`
-
-핵심 설정:
-
-```tcl
-set auto_wire_load_selection false
-set_wire_load_mode enclosed
-set_wire_load_model -name ForQA [current_design]
-set_wire_load_model -name 70000 [get_cells u_ctrl]
-set_wire_load_model -name 35000 [get_cells u_ctrl/u_aes]
-```
-
-이 설정이 없으면 DC에서는 clean하게 보이는 `clk_fast_aes` 경로가 PT에서 더 비관적으로 계산될 수 있습니다.
-
-## 추가 참고 문서
-
-- 문제 발생 배경 / 원인 / 수정 결과:
-  - `4_STA/STA_ISSUES_SUMMARY.md`
-
-이 문서에는 다음 내용이 정리되어 있습니다.
-
-- 초기 PT bring-up 문제
-- `GTECH_NOT` / `gtech.db` link 문제
-- DC-PT correlation load 문제
-- `7.0ns` vs `7.3ns` functional setup 결과
-- func / capture / shift coverage 해석
+- 합성: [2_synthesis/README.md](/DATA/home/edu135/aes128_core_copy_exec/2_synthesis/README.md)
+- 실험용 STA: [2.5_STA/README.md](/DATA/home/edu135/aes128_core/2.5_STA/README.md)
+- DFT: [3_DFT/README.md](/DATA/home/edu135/aes128_core/3_DFT/README.md)
