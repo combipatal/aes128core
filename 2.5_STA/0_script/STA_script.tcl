@@ -28,7 +28,7 @@ set_app_var search_path [list \
     $lib/lib/pll/db_nldm \
     $syn_lib]
 
-if {$corner == "ss0p95v125c"} {
+if {$corner == "ss"} {
     set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ss0p95v125c.db]
     set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ss0p95v125c.db]
     set TARGET_LIBRARY_FILES [list \
@@ -38,7 +38,7 @@ if {$corner == "ss0p95v125c"} {
     set TARGET_LIBRARY_FILES_MEM [list saed32sram_ss0p95v125c.db]
 }
 
-if {$corner == "ff1p16v125c"} {
+if {$corner == "ff"} {
     set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ff1p16v125c.db]
     set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ff1p16v125c.db]
     set TARGET_LIBRARY_FILES [list \
@@ -58,7 +58,7 @@ if {$corner == "ff1p16vn40c"} {
     set TARGET_LIBRARY_FILES_MEM [list saed32sram_ff1p16vn40c.db]
 }
 
-if {$corner == "tt1p05v125c"} {
+if {$corner == "tt"} {
     set TARGET_LIBRARY_FILES_HVT [list saed32hvt_tt1p05v125c.db]
     set TARGET_LIBRARY_FILES_LVT [list saed32lvt_tt1p05v125c.db]
     set TARGET_LIBRARY_FILES [list \
@@ -250,5 +250,3 @@ report_timing -delay_type min -path full_clock_expanded -nosplit -input_pins -ma
     > ${rpt_hold_dir}/${sta_scenario}_${mode}_${corner}_hold.rpt
 
 report_qor > ${rpt_qor_dir}/${sta_scenario}_${mode}_${corner}_qor.rpt
-
-exit

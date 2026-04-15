@@ -1,0 +1,63 @@
+In mode: all_dft...
+Information: Performing automatic clock gating circuitry identification in design 'top_mcu_pll_sram_multiclk_soc'. (PWR-757)
+Information: No gating element has been automatically identified (PWR-878)
+  Pre-DFT DRC enabled
+Warning: Reference PLL contains internal pins with clock attribute. (TIM-103)
+Warning: Design 'top_mcu_pll_sram_multiclk_soc' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+Begin Modeling violations...
+
+Warning: Cell u_pll (PLL) is unknown (black box) because functionality for output pin CLK_1X is bad or incomplete. (TEST-451)
+Information: There is 1 other cell with the same violation. (TEST-173)
+
+Modeling violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+Begin Other violations...
+
+Warning: Cell u_ctrl/u_icg_aes/en_lat_reg has constant 1 value. (TEST-505)
+
+Other violations completed...
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 3
+
+-----------------------------------------------------------------
+
+2 MODELING VIOLATIONS
+     2 Cell has unknown model violations (TEST-451)
+
+1 OTHER VIOLATION
+     1 Cell is constant 1 violation (TEST-505)
+
+
+Warning: Violations occurred during test design rule checking. (TEST-124)
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  1 out of 1109 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITH VIOLATIONS
+      *   1 cell has constant 1 value
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *1090 cells are valid scan cells
+      *  18 cells are non-scan shift-register cells
+
+Information: Test design rule checking completed. (TEST-123)
+1

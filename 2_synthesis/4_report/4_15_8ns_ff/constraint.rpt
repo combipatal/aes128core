@@ -1,0 +1,22 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Wed Apr 15 09:18:23 2026
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       393481977856.00
+                                                          -393481977856.00
+                                                                    (VIOLATED)
+
+
+1
