@@ -12,7 +12,6 @@ source -e -v ../.synopsys_dc.setup
 # read verilog 
 analyze -format verilog {\
                         aes128_core.v\
-                        aes128_core_rewrite.v\
                         cdc_toggle_sync.v\
                         clk_div2_toggle.v\
                         crc32_byte.v\

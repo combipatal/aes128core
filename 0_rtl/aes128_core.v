@@ -253,14 +253,6 @@ module aes128_core (
     end
   endfunction
 
-  // Reuse common combinational transforms so the same work is not rebuilt
-  // multiple times in the sequential branch below.
-  wire [1407:0] key_expanded_start = expand_key128(key_in);
-  wire [127:0] start_state_next = pt_in ^ get_rk(key_expanded_start, 0);
-  wire [127:0] state_sb_sr = shiftrows_fn(subbytes_fn(state));
-  wire [127:0] state_round_next = mixcolumns_fn(state_sb_sr) ^ get_rk(rkeys, round);
-  wire [127:0] state_final_next = state_sb_sr ^ get_rk(rkeys, 10);
-
   // ----------------------------
   // sequential
   // ----------------------------
@@ -276,29 +268,18 @@ module aes128_core (
       done <= 1'b0;
 
       if (start && !busy) begin
-        /*
         rkeys <= expand_key128(key_in);
         state <= pt_in ^ get_rk(expand_key128(key_in), 0);
-        */
-        rkeys <= key_expanded_start;
-        state <= start_state_next;
         round <= 4'd1;
         busy  <= 1'b1;
       end else if (busy) begin
         if (round <= 4'd9) begin
-          /*
           state <= mixcolumns_fn(shiftrows_fn(subbytes_fn(state))) ^ get_rk(rkeys, round);
-          */
-          state <= state_round_next;
           round <= round + 4'd1;
         end else begin
           // final round (no mixcolumns)
-          /*
           state <= shiftrows_fn(subbytes_fn(state)) ^ get_rk(rkeys, 10);
           ct_out<= shiftrows_fn(subbytes_fn(state)) ^ get_rk(rkeys, 10);
-          */
-          state <= state_final_next;
-          ct_out<= state_final_next;
           busy  <= 1'b0;
           done  <= 1'b1;
         end
@@ -307,3 +288,4 @@ module aes128_core (
   end
 
 endmodule
+

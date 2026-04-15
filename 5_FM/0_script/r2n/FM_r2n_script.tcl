@@ -81,7 +81,6 @@ set_svf ${svf_path}
 read_verilog -r -libname WORK {\
     ../0_rtl/PLL_bb_for_syn.v \
     ../0_rtl/aes128_core.v \
-    ../0_rtl/aes128_core_rewrite.v \
     ../0_rtl/aes_sbox.v \
     ../0_rtl/cdc_toggle_sync.v \
     ../0_rtl/clk_div2_toggle.v \

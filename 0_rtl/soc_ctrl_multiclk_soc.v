@@ -58,22 +58,10 @@ module soc_ctrl_multiclk_soc (
   );
 
   reg start_uart_cmd;
-  reg done_div4_ff1, done_div4_ff2;
-  wire done_div4 = done_div4_ff2;
-  always @(posedge clk_div4 or negedge rst_n) begin
-    if (!rst_n) begin
-      done_div4_ff1 <= 1'b0;
-      done_div4_ff2 <= 1'b0;
-    end else begin
-      done_div4_ff1 <= done;
-      done_div4_ff2 <= done_div4_ff1;
-    end
-  end
-
   always @(posedge clk_div4 or negedge rst_n) begin
     if (!rst_n) start_uart_cmd <= 1'b0;
     else if (rx_valid && (rx_data == 8'hA5)) start_uart_cmd <= 1'b1;
-    else if (done_div4) start_uart_cmd <= 1'b0;
+    else if (done) start_uart_cmd <= 1'b0;
   end
 
   // TX
@@ -130,7 +118,7 @@ module soc_ctrl_multiclk_soc (
     .gclk    (clk_fast_aes)
   );
 
-  aes128_core_rewrite u_aes (
+  aes128_core u_aes (
     .clk(clk_fast_aes), .rst_n(rst_n),
     .start(aes_start),
     .key_in(aes_key),
@@ -146,25 +134,18 @@ module soc_ctrl_multiclk_soc (
     else        aes_done_ff1 <= aes_done;
   end
 
-  /*
   reg [127:0] ct_hold_fast;
   always @(posedge clk_fast or negedge rst_n) begin
     if (!rst_n) ct_hold_fast <= 128'd0;
-    else if (aes_done_pulse) ct_hold그럼 _fast <= aes_ct;
+    else if (aes_done_pulse) ct_hold_fast <= aes_ct;
   end
-  */
-
-  // aes_ct is already a fast-domain register output from u_aes and remains
-  // stable after done until the next transaction, so a second 128-bit shadow
-  // capture is unnecessary and creates a large aes_done_pulse-driven fanout.
-  wire [127:0] ct_fast_bus = aes_ct;
 
   // CDC handshake: fast -> div2
   wire ct_xfer_pulse_div2;
   reg ct_req_pulse_fast;
   wire ct_busy_fast;
   reg [2:0] sst;
-  localparam [2:0] S_IDLE=0, S_LOAD=1, S_W=2, S_R=3, S_RWAIT=4, S_CHK=5, S_FIN=6, S_DONE=7;
+  localparam [2:0] S_IDLE=0, S_W=1, S_R=2, S_RWAIT=3, S_CHK=4, S_FIN=5, S_DONE=6;
   wire ct_ready_div2 = (sst == S_IDLE);
   always @(posedge clk_fast or negedge rst_n) begin
     if (!rst_n) ct_req_pulse_fast <= 1'b0;
@@ -186,6 +167,10 @@ module soc_ctrl_multiclk_soc (
   // clk_div2 domain: SRAM write ciphertext + CRC32 over ciphertext bytes
   // ------------------------------------------------------------
   reg [127:0] ct_hold_div2;
+  always @(posedge clk_div2 or negedge rst_n) begin
+    if (!rst_n) ct_hold_div2 <= 128'd0;
+    else if (ct_xfer_pulse_div2) ct_hold_div2 <= ct_hold_fast;
+  end
 
   // CRC engine
   reg crc_start, crc_finish, crc_dv;
@@ -204,68 +189,18 @@ module soc_ctrl_multiclk_soc (
   );
 
   // SRAM state machine on clk_div2
-  // Keep the one-shot 128-bit landing register for CDC ownership, but stop
-  // re-slicing it repeatedly in the active write/read/TX cones.
-  /* reg [4:0] byte_idx; */
-  reg [3:0] wr_idx;
-  reg [3:0] rd_idx;
-  reg [3:0] load_idx;
+  reg [4:0] byte_idx;
   reg fail;
-  reg [7:0] wr_byte_cur;
-  reg [7:0] rd_byte_exp;
-  reg [7:0] tx_ct_byte_cur;
-  /* wire byte_idx_last = (byte_idx == 5'd15); */
-  /* wire [9:0] mem_addr_cur = {5'd0, byte_idx}; */
-  /* wire [7:0] ct_byte_cur = ct_hold_div2[127 - byte_idx*8 -: 8]; */
-  wire load_idx_last = (load_idx == 4'd15);
-  wire wr_idx_last = (wr_idx == 4'd15);
-  wire rd_idx_last = (rd_idx == 4'd15);
-  wire [9:0] mem_addr_w = {6'd0, wr_idx};
-  wire [9:0] mem_addr_r = {6'd0, rd_idx};
-  wire sst_is_idle = (sst == S_IDLE);
-  wire sst_is_done = (sst == S_DONE);
-  wire ct_byte_mismatch = (mem_rdata !== rd_byte_exp);
-
-  function [7:0] select_ct_byte;
-    input [127:0] ct_bus;
-    input [3:0] idx;
-    begin
-      case (idx)
-        4'd0:  select_ct_byte = ct_bus[127:120];
-        4'd1:  select_ct_byte = ct_bus[119:112];
-        4'd2:  select_ct_byte = ct_bus[111:104];
-        4'd3:  select_ct_byte = ct_bus[103:96];
-        4'd4:  select_ct_byte = ct_bus[95:88];
-        4'd5:  select_ct_byte = ct_bus[87:80];
-        4'd6:  select_ct_byte = ct_bus[79:72];
-        4'd7:  select_ct_byte = ct_bus[71:64];
-        4'd8:  select_ct_byte = ct_bus[63:56];
-        4'd9:  select_ct_byte = ct_bus[55:48];
-        4'd10: select_ct_byte = ct_bus[47:40];
-        4'd11: select_ct_byte = ct_bus[39:32];
-        4'd12: select_ct_byte = ct_bus[31:24];
-        4'd13: select_ct_byte = ct_bus[23:16];
-        4'd14: select_ct_byte = ct_bus[15:8];
-        4'd15: select_ct_byte = ct_bus[7:0];
-        default: select_ct_byte = 8'h00;
-      endcase
-    end
-  endfunction
 
   // We'll store ciphertext bytes at SRAM addresses 0..15
   // Then read back 0..15 to verify, feeding CRC.
   always @(posedge clk_div2 or negedge rst_n) begin
     if (!rst_n) begin
       sst <= S_IDLE;
-      ct_hold_div2 <= 128'd0;
-      load_idx <= 4'd0;
-      wr_idx <= 4'd0;
-      rd_idx <= 4'd0;
+      byte_idx <= 5'd0;
       mem_cs <= 1'b0; mem_we <= 1'b0; mem_oe <= 1'b0;
       mem_addr <= 10'd0; mem_wdata <= 8'd0;
       fail <= 1'b0;
-      wr_byte_cur <= 8'd0;
-      rd_byte_exp <= 8'd0;
       crc_start <= 1'b0; crc_finish <= 1'b0; crc_dv <= 1'b0; crc_byte <= 8'd0;
     end else begin
       crc_start <= 1'b0;
@@ -275,25 +210,11 @@ module soc_ctrl_multiclk_soc (
       case (sst)
         S_IDLE: begin
           mem_cs <= 1'b0; mem_we <= 1'b0; mem_oe <= 1'b0;
-          load_idx <= 4'd0;
-          wr_idx <= 4'd0;
-          rd_idx <= 4'd0;
+          byte_idx <= 5'd0;
           fail <= 1'b0;
           if (ct_xfer_pulse_div2) begin
-            sst <= S_LOAD;
-          end
-        end
-
-        S_LOAD: begin
-          ct_hold_div2[127 - load_idx*8 -: 8] <= select_ct_byte(ct_fast_bus, load_idx);
-          if (load_idx_last) begin
-            wr_idx <= 4'd0;
-            rd_idx <= 4'd0;
-            wr_byte_cur <= ct_fast_bus[127:120];
             crc_start <= 1'b1;
             sst <= S_W;
-          end else begin
-            load_idx <= load_idx + 4'd1;
           end
         end
 
@@ -301,20 +222,13 @@ module soc_ctrl_multiclk_soc (
           mem_cs <= 1'b1;
           mem_we <= 1'b1;
           mem_oe <= 1'b0;
-          /*
           mem_addr <= {5'd0, byte_idx}; // 0..15
           mem_wdata <= ct_hold_div2[127 - byte_idx*8 -: 8];
           if (byte_idx == 5'd15) begin
-          */
-          mem_addr <= mem_addr_w; // 0..15
-          mem_wdata <= wr_byte_cur;
-          if (wr_idx_last) begin
-            rd_idx <= 4'd0;
-            rd_byte_exp <= ct_hold_div2[127:120];
+            byte_idx <= 5'd0;
             sst <= S_R;
           end else begin
-            wr_idx <= wr_idx + 4'd1;
-            wr_byte_cur <= select_ct_byte(ct_hold_div2, wr_idx + 4'd1);
+            byte_idx <= byte_idx + 5'd1;
           end
         end
 
@@ -322,36 +236,31 @@ module soc_ctrl_multiclk_soc (
           mem_cs <= 1'b1;
           mem_we <= 1'b0;
           mem_oe <= 1'b1;
-          /* mem_addr <= {5'd0, byte_idx}; */
-          mem_addr <= mem_addr_r;
+          mem_addr <= {5'd0, byte_idx};
           sst <= S_RWAIT;
         end
 	S_RWAIT: begin
-		  mem_cs <= 1'b1;
-		  mem_we <= 1'b0;
-		  mem_oe <= 1'b1;
-		  /* mem_addr <= {5'd0, byte_idx}; */
-		  mem_addr <= mem_addr_r;
-		  sst <= S_CHK;
-		end
+	  mem_cs <= 1'b1;
+	  mem_we <= 1'b0;
+	  mem_oe <= 1'b1;
+	  mem_addr <= {5'd0, byte_idx};
+	  sst <= S_CHK;
+	end
 
-	        S_CHK: begin
-	          // compare
-	          /* if (mem_rdata !== ct_hold_div2[127 - byte_idx*8 -: 8]) fail <= 1'b1; */
-	          if (ct_byte_mismatch) fail <= 1'b1;
+        S_CHK: begin
+          // compare
+          if (mem_rdata !== ct_hold_div2[127 - byte_idx*8 -: 8]) fail <= 1'b1;
 
-	          // feed CRC with read-back byte (meaningful CRC over SRAM-read data)
-	          crc_dv <= 1'b1;
-	          crc_byte <= mem_rdata;
+          // feed CRC with read-back byte (meaningful CRC over SRAM-read data)
+          crc_dv <= 1'b1;
+          crc_byte <= mem_rdata;
 
-		  /* if (byte_idx == 5'd15) begin */
-		  if (rd_idx_last) begin
-		    sst <= S_FIN;
-		  end else begin
-		    rd_idx <= rd_idx + 4'd1;
-		    rd_byte_exp <= select_ct_byte(ct_hold_div2, rd_idx + 4'd1);
-		    sst <= S_R;
-		  end
+	  if (byte_idx == 5'd15) begin
+	    sst <= S_FIN;
+	  end else begin
+	    byte_idx <= byte_idx + 5'd1;
+	    sst <= S_R;
+	  end
 	end
 	S_FIN: begin
   	  mem_cs <= 1'b0; mem_we <= 1'b0; mem_oe <= 1'b0;
@@ -396,16 +305,12 @@ module soc_ctrl_multiclk_soc (
 
   reg [4:0] tx_idx_div2; // 0..19
   reg [7:0] tx_byte_div2;
-  wire tx_idx_is_ct = (tx_idx_div2 < 5'd16);
-  wire tx_idx_last = (tx_idx_div2 == 5'd19);
-  /* wire [7:0] tx_ct_byte = ct_hold_div2[127 - tx_idx_div2*8 -: 8]; */
 
 
 always @(posedge clk_div2 or negedge rst_n) begin
   if (!rst_n) begin
     tx_idx_div2       <= 5'd0;
     tx_byte_div2      <= 8'd0;
-    tx_ct_byte_cur    <= 8'd0;
     send_go_div2      <= 1'b0;
     stream_ready_div2 <= 1'b0;
     stream_sent_div2  <= 1'b0;
@@ -415,55 +320,45 @@ always @(posedge clk_div2 or negedge rst_n) begin
     send_go_div2 <= 1'b0;
     allow_send_div2_d <= allow_send_div2;
 
-	    // 새 트랜잭션 시작(CT 넘어옴) 시 스트림 상태 리셋
-	    if (ct_xfer_pulse_div2 && sst_is_idle) begin
-	      tx_idx_div2       <= 5'd0;
-          tx_ct_byte_cur    <= 8'd0;
-	      stream_ready_div2 <= 1'b0;
-	      stream_sent_div2  <= 1'b0;
-	    end
-		
-	    // ready는 "CRC 끝 + SRAM verify 끝(S_DONE)" AND 아직 한 번도 20바이트 전송요청 안했을 때
-	    if (sst_is_done && crc_done && !stream_sent_div2) begin
-	      stream_ready_div2 <= 1'b1;
-          if (tx_idx_div2 == 5'd0)
-            tx_ct_byte_cur <= ct_hold_div2[127:120];
-	    end
-		
-	    // 20바이트만 전송 요청하고 멈춤
-	    if (allow_send_div2 && !allow_send_div2_d) begin
-	      /*
-	      if (tx_idx_div2 < 5'd16) begin
-	        tx_byte_div2 <= ct_hold_div2[127 - tx_idx_div2*8 -: 8];
-	      */
-	      if (tx_idx_is_ct) begin
-	        tx_byte_div2 <= tx_ct_byte_cur;
-	      end else begin
-	        case (tx_idx_div2)
-	          5'd16: tx_byte_div2 <= crc_out[31:24];
-	          5'd17: tx_byte_div2 <= crc_out[23:16];
+    // 새 트랜잭션 시작(CT 넘어옴) 시 스트림 상태 리셋
+    if (ct_xfer_pulse_div2 && (sst == S_IDLE)) begin
+      tx_idx_div2       <= 5'd0;
+      stream_ready_div2 <= 1'b0;
+      stream_sent_div2  <= 1'b0;
+    end
+
+    // ready는 "CRC 끝 + SRAM verify 끝(S_DONE)" AND 아직 한 번도 20바이트 전송요청 안했을 때
+    if ((sst == S_DONE) && crc_done && !stream_sent_div2) begin
+      stream_ready_div2 <= 1'b1;
+    end
+
+    // 20바이트만 전송 요청하고 멈춤
+    if (allow_send_div2 && !allow_send_div2_d) begin
+      if (tx_idx_div2 < 5'd16) begin
+        tx_byte_div2 <= ct_hold_div2[127 - tx_idx_div2*8 -: 8];
+      end else begin
+        case (tx_idx_div2)
+          5'd16: tx_byte_div2 <= crc_out[31:24];
+          5'd17: tx_byte_div2 <= crc_out[23:16];
           5'd18: tx_byte_div2 <= crc_out[15:8];
           5'd19: tx_byte_div2 <= crc_out[7:0];
           default: tx_byte_div2 <= 8'h00;
         endcase
       end
 
-	      send_go_div2 <= 1'b1; // div4로 "1바이트 보내라" 요청
-	
-	      /* if (tx_idx_div2 == 5'd19) begin */
-	      if (tx_idx_last) begin
-	        // 마지막 바이트 요청 완료 → 더 이상 보내지 않음
-	        stream_sent_div2  <= 1'b1;
-	        stream_ready_div2 <= 1'b0;
-	        tx_idx_div2       <= 5'd0;
-	      end else begin
-	        tx_idx_div2 <= tx_idx_div2 + 5'd1;
-            if (tx_idx_div2 < 5'd15)
-              tx_ct_byte_cur <= select_ct_byte(ct_hold_div2, tx_idx_div2[3:0] + 4'd1);
-	      end
-	    end
-	  end
-	end
+      send_go_div2 <= 1'b1; // div4로 "1바이트 보내라" 요청
+
+      if (tx_idx_div2 == 5'd19) begin
+        // 마지막 바이트 요청 완료 → 더 이상 보내지 않음
+        stream_sent_div2  <= 1'b1;
+        stream_ready_div2 <= 1'b0;
+        tx_idx_div2       <= 5'd0;
+      end else begin
+        tx_idx_div2 <= tx_idx_div2 + 5'd1;
+      end
+    end
+  end
+end
 
   // div4: on send_pulse_div4, push tx_byte_div2 into UART TX (one at a time)
   // Need to safely sample tx_byte_div2 in div4 domain: since clocks synchronous and handshake toggles, we can sample directly.
