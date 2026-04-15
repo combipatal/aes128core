@@ -24,6 +24,16 @@ set_app_var search_path [list \
     $lib/lib/pll/db_nldm \
     $syn_lib]
 
+if {$corner == "ss"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ss0p95v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ss0p95v125c.db]
+    set TARGET_LIBRARY_FILES [list \
+        saed32rvt_ss0p95v125c.db \
+        saed32pll_ss0p95v125c_2p25v.db \
+        saed32io_fc_ss0p95v125c_2p25v.db]
+    set TARGET_LIBRARY_FILES_MEM [list saed32sram_ss0p95v125c.db]
+}
+
 if {$corner == "ss0p95v125c"} {
     set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ss0p95v125c.db]
     set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ss0p95v125c.db]
@@ -34,6 +44,16 @@ if {$corner == "ss0p95v125c"} {
     set TARGET_LIBRARY_FILES_MEM [list saed32sram_ss0p95v125c.db]
 }
 
+if {$corner == "ff"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ff1p16v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ff1p16v125c.db]
+    set TARGET_LIBRARY_FILES [list \
+        saed32rvt_ff1p16v125c.db \
+        saed32pll_ff1p16v125c_2p75v.db \
+        saed32io_fc_ff1p16v125c_2p75v.db]
+    set TARGET_LIBRARY_FILES_MEM [list saed32sram_ff1p16v125c.db]
+}
+
 if {$corner == "ff1p16vn40c"} {
     set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ff1p16vn40c.db]
     set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ff1p16vn40c.db]
@@ -42,6 +62,21 @@ if {$corner == "ff1p16vn40c"} {
         saed32pll_ff1p16vn40c_2p75v.db \
         saed32io_fc_ff1p16vn40c_2p75v.db]
     set TARGET_LIBRARY_FILES_MEM [list saed32sram_ff1p16vn40c.db]
+}
+
+if {$corner == "tt"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_tt1p05v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_tt1p05v125c.db]
+    set TARGET_LIBRARY_FILES [list \
+        saed32rvt_tt1p05v125c.db \
+        saed32pll_tt1p05v125c_2p5v.db \
+        saed32io_fc_tt1p05v125c_2p5v.db]
+    set TARGET_LIBRARY_FILES_MEM [list saed32sram_tt1p05v125c.db]
+}
+
+if {![info exists TARGET_LIBRARY_FILES]} {
+    puts stderr "Unsupported corner: $corner"
+    exit 1
 }
 
 set_app_var target_library "$TARGET_LIBRARY_FILES $TARGET_LIBRARY_FILES_LVT $TARGET_LIBRARY_FILES_HVT"
@@ -97,13 +132,25 @@ read_verilog $NET
 current_design $design_name
 link
 
+# Keep STA simple and close to synthesis: use one top-level wire-load model.
 set auto_wire_load_selection false
-set_wire_load_mode enclosed
+set_wire_load_mode top
 set_wire_load_model -name ForQA [current_design]
-set_wire_load_model -name 70000 [get_cells u_ctrl]
-set_wire_load_model -name 35000 [get_cells u_ctrl/u_aes]
 
-read_sdc $SDC
+# The synthesis SDC may contain wire-load commands tied to the synthesis
+# corner. Strip those lines before reading so STA can switch corners safely.
+set sanitized_sdc "${scenario_rpt_dir}/[file tail $SDC].sanitized"
+set sdc_in [open $SDC r]
+set sdc_out [open $sanitized_sdc w]
+while {[gets $sdc_in line] >= 0} {
+    if {[regexp {^set_wire_load_mode} $line]} { continue }
+    if {[regexp {^set_wire_load_model} $line]} { continue }
+    puts $sdc_out $line
+}
+close $sdc_in
+close $sdc_out
+
+read_sdc $sanitized_sdc
 if {$STA_OVERRIDE != ""} {
     source $STA_OVERRIDE
 }

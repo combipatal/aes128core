@@ -1,17 +1,29 @@
 #!/bin/csh -f
 
 # STA run configuration
-if ( ! $?ver ) setenv ver 4_13_7p3ns
-setenv corner ss0p95v125c
-setenv mode pre
-if ( ! $?sta_scenario ) setenv sta_scenario scan_capture
-setenv run_mode pre
-setenv hier_mode top
-setenv design_name top_mcu_pll_sram_multiclk_soc
+if ( ! $?ver ) setenv ver 4_15_8ns_ff_holdfix_tcl6
+if ( ! $?net_ver ) setenv net_ver ${ver}
+if ( ! $?sdc_ver ) setenv sdc_ver 4_15_8ns_ff
+if ( ! $?corner ) setenv corner ss
+if ( ! $?mode ) setenv mode pre
+if ( ! $?sta_scenario ) setenv sta_scenario scan_shift
+if ( ! $?run_mode ) setenv run_mode pre
+if ( ! $?hier_mode ) setenv hier_mode top
+if ( ! $?design_name ) setenv design_name top_mcu_pll_sram_multiclk_soc
 
 # DFT output netlist used for STA
-setenv net ../3_DFT/2_output/${ver}/aes_128_internal.v
-setenv sdc ../2_synthesis/2_output/${ver}/mapped/soc_func.sdc
+if ( ! $?net ) setenv net ../3_DFT/2_output/${net_ver}/aes_128_internal.v
+if ( ! $?sdc ) setenv sdc ../2_synthesis/2_output/${sdc_ver}/mapped/soc_func.sdc
+
+if ( ! -f "$net" ) then
+    echo "Missing netlist: $net"
+    exit 1
+endif
+
+if ( ! -f "$sdc" ) then
+    echo "Missing SDC: $sdc"
+    exit 1
+endif
 
 switch ("$sta_scenario")
 case func:
