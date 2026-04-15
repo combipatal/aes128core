@@ -1,178 +1,174 @@
-# 3_DFT
+# 4_DFT
 
-이 디렉터리는 `top_mcu_pll_sram_multiclk_soc`에 대해 single scan chain 기반 DFT insertion을 수행하는 워크스페이스입니다. 입력은 `2_synthesis`의 mapped DDC이고, 출력은 scan inserted netlist/DDC/SPF/SCANDEF 및 관련 DRC/QoR 리포트입니다.
+이 디렉터리는 `top_mcu_pll_sram_multiclk_soc`에 대해 scan insertion을 수행하는 DFT 워크스페이스입니다.
 
-## 목적
+현재 기준 역할:
+- 입력: `2_synthesis`의 mapped DDC
+- 처리: single scan chain 기반 DFT insertion
+- 출력: scan inserted netlist, DDC, SPF, scan DEF, DRC/QoR report
 
-- `2_synthesis` mapped DDC를 입력으로 사용
-- DFT signal 정의, test protocol 생성, pre/post DFT DRC 수행
-- single scan chain 삽입
-- scan inserted Verilog/DDC/SPF/SCANDEF 생성
+## 현재 기준 버전
 
-## 디렉터리 구성
+현재 확인 기준으로 가장 중요한 버전은 아래입니다.
 
-- `0_script/DFT_script.tcl`
-  메인 DFT 스크립트입니다.
-- `2_output/$ver/`
-  DFT 결과물 저장 경로입니다.
-- `3_log/${ver}_scan_dc.log`
-  DC DFT 실행 로그입니다.
-- `4_report/$ver/`
-  pre/post DFT 리포트 저장 경로입니다.
-- `run.csh`
-  기본 `ver`를 설정하고 DFT insertion을 실행하는 wrapper입니다.
+- `4_15_8ns_topo_ss`
 
-## 기본 입력 / 출력
+즉 지금 DFT baseline은 topo synthesis 결과를 입력으로 만든 scan-inserted 버전입니다.
+
+## 입력 / 출력
 
 입력:
-
-- `../2_synthesis/2_output/${ver}/mapped/soc_gate.ddc`
+- [2_synthesis/2_output/4_15_8ns_topo_ss/mapped/soc_gate.ddc](../2_synthesis/2_output/4_15_8ns_topo_ss/mapped/soc_gate.ddc)
 
 출력:
+- [2_output/4_15_8ns_topo_ss/aes_128_internal.v](2_output/4_15_8ns_topo_ss/aes_128_internal.v)
+- [2_output/4_15_8ns_topo_ss/aes_128_internal.ddc](2_output/4_15_8ns_topo_ss/aes_128_internal.ddc)
+- [2_output/4_15_8ns_topo_ss/scan_internal.spf](2_output/4_15_8ns_topo_ss/scan_internal.spf)
+- [2_output/4_15_8ns_topo_ss/scan.def](2_output/4_15_8ns_topo_ss/scan.def)
 
-- `./2_output/${ver}/scan_internal.spf`
-- `./2_output/${ver}/scan.def`
-- `./2_output/${ver}/aes_128_internal.v`
-- `./2_output/${ver}/aes_128_internal.ddc`
+## 주요 스크립트
 
-## 실행 방법
-
-[run.csh](run.csh)의 현재 기본값은 아래와 같습니다.
-
-```csh
-if ( ! $?ver ) setenv ver 4_15_8ns_ff
-source ../.synopsys_dc.setup
-
-mkdir -p ./2_output/${ver}
-mkdir -p ./3_log
-mkdir -p ./4_report/${ver}
-
-dc_shell -64 -f 0_script/DFT_script.tcl | tee 3_log/${ver}_scan_dc.log
-```
-
-실행 예시:
-
-```bash
-cd ./3_DFT
-csh run.csh
-env ver=4_13_7p3ns csh run.csh
-```
+- [run.csh](run.csh)
+  - DFT insertion 실행 wrapper
+- [0_script/DFT_script.tcl](0_script/DFT_script.tcl)
+  - 메인 DFT 스크립트
 
 ## DFT 설정 요약
 
-[DFT_script.tcl](0_script/DFT_script.tcl) 기준 현재 설정은 아래와 같습니다.
+현재 설정은 아래와 같습니다.
 
 - scan clock: `ref_clk`
-  - `set_dft_signal -view exist -type ScanClock -port ref_clk -timing {45 55}`
 - scan enable: `scan_en`
 - reset: `rst_n`
 - test mode: `test_mode`
-- scan input: `scan_in`
-- scan output: `scan_out`
+- scan data in: `scan_in`
+- scan data out: `scan_out`
 - chain count: `1`
 - scan style: `multiplexed_flip_flop`
 - internal clocks: `none`
-- scan path: `chain0`
-- compression: 사용 안 함
+- lockup: `latch`
 
-현재 flow는 scan compression 없이 single scan chain 기준으로 동작합니다.
+즉 현재 flow는:
+- scan compression 없음
+- single scan chain
+- muxed scan flop 기반
 
-## Clock-gating 처리
+## 현재 결과 요약
 
-현재 스크립트는 controller-level AES ICG를 명시적으로 DFT clock-gating cell로 연결합니다.
+현재 [4_report/4_15_8ns_topo_ss](4_report/4_15_8ns_topo_ss) 기준으로 보면 DFT insertion은 전반적으로 정상입니다.
 
-```tcl
-set_dft_configuration -connect_clock_gating enable
-set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes] \
-    -pin_name test_en \
-    -control_signal ScanEnable
-set_scan_element false [get_cells u_ctrl/u_icg_aes]
-```
+확인된 핵심 결과:
+- [scan_config_internal.rpt](4_report/4_15_8ns_topo_ss/scan_config_internal.rpt)
+  - chain count `1`
+  - scan style `Multiplexed flip-flop`
+- [scan_chains_internal.rpt](4_report/4_15_8ns_topo_ss/scan_chains_internal.rpt)
+  - `chain0`
+  - length `1532`
+  - `scan_in -> scan_out`
+- [dft_qor_internal.rpt](4_report/4_15_8ns_topo_ss/dft_qor_internal.rpt)
+  - WNS/TNS `0`
+  - hold violation count `0`
 
-즉 `u_ctrl/u_icg_aes`는 scan element로 넣지 않고, test 시에는 `scan_en`으로 gating을 열도록 모델링합니다.
+즉 DFT insertion 자체는 잘 들어갔다고 봐도 됩니다.
 
-## 스크립트 동작 순서
+## 현재 리포트 해석
 
-현재 스크립트는 대략 아래 순서로 동작합니다.
+### 1. pre-DFT DRC
 
-1. `ver` 기준으로 output/report/log 디렉터리를 생성합니다.
-2. `../2_synthesis/2_output/${ver}/mapped/soc_gate.ddc`를 읽고 top design을 `link`합니다.
-3. test default period/strobe/delay를 설정합니다.
-4. auto-disable DRC nets, constant buffering, no-tri 출력을 설정합니다.
-5. DFT signal과 scan path를 정의합니다.
-6. `create_test_protocol` 후 pre-DFT DRC 및 preview 리포트를 생성합니다.
-7. `insert_dft`를 수행합니다.
-8. functional mode(`scan_en=0`, `test_mode=0`)로 case analysis를 준 뒤 incremental compile을 한 번 더 수행합니다.
-9. `Internal_scan` 모드에서 post-DFT verbose DRC를 생성합니다.
-10. 이름 정리 후 SPF, scan DEF, inserted Verilog/DDC를 기록합니다.
-11. scan configuration, DFT signals, scan chains, QoR, area 리포트를 생성합니다.
+- [pre_dft.rpt](4_report/4_15_8ns_topo_ss/pre_dft.rpt)
 
-## 생성 리포트
+현재 주요 경고:
+- `u_pll` unknown model
+- `u_ctrl/u_icg_aes/en_lat_reg` constant 1
 
-버전별 리포트는 `4_report/$ver/` 아래에 저장됩니다.
+이 경고들은 현재 구조에서 치명적 실패로 보기 어렵습니다.
+
+의미:
+- `u_pll`
+  - black-box / macro 성격 경고
+- `u_ctrl/u_icg_aes/en_lat_reg`
+  - custom latch-based ICG의 test 해석 경고
+
+### 2. post-DFT DRC
+
+- [insert_drc_internal.dft](4_report/4_15_8ns_topo_ss/insert_drc_internal.dft)
+
+현재 주요 경고:
+- `u_pll`, `u_mem/u_sram` unknown model
+- `Clock ref_clk is connected to primary output clk_fast`
+- `u_ctrl/u_icg_aes/en_lat_reg` constant 1
+
+현재 해석:
+- macro / black-box 경고는 허용 범주
+- clock observe output 구조 때문에 `C17`이 남음
+- custom ICG 때문에 latch 관련 warning이 남음
+
+즉 현재 report만 보면 “scan insertion 실패”보다는 “구조상 알고 있는 warning이 남아 있는 상태”에 가깝습니다.
+
+## 리포트 목록
+
+현재 버전별 리포트는 `4_report/$ver/` 아래에 저장됩니다.
 
 - `pre_dft.rpt`
   - pre-DFT DRC 요약
 - `pre_drc_verbose.rpt`
   - pre-DFT DRC 상세
 - `preview_dft.rpt`
-  - insert 전 scan summary preview
-- `dft_qor_func.rpt`
-  - insert 후 functional case analysis 상태에서 incremental compile한 QoR
+  - insert 전 scan summary
 - `insert_drc_internal.dft`
-  - `Internal_scan` 모드 기준 post-DFT verbose DRC
+  - post-DFT DRC 상세
 - `scan_config_internal.rpt`
   - scan configuration 요약
-- `dft_signals_internal.rpt`
-  - existing/spec DFT signal 정의 결과
 - `scan_chains_internal.rpt`
   - 실제 생성된 scan chain 정보
+- `dft_signals_internal.rpt`
+  - DFT signal 정의 결과
+- `dft_qor_func.rpt`
+  - insert 후 functional mode incremental compile QoR
 - `dft_qor_internal.rpt`
-  - inserted netlist 기준 최종 QoR
+  - inserted netlist 최종 QoR
 - `dft_internal_area.rpt`
-  - inserted netlist 기준 hierarchical area
-
-## 최근 버전 예시
-
-현재 `3_DFT/4_report`와 `3_DFT/2_output` 아래에 보이는 최근 버전 예시는 아래와 같습니다.
-
-- `4_13_7p3ns`
-- `4_14_8ns_fix_F`
-- `4_15_8ns_ff`
-
-즉 예전 문서의 `4_11_6_7ns`만 최신 기준이라고 보기는 어렵고, 현재 기본 실행값은 `4_15_8ns_ff`입니다.
-
-## Warning 해석 메모
-
-- `u_pll`, `u_mem/u_sram` unknown-model warning
-  - macro/black-box 성격 때문에 pre/post DFT DRC에서 남을 수 있습니다.
-- `u_ctrl/u_icg_aes/en_lat_reg` 관련 warning
-  - `not scannable`
-  - `constant 1`
-  - custom latch-based clock gating 구조 때문에 남을 수 있으며, scan chain 삽입 성공 여부와는 분리해서 봐야 합니다.
-- `Clock connected to primary output`
-  - top이 내부 clock observe output을 유지하고 있으면 post-DFT DRC에 남을 수 있습니다.
-- DFT 후 timing 악화
-  - scan mux, test control logic, routing 영향으로 pre-DFT보다 timing이 나빠질 수 있습니다.
+  - inserted netlist hierarchy area
 
 ## 확인 포인트
 
-- `preview_dft.rpt`
-  - chain count와 예상 chain 길이 확인
-- `scan_chains_internal.rpt`
-  - `scan_in -> chain0 -> scan_out` 연결 확인
-- `dft_signals_internal.rpt`
-  - `ref_clk`, `scan_en`, `test_mode`, `scan_in`, `scan_out` 정의 확인
-- `insert_drc_internal.dft`
-  - post-DFT 경고와 unresolved DRC 확인
-- `dft_qor_func.rpt`, `dft_qor_internal.rpt`
-  - functional/internal scan 시점 QoR 비교
-- `3_log/${ver}_scan_dc.log`
-  - `create_test_protocol`, `preview_dft`, `insert_dft`, incremental compile 흐름이 정상적으로 끝났는지 확인
+DFT 결과를 볼 때는 아래 순서가 좋습니다.
 
-## 디버그 포인트
+1. [preview_dft.rpt](4_report/4_15_8ns_topo_ss/preview_dft.rpt)
+   - chain count, 예상 scan 구조 확인
+2. [scan_config_internal.rpt](4_report/4_15_8ns_topo_ss/scan_config_internal.rpt)
+   - 실제 scan 설정 확인
+3. [scan_chains_internal.rpt](4_report/4_15_8ns_topo_ss/scan_chains_internal.rpt)
+   - `scan_in -> chain0 -> scan_out` 확인
+4. [pre_dft.rpt](4_report/4_15_8ns_topo_ss/pre_dft.rpt)
+   - insert 전 DRC 확인
+5. [insert_drc_internal.dft](4_report/4_15_8ns_topo_ss/insert_drc_internal.dft)
+   - insert 후 DRC 확인
+6. [dft_qor_internal.rpt](4_report/4_15_8ns_topo_ss/dft_qor_internal.rpt)
+   - timing/QoR 확인
 
-- 입력 DDC가 없으면 먼저 `../2_synthesis/2_output/${ver}/mapped/soc_gate.ddc` 존재 여부를 확인합니다.
-- scan chain이 예상과 다르면 `set_scan_path chain0`, `set_scan_configuration -chain_count 1`이 유지되는지 확인합니다.
-- clock-gating 관련 DRC가 많으면 `set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]` 대상 cell 이름이 현재 netlist와 일치하는지 먼저 봅니다.
-- post-DFT timing이 급격히 악화되면 `dft_qor_func.rpt`와 `dft_qor_internal.rpt`를 나눠서 봐야 원인을 좁힐 수 있습니다.
+## 현재 판단
+
+현재 `4_15_8ns_topo_ss` 기준 DFT는 아래처럼 정리할 수 있습니다.
+
+- single scan chain이 정상 생성됨
+- scan inserted netlist/DDC/SPF/DEF가 정상 생성됨
+- DFT 후 QoR는 큰 문제 없이 유지됨
+- 남은 warning은 macro/black-box/custom ICG/clock observe output 성격이 강함
+
+즉 지금 단계에서는:
+- DFT insertion 자체는 정상
+- 다음 확인 포인트는 post-DFT STA
+
+## 다음 단계
+
+현재 `2.5_STA` 기준 synth netlist에서 FF hold가 SRAM input에 작게 남아 있습니다.
+
+그래서 다음 권장 순서는 아래입니다.
+
+1. `4_DFT` 결과 사용
+2. post-DFT STA 실행
+3. 실제 최종 hold 위반 확인
+4. 필요하면 별도 ECO 흐름을 새로 정리해서 적용
+
+즉 hold closure는 synthesis 단계보다 post-DFT 단계에서 마무리하는 쪽이 현재 흐름에 더 잘 맞습니다.

@@ -81,6 +81,15 @@ insert_dft
 
 set_case_analysis 0 [get_ports scan_en]
 set_case_analysis 0 [get_ports test_mode]
+
+# This pulse fans out into many ct_hold_div2 load paths after scan insertion.
+# The previous try used an internal net object, and DC ignored it.
+# Apply the rule on the source module output port so DC can honor it.
+current_design cdc_toggle_sync_1
+set_max_fanout 16 [get_ports pulse_dst]
+set_max_transition 0.20 [get_ports pulse_dst]
+current_design top_mcu_pll_sram_multiclk_soc
+
 set_critical_range 0.5 [current_design]
 compile_ultra -scan -incremental
 report_qor > ./4_report/${ver}/dft_qor_func.rpt
