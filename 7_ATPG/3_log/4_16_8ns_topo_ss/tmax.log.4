@@ -1,0 +1,57 @@
+ Slave ID = 4, PID = 3546059
+ 
+ ***********************************************************
+ *  NOTICE:  The following DRC violations were previously  *
+ *  encountered. The presence of these violations is an    *
+ *  indicator that it is possible that the ATPG patterns   *
+ *  created during this process may fail in simulation.    *
+ *                                                         *
+ *  Rules:  N20                                            *
+ ***********************************************************
+ ATPG performed for stuck fault model using internal pattern source.
+ ---------------------------------------------------------------------
+ #patterns  #patterns     #faults     #ATPG faults  test      process
+ simulated  eff/total  detect/active  red/au/abort  coverage  CPU time
+ ---------  ---------  -------------  ------------  --------  --------
+ Begin deterministic ATPG: #collapsed_faults=45762, abort_limit=10...
+ 32          29    29   19738  26023         0/0/0    55.03%      0.41
+ 59          27    56     640   1543        1/13/0    97.03%      0.48
+ 
+      Collapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      58055
+ Possibly detected                PT          3
+ Undetectable                     UD        521
+ ATPG untestable                  AU        186
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                             58765
+ test coverage                            99.68%
+ fault coverage                           98.79%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                          56
+     #basic_scan patterns                    56
+ -----------------------------------------------
+            CPU Usage Summary Report
+ -----------------------------------------------
+ Total CPU time                            0.49
+ -----------------------------------------------
+      Collapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      58055
+ Possibly detected                PT          3
+ Undetectable                     UD        521
+ ATPG untestable                  AU        186
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                             58765
+ test coverage                            99.68%
+ fault coverage                           98.79%
+ -----------------------------------------------
+ Memory usage summary: total=67.42MB

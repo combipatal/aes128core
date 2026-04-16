@@ -1,0 +1,22 @@
+ Fault analysis summary: #analyzed=521, #unexplained=515.
+ 6 faults are untestable due to constrain values.
+    sa0   UT   u_mem/u_sram/A[4]
+    sa0   UT   u_mem/u_sram/A[5]
+    sa0   UT   u_mem/u_sram/A[6]
+    sa0   UT   u_mem/u_sram/A[7]
+    sa0   UT   u_mem/u_sram/A[8]
+    sa0   UT   u_mem/u_sram/A[9]
+ 6 faults are connected to TIEX.
+    sa0   UT   u_mem/u_sram/A[4]
+    sa0   UT   u_mem/u_sram/A[5]
+    sa0   UT   u_mem/u_sram/A[6]
+    sa0   UT   u_mem/u_sram/A[7]
+    sa0   UT   u_mem/u_sram/A[8]
+    sa0   UT   u_mem/u_sram/A[9]
+ 6 faults are connected from TIEX.
+    sa0   UT   u_mem/u_sram/A[4]
+    sa0   UT   u_mem/u_sram/A[5]
+    sa0   UT   u_mem/u_sram/A[6]
+    sa0   UT   u_mem/u_sram/A[7]
+    sa0   UT   u_mem/u_sram/A[8]
+    sa0   UT   u_mem/u_sram/A[9]

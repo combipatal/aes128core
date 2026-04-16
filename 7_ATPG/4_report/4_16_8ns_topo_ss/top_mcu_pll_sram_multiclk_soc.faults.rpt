@@ -1,0 +1,40 @@
+             Gate Summary Report
+ -----------------------------------------------
+ #primitives                              20392
+ #primary_inputs                            267
+ #primary_outputs                            11
+ #DLATs                                       1
+    #nonscan                                  1
+ #DFFs                                     1532
+    #scan                                  1532
+ #BUFs                                     3033
+ #INVs                                     1551
+ #ANDs                                     4597
+ #NANDs                                    3629
+ #ORs                                      3382
+ #NORs                                      524
+ #XORs                                      291
+ #XNORs                                      11
+ #TIEXs                                       9
+ #MUXs                                     1554
+ -----------------------------------------------
+      Collapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      58055
+ Possibly detected                PT          3
+ Undetectable                     UD        521
+ ATPG untestable                  AU        186
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                             58765
+ test coverage                            99.68%
+ fault coverage                           98.79%
+ -----------------------------------------------
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                         215
+     #basic_scan patterns                   215
+ -----------------------------------------------
+ Memory usage summary: total=67.42MB

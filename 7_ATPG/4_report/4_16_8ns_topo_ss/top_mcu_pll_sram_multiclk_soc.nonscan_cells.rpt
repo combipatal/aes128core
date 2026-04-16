@@ -1,0 +1,3 @@
+ type      behavior_data  gate_id  instance_name (type)
+ --------  -------------  -------  -------------------------------
+ C1        load_stable      18848  u_ctrl/u_icg_aes/en_lat_reg (LATCHX1_RVT)
