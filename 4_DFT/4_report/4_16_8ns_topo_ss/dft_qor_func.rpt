@@ -4,7 +4,7 @@ Information: Updating design information... (UID-85)
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-5
-Date   : Thu Apr 16 09:19:17 2026
+Date   : Thu Apr 16 10:08:43 2026
 ****************************************
 
 
@@ -134,10 +134,10 @@ Date   : Thu Apr 16 09:19:17 2026
   -----------------------------------------
   Resource Sharing:                    0.00
   Logic Optimization:                  0.00
-  Mapping Optimization:                5.69
+  Mapping Optimization:                5.68
   -----------------------------------------
-  Overall Compile Time:               12.91
-  Overall Compile Wall Clock Time:    14.52
+  Overall Compile Time:               12.90
+  Overall Compile Wall Clock Time:    14.54
 
   --------------------------------------------------------------------
 
