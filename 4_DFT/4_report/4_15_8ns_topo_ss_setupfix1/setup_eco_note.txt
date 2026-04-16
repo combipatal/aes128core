@@ -1,7 +1,0 @@
-Input version : 4_15_8ns_topo_ss
-Output version: 4_15_8ns_topo_ss_setupfix1
-
-ECO summary:
-- Added SETUP_ECO_BUF_14 driven directly by ct_xfer_pulse_div2
-- Rewired DFTC_14 input from n763 to setup_eco_ct_pulse_14
-- Goal: reduce the overloaded n763 -> DFTC_14 branch seen in post-DFT STA
