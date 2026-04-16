@@ -2,7 +2,7 @@
 Report : qor
 Design : top_mcu_pll_sram_multiclk_soc
 Version: W-2024.09-SP5-3
-Date   : Thu Apr 16 09:58:54 2026
+Date   : Thu Apr 16 13:59:25 2026
 ****************************************
 
   Timing Path Group '**clock_gating_default**' (max_delay/setup)
@@ -107,8 +107,8 @@ Date   : Thu Apr 16 09:58:54 2026
   Timing Path Group 'clk_div4' (min_delay/hold)
   ---------------------------------------------
   Levels of Logic:                            1
-  Critical Path Length:                  0.1560
-  Critical Path Slack:                   0.1300
+  Critical Path Length:                  0.0220
+  Critical Path Slack:                   0.0460
   Total Negative Slack:                  0.0000
   No. of Violating Paths:                     0
   ---------------------------------------------

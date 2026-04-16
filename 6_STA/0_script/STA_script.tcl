@@ -123,6 +123,12 @@ set sdc_out [open $sanitized_sdc w]
 while {[gets $sdc_in line] >= 0} {
     if {[regexp {^set_wire_load_mode} $line]} { continue }
     if {[regexp {^set_wire_load_model} $line]} { continue }
+    if {[regexp {^create_generated_clock \[get_pins u_ctrl/u_icg_aes/gclk\]} $line]} {
+        set line {create_generated_clock [get_pins u_ctrl/u_icg_aes/U4/Y] -name clk_fast_aes -source [get_pins u_ctrl/u_icg_aes/U4/A1] -combinational}
+    }
+    if {[regexp {^create_generated_clock \[get_pins u_div8/clk_out\]} $line]} {
+        set line {create_generated_clock [get_pins u_div8/clk_out_reg/Q] -name clk_div8 -source [get_pins u_div8/clk_out_reg/CLK] -divide_by 2}
+    }
     puts $sdc_out $line
 }
 close $sdc_in

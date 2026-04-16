@@ -17,7 +17,7 @@ case synth:
     breaksw
 case dft:
     # DFT netlist 기준 STA
-    if ( ! $?net ) setenv net ../3_DFT/2_output/${ver}/aes_128_internal.v
+    if ( ! $?net ) setenv net ../4_DFT/2_output/${ver}/aes_128_internal.v
     if ( ! $?sdc ) setenv sdc ../2_synthesis/2_output/${ver}/mapped/soc_func.sdc
     breaksw
 default:

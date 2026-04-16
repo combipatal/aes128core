@@ -160,6 +160,56 @@ env ver=4_16_8ns_topo_ss corner=ss sta_scenario=scan_shift csh run.csh
 - 현재 setup / hold violation처럼 즉시 막히는 문제는 아닙니다.
 - 다음 문서 정리나 constraint refinement 때 우선순위를 줄 수 있는 항목입니다.
 
+## 실제로 겪은 문제: `PTE-015` SDF annotation 에러
+
+STA를 진행하면서 아래 형태의 `PTE-015` 에러가 발생한 적이 있습니다.
+
+- `u_ctrl/u_icg_aes/gclk`
+- `u_div8/clk_out`
+
+대표 증상:
+
+- `read_sdf` 직후
+- `cannot be annotated because of a timing assertion on hierarchical pin ... (PTE-015)`
+
+현재 해석:
+
+- 이 에러는 `set_clock_uncertainty`를 다시 줘서 생긴 것이 아닙니다.
+- 실제 원인은 generated clock를 hierarchical pin에 걸어 둔 상태에서 SDF net delay를 annotate하려고 했기 때문입니다.
+- 즉 SDF 문제라기보다, clock anchor 위치가 hierarchical pin이라서 annotation과 충돌한 경우입니다.
+
+수정 방법:
+
+- generated clock anchor를 hierarchical pin에서 leaf pin으로 옮겼습니다.
+
+변경한 기준:
+
+- `u_ctrl/u_icg_aes/gclk`
+  - → `u_ctrl/u_icg_aes/U4/Y`
+- source `u_ctrl/u_icg_aes/clk`
+  - → `u_ctrl/u_icg_aes/U4/A1`
+- `u_div8/clk_out`
+  - → `u_div8/clk_out_reg/Q`
+- source `u_div8/clk_in`
+  - → `u_div8/clk_out_reg/CLK`
+
+적용 위치:
+
+- [0_script/STA_script.tcl](0_script/STA_script.tcl)
+  - sanitized SDC 생성 단계에서 generated clock 정의를 leaf pin 기준으로 치환
+- [1_input/constraint/func_pre_sta.tcl](1_input/constraint/func_pre_sta.tcl)
+  - `clk_fast_aes` fallback 생성도 leaf pin 우선으로 변경
+
+의미:
+
+- `read_sdf` 시 hierarchical pin timing assertion과 충돌하던 문제를 줄임
+- clock tree 해석을 실제 구동 leaf pin 기준으로 더 명확하게 만듦
+
+즉 현재 STA 스크립트는:
+
+- hierarchical pin 기반 generated clock를 그대로 쓰지 않고
+- leaf pin anchor를 우선 사용하도록 수정된 상태입니다.
+
 ## 왜 `func` analysis coverage가 낮게 보이는가
 
 현재 [func_pre_ss_analysis_coverage.rpt](4_report/4_16_8ns_topo_ss/func/analysis_coverage/func_pre_ss_analysis_coverage.rpt)를 보면 아래처럼 보입니다.

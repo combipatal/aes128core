@@ -100,9 +100,9 @@ aes128_core/
 
 ### 1. 기능 검증: `1_vcs`
 
-현재 `default_nist`, `ext_zero`, `ext_ecb_nist` 3개 testcase가 모두 PASS입니다.
+현재 체크인된 summary 기준으로 `default_nist`, `ext_zero`, `ext_ecb_nist` 3개 testcase가 모두 PASS로 기록돼 있습니다.
 
-즉 RTL 기준 기능 regression은 현재 맞는 상태입니다.
+즉 저장소에 남아 있는 회귀 증빙 기준으로는 RTL 기능이 맞는 상태입니다.
 
 관련 README:
 
@@ -128,7 +128,7 @@ aes128_core/
 
 ### 3. r2n FM: `3_FM`
 
-현재 `r2n_4_16_8ns_topo_ss` 기준으로 `Verification SUCCEEDED`입니다.
+현재 체크인된 `r2n_4_16_8ns_topo_ss` 로그 / 리포트 기준으로 `Verification SUCCEEDED`입니다.
 
 현재 상태:
 
@@ -138,7 +138,7 @@ aes128_core/
 - unverified 없음
 - `scan_out` 1개만 dont_verify
 
-즉 RTL ↔ synthesis gate 기능 등가는 현재 정상입니다.
+즉 저장소에 남아 있는 FM 증빙 기준으로 RTL ↔ synthesis gate 기능 등가는 정상입니다.
 
 관련 README:
 
@@ -165,7 +165,7 @@ aes128_core/
 
 ### 5. n2n FM: `5_FM`
 
-현재 `n2n_4_16_8ns_topo_ss` 기준으로 `Verification SUCCEEDED`입니다.
+현재 체크인된 `n2n_4_16_8ns_topo_ss` 로그 / 리포트 기준으로 `Verification SUCCEEDED`입니다.
 
 현재 상태:
 
@@ -216,7 +216,7 @@ aes128_core/
 - test coverage `99.68%`
 - fault coverage `98.79%`
 
-즉 현재 ATPG도 실제로 돌아간 상태입니다.
+즉 현재 체크인된 결과 기준으로 ATPG도 실제로 수행된 상태입니다.
 
 관련 README:
 
@@ -248,7 +248,7 @@ aes128_core/
 
 ## 현재 상태를 한 줄로 요약하면
 
-현재 `aes128_core`는 `RTL -> VCS -> synthesis -> r2n FM -> DFT -> n2n FM -> STA -> ATPG` 흐름이 `4_16_8ns_topo_ss` 기준으로 실제 산출물과 리포트까지 연결된 상태입니다.
+현재 `aes128_core`는 체크인된 산출물과 리포트 기준으로 `RTL -> VCS -> synthesis -> r2n FM -> DFT -> n2n FM -> STA -> ATPG` 흐름이 `4_16_8ns_topo_ss` 기준으로 연결된 상태입니다.
 
 ## 먼저 보면 좋은 문서
 
