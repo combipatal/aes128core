@@ -1,0 +1,17 @@
+****************************************
+Report : clock gating check
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-3
+Date   : Thu Apr 16 10:24:40 2026
+****************************************
+
+
+Note: * indicates user-annotated setup/hold value
+Note: U indicates user override of tool-inferred high/low controlling value
+Attr: I:auto inferred, P:power compiler inserted, L:library cell defined
+                                           Rise                 Fall
+Cell   Enable    Clock-Pin Clock     Setup      Hold       Setup      Hold    High/Low Attr     
+------------------------------------------------------------------------------------------
+u_ctrl/u_icg_aes/U4
+       A2        A1       ref_clk   0.0000     0.0000     0.0000     0.0000   High     I        
+1

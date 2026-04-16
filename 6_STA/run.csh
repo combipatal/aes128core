@@ -1,19 +1,16 @@
 #!/bin/csh -f
 
-# STA run configuration
-if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss
-if ( ! $?net_ver ) setenv net_ver ${ver}
-if ( ! $?sdc_ver ) setenv sdc_ver 4_15_8ns_topo_ss
+# STA 실행 변수 기본값
+if ( ! $?ver ) setenv ver 4_16_8ns_topo_ss
 if ( ! $?corner ) setenv corner ff
 if ( ! $?mode ) setenv mode pre
 if ( ! $?sta_scenario ) setenv sta_scenario scan_capture
-if ( ! $?run_mode ) setenv run_mode pre
-if ( ! $?hier_mode ) setenv hier_mode top
 if ( ! $?design_name ) setenv design_name top_mcu_pll_sram_multiclk_soc
 
-# DFT output netlist used for STA
-if ( ! $?net ) setenv net ../4_DFT/2_output/${net_ver}/aes_128_internal.v
-if ( ! $?sdc ) setenv sdc ../2_synthesis/2_output/${sdc_ver}/mapped/soc_func.sdc
+# post-DFT netlist와 post-DFT SDF를 기본으로 사용
+if ( ! $?net ) setenv net ../4_DFT/2_output/${ver}/aes_128_internal.v
+if ( ! $?sdc ) setenv sdc ../2_synthesis/2_output/${ver}/mapped/soc_func.sdc
+if ( ! $?sdf_delay ) setenv sdf_delay ../4_DFT/2_output/${ver}/aes_128_internal.sdf
 
 if ( ! -f "$net" ) then
     echo "Missing netlist: $net"
@@ -25,14 +22,22 @@ if ( ! -f "$sdc" ) then
     exit 1
 endif
 
+if ( ! -f "$sdf_delay" ) then
+    echo "Missing SDF: $sdf_delay"
+    exit 1
+endif
+
 switch ("$sta_scenario")
 case func:
+    # 기능 모드 제약
     setenv sta_override 1_input/constraint/func_pre_sta.tcl
     breaksw
 case scan_shift:
+    # scan shift 제약
     setenv sta_override 1_input/constraint/scan_shift_sta.tcl
     breaksw
 case scan_capture:
+    # scan capture 제약
     setenv sta_override 1_input/constraint/scan_capture_sta.tcl
     breaksw
 default:
@@ -45,5 +50,5 @@ mkdir -p 2_output
 mkdir -p 3_log
 mkdir -p 4_report/${ver}
 
-# Launch PrimeTime
+# PrimeTime 실행
 pt_shell -f 0_script/STA_script.tcl | tee 3_log/${ver}_${sta_scenario}_${mode}_${corner}_sta.log
