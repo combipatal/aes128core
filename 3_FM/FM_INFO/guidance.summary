@@ -1,16 +1,17 @@
                                          Status
 Command                 Accepted   Rejected    Pending Unprocessed     Total
 ----------------------------------------------------------------------------
-change_names        :         15          1          0          0         16
-constant            :          1          0          0          1          2
-environment         :          8          0          0          0          8
+change_names        :          5         11          0          0         16
+environment         :          9          0          0          0          9
 file_info           :         11          0          0          0         11
 instance_map        :          9          0          0          0          9
 inv_push            :          1          0          0          0          1
 mark                :         20          0          0          0         20
 reg_constant        :        696          0          0          0        696
-reg_merging         :          5          0          0          0          5
-replace             :          2          0          0          0          2
-uniquify            :          1          0          0          0          1
+reg_merging         :          4          0          0          0          4
+replace             :          0          2          0          0          2
+transformation
+   map              :         14          0          0          0         14
+uniquify            :          2          0          0          0          2
 ----------------------------------------------------------------------------
-Total               :        769          1          0          1        771
+Total               :        771         13          0          0        784

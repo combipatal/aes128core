@@ -1,7 +1,7 @@
 #!/bin/csh -f
 
 # 기본 합성 버전과 FM 결과 폴더 이름을 환경변수로 제어한다.
-if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss
+if ( ! $?ver ) setenv ver 4_16_8ns_topo_ss
 if ( ! $?lib_corner ) setenv lib_corner ss
 if ( ! $?fm_ver ) setenv fm_ver r2n_${ver}
 

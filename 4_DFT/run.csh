@@ -1,4 +1,4 @@
-if ( ! $?ver ) setenv ver 4_15_8ns_topo_ss
+if ( ! $?ver ) setenv ver 4_16_8ns_topo_ss
 
 mkdir -p ./work
 mkdir -p ./2_output/${ver}

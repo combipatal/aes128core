@@ -32,15 +32,14 @@ set_dft_clock_gating_pin [get_cells u_ctrl/u_icg_aes]\
     -pin_name test_en\
     -control_signal ScanEnable
 
-# latch 셀들을 scan chain element로 취급하지 말라는 뜻
+# latch 기반 ICG 셀은 scan element로 취급하지 않는다
 set_scan_element false [get_cells u_ctrl/u_icg_aes]
 
-# Keep the design name stable, but allow normal optimization after scan insertion.
-# The previous setting blocked too much restructuring around scan-added fanout trees.
+# 이름은 유지하되 scan 삽입 후 일반 최적화는 허용한다
 set_dft_insertion_configuration \
     -preserve_design_name true
 
-# Synopsys가 삽입하는 DFT 전용 로직을 어느 계층/이름 아래 둘지 지정
+# 필요하면 DFT 전용 로직의 삽입 위치를 고정할 수 있다
 #set_dft_location top_mcu_pll_sram_multiclk_soc/U_SNPS_DFT_LOGIC
 
 set_dft_signal -view exist -type ScanClock  -port ref_clk   -timing {45 55}
@@ -48,7 +47,7 @@ set_dft_signal -view exist -type ScanEnable -port scan_en   -active_state 1
 set_dft_signal -view exist -type Reset      -port rst_n     -active_state 0
 
 set_dft_signal -view exist -type TestMode -active_state 1 -port test_mode 
-# scan_in, scan_out
+# scan 입출력 포트를 지정한다
 set_dft_signal -view spec  -type ScanDataIn     -port scan_in
 set_dft_signal -view spec  -type ScanDataOut    -port scan_out
 
@@ -56,25 +55,25 @@ set_scan_path chain0 -view spec -scan_data_in scan_in -scan_data_out scan_out
 
 #set_dft_configuration -scan_compression enable
 
-#scan chain 개수 4개
+# scan chain 개수를 4개로 둔다
 set_scan_configuration -test_mode all -chain_count 4
-#scan FF 스타일을 muxed scan flop으로 
+# scan FF 스타일은 muxed scan flop으로 둔다
 set_scan_configuration -test_mode all -style multiplexed_flip_flop
-#internal clock를 별도로 scan clock로 쓰지 않음
+# internal clock는 별도 scan clock로 쓰지 않는다
 set_scan_configuration -test_mode all -internal_clocks none
 
 set_dft_configuration -fix_bus enable
 
-#clock, reset 수정 X
+# clock, reset 자동 수정은 하지 않는다
 set auto_fix 0
 
-#DFT 삽입 전에 test protocol을 생성하고, DFT rule check와 scan 구조확인
+# DFT 삽입 전에 test protocol과 DFT rule check를 수행한다
 create_test_protocol
 dft_drc                             > ./4_report/${ver}/pre_dft.rpt
 dft_drc -verbose                    > ./4_report/${ver}/pre_drc_verbose.rpt
 preview_dft -show scan_summary      > ./4_report/${ver}/preview_dft.rpt
 
-#DFT/합성 과정에서 새로 삽입되는 인스턴스 이름 앞에 DFTC_를 붙임
+# DFT에서 새로 넣는 인스턴스 이름 앞에 DFTC_를 붙인다
 set compile_instance_name_prefix DFTC_
 
 insert_dft
@@ -82,12 +81,10 @@ insert_dft
 set_case_analysis 0 [get_ports scan_en]
 set_case_analysis 0 [get_ports test_mode]
 
-# This pulse drives a wide control tree after scan insertion.
-# Buffer insertion alone was not enough, so ask DC to replicate the source
-# register when the fanout gets too large.
+# scan 후 fanout이 커지는 CDC source flop은 복제를 허용한다
 set_register_replication -max_fanout 16 [get_cells u_ctrl/u_ct_cdc/pulse_dst_reg]
 
-# Keep the source transition tight at the CDC block output.
+# CDC 출력의 transition을 강하게 제한한다
 current_design cdc_toggle_sync_1
 set_max_transition 0.20 [get_ports pulse_dst]
 current_design top_mcu_pll_sram_multiclk_soc
@@ -99,7 +96,7 @@ report_qor > ./4_report/${ver}/dft_qor_func.rpt
 current_test_mode Internal_scan
 dft_drc -verbose    > ./4_report/${ver}/insert_drc_internal.dft
 
-# Change names
+# 최종 netlist 이름을 verilog 규칙에 맞게 정리한다
 change_names -rules verilog -hierarchy
 
 write_test_protocol -test_mode Internal_scan\
@@ -110,6 +107,7 @@ write_scan_def -out ./2_output/${ver}/scan.def
 
 write -f verilog  -hierarchy -output ./2_output/${ver}/aes_128_internal.v
 write_file -f ddc -hierarchy -output ./2_output/${ver}/aes_128_internal.ddc
+write_sdf -version 2.1 ./2_output/${ver}/aes_128_internal.sdf
 
 current_test_mode Internal_scan
 

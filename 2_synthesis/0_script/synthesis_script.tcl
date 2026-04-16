@@ -113,5 +113,6 @@ change_names -rules verilog -hierarchy
 
 write_file -f ddc -h -o ./2_output/$ver/mapped/soc_gate.ddc
 write -f verilog -h -o ./2_output/$ver/mapped/soc_gate.v
+write_sdf -version 2.1 ./2_output/$ver/mapped/soc_gate.sdf
 
 write_sdc ./2_output/$ver/mapped/soc_func.sdc

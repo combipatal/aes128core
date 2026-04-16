@@ -1,8 +1,8 @@
 #!/bin/csh -f
 
 # 기본 reference/implementation 버전과 FM 결과 폴더 이름을 환경변수로 제어한다.
-if ( ! $?ref_ver ) setenv ref_ver 4_15_8ns_topo_ss
-if ( ! $?impl_ver ) setenv impl_ver 4_15_8ns_topo_ss
+if ( ! $?ref_ver ) setenv ref_ver 4_16_8ns_topo_ss
+if ( ! $?impl_ver ) setenv impl_ver 4_16_8ns_topo_ss
 if ( ! $?lib_corner ) setenv lib_corner ss
 if ( ! $?fm_ver ) setenv fm_ver n2n_${impl_ver}
 

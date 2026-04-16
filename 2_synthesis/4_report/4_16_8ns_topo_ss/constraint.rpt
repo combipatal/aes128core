@@ -1,0 +1,58 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : top_mcu_pll_sram_multiclk_soc
+Version: W-2024.09-SP5-5
+Date   : Thu Apr 16 09:36:48 2026
+****************************************
+
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   n271                       168.00         552.37        -384.37  (VIOLATED)
+   u_ctrl/n7                  168.00         274.40        -106.40  (VIOLATED)
+   u_ctrl/n139                168.00         189.42         -21.42  (VIOLATED)
+   u_ctrl/u_aes/state[43]       8.00          13.38          -5.38  (VIOLATED)
+   u_ctrl/u_aes/state[69]      16.00          19.16          -3.16  (VIOLATED)
+   u_ctrl/u_aes/n7389          16.00          18.95          -2.95  (VIOLATED)
+   u_ctrl/u_aes/state[18]       8.00          10.90          -2.90  (VIOLATED)
+   u_ctrl/u_aes/n6419          16.00          17.95          -1.95  (VIOLATED)
+   u_ctrl/u_aes/n6107          16.00          17.60          -1.60  (VIOLATED)
+   u_ctrl/u_aes/n8002          16.00          17.55          -1.55  (VIOLATED)
+   u_ctrl/u_aes/n5175          16.00          17.50          -1.50  (VIOLATED)
+   u_ctrl/u_aes/n8184          16.00          17.23          -1.23  (VIOLATED)
+   u_ctrl/u_aes/n7047          16.00          17.10          -1.10  (VIOLATED)
+   u_ctrl/u_aes/n8501          16.00          16.96          -0.96  (VIOLATED)
+   u_ctrl/u_aes/n8320          16.00          16.82          -0.82  (VIOLATED)
+   u_ctrl/u_aes/n8499          16.00          16.58          -0.58  (VIOLATED)
+   u_ctrl/u_aes/state[67]       8.00           8.57          -0.57  (VIOLATED)
+   u_ctrl/u_aes/n8467          16.00          16.53          -0.53  (VIOLATED)
+   u_ctrl/u_aes/state[122]      8.00           8.52          -0.52  (VIOLATED)
+   u_ctrl/u_aes/state[88]       8.00           8.49          -0.49  (VIOLATED)
+   u_ctrl/u_aes/n6633           8.00           8.43          -0.43  (VIOLATED)
+   u_ctrl/u_aes/n24092         16.00          16.41          -0.41  (VIOLATED)
+   u_ctrl/u_aes/n8166          16.00          16.38          -0.38  (VIOLATED)
+   u_ctrl/n358                  8.00           8.30          -0.30  (VIOLATED)
+   u_ctrl/u_aes/n7494           8.00           8.25          -0.25  (VIOLATED)
+   u_ctrl/u_aes/n6881          16.00          16.13          -0.13  (VIOLATED)
+   u_ctrl/u_aes/n6271           8.00           8.10          -0.10  (VIOLATED)
+   u_ctrl/u_aes/n8482          16.00          16.04          -0.04  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      28               -542.02  
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   top_mcu_pll_sram_multiclk_soc
+                                0.00       2362412800.00  -2362412800.00
+                                                                    (VIOLATED)
+
+
+1

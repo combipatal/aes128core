@@ -7,6 +7,10 @@ set design_name $env(design_name)
 set NET $env(net)
 set SDC $env(sdc)
 set sta_scenario $env(sta_scenario)
+set net_source "unknown"
+if {[info exists env(net_source)]} {
+    set net_source $env(net_source)
+}
 set STA_OVERRIDE ""
 if {[info exists env(sta_override)]} {
     set STA_OVERRIDE $env(sta_override)
@@ -17,12 +21,16 @@ set syn_lib /tools/synopsys/prime/W-2024.09-SP5-3/libraries/syn
 
 set_app_var search_path [list \
     $lib/lib/stdcell_rvt/db_nldm \
+    $lib/lib/stdcell_lvt/db_nldm \
+    $lib/lib/stdcell_hvt/db_nldm \
     $lib/lib/io_std/db_nldm \
     $lib/lib/sram/db_nldm \
     $lib/lib/pll/db_nldm \
     $syn_lib]
 
 if {$corner == "ss"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ss0p95v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ss0p95v125c.db]
     set TARGET_LIBRARY_FILES [list \
         saed32rvt_ss0p95v125c.db \
         saed32pll_ss0p95v125c_2p25v.db \
@@ -31,6 +39,8 @@ if {$corner == "ss"} {
 }
 
 if {$corner == "ff"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_ff1p16v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_ff1p16v125c.db]
     set TARGET_LIBRARY_FILES [list \
         saed32rvt_ff1p16v125c.db \
         saed32pll_ff1p16v125c_2p75v.db \
@@ -39,6 +49,8 @@ if {$corner == "ff"} {
 }
 
 if {$corner == "tt"} {
+    set TARGET_LIBRARY_FILES_HVT [list saed32hvt_tt1p05v125c.db]
+    set TARGET_LIBRARY_FILES_LVT [list saed32lvt_tt1p05v125c.db]
     set TARGET_LIBRARY_FILES [list \
         saed32rvt_tt1p05v125c.db \
         saed32pll_tt1p05v125c_2p5v.db \
@@ -51,7 +63,7 @@ if {![info exists TARGET_LIBRARY_FILES]} {
     exit 1
 }
 
-set_app_var target_library "$TARGET_LIBRARY_FILES"
+set_app_var target_library "$TARGET_LIBRARY_FILES $TARGET_LIBRARY_FILES_LVT $TARGET_LIBRARY_FILES_HVT"
 set synthetic_library [list standard.sldb]
 set_app_var link_path "* $target_library $TARGET_LIBRARY_FILES_MEM gtech.db"
 
@@ -68,7 +80,7 @@ if {$sta_scenario == "scan_capture"} {
     set scenario_dir_name "capture"
 }
 
-set scenario_rpt_dir "${rpt_dir}/${scenario_dir_name}"
+set scenario_rpt_dir "${rpt_dir}/${net_source}/${scenario_dir_name}"
 file mkdir $scenario_rpt_dir
 
 set rpt_check_timing_dir "${scenario_rpt_dir}/check_timing"
@@ -104,21 +116,40 @@ read_verilog $NET
 current_design $design_name
 link
 
-# Keep STA simple and close to synthesis: use one top-level wire-load model.
-set auto_wire_load_selection false
-set_wire_load_mode top
-set_wire_load_model -name ForQA [current_design]
+set wlm_profile "flat_forqa"
+if {[info exists env(wlm_profile)]} {
+    set wlm_profile $env(wlm_profile)
+}
 
-# For post-DFT STA, keep the simple stable constraints and drop
-# synthesis-only net constraints that depend on internal net names.
+set auto_wire_load_selection false
+if {$wlm_profile == "legacy_hier"} {
+    set_wire_load_mode enclosed
+    set_wire_load_model -name ForQA [current_design]
+    if {[sizeof_collection [get_cells -quiet u_ctrl]] > 0} {
+        set_wire_load_model -name 70000 [get_cells u_ctrl]
+    }
+    if {[sizeof_collection [get_cells -quiet u_ctrl/u_aes]] > 0} {
+        set_wire_load_model -name 35000 [get_cells u_ctrl/u_aes]
+    }
+} else {
+    set_wire_load_mode top
+    set_wire_load_model -name ForQA [current_design]
+}
+
+# 2.5_STA와 맞추기 위해 SDC에서는 wire-load 관련 명령만 제거한다.
 set sanitized_sdc "${scenario_rpt_dir}/[file tail $SDC].sanitized"
 set sdc_in [open $SDC r]
 set sdc_out [open $sanitized_sdc w]
 while {[gets $sdc_in line] >= 0} {
     if {[regexp {^set_wire_load_mode} $line]} continue
     if {[regexp {^set_wire_load_model} $line]} continue
-    if {[regexp {^set_resistance} $line]} continue
-    if {[regexp {^set_load} $line] && ![regexp {^set_load\s+-pin_load} $line]} continue
+    if {[regexp {^set_(load|resistance)} $line] && [regexp {\[get_nets?\s+(\{?[^]\}]+\}?)\]} $line -> net_name]} {
+        # post-DFT에서 사라지는 익명 net과 깊은 내부 net의 load/resistance 제약은 제거한다.
+        set clean_name [string trim $net_name "{}"]
+        if {[string first "/" $clean_name] >= 0 || [regexp {^n[0-9]+$} $clean_name]} {
+            continue
+        }
+    }
     puts $sdc_out $line
 }
 close $sdc_in
@@ -127,6 +158,49 @@ close $sdc_out
 read_sdc $sanitized_sdc
 if {$STA_OVERRIDE != ""} {
     source $STA_OVERRIDE
+}
+
+set uncertainty_mode "scaled_by_period"
+if {[info exists env(uncertainty_mode)]} {
+    set uncertainty_mode $env(uncertainty_mode)
+}
+if {$uncertainty_mode == "scaled_by_period"} {
+    foreach spec {
+        {ref_clk 0.16 0.04}
+        {clk_div4 0.16 0.04}
+        {clk_div2 0.08 0.02}
+        {clk_fast 0.04 0.01}
+        {clk_fast_aes 0.04 0.01}
+        {clk_div8 0.32 0.08}
+    } {
+        lassign $spec clk_name setup_u hold_u
+        if {[sizeof_collection [get_clocks -quiet $clk_name]] > 0} {
+            set_clock_uncertainty -setup $setup_u [get_clocks $clk_name]
+            set_clock_uncertainty -hold  $hold_u  [get_clocks $clk_name]
+        }
+    }
+}
+
+# AES ICG의 내부 구현 arc는 FF pre-layout에서 과장되기 쉬우므로 내부 timing만 끈다.
+set custom_icg_mode "disable_internal_timing"
+if {[info exists env(custom_icg_mode)]} {
+    set custom_icg_mode $env(custom_icg_mode)
+}
+if {$custom_icg_mode == "disable_internal_timing"} {
+    set custom_icg_latches [get_cells -quiet -hier {u_ctrl/u_icg_aes/en_lat_reg}]
+    if {[sizeof_collection $custom_icg_latches] > 0} {
+        set_disable_timing $custom_icg_latches
+    }
+
+    foreach {cell_name from_name to_name} {
+        u_ctrl/u_icg_aes/U3 A1 Y
+        u_ctrl/u_icg_aes/U3 A2 Y
+    } {
+        set cell_obj [get_cells -quiet $cell_name]
+        if {[sizeof_collection $cell_obj] > 0} {
+            set_disable_timing $cell_obj -from $from_name -to $to_name
+        }
+    }
 }
 
 update_timing -full
