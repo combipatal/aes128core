@@ -2,7 +2,7 @@
 
 ## 검토 범위
 - 검토 스크립트:
-  - `/DATA/home/edu135/aes128_core/3_DFT/0_script/DFT_script.tcl`
+  - `3_DFT/0_script/DFT_script.tcl`
 - 검토 리포트:
   - `pre_dft.rpt`
   - `pre_drc_verbose.rpt`

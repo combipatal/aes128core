@@ -48,7 +48,7 @@
 ## 실행 방법
 
 ```bash
-cd /DATA/home/edu135/aes128_core/1_vcs
+cd ./1_vcs
 ./0_script/run.csh
 ```
 
@@ -78,11 +78,11 @@ env case_name=all ./0_script/run.csh
 
 현재 저장된 summary 기준으로 3개 testcase가 모두 PASS입니다.
 
-- [default_nist/summary.log](4_report/default_nist/summary.log)
+- `default_nist` (`4_report/default_nist/summary.log`)
   - `done=1`, `pass=1`
-- [ext_zero/summary.log](4_report/ext_zero/summary.log)
+- `ext_zero` (`4_report/ext_zero/summary.log`)
   - `done=1`, `pass=1`
-- [ext_ecb_nist/summary.log](4_report/ext_ecb_nist/summary.log)
+- `ext_ecb_nist` (`4_report/ext_ecb_nist/summary.log`)
   - `done=1`, `pass=1`
 
 즉 현재 `1_vcs`는 기능 회귀 기준으로는 적절한 상태입니다.

@@ -1,5 +1,10 @@
 # `u_mem` `dont_touch`로 인한 `GTECH_NOT` 잔존 이슈 정리
 
+> [!WARNING]
+> Deprecated plan document.
+> This file is kept as an archive of the 2026-04-13 root-cause note.
+> Use [aes128_core_portfolio_summary.md](aes128_core_portfolio_summary.md) and current stage README files for the latest baseline.
+
 ## 목적
 
 이 문서는 `aes128_core`의 baseline synthesis 결과에서 `GTECH_NOT`가 남는 원인과, 이를 어떻게 수정하는 것이 맞는지 정리한다.
@@ -7,7 +12,7 @@
 대상 baseline:
 
 - synthesis version: `4_12_7p3ns`
-- mapped netlist: [soc_gate.v](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v:1)
+- mapped netlist: `2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v:1`
 
 ## 결론 요약
 
@@ -29,7 +34,7 @@
 
 ### 1. synthesis script에서 wrapper 전체를 `dont_touch`하고 있음
 
-[2_synthesis/0_script/synthesis_script.tcl](/DATA/home/edu135/aes128_core/2_synthesis/0_script/synthesis_script.tcl:47)
+`2_synthesis/0_script/synthesis_script.tcl:47`
 
 ```tcl
 # block box 
@@ -41,7 +46,7 @@ set_dont_touch [get_cells u_pll]
 
 ### 2. top RTL에서 `u_mem`은 wrapper instance임
 
-[0_rtl/top_mcu_pll_sram_multiclk_soc.v](/DATA/home/edu135/aes128_core/0_rtl/top_mcu_pll_sram_multiclk_soc.v:109)
+`0_rtl/top_mcu_pll_sram_multiclk_soc.v:109`
 
 ```verilog
 sram_wrap_1rw1024x8 u_mem (
@@ -59,7 +64,7 @@ sram_wrap_1rw1024x8 u_mem (
 
 ### 3. wrapper 내부에는 polarity conversion logic가 있음
 
-[0_rtl/sram_wrap_1rw1024x8.v](/DATA/home/edu135/aes128_core/0_rtl/sram_wrap_1rw1024x8.v:11)
+`0_rtl/sram_wrap_1rw1024x8.v:11`
 
 ```verilog
 wire CSB = ~cs;
@@ -83,7 +88,7 @@ SRAM1RW1024x8 u_sram (
 
 ### 4. 실제 mapped netlist에 `GTECH_NOT` 3개가 남아 있음
 
-[2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v](/DATA/home/edu135/aes128_core/2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v:15)
+`2_synthesis/2_output/4_12_7p3ns/mapped/soc_gate.v:15`
 
 ```verilog
 SRAM1RW1024x8 u_sram ( .I(wdata), .O(rdata), .A(addr), .CE(clk), .CSB(CSB),
@@ -99,7 +104,7 @@ GTECH_NOT I_2 ( .A(oe), .Z(OEB) );
 
 합성 리포트:
 
-- [2_synthesis/4_report/4_12_7p3ns/area.rpt](/DATA/home/edu135/aes128_core/2_synthesis/4_report/4_12_7p3ns/area.rpt:34)
+- `2_synthesis/4_report/4_12_7p3ns/area.rpt:34`
 
 ```text
 Information: This design contains unmapped logic. (RPT-7)
@@ -107,7 +112,7 @@ Information: This design contains unmapped logic. (RPT-7)
 
 STA 리포트:
 
-- [4_STA/4_report/4_12_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt](/DATA/home/edu135/aes128_core/4_STA/4_report/4_12_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt:13)
+- `4_STA/4_report/4_12_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt:13`
 
 ```text
 Information: There are 3 generic cells in the design.
@@ -115,7 +120,7 @@ Information: There are 3 generic cells in the design.
 
 또한 PrimeTime script도 이를 살리기 위해 `gtech.db`를 link path에 포함하고 있다:
 
-- [4_STA/0_script/STA_script.tcl](/DATA/home/edu135/aes128_core/4_STA/0_script/STA_script.tcl:49)
+- `4_STA/0_script/STA_script.tcl:49`
 
 ```tcl
 set_app_var link_path "* $target_library $TARGET_LIBRARY_FILES_MEM gtech.db"
@@ -200,7 +205,7 @@ GTECH_NOT I_2
 예:
 
 ```bash
-rg "GTECH_" /DATA/home/edu135/aes128_core/2_synthesis/2_output/<ver>/mapped/soc_gate.v
+rg "GTECH_" ./2_synthesis/2_output/<ver>/mapped/soc_gate.v
 ```
 
 기대값:

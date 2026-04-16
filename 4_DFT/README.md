@@ -20,7 +20,7 @@
 
 입력:
 
-- [../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc](../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc)
+- generated DDC: `../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc`
 
 주요 출력:
 

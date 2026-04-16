@@ -67,7 +67,7 @@
 기본 실행:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/6_STA
+cd ./6_STA
 csh run.csh
 ```
 

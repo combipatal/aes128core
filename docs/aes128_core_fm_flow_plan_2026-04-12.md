@@ -1,5 +1,10 @@
 # aes128_core FM-Centric Improvement Plan
 
+> [!WARNING]
+> Deprecated plan document.
+> This file is kept as an archive of the 2026-04-12 planning snapshot.
+> Use [aes128_core_portfolio_summary.md](aes128_core_portfolio_summary.md) and the stage README files for the current baseline.
+
 ## Update 2026-04-13
 
 `4_13_7p3ns`를 새 clean baseline으로 채택한다.
@@ -19,20 +24,20 @@
 
 ## Requirements Summary
 
-이 계획의 목표는 `/DATA/home/edu135/aes128_core`를 학습용 단발 실습 플로우에서, 재현 가능한 실무형 RTL -> VCS -> synthesis -> DFT -> STA -> FM 검증 플로우로 끌어올리는 것이다.
+이 계획의 목표는 `aes128_core`를 학습용 단발 실습 플로우에서, 재현 가능한 실무형 RTL -> VCS -> synthesis -> DFT -> STA -> FM 검증 플로우로 끌어올리는 것이다.
 
 현재 기준 baseline은 `4_13_7p3ns`다.
 
-- RTL/VCS known-answer regression 3종은 통과했다: [summary.log](../1_vcs/4_report/default_nist/summary.log), [summary.log](../1_vcs/4_report/ext_zero/summary.log), [summary.log](../1_vcs/4_report/ext_ecb_nist/summary.log).
+- RTL/VCS known-answer regression 3종은 통과했다: `../1_vcs/4_report/default_nist/summary.log`, `../1_vcs/4_report/ext_zero/summary.log`, `../1_vcs/4_report/ext_ecb_nist/summary.log`.
 - synthesis `4_13_7p3ns`는 `GTECH_NOT` 제거에 성공했고 setup clean을 유지하지만, `clk_div2` SRAM interface hold 12개가 남아 있다: [qor.rpt](../2_synthesis/4_report/4_13_7p3ns/qor.rpt), [area.rpt](../2_synthesis/4_report/4_13_7p3ns/area.rpt).
 - post-DFT func/capture/shift STA도 다시 정리되었고, 같은 hold 12개를 유지한다. `scan_shift`는 generic-cell 문제는 없어졌지만 `no_input_delay` 2개가 남아 있다: [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt), [scan_shift_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt), [scan_shift_pre_ss0p95v125c_analysis_coverage.rpt](../4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt).
-- FM은 최신 baseline에서도 r2n/n2n 모두 성공했다. 다만 n2n은 `scan_out` 1포트를 `dont_verify`로 제외한 functional equivalence 기준이다: [r2n_4_13_7p3ns.log](../5_FM/3_log/r2n_4_13_7p3ns.log), [n2n_4_13_7p3ns.log](../5_FM/3_log/n2n_4_13_7p3ns.log), [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl).
+- FM은 최신 baseline에서도 r2n/n2n 모두 성공했다. 다만 n2n은 `scan_out` 1포트를 `dont_verify`로 제외한 functional equivalence 기준이다: `../5_FM/3_log/r2n_4_13_7p3ns.log`, `../5_FM/3_log/n2n_4_13_7p3ns.log`, [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl).
 
 ## Current Assessment
 
 ### What Is Working
 
-- 기능 검증 자체는 최소한의 E2E 신뢰도를 확보했다. 세 케이스 모두 UART 20바이트와 `done/pass`가 통과한다: [summary.log](../1_vcs/4_report/default_nist/summary.log), [tb_top_mcu_pll_sram_multiclk_soc.sv](../1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv).
+- 기능 검증 자체는 최소한의 E2E 신뢰도를 확보했다. 세 케이스 모두 UART 20바이트와 `done/pass`가 통과한다: `../1_vcs/4_report/default_nist/summary.log`, [tb_top_mcu_pll_sram_multiclk_soc.sv](../1_vcs/1_input/tb/tb_top_mcu_pll_sram_multiclk_soc.sv).
 - synthesis/DFT/PT/FM까지 단계별 산출물이 끊기지 않고 존재한다. baseline 버전은 이제 `4_13_7p3ns`로 본다: [run.csh](../2_synthesis/run.csh), [run.csh](../3_DFT/run.csh), [run.csh](../4_STA/run.csh), [run_r2n.csh](../5_FM/run_r2n.csh).
 - PPA sweep 자체는 의미가 있었고, `4_13_7p3ns`는 이전 `4_12_7p3ns`보다 더 clean한 netlist를 제공한다. 다만 area와 hold TNS는 약간 불리해졌다: [qor.rpt](../2_synthesis/4_report/4_12_7p3ns/qor.rpt), [qor.rpt](../2_synthesis/4_report/4_13_7p3ns/qor.rpt), [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_12_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt), [func_pre_ss0p95v125c_qor.rpt](../4_STA/4_report/4_13_7p3ns/func/qor/func_pre_ss0p95v125c_qor.rpt).
 
@@ -48,7 +53,7 @@
    shift override는 본질적으로 달라지지 않았고, `4_13_7p3ns`에서도 `no clock-relative input delay` 2개가 남아 있으며 coverage도 `37% met / 63% untested`에 머문다: [scan_shift_sta.tcl](../4_STA/1_input/constraint/scan_shift_sta.tcl), [scan_shift_pre_ss0p95v125c_check_timing.rpt](../4_STA/4_report/4_13_7p3ns/shift/check_timing/scan_shift_pre_ss0p95v125c_check_timing.rpt), [scan_shift_pre_ss0p95v125c_analysis_coverage.rpt](../4_STA/4_report/4_13_7p3ns/shift/analysis_coverage/scan_shift_pre_ss0p95v125c_analysis_coverage.rpt).
 
 4. FM은 성공했지만 methodology가 아직 brittle하다.
-   r2n은 `guide_hier_map` 부재 경고와 `FMR_ELAB-059` RTL interpretation warning을 안고 통과했다: [r2n_4_12_7p3ns.log](../5_FM/3_log/r2n_4_12_7p3ns.log), [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v). 또한 FM source list에만 `aes_sbox.v`가 들어가 있는데 synthesis/VCS filelist에는 없다: [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl), [synthesis_script.tcl](../2_synthesis/0_script/synthesis_script.tcl), [filelist.f](../1_vcs/0_script/filelist.f), [black_box.rpt](../5_FM/4_report/r2n_4_12_7p3ns/black_box.rpt).
+   r2n은 `guide_hier_map` 부재 경고와 `FMR_ELAB-059` RTL interpretation warning을 안고 통과했다: `../5_FM/3_log/r2n_4_12_7p3ns.log`, [soc_ctrl_multiclk_soc.v](../0_rtl/soc_ctrl_multiclk_soc.v). 또한 FM source list에만 `aes_sbox.v`가 들어가 있는데 synthesis/VCS filelist에는 없다: [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl), [synthesis_script.tcl](../2_synthesis/0_script/synthesis_script.tcl), [filelist.f](../1_vcs/0_script/filelist.f), [black_box.rpt](../5_FM/4_report/r2n_4_12_7p3ns/black_box.rpt).
 
 5. DFT 구조는 학습용으로는 충분하지만 실무 test cost 관점에서는 약하다.
    현재 single scan chain 길이가 1532이고 dedicated scan-out도 만들지 않는다: [scan_config_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_config_internal.rpt), [scan_chains_internal.rpt](../3_DFT/4_report/4_12_7p3ns/scan_chains_internal.rpt). 이는 bring-up에는 단순하지만 production test time과 ATPG 효율 측면에서는 불리하다.
@@ -194,7 +199,7 @@
 
 - [FM_r2n_script.tcl](../5_FM/0_script/r2n/FM_r2n_script.tcl)
 - [FM_n2n_script.tcl](../5_FM/0_script/n2n/FM_n2n_script.tcl)
-- [r2n_4_13_7p3ns.log](../5_FM/3_log/r2n_4_13_7p3ns.log)
+- `../5_FM/3_log/r2n_4_13_7p3ns.log`
 
 작업:
 

@@ -33,13 +33,13 @@
 
 출력:
 
-- log: [3_log/n2n_4_16_8ns_topo_ss.log](3_log/n2n_4_16_8ns_topo_ss.log)
+- log: `3_log/n2n_4_16_8ns_topo_ss.log`
 - reports: [4_report/n2n_4_16_8ns_topo_ss](4_report/n2n_4_16_8ns_topo_ss)
 
 ## 실행 방법
 
 ```bash
-cd /DATA/home/edu135/aes128_core/5_FM
+cd ./5_FM
 csh run_n2n.csh
 ```
 
@@ -51,7 +51,7 @@ env ref_ver=4_16_8ns_topo_ss impl_ver=4_16_8ns_topo_ss lib_corner=ss fm_ver=n2n_
 
 ## 현재 결과 요약
 
-현재 [n2n_4_16_8ns_topo_ss.log](3_log/n2n_4_16_8ns_topo_ss.log) 기준으로 `Verification SUCCEEDED`입니다.
+현재 `3_log/n2n_4_16_8ns_topo_ss.log` 기준으로 `Verification SUCCEEDED`입니다.
 
 리포트 기준 상태:
 

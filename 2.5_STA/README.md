@@ -83,7 +83,7 @@
 기본 synth/func 비교:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/2.5_STA
+cd ./2.5_STA
 csh run.csh
 ```
 

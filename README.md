@@ -232,7 +232,7 @@ aes128_core/
 
 - synthesis:
   - [soc_gate.v](2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.v)
-  - [soc_gate.ddc](2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc)
+  - generated DDC: `2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc`
   - [soc_func.sdc](2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_func.sdc)
 - r2n FM:
   - [r2n_4_16_8ns_topo_ss](3_FM/4_report/r2n_4_16_8ns_topo_ss)
@@ -263,8 +263,8 @@ aes128_core/
 
 분석 문서:
 
-- [aes128_core_fm_flow_plan_2026-04-12.md](docs/aes128_core_fm_flow_plan_2026-04-12.md)
-- [aes128_core_dft_production_aware_plan_2026-04-13.md](docs/aes128_core_dft_production_aware_plan_2026-04-13.md)
+- 현재 요약: [aes128_core_portfolio_summary.md](docs/aes128_core_portfolio_summary.md)
+- archive / deprecated 계획 문서: [docs/](docs/)
 
 ## Git 관리 기준
 

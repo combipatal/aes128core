@@ -33,13 +33,13 @@
 
 출력:
 
-- log: [3_log/r2n_4_16_8ns_topo_ss.log](3_log/r2n_4_16_8ns_topo_ss.log)
+- log: `3_log/r2n_4_16_8ns_topo_ss.log`
 - reports: [4_report/r2n_4_16_8ns_topo_ss](4_report/r2n_4_16_8ns_topo_ss)
 
 ## 실행 방법
 
 ```bash
-cd /DATA/home/edu135/aes128_core/3_FM
+cd ./3_FM
 csh run_r2n.csh
 ```
 
@@ -51,7 +51,7 @@ env ver=4_16_8ns_topo_ss lib_corner=ss fm_ver=r2n_4_16_8ns_topo_ss csh run_r2n.c
 
 ## 현재 결과 요약
 
-현재 [r2n_4_16_8ns_topo_ss.log](3_log/r2n_4_16_8ns_topo_ss.log) 기준으로 `Verification SUCCEEDED`입니다.
+현재 `3_log/r2n_4_16_8ns_topo_ss.log` 기준으로 `Verification SUCCEEDED`입니다.
 
 리포트 기준 상태:
 

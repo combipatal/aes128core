@@ -44,8 +44,8 @@
 주요 출력:
 
 - 로그:
-  - [3_log/4_16_8ns_topo_ss/console.log](3_log/4_16_8ns_topo_ss/console.log)
-  - [3_log/4_16_8ns_topo_ss/tmax.log](3_log/4_16_8ns_topo_ss/tmax.log)
+  - `3_log/4_16_8ns_topo_ss/console.log`
+  - `3_log/4_16_8ns_topo_ss/tmax.log`
 - 패턴:
   - [2_output/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc_full_serial.stil](2_output/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc_full_serial.stil)
   - [2_output/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc_preview_serial.stil](2_output/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc_preview_serial.stil)
@@ -142,8 +142,8 @@ env ver=4_16_8ns_topo_ss csh run.csh
 
 참고:
 
-- [console.log](3_log/4_16_8ns_topo_ss/console.log)
-- [tmax.log](3_log/4_16_8ns_topo_ss/tmax.log)
+- `3_log/4_16_8ns_topo_ss/console.log`
+- `3_log/4_16_8ns_topo_ss/tmax.log`
 - [top_mcu_pll_sram_multiclk_soc.faults.rpt](4_report/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc.faults.rpt)
 
 즉 현재 상태는:
@@ -257,9 +257,9 @@ DRC 쪽에서는 최종적으로 `successful`로 끝났습니다. 다만 warning
 
 ATPG 결과를 볼 때는 아래 순서가 좋습니다.
 
-1. [3_log/4_16_8ns_topo_ss/console.log](3_log/4_16_8ns_topo_ss/console.log)
+1. `3_log/4_16_8ns_topo_ss/console.log`
    - 실행 시각, 입력 파일, 전체 종료 여부 확인
-2. [3_log/4_16_8ns_topo_ss/tmax.log](3_log/4_16_8ns_topo_ss/tmax.log)
+2. `3_log/4_16_8ns_topo_ss/tmax.log`
    - DRC / ATPG 중간 진행 / 종료 이유 확인
 3. [top_mcu_pll_sram_multiclk_soc.scan_chains.rpt](4_report/4_16_8ns_topo_ss/top_mcu_pll_sram_multiclk_soc.scan_chains.rpt)
    - chain 수와 길이 확인

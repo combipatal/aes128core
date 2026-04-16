@@ -1,5 +1,10 @@
 # aes128_core Interface Separation Plan
 
+> [!WARNING]
+> Deprecated plan document.
+> This file is kept as an archive of the 2026-04-13 interface-separation discussion.
+> Use [aes128_core_portfolio_summary.md](aes128_core_portfolio_summary.md) and the relevant README files for the current baseline.
+
 ## Requirements Summary
 
 이 계획의 목적은 `aes128_core`에서 **sim-only external AES vector interface**와 **synth/production interface**를 분리하는 것이다.

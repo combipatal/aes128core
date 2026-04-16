@@ -1,5 +1,10 @@
 # aes128_core DFT Production-Aware Baseline Plan
 
+> [!WARNING]
+> Deprecated plan document.
+> This file is kept as an archive of the 2026-04-13 DFT planning snapshot.
+> Use [../4_DFT/README.md](../4_DFT/README.md), [../7_ATPG/README.md](../7_ATPG/README.md), and [aes128_core_portfolio_summary.md](aes128_core_portfolio_summary.md) for the current baseline.
+
 ## Requirements Summary
 
 이 계획의 목적은 `aes128_core`의 현재 DFT 흐름을 **학습용 single-scan baseline**에서 **실무형 production-aware baseline**으로 끌어올리는 것이다.
@@ -12,15 +17,15 @@
 
 현재 DFT baseline의 핵심 상태는 다음과 같다.
 
-- single scan chain `1`개: `/aes128_core/3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt`
-- chain length `1532`: `/aes128_core/3_DFT/4_report/4_13_7p3ns/scan_chains_internal.rpt`
-- dedicated scan out port 생성 안 함: `/aes128_core/3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt`
-- `scan_out` 기존 포트를 그대로 `ScanDataOut`로 재사용: `/aes128_core/3_DFT/4_report/4_13_7p3ns/dft_signals_internal.rpt`
-- post-DFT DRC에 `Clock connected to primary output (C17)`가 남아 있음: `/aes128_core/3_DFT/4_report/4_13_7p3ns/insert_drc_internal.dft`
-- `u_ctrl/u_icg_aes/en_lat_reg` constant-1 경고가 남아 있음: `/aes128_core/3_DFT/4_report/4_13_7p3ns/pre_drc_verbose.rpt`
-- unknown model 경고는 `u_pll`, `u_mem_u_sram`에 대해 남아 있음: `/aes128_core/3_DFT/4_report/4_13_7p3ns/pre_drc_verbose.rpt`
-- post-DFT hold violation `12`개가 여전히 존재: `/aes128_core/3_DFT/4_report/4_13_7p3ns/dft_qor_internal.rpt`
-- FM r2n / n2n PASS 유지: `/aes128_core/5_FM/3_log/r2n_4_13_7p3ns.log`, `/aes128_core/5_FM/3_log/n2n_4_13_7p3ns.log`
+- single scan chain `1`개: `3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt`
+- chain length `1532`: `3_DFT/4_report/4_13_7p3ns/scan_chains_internal.rpt`
+- dedicated scan out port 생성 안 함: `3_DFT/4_report/4_13_7p3ns/scan_config_internal.rpt`
+- `scan_out` 기존 포트를 그대로 `ScanDataOut`로 재사용: `3_DFT/4_report/4_13_7p3ns/dft_signals_internal.rpt`
+- post-DFT DRC에 `Clock connected to primary output (C17)`가 남아 있음: `3_DFT/4_report/4_13_7p3ns/insert_drc_internal.dft`
+- `u_ctrl/u_icg_aes/en_lat_reg` constant-1 경고가 남아 있음: `3_DFT/4_report/4_13_7p3ns/pre_drc_verbose.rpt`
+- unknown model 경고는 `u_pll`, `u_mem_u_sram`에 대해 남아 있음: `3_DFT/4_report/4_13_7p3ns/pre_drc_verbose.rpt`
+- post-DFT hold violation `12`개가 여전히 존재: `3_DFT/4_report/4_13_7p3ns/dft_qor_internal.rpt`
+- FM r2n / n2n PASS 유지: `5_FM/3_log/r2n_4_13_7p3ns.log`, `5_FM/3_log/n2n_4_13_7p3ns.log`
 
 즉 현재 상태는:
 
@@ -42,7 +47,7 @@
 
 근거:
 
-- `/aes128_core/3_DFT/0_script/DFT_script.tcl`
+- `3_DFT/0_script/DFT_script.tcl`
 
 현재 설정의 핵심 라인:
 

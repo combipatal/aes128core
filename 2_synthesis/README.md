@@ -49,7 +49,7 @@
 주요 출력:
 
 - [2_output/4_16_8ns_topo_ss/mapped/soc_gate.v](2_output/4_16_8ns_topo_ss/mapped/soc_gate.v)
-- [2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc](2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc)
+- generated DDC: `2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc`
 - [2_output/4_16_8ns_topo_ss/mapped/soc_func.sdc](2_output/4_16_8ns_topo_ss/mapped/soc_func.sdc)
 - [4_report/4_16_8ns_topo_ss/qor.rpt](4_report/4_16_8ns_topo_ss/qor.rpt)
 - [4_report/4_16_8ns_topo_ss/timing.rpt](4_report/4_16_8ns_topo_ss/timing.rpt)
@@ -60,7 +60,7 @@
 기본 실행:
 
 ```bash
-cd /DATA/home/edu135/aes128_core/2_synthesis
+cd ./2_synthesis
 csh run.csh
 ```
 

@@ -1,6 +1,6 @@
 # aes128_core Portfolio Summary
 
-이 문서는 `/DATA/home/edu135/aes128_core` 프로젝트를 포트폴리오 관점에서 한 번에 설명하기 위한 요약 문서다.
+이 문서는 `aes128_core` 프로젝트를 포트폴리오 관점에서 한 번에 설명하기 위한 요약 문서다.
 
 목적:
 
@@ -47,15 +47,15 @@
 
 - synthesis
   - [soc_gate.v](../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.v)
-  - [soc_gate.ddc](../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc)
+  - generated DDC: `../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_gate.ddc`
   - [soc_func.sdc](../2_synthesis/2_output/4_16_8ns_topo_ss/mapped/soc_func.sdc)
 - r2n FM
-  - [r2n_4_16_8ns_topo_ss.log](../3_FM/3_log/r2n_4_16_8ns_topo_ss.log)
+  - report dir: [../3_FM/4_report/r2n_4_16_8ns_topo_ss](../3_FM/4_report/r2n_4_16_8ns_topo_ss)
 - DFT
   - [aes_128_internal.v](../4_DFT/2_output/4_16_8ns_topo_ss/aes_128_internal.v)
   - [scan_internal.spf](../4_DFT/2_output/4_16_8ns_topo_ss/scan_internal.spf)
 - n2n FM
-  - [n2n_4_16_8ns_topo_ss.log](../5_FM/3_log/n2n_4_16_8ns_topo_ss.log)
+  - report dir: [../5_FM/4_report/n2n_4_16_8ns_topo_ss](../5_FM/4_report/n2n_4_16_8ns_topo_ss)
 - post-DFT STA
   - [4_16_8ns_topo_ss](../6_STA/4_report/4_16_8ns_topo_ss)
 - ATPG
@@ -73,9 +73,9 @@
 
 근거:
 
-- [default_nist/summary.log](../1_vcs/4_report/default_nist/summary.log)
-- [ext_zero/summary.log](../1_vcs/4_report/ext_zero/summary.log)
-- [ext_ecb_nist/summary.log](../1_vcs/4_report/ext_ecb_nist/summary.log)
+- `default_nist`: `../1_vcs/4_report/default_nist/summary.log`
+- `ext_zero`: `../1_vcs/4_report/ext_zero/summary.log`
+- `ext_ecb_nist`: `../1_vcs/4_report/ext_ecb_nist/summary.log`
 
 의미:
 
@@ -102,7 +102,7 @@
 
 ### 3.3 r2n FM 결과
 
-[r2n_4_16_8ns_topo_ss.log](../3_FM/3_log/r2n_4_16_8ns_topo_ss.log) 기준으로 `Verification SUCCEEDED`
+`3_FM/3_log/r2n_4_16_8ns_topo_ss.log` 기준으로 `Verification SUCCEEDED`
 
 리포트 상태:
 
@@ -145,7 +145,7 @@
 
 ### 3.5 n2n FM 결과
 
-[n2n_4_16_8ns_topo_ss.log](../5_FM/3_log/n2n_4_16_8ns_topo_ss.log) 기준으로 `Verification SUCCEEDED`
+`5_FM/3_log/n2n_4_16_8ns_topo_ss.log` 기준으로 `Verification SUCCEEDED`
 
 리포트 상태:
 

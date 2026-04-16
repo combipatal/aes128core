@@ -1,6 +1,11 @@
 # STA Comparison for 4_13_7p3ns vs 4_13_7p3ns_ff
 
-Source workspace: `/DATA/home/edu135/aes128_core/2.5_STA`
+> [!WARNING]
+> Archived comparison note.
+> This document reflects the 2026-04-13 experiment snapshot, not the current baseline.
+> Use [README.md](README.md) for the current `2.5_STA` summary.
+
+Source workspace: `aes128_core/2.5_STA`
 
 Net source used for all four runs: `synth`
 
@@ -18,7 +23,7 @@ Net source used for all four runs: `synth`
 ### `4_13_7p3ns @ SS`
 
 - QOR report:
-  - [func_synthcmp_ss0p95v125c_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns/synth/func/qor/func_synthcmp_ss0p95v125c_qor.rpt)
+  - [func_synthcmp_ss0p95v125c_qor.rpt](4_report/4_13_7p3ns/synth/func/qor/func_synthcmp_ss0p95v125c_qor.rpt)
 - Summary:
   - `clk_fast_aes` setup slack `0.0003`
   - `clk_div2` setup slack `1.2460`
@@ -27,19 +32,19 @@ Net source used for all four runs: `synth`
 ### `4_13_7p3ns @ FF125`
 
 - QOR report:
-  - [func_synthcmp_ff1p16v125c_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns/synth/func/qor/func_synthcmp_ff1p16v125c_qor.rpt)
+  - [func_synthcmp_ff1p16v125c_qor.rpt](4_report/4_13_7p3ns/synth/func/qor/func_synthcmp_ff1p16v125c_qor.rpt)
 - Summary:
   - `INS` slack `-100.0914`
   - `clk_div2` slack `-2913.7942`
   - `clk_fast` slack `-9006.9590`
   - `clk_fast_aes` slack `-1992.2627`
 - Worst path report:
-  - [func_synthcmp_ff1p16v125c_setup.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns/synth/func/setup/func_synthcmp_ff1p16v125c_setup.rpt)
+  - [func_synthcmp_ff1p16v125c_setup.rpt](4_report/4_13_7p3ns/synth/func/setup/func_synthcmp_ff1p16v125c_setup.rpt)
 
 ### `4_13_7p3ns_ff @ SS`
 
 - QOR report:
-  - [func_synthcmp_ss0p95v125c_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns_ff/synth/func/qor/func_synthcmp_ss0p95v125c_qor.rpt)
+  - [func_synthcmp_ss0p95v125c_qor.rpt](4_report/4_13_7p3ns_ff/synth/func/qor/func_synthcmp_ss0p95v125c_qor.rpt)
 - Summary:
   - `INS` slack `-0.1873`
   - `clk_fast` slack `-0.2015`
@@ -49,14 +54,14 @@ Net source used for all four runs: `synth`
 ### `4_13_7p3ns_ff @ FF125`
 
 - QOR report:
-  - [func_synthcmp_ff1p16v125c_qor.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns_ff/synth/func/qor/func_synthcmp_ff1p16v125c_qor.rpt)
+  - [func_synthcmp_ff1p16v125c_qor.rpt](4_report/4_13_7p3ns_ff/synth/func/qor/func_synthcmp_ff1p16v125c_qor.rpt)
 - Summary:
   - `INS` slack `-1.2291`
   - `clk_div2` slack `-5.1277`
   - `clk_fast` slack `-3.9723`
   - `clk_fast_aes` slack `-7.6001`
 - Worst path report:
-  - [func_synthcmp_ff1p16v125c_setup.rpt](/DATA/home/edu135/aes128_core/2.5_STA/4_report/4_13_7p3ns_ff/synth/func/setup/func_synthcmp_ff1p16v125c_setup.rpt)
+  - [func_synthcmp_ff1p16v125c_setup.rpt](4_report/4_13_7p3ns_ff/synth/func/setup/func_synthcmp_ff1p16v125c_setup.rpt)
 
 ## Interpretation
 
