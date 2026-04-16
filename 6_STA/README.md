@@ -160,6 +160,49 @@ env ver=4_16_8ns_topo_ss corner=ss sta_scenario=scan_shift csh run.csh
 - 현재 setup / hold violation처럼 즉시 막히는 문제는 아닙니다.
 - 다음 문서 정리나 constraint refinement 때 우선순위를 줄 수 있는 항목입니다.
 
+## 왜 `func` analysis coverage가 낮게 보이는가
+
+현재 [func_pre_ss_analysis_coverage.rpt](4_report/4_16_8ns_topo_ss/func/analysis_coverage/func_pre_ss_analysis_coverage.rpt)를 보면 아래처럼 보입니다.
+
+- setup: `34% met`, `66% untested`
+- hold: `34% met`, `66% untested`
+- recovery / removal: `100% untested`
+
+이 숫자만 보면 기능 STA가 많이 비어 보이지만, 현재 해석은 “timing이 나빠서”가 아니라 “func 모드에서 test-only check를 의도적으로 끈 상태”에 가깝습니다.
+
+주된 이유는 [func_pre_sta.tcl](1_input/constraint/func_pre_sta.tcl)에 들어 있는 아래 설정입니다.
+
+- `scan_en=0`
+- `test_mode=0`
+- `scan_in`에서 오는 경로 `false_path`
+- `rst_n`에서 오는 경로 `false_path`
+
+이 설정 때문에 현재 `func`에서는 아래 항목들이 timing 대상에서 빠집니다.
+
+- scan flop의 `SI`, `SE` 관련 setup / hold arc
+- async reset 관련 recovery / removal check
+- 일부 test-only 경로
+
+실제 [func_pre_ss_disable_timing.rpt](4_report/4_16_8ns_topo_ss/func/disable_timing/func_pre_ss_disable_timing.rpt)를 보면 많은 scan flop에서 `CLK -> SI`, `CLK -> SE` arc가 `SE = 0` 조건 때문에 비활성화되어 있습니다.
+
+즉 현재 `func` analysis coverage가 낮은 이유는 대부분 아래 두 가지입니다.
+
+1. scan 경로를 기능 모드에서 의도적으로 비활성화했기 때문
+2. reset 경로를 false path 처리해서 recovery / removal을 보지 않기 때문
+
+보조 원인으로는 [func_pre_ss_check_timing.rpt](4_report/4_16_8ns_topo_ss/func/check_timing/func_pre_ss_check_timing.rpt)에 남아 있는 아래 경고도 있습니다.
+
+- `no_input_delay` 1개
+- unconstrained endpoint 3개
+
+다만 이 둘은 coverage를 조금 깎는 부수 요인이고, 현재 `66% untested`의 주된 원인은 아닙니다.
+
+중요한 판단:
+
+- `func` coverage가 낮다고 해서 timing failure로 해석하면 안 됩니다.
+- 실제 QOR는 [func_pre_ss_qor.rpt](4_report/4_16_8ns_topo_ss/func/qor/func_pre_ss_qor.rpt) 기준으로 모든 path group이 `No. of Violating Paths: 0`입니다.
+- scan 관련 timing의 핵심 판단은 `func`보다 `scan_capture`, `scan_shift` 결과를 같이 보는 것이 맞습니다.
+
 ## 현재 판단
 
 현재 `6_STA`는 아래처럼 정리할 수 있습니다.
